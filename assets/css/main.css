@@ -22,6 +22,16 @@
   top: 16px;
 }
 
+/* Media & Image Resets (Prevents image stretching) */
+img, picture, svg, video {
+  max-width: 100%;
+  display: block;
+}
+
+img {
+  height: auto;
+}
+
 /* Base Container */
 .container {
   width: 100%;
