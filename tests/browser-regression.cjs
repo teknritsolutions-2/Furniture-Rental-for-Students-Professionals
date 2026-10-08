@@ -1,0 +1,113 @@
+/* Run against a local static server. No production state or external account is used.
+ * PLAYWRIGHT_PATH=/absolute/path/to/playwright BROWSER_PATH=/path/to/chromium node tests/browser-regression.cjs
+ */
+const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'playwright');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
+const output = process.env.QA_OUTPUT || '/private/tmp/nestloop-qa';
+fs.mkdirSync(output, { recursive: true });
+(async () => {
+  const browser = await chromium.launch({ headless: true, ...(process.env.BROWSER_PATH ? { executablePath: process.env.BROWSER_PATH } : {}) });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce', acceptDownloads: true });
+  const page = await context.newPage();
+  const errors = [], checks = [];
+  page.on('pageerror', e => errors.push(e.message));
+  const goto = path => page.goto(`${base}/${path}`);
+  const check = (name, value) => { assert.ok(value, name); checks.push(name); console.log('PASS', name); };
+  await goto('pages/dashboard.html');
+  check('Direct dashboard access initializes demo without login', await page.locator('#view-overview').isVisible());
+  check('Seed monthly amount and rentals', (await page.locator('#metric-monthly-total').textContent()).includes('3,298') && await page.locator('.rental-item-card').count() === 2);
+  await goto('index.html');
+  await page.selectOption('#disc-audience', 'Professional');
+  await page.selectOption('#disc-category', 'workspace');
+  await page.selectOption('#disc-tenure', '6');
+  await page.locator('#hero-discovery-form button').click();
+  await page.waitForURL('**/packages.html?**');
+  check('Discovery carries audience, category and tenure', page.url().includes('tenure=6') && await page.locator('#packages-grid .package-card').count() === 3);
+  await page.locator('[data-filter-tier="Premium"]').click();
+  check('Tier and room filters combine', await page.locator('#packages-grid .package-card').count() === 1);
+  await page.fill('#filter-search', 'no-such-room-qa');
+  check('Empty search is recoverable', (await page.locator('#packages-grid').textContent()).includes('No matching'));
+  await page.locator('#filter-reset-btn').click();
+  check('Reset restores nine packages', await page.locator('#packages-grid .package-card').count() === 9);
+  await page.locator('[data-tenure-val="3"]').click();
+  check('Catalogue tenure updates price and destination', (await page.locator('.price-val').first().textContent()).includes('1,699') && (await page.locator('.package-card-actions a').first().getAttribute('href')).includes('tenure=3'));
+  await goto('pages/package-details.html?id=essential-pro-workspace&tenure=6');
+  check('Detail query selects correct package and tenure', (await page.locator('.inner-h1').textContent()).includes('Professional') && await page.locator('[data-detail-tenure="6"]').getAttribute('aria-pressed') === 'true');
+  const before = await page.locator('.detail-cost-breakdown').textContent();
+  await page.locator('[data-detail-tenure="3"]').click();
+  check('Detail costs and query update together', before !== await page.locator('.detail-cost-breakdown').textContent() && page.url().includes('tenure=3'));
+  const src = await page.locator('#detail-main-img').getAttribute('src');
+  await page.locator('.detail-thumb-btn').nth(1).click();
+  check('Gallery thumbnail changes photo', src !== await page.locator('#detail-main-img').getAttribute('src'));
+  await goto('pages/package-details.html?id=starter-student-room&tenure=99');
+  check('Invalid tenure falls back to supported term', await page.locator('[data-detail-tenure="12"]').getAttribute('aria-pressed') === 'true');
+  await page.locator('#btn-request-rental').click();
+  await page.waitForURL('**/dashboard.html#rentals');
+  check('Rental request saves demo rental', await page.locator('.rental-item-card').count() === 3);
+  await goto('pages/pricing.html');
+  await page.locator('[data-pricing-tenure="3"]').click();
+  check('Pricing amounts, deposits and active state', (await page.locator('#price-val-starter').textContent()).includes('1,699') && (await page.locator('#deposit-val-starter').textContent()).includes('2,549') && await page.locator('[data-pricing-tenure="3"]').getAttribute('aria-pressed') === 'true');
+  check('Pricing CTA retains tenure', (await page.locator('.pricing-card a').first().getAttribute('href')).includes('tenure=3'));
+  await goto('pages/coverage.html');
+  for (const [pin, status] of [['500081','supported'], ['500019','needs-confirmation'], ['110001','unavailable']]) {
+    await page.fill('#coverage-pin-input', pin); await page.locator('#coverage-checker-form button').click();
+    check(`Coverage ${status}`, await page.locator(`#coverage-status-result.status-${status}`).isVisible());
+  }
+  await page.selectOption('#coverage-city-select', 'bengaluru');
+  check('City selection prefills sample PIN', await page.inputValue('#coverage-pin-input') === '560100');
+  await goto('index.html');
+  await page.locator('#tab-pro').click(); check('Audience tabs switch', await page.locator('#view-pro').isVisible() && !await page.locator('#view-student').isVisible());
+  await page.locator('[data-home-tenure="6"]').click();
+  check('Home bundle CTA retains selected tenure', (await page.locator('#home-featured-packages-grid a').first().getAttribute('href')).includes('tenure=6'));
+  await page.locator('.theme-toggle-btn').first().click(); await page.locator('.dir-toggle-btn').first().click(); await page.reload();
+  check('Dark and RTL preferences persist', await page.locator('html').getAttribute('data-theme') === 'dark' && await page.locator('html').getAttribute('dir') === 'rtl');
+  await page.locator('.theme-toggle-btn').first().click(); await page.locator('.dir-toggle-btn').first().click();
+  await page.setViewportSize({width:390,height:844});
+  await page.locator('.mobile-menu-toggle').click();
+  check('Mobile menu opens with focus', await page.locator('.mobile-drawer.is-active').isVisible() && await page.locator('.drawer-close-btn').evaluate(e => e === document.activeElement));
+  await page.keyboard.press('Escape');
+  check('Mobile menu restores focus', await page.locator('.mobile-menu-toggle').evaluate(e => e === document.activeElement));
+  await page.locator('.mobile-menu-toggle').click(); await page.locator('.drawer-sublink[href="pages/home2.html"]').click();
+  await page.waitForURL('**/home2.html');check('Home 2 navigation', await page.locator('#home2-title').isVisible());
+  await goto('pages/dashboard.html');
+  for (const view of ['browse','rentals','billing','requests','documents','settings','overview']) {
+    await page.locator(`[data-dash-view="${view}"]`).click(); check(`Dashboard ${view} navigation`, await page.locator(`#view-${view}`).isVisible());
+  }
+  await page.locator('[data-dash-view="rentals"]').click();
+  await page.locator('.rental-item-card').first().getByRole('button', {name:'Swap Item'}).click();
+  check('Swap dialog focuses a control', await page.locator('#modal-swap-request').evaluate(e => e.contains(document.activeElement)));
+  await page.keyboard.press('Escape');check('Dialog closes with Escape', !await page.locator('#modal-swap-request').isVisible());
+  await page.locator('.rental-item-card').first().getByRole('button', {name:'Swap Item'}).click();
+  await page.locator('#form-swap-request button[type=submit]').click();
+  check('Swap requires preferred date', await page.locator('#modal-swap-request').isVisible());
+  await page.fill('#swap-date','2027-01-20'); await page.fill('#swap-notes','Browser QA swap');
+  await page.locator('#form-swap-request button[type=submit]').click();
+  check('Swap request saved', (await page.locator('#requests-history-list').textContent()).includes('Browser QA swap'));
+  await page.locator('[data-dash-view="rentals"]').click();
+  await page.locator('.rental-item-card').first().getByRole('button', {name:'Early Return'}).click();
+  await page.fill('#return-date','2027-02-20'); await page.fill('#return-notes','Browser QA return');
+  await page.locator('#form-return-request button[type=submit]').click();
+  check('Early return request saved', (await page.locator('#requests-history-list').textContent()).includes('Browser QA return'));
+  await page.locator('[data-dash-view="billing"]').click();
+  const oldDue = await page.evaluate(()=>NestloopData.getDemoState().rentals[0].nextDueDate);
+  await page.locator('#btn-demo-pay-now').click();
+  check('Demo payment advances due date', oldDue !== await page.evaluate(()=>NestloopData.getDemoState().rentals[0].nextDueDate));
+  await page.locator('[data-dash-view="documents"]').click();
+  for (const [id, name] of [['docs-agreements-list','agreement'],['docs-receipts-list','receipt']]) {
+    const downloadEvent = page.waitForEvent('download'); await page.locator(`#${id} button`).first().click(); const download = await downloadEvent;
+    await download.saveAs(`${output}/${name}.pdf`);check(`${name} PDF download`, fs.readFileSync(`${output}/${name}.pdf`).subarray(0,4).toString() === '%PDF');
+  }
+  await page.locator('[data-dash-view="settings"]').click();page.once('dialog',d=>d.accept());await page.locator('#btn-reset-demo-data').click();
+  check('Demo reset restores seed', await page.evaluate(()=>{const s=NestloopData.getDemoState();return s.rentals.length===2&&s.requests.length===1&&s.billingHistory.length===3}));
+  await goto('pages/login.html');await page.fill('#login-email','wrong@example.com');await page.fill('#login-password','incorrect');await page.locator('#login-form button[type=submit]').click();
+  check('Login validation', await page.locator('#login-error-alert').isVisible());
+  await page.locator('#fill-priya').click();await page.locator('#login-form button[type=submit]').click();await page.waitForURL('**/dashboard.html');
+  check('Demo login works', (await page.locator('#dash-persona-label').textContent()).includes('Priya'));
+  await goto('pages/register.html');await page.fill('#reg-name','Demo QA');await page.fill('#reg-email','qa@nestloop.demo');await page.fill('#reg-password','testing123');await page.locator('#register-form button[type=submit]').click();await page.waitForURL('**/dashboard.html');
+  check('Demo registration works', (await page.locator('#dash-persona-label').textContent()).includes('Demo'));
+  check('No browser JavaScript errors', errors.length === 0);
+  fs.writeFileSync(`${output}/functional-results.json`,JSON.stringify({checks,errors},null,2));
+  await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

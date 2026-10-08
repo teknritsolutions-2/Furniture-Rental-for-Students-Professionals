@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Read URL params
   const params = new URLSearchParams(window.location.search);
   const packageId = params.get('id') || 'starter-student-room';
-  let selectedTenure = parseInt(params.get('tenure'), 10) || 12;
+  let selectedTenure = [3, 6, 12].includes(Number(params.get('tenure'))) ? Number(params.get('tenure')) : 12;
 
   const pkg = data.getPackageById(packageId);
 
@@ -23,12 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.title = `${pkg.name} — Furniture Rental | NESTLOOP`;
 
   // Gallery items (main package photo + authentic detail close-ups)
-  const galleryPhotos = [
-    { src: data.getImagePath(pkg.image), alt: `${pkg.name} Room View` },
-    { src: data.getImagePath('gallery-detail-1.webp'), alt: 'Solid Wood Construction Detail' },
-    { src: data.getImagePath('gallery-detail-2.webp'), alt: 'Stain-Resistant Performance Fabric' },
-    { src: data.getImagePath('gallery-detail-3.webp'), alt: 'Ergonomic Adjustment & Cable Conduit' }
-  ];
+  const roomPhotos = {
+    bedroom: ['category-bedroom.webp', 'lifestyle-student.webp'],
+    living: ['package-premium-living.webp', 'gallery-detail-1.webp'],
+    workspace: ['category-workspace.webp', 'office-desk.webp'],
+    apartment: ['category-studio.webp', 'hero-home2.webp']
+  };
+  const galleryPhotos = [...new Set([pkg.image, ...(roomPhotos[pkg.categoryKey] || roomPhotos.living)])]
+    .map((file, i) => ({ src: data.getImagePath(file), alt: `${pkg.category} room inspiration, photograph ${i + 1}` }));
 
   let currentActivePhotoIndex = 0;
 
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     detailRoot.innerHTML = `
       <!-- Breadcrumb -->
       <nav aria-label="Breadcrumb" style="margin-bottom: 24px;">
-        <ol style="display: flex; gap: 8px; list-style: none; font-size: 0.875rem; color: var(--color-muted-text); align-items: center;">
+        <ol style="display: flex; gap: 8px; list-style: none; flex-wrap: wrap; font-size: 0.875rem; color: var(--color-muted-text); align-items: center;">
           <li><a href="../index.html" style="color: inherit; text-decoration: none;">Home</a></li>
           <li>/</li>
           <li><a href="packages.html" style="color: inherit; text-decoration: none;">Packages</a></li>
@@ -54,12 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <img id="detail-main-img" class="detail-main-img" src="${galleryPhotos[currentActivePhotoIndex].src}" alt="${galleryPhotos[currentActivePhotoIndex].alt}">
           <div class="detail-thumbs">
             ${galleryPhotos.map((photo, idx) => `
-              <button type="button" class="detail-thumb-btn ${idx === currentActivePhotoIndex ? 'active' : ''}" data-thumb-idx="${idx}" aria-label="View photo ${idx + 1}">
+              <button type="button" class="detail-thumb-btn ${idx === currentActivePhotoIndex ? 'active' : ''}" aria-pressed="${idx === currentActivePhotoIndex}" data-thumb-idx="${idx}" aria-label="View photo ${idx + 1}">
                 <img src="${photo.src}" alt="${photo.alt}">
               </button>
             `).join('')}
           </div>
 
+          <p class="detail-assumptions">Room inspiration photographs. Exact items and specifications below are illustrative demo data.</p>
           <!-- Included Furniture Breakdown -->
           <div class="card" style="margin-top: 24px;">
             <h3 class="subsection-h3" style="margin-bottom: 16px;">Included Furniture Pieces (${pkg.includedItems.length})</h3>
@@ -81,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <!-- Room Fit & Specs -->
           <div class="card" style="margin-top: 20px;">
             <h3 class="subsection-h3" style="margin-bottom: 14px;">Package Specifications</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 0.875rem;">
+            <div class="two-column-grid" style="gap: 14px; font-size: 0.875rem;">
               <div>
                 <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Room Compatibility</div>
                 <div style="font-weight: 600;">${pkg.roomFit}</div>
@@ -95,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div style="font-weight: 600; color: var(--color-success);">${pkg.packageSpecs.assemblyRequirement}</div>
               </div>
               <div>
-                <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Care Guarantee</div>
+                <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Sample care provision</div>
                 <div style="font-weight: 600;">${pkg.packageSpecs.maintenanceCover}</div>
               </div>
             </div>
@@ -115,19 +118,19 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- Tenure Selector -->
             <div>
               <label class="form-label" style="margin-bottom: 8px; display: block;">Select Rental Tenure</label>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                <button type="button" class="btn ${selectedTenure === 3 ? 'btn-secondary' : 'btn-outline'} btn-sm" data-detail-tenure="3">
+              <div class="detail-tenures">
+                <button type="button" class="btn ${selectedTenure === 3 ? 'btn-secondary' : 'btn-outline'} btn-sm" aria-pressed="${selectedTenure === 3}" data-detail-tenure="3">
                   3 Months
                 </button>
-                <button type="button" class="btn ${selectedTenure === 6 ? 'btn-secondary' : 'btn-outline'} btn-sm" data-detail-tenure="6">
+                <button type="button" class="btn ${selectedTenure === 6 ? 'btn-secondary' : 'btn-outline'} btn-sm" aria-pressed="${selectedTenure === 6}" data-detail-tenure="6">
                   6 Months
                 </button>
-                <button type="button" class="btn ${selectedTenure === 12 ? 'btn-secondary' : 'btn-outline'} btn-sm" data-detail-tenure="12">
+                <button type="button" class="btn ${selectedTenure === 12 ? 'btn-secondary' : 'btn-outline'} btn-sm" aria-pressed="${selectedTenure === 12}" data-detail-tenure="12">
                   12 Months
                 </button>
               </div>
               <div style="font-size: 0.75rem; color: var(--color-muted-text); margin-top: 6px;">
-                ${selectedTenure === 12 ? '★ Most cost-effective rate with free annual deep-cleaning' : 'Extend or swap anytime with 14-day notice'}
+                ${selectedTenure === 12 ? 'Lowest monthly rate in this sample' : 'Sample tenure. Review demo terms before requesting.'}
               </div>
             </div>
 
@@ -138,12 +141,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span style="font-weight: 700; font-size: 1.15rem; color: var(--color-cobalt);">₹${cost.monthlyRate.toLocaleString('en-IN')} / mo</span>
               </div>
               <div class="cost-row">
-                <span>Refundable Security Deposit (1.5x)</span>
+                <span>Refundable deposit (demo)</span>
                 <span>₹${cost.deposit.toLocaleString('en-IN')}</span>
               </div>
               <div class="cost-row">
-                <span>White-Glove Delivery & Assembly</span>
-                <span style="color: var(--color-success); font-weight: 600;">FREE</span>
+                <span>Delivery & assembly (demo)</span>
+                <span style="color: var(--color-success); font-weight: 600;">₹${cost.delivery + cost.assembly}</span>
               </div>
               <div class="cost-row total-first">
                 <span>Total Due on Delivery (Demo)</span>
@@ -157,13 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 Request This Rental (Demo)
               </button>
               <p style="font-size: 0.75rem; color: var(--color-muted-text); text-align: center; margin-top: 10px;">
-                Zero commitment checkout • No credit card required for demonstration
+                Demo request only. No payment, booking or delivery is made.
               </p>
             </div>
 
             <!-- Highlights Checklist -->
             <div style="border-top: 1px solid var(--color-border); padding-top: 18px;">
-              <h4 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; color: var(--color-deep-ink);">Why Rent With NESTLOOP</h4>
+              <h4 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; color: var(--color-deep-ink);">Sample package highlights</h4>
               <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.8125rem; color: var(--color-muted-text);">
                 ${pkg.highlights.map(h => `<li style="display: flex; gap: 8px; align-items: center;"><span style="color: var(--color-cobalt); font-weight: bold;">✓</span> ${h}</li>`).join('')}
               </ul>
@@ -173,6 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
+    const related = data.PACKAGES.filter(p => p.id !== pkg.id && (p.categoryKey === pkg.categoryKey || p.tier === pkg.tier)).slice(0, 3);
+    detailRoot.insertAdjacentHTML('beforeend', `<section aria-label="Related packages"><div class="section-header"><span class="eyebrow">Keep exploring</span><h2 class="section-h2">More room for choice.</h2></div><div class="packages-grid">${related.map(p => `<a class="card related-package" href="package-details.html?id=${p.id}&tenure=${selectedTenure}"><img src="${data.getImagePath(p.image)}" alt="Room inspiration for ${p.name}" loading="lazy"><div><h3 class="card-title">${p.name}</h3><p class="body-sm">${p.category} · ${selectedTenure} months</p><strong>₹${p.monthlyRates[selectedTenure].toLocaleString('en-IN')} / month →</strong></div></a>`).join('')}</div></section>`);
     attachEvents();
   }
 
@@ -189,7 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
           mainImg.src = galleryPhotos[idx].src;
           mainImg.alt = galleryPhotos[idx].alt;
         }
-        thumbs.forEach(t => t.classList.remove('active'));
+        thumbs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
         btn.classList.add('active');
       });
     });
@@ -199,7 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
     tenureButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         selectedTenure = parseInt(btn.getAttribute('data-detail-tenure'), 10);
+        const url = new URL(location.href); url.searchParams.set('tenure', selectedTenure); history.replaceState(null, '', url);
         renderView();
+        detailRoot.querySelector(`[data-detail-tenure="${selectedTenure}"]`)?.focus({ preventScroll: true });
       });
     });
 
@@ -265,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 800);
     } else {
       // Direct unauthenticated demo flow: save requested item in session and prompt login
-      if (confirm(`You selected "${pkg.name}" (${selectedTenure} months at ₹${cost.monthlyRate.toLocaleString('en-IN')}/mo).\n\nProceed to Customer Portal demo login to finalize your delivery scheduling?`)) {
+      if (confirm(`You selected "${pkg.name}" (${selectedTenure} months at ₹${cost.monthlyRate.toLocaleString('en-IN')}/mo).\n\nContinue to the demo login to save this sample rental? No delivery is scheduled.`)) {
         window.location.href = `login.html?redirect=package-details.html?id=${pkg.id}&tenure=${selectedTenure}`;
       }
     }

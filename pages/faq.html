@@ -95,6 +95,7 @@
   </aside>
 
   <main id="main-content">
+    <div class="container"><p class="demo-context">Explore a furniture rental concept. Services, locations and policies shown here are illustrative.</p></div>
     <div class="section" style="padding-top: 48px;">
       <div class="container container-narrow">
         <div class="section-header text-center">
@@ -125,7 +126,7 @@
                 <span class="faq-icon">▾</span>
               </button>
               <div class="faq-answer">
-                Security deposits are standardized at 1.5x of your monthly rental fee. Upon contract conclusion and physical pickup inspection, 100% of the deposit is transferred back to your registered bank account within 5 to 7 business days.
+                The demo calculates deposits at 1.5× monthly rent. No deposit is collected or refunded here; actual conditions would require a confirmed agreement.
               </div>
             </div>
 
@@ -151,7 +152,7 @@
                 <span class="faq-icon">▾</span>
               </button>
               <div class="faq-answer">
-                Across our active corridors in Hyderabad, Bengaluru, Pune, Chennai, and Mumbai, standard delivery and technician assembly takes place within 48 to 72 business hours from order placement.
+                The coverage checker shows sample delivery estimates for five cities. These are not live availability or dispatch promises.
               </div>
             </div>
 
@@ -161,7 +162,7 @@
                 <span class="faq-icon">▾</span>
               </button>
               <div class="faq-answer">
-                Every piece delivered is either brand new or certified like-new. Returned items undergo a 7-stage quality overhaul: industrial steam sanitation, antimicrobial treatment, joint tightening, and timber buffing before reassignment.
+                The concept is built around reuse and care. Exact furniture condition and preparation standards would need confirmation before a real rental.
               </div>
             </div>
 
@@ -171,7 +172,7 @@
                 <span class="faq-icon">▾</span>
               </button>
               <div class="faq-answer">
-                Normal everyday wear and tear is 100% covered under our rental agreement. For minor spills or stains, we provide free scheduled upholstery cleaning. Structural replacement is only assessed in cases of intentional mutilation.
+                Care and damage coverage shown in this prototype are sample terms. Actual exclusions, fees and cleaning services would need confirmation. Structural replacement is only assessed in cases of intentional mutilation.
               </div>
             </div>
           </div>
@@ -275,7 +276,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© 2026 NESTLOOP Furnishing Solutions. Static demonstration platform.</div>
+        <div>© 2026 NESTLOOP Furnishing Solutions. Furniture rental demonstration. Sample prices and policies.</div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -291,10 +292,15 @@
   <script src="../assets/js/auth.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.faq-question').forEach(btn => {
+      document.querySelectorAll('.faq-question').forEach((btn, index) => {
+        const answer = btn.closest('.faq-item').querySelector('.faq-answer');
+        answer.id = `faq-answer-${index}`;
+        btn.setAttribute('aria-controls', answer.id);
+        btn.setAttribute('aria-expanded', btn.closest('.faq-item').classList.contains('is-open'));
         btn.addEventListener('click', () => {
           const item = btn.closest('.faq-item');
           item.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', item.classList.contains('is-open'));
         });
       });
 

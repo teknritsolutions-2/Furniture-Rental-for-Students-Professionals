@@ -90,22 +90,26 @@
     if (!drawer || !overlay || !openBtn) return;
 
     let previousActiveElement = null;
+    drawer.inert = true;
 
     function openDrawer() {
       previousActiveElement = document.activeElement;
+      drawer.inert = false;
       drawer.classList.add('is-active');
       overlay.classList.add('is-active');
       drawer.removeAttribute('aria-hidden');
       openBtn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
 
-      // Focus close button initially
+      // Commit visibility/inert changes before moving focus into the drawer.
+      drawer.getBoundingClientRect();
       if (closeBtn) closeBtn.focus();
 
       document.addEventListener('keydown', handleDrawerKeydown);
     }
 
     function closeDrawer() {
+      drawer.inert = true;
       drawer.classList.remove('is-active');
       overlay.classList.remove('is-active');
       drawer.setAttribute('aria-hidden', 'true');

@@ -115,7 +115,7 @@
       targetText: "Remote Workers & Hybrid Teams",
       featured: false,
       tagline: "Ergonomically certified workspace bundle keeping you productive and strain-free.",
-      image: "package-starter-wfh.webp",
+      image: "category-workspace.webp",
       monthlyRates: {
         3: 1549,
         6: 1299,
@@ -200,7 +200,7 @@
       targetText: "Professionals & Relocating Couples",
       featured: false,
       tagline: "Restful luxury without the capital expense: queen bed, premium mattress, dual nightstands, and 2-door wardrobe.",
-      image: "package-essential-bedroom.webp",
+      image: "category-bedroom.webp",
       monthlyRates: {
         3: 2799,
         6: 2399,
@@ -241,7 +241,7 @@
       targetText: "Engineers, Consultants & Creators",
       featured: false,
       tagline: "Premium productivity setup: solid hardwood desk, high-performance chair, and open architecture shelving.",
-      image: "package-essential-pro-workspace.webp",
+      image: "office-desk.webp",
       monthlyRates: {
         3: 2199,
         6: 1849,
@@ -367,7 +367,7 @@
       targetText: "Executives, Founders & Senior Leaders",
       featured: false,
       tagline: "The pinnacle of remote executive presence: 160cm walnut desk, genuine leather chair, and credenza.",
-      image: "package-premium-suite.webp",
+      image: "office-desk.webp",
       monthlyRates: {
         3: 3499,
         6: 2999,
@@ -525,7 +525,7 @@
         packageId: "essential-pro-workspace",
         packageName: "Essential Professional Suite",
         category: "Workspace",
-        image: "package-essential-pro-workspace.webp",
+        image: "office-desk.webp",
         tenureMonths: 12,
         monthlyRate: 1499,
         depositPaid: 2249,

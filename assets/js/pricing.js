@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tenureButtons.forEach(btn => {
       const btnTenure = parseInt(btn.getAttribute('data-pricing-tenure'), 10);
       btn.classList.toggle('active', btnTenure === currentTenure);
+      btn.setAttribute('aria-pressed', btnTenure === currentTenure);
     });
 
     // Update Starter
@@ -61,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (premiumPriceEl) premiumPriceEl.textContent = `₹${tierPricing.premium[currentTenure].toLocaleString('en-IN')}`;
     if (premiumDepositEl) premiumDepositEl.textContent = `₹${tierPricing.premium.deposit(currentTenure).toLocaleString('en-IN')}`;
 
+    document.querySelectorAll('.pricing-card a[href*="packages.html"]').forEach(a => {
+      const url = new URL(a.href); url.searchParams.set('tenure', currentTenure); a.href = url;
+    });
     // Update tenure label indicators
     document.querySelectorAll('.tenure-indicator-text').forEach(el => {
       el.textContent = `${currentTenure}-Month Term`;

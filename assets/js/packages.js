@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (urlParams.has('tenure')) currentTenure = parseInt(urlParams.get('tenure'), 10) || 12;
   if (urlParams.has('search')) currentSearch = urlParams.get('search');
 
+  if (![3, 6, 12].includes(currentTenure)) currentTenure = 12;
+
   // Elements
   const tierPills = document.querySelectorAll('[data-filter-tier]');
   const catPills = document.querySelectorAll('[data-filter-category]');
@@ -112,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderPackages() {
+    document.querySelectorAll('.filter-pill, .tenure-btn').forEach(btn => btn.setAttribute('aria-pressed', btn.classList.contains('active')));
     let filtered = data.PACKAGES.filter(pkg => {
       // Tier filter
       if (currentTier !== 'all' && pkg.tier.toLowerCase() !== currentTier.toLowerCase()) {

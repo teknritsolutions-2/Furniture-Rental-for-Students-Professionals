@@ -88,7 +88,7 @@
           <span class="dash-demo-tag">Demo Mode</span>
 
           <!-- Demo Persona Quick Switcher -->
-          <button type="button" class="btn btn-outline btn-sm" id="dash-switch-user-btn" title="Click to toggle between Alex Chen and Priya Sharma" style="font-size: 0.8125rem; padding: 4px 10px; height: 36px; border-color: var(--color-cobalt); color: var(--color-cobalt); gap: 6px;">
+          <button type="button" class="btn btn-outline btn-sm" id="dash-switch-user-btn" title="Click to toggle between Alex Chen and Priya Sharma" style="padding: 4px 10px; border-color: var(--color-cobalt); color: var(--color-cobalt); gap: 6px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span id="dash-persona-label">Alex Chen</span> ⇄
           </button>
@@ -110,8 +110,9 @@
       <main class="dash-content">
         <!-- VIEW 1: OVERVIEW -->
         <section id="view-overview" class="dash-view active" aria-labelledby="view-overview-title">
-          <h2 id="view-overview-title" class="visually-hidden" style="position: absolute; left: -9999px;">Overview</h2>
+          <h2 id="view-overview-title" class="visually-hidden">Overview</h2>
           <!-- Metrics Cards Row -->
+          <div class="dash-welcome"><div><span class="eyebrow">Your place, at a glance</span><h2 class="section-h2">Welcome home.</h2><p class="body-text">Your furniture, upcoming bills and next steps.</p></div></div>
           <div class="metrics-grid">
             <div class="metric-card">
               <div class="metric-header">
@@ -132,7 +133,7 @@
                 </div>
               </div>
               <div class="metric-value" id="metric-monthly-total">₹3,298</div>
-              <div class="metric-sub">Auto-debit active on 15th</div>
+              <div class="metric-sub">Sample monthly commitment</div>
             </div>
 
             <div class="metric-card">
@@ -154,7 +155,7 @@
                 </div>
               </div>
               <div class="metric-value" id="metric-pending-count">1</div>
-              <div class="metric-sub">Swap dispatch under review</div>
+              <div class="metric-sub">Requests saved in this browser</div>
             </div>
           </div>
 
@@ -163,7 +164,7 @@
             <div class="banner-info">
               <span class="banner-tag">Upcoming Payment Cycle</span>
               <div class="banner-title">Next Recurring Due: <span id="banner-pay-amount">₹3,298</span></div>
-              <div class="banner-desc">Scheduled for deduction on <span id="banner-pay-date">October 15, 2026</span> via registered demo payment mode.</div>
+              <div class="banner-desc">Sample payment due on <span id="banner-pay-date">October 15, 2026</span> via registered demo payment mode.</div>
             </div>
             <div class="banner-actions">
               <a href="#billing" class="btn btn-primary" onclick="window.location.hash='billing'">Manage Billing</a>
@@ -220,7 +221,7 @@
             <div>
               <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-muted-text); text-transform: uppercase;">Total Monthly Commitment</div>
               <div style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--color-deep-ink);" id="billing-monthly-sum">₹3,298 / month</div>
-              <div style="font-size: 0.8125rem; color: var(--color-muted-text);">Due on the 15th of every month • Includes all applicable taxes</div>
+              <div style="font-size: 0.8125rem; color: var(--color-muted-text);">Due on the 15th of every month • Sample amounts for this demonstration</div>
             </div>
             <button type="button" id="btn-demo-pay-now" class="btn btn-primary">
               Simulate Advance Payment (Demo)
@@ -301,7 +302,7 @@
 
           <div class="card" style="max-width: 680px; padding: 32px; margin-bottom: 32px;">
             <h3 class="card-title" style="margin-bottom: 18px;">Personal Information (Demo)</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="two-column-grid" style="gap: 16px;">
               <div class="form-group">
                 <label for="settings-name" class="form-label">Full Name</label>
                 <input type="text" id="settings-name" class="form-control" readonly>
@@ -360,7 +361,7 @@
             <select id="swap-replacement-select" class="form-select" required></select>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="two-column-grid" style="gap: 14px;">
             <div class="form-group">
               <label for="swap-reason" class="form-label">Reason for Swap</label>
               <select id="swap-reason" class="form-select">
@@ -408,7 +409,7 @@
             <select id="return-rental-select" class="form-select" required></select>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="two-column-grid" style="gap: 14px;">
             <div class="form-group">
               <label for="return-date" class="form-label">Preferred Pickup Date</label>
               <input type="date" id="return-date" class="form-input" required>

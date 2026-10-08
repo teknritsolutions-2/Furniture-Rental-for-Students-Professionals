@@ -95,6 +95,7 @@
   </aside>
 
   <main id="main-content">
+    <div class="container"><p class="demo-context">Explore a furniture rental concept. Services, locations and policies shown here are illustrative.</p></div>
     <div class="section" style="padding-top: 48px;">
       <div class="container">
         <div class="section-header text-center" style="max-width: 720px; margin-inline: auto;">
@@ -105,15 +106,15 @@
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; margin-bottom: 56px;">
+        <div class="two-column-grid" style=" gap: 40px; margin-bottom: 56px;">
           <!-- Validated Contact Form -->
-          <div class="card" style="padding: 36px;">
+          <div class="card" style="padding: var(--card-padding);">
             <h2 class="subsection-h3" style="margin-bottom: 18px;">Send a Message</h2>
             
             <form id="contact-form" novalidate>
               <div id="contact-alert" style="display: none; padding: 12px 16px; border-radius: var(--radius-sm); margin-bottom: 18px; font-size: 0.875rem;"></div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="two-column-grid" style="gap: 16px;">
                 <div class="form-group">
                   <label for="contact-name" class="form-label">Your Name</label>
                   <input type="text" id="contact-name" class="form-control" placeholder="Full name" required>
@@ -124,7 +125,7 @@
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="two-column-grid" style="gap: 16px;">
                 <div class="form-group">
                   <label for="contact-city" class="form-label">City / Region</label>
                   <select id="contact-city" class="form-select">
@@ -249,7 +250,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© 2026 NESTLOOP Furnishing Solutions. Static demonstration platform.</div>
+        <div>© 2026 NESTLOOP Furnishing Solutions. Furniture rental demonstration. Sample prices and policies.</div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -287,12 +288,12 @@
         alertBox.style.backgroundColor = 'var(--color-success-bg)';
         alertBox.style.color = 'var(--color-success)';
         alertBox.style.border = '1px solid #B7E1CD';
-        alertBox.innerHTML = `<strong>Thank you, ${name}!</strong> Your inquiry has been logged. Our dispatch team will follow up at ${email}.`;
+        alertBox.innerHTML = `<strong>Thank you, ${name}!</strong> Your demonstration form is complete. No message was sent and no follow-up is scheduled.`;
 
         form.reset();
 
         if (window.NestloopApp && window.NestloopApp.showToast) {
-          window.NestloopApp.showToast("Contact inquiry submitted successfully.", "success");
+          window.NestloopApp.showToast("Demo form complete. Nothing was sent.", "success");
         }
       });
 

@@ -2,7 +2,7 @@
 
 This document records all local photographic assets used throughout the **NESTLOOP** furniture rental platform.
 Per project requirements, **ABSOLUTELY NO AI-GENERATED IMAGES, SYNTHETIC RENDERS, OR CGI INTERIORS** were used.
-All assets are authentic photographs of real rooms and actual furniture sourced from verified creators on Unsplash under the permissive Unsplash License.
+The original inventory below was inherited. Its photographer attributions and descriptions were not reliably matched to the pixels; do not treat it as a verified attribution record. The refinement notes below distinguish newly verified sources from reused legacy files.
 
 | Local File | Description | Photographer | Unsplash Source URL | Target Dimensions |
 | :--- | :--- | :--- | :--- | :--- |
@@ -33,3 +33,16 @@ All assets are authentic photographs of real rooms and actual furniture sourced 
 | `gallery-detail-2.webp` | Stain-resistant upholstery fabric texture and deep high-resilience foam cushioning | [Spacejoy](https://unsplash.com/@spacejoy) | [Unsplash Photo](https://unsplash.com/photos/1586023492125-27b2c045efd7) | 800x533 (3:2) |
 | `gallery-detail-3.webp` | Integrated cable conduit grommet and ergonomic beveled work surface edge | [Grovemade](https://unsplash.com/@grovemade) | [Unsplash Photo](https://unsplash.com/photos/1617806118233-18e1de247200) | 800x450 (16:9) |
 | `gallery-detail-4.webp` | Hypoallergenic breathable mattress layers with pocket spring support system | [Spacejoy](https://unsplash.com/@spacejoy) | [Unsplash Photo](https://unsplash.com/photos/1505691938895-1758d7feb511) | 800x533 (3:2) |
+
+## October 2026 visual refinement
+
+Two newly sourced, locally stored photographs (Unsplash License, source pages checked during this pass):
+
+| File | Actual subject | Photographer / source | Optimization |
+| --- | --- | --- | --- |
+| `room-empty.webp` | Empty apartment room with a window | [Louie A — mAf42pnEis0](https://unsplash.com/photos/a-bright-empty-room-with-a-single-window-mAf42pnEis0) | 1200px wide WebP, quality 80, 42 KB |
+| `office-desk.webp` | Desktop computer, keyboard and felt desk mat | [Edward Lee — zgT8-9X-Q_E](https://unsplash.com/photos/turned-on-silver-imac-with-wireless-keyboard-on-table-zgT8-9X-Q_E) | 1000px wide WebP, quality 80, 69 KB |
+
+Reused existing photographs: `package-essential-1bhk.webp` for the furnished Home 1 hero; `gallery-detail-1.webp` for the furnished comparison and living story; `category-bedroom.webp` for bedroom packages; `category-workspace.webp` for the starter workspace. The office photo replaces the gym, dining-room and bathroom placements. The empty-room photo replaces the incorrectly labelled furnished vignette. Existing unused files remain for audit history. No AI imagery was created.
+
+All package/gallery photography is room inspiration, not evidence of exact furniture models, upholstery, dimensions or a single apartment before/after. New compositions use portrait, landscape and panorama CSS crops without pixel stretching.

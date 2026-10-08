@@ -43,15 +43,15 @@ The platform features a client-side session management system with pre-configure
 | Route | Page Name | Primary Features & Narrative |
 | :--- | :--- | :--- |
 | `/index.html` | **Home 1: Consumer Storefront** | 10 meaningful sections: functional discovery bar (linking to filtered packages), benefits, Starter/Essential/Premium previews, room categories, furnished vs unfurnished split, rent vs buy model, student vs professional tabs, and quick coverage checker. |
-| `/pages/home2.html` | **Home 2: Modular Living** | Distinct visual arrangement: asymmetric mosaic hero (strictly matching global H1 font sizing), horizontal category navigation bar, photographic room-story grid, and subscription lifecycle timeline. |
+| `/pages/home2.html` | **Home 2: Modular Living** | Distinct visual arrangement: panoramic photographic hero (strictly matching global H1 font sizing), horizontal category navigation bar, photographic room-story grid, and subscription lifecycle timeline. |
 | `/pages/packages.html` | **Packages Catalogue** | Dynamic multi-filter catalogue (tier, room category, audience, search keyword) and live 3/6/12-month tenure switching updating monthly prices in real-time. |
-| `/pages/package-details.html` | **Package Details Dynamic View** | Driven by `?id=...` and `?tenure=...`. Multi-angle gallery with thumbnail switcher, included items specification checklist, dynamic cost breakdown, and 1-click rental request action. |
+| `/pages/package-details.html` | **Package Details Dynamic View** | Driven by `?id=...` and `?tenure=...`. Room-inspiration gallery with thumbnail switcher, included items specification checklist, dynamic cost breakdown, and 1-click rental request action. |
 | `/pages/how-it-works.html` | **How It Works Journey** | Editorial step-by-step rental lifecycle: package selection, PIN verification, white-glove assembly, portal management, and flexible swaps. |
 | `/pages/pricing.html` | **Transparent Pricing** | Interactive tenure toggle (3, 6, 12 months) updating Starter, Essential, and Premium monthly rates and deposits, with transparent terms on swaps, early returns, and billing. |
 | `/pages/coverage.html` | **Coverage Areas & Checker** | Deterministic postal PIN code lookup for Hyderabad, Bengaluru, Pune, Chennai, and Mumbai with supported, needs-confirmation, and unavailable states, plus an area expansion interest form. |
 | `/pages/about.html` | **About NESTLOOP** | Sustainable circular economy model, furniture sanitization lifecycle, and core quality standards without fabricated company history. |
 | `/pages/faq.html` | **Frequently Asked Questions** | Categorized accordion modules covering leases, security deposits, white-glove setup, wear-and-tear policies, swaps, and receipts. |
-| `/pages/contact.html` | **Contact & Regional Hubs** | Validated static contact form, regional fulfillment hub contacts, and customer service operating hours. |
+| `/pages/contact.html` | **Contact & Regional Hubs** | Validated static contact form, illustrative regional contact details, and customer service operating hours. |
 | `/pages/login.html` | **Customer Login** | Auth-specific header without full navbar, 1-click demo credential prefill buttons, show/hide password toggle, and portal access redirection. |
 | `/pages/register.html` | **Demo Registration** | Client-side customer onboarding creating local session records in browser LocalStorage. |
 | `/pages/dashboard.html` | **Customer Rental Portal** | Complete customer management application: Overview metrics, Portal Package Browsing, My Rentals, Billing Schedule, Swap & Return Request Workflows, and Vector PDF Document Generation. |
@@ -143,3 +143,8 @@ The customer dashboard (`pages/dashboard.html`) is structured as a dedicated cus
 1. **Static Demonstration Scope**: This web application is a complete frontend demonstration. It does not connect to live banking networks, real credit card processors, or production government identity APIs.
 2. **Pricing Model**: Sample demonstration pricing in INR is provided across 3, 6, and 12-month tenures for illustration.
 3. **Coverage Network**: Metro corridors in Hyderabad, Bengaluru, Pune, Chennai, and Mumbai are simulated based on deterministic demo postal PIN codes.
+
+
+## 8. Visual refinement and browser QA
+
+See [REFINEMENT-REPORT.md](REFINEMENT-REPORT.md) for the implemented design changes, image corrections, 792 responsive/appearance checks, 44 functional assertions, test commands and remaining limitations. The static HTML/CSS/JavaScript architecture and public demo dashboard access are retained.

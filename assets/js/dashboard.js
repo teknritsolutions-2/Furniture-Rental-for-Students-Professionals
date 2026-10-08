@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAllViews();
   setupModals();
 
+  window.addEventListener('hashchange', () => {
+    const view = location.hash.slice(1);
+    if (document.getElementById(`view-${view}`)) switchView(view);
+  });
+
   // Navigation controller
   function initNavigation() {
     navLinks.forEach(link => {
@@ -82,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeLink = document.querySelector(`.dash-nav-link[data-dash-view="${viewId}"]`);
 
     if (targetView) targetView.classList.add('active');
-    if (activeLink) activeLink.classList.add('active');
+    navLinks.forEach(link => link.removeAttribute('aria-current'));
+    if (activeLink) { activeLink.classList.add('active'); activeLink.setAttribute('aria-current', 'page'); }
 
     // Update title
     const titles = {
@@ -162,9 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ovRentalsList.innerHTML = `<div style="padding: 20px; color: var(--color-muted-text);">No active rentals found. Browse our packages to start renting!</div>`;
       } else {
         ovRentalsList.innerHTML = state.rentals.slice(0, 2).map(r => `
-          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--color-border); gap: 16px;">
-            <div style="display: flex; align-items: center; gap: 14px;">
-              <img src="${data.getImagePath(r.image)}" alt="${r.packageName}" style="width: 58px; height: 42px; border-radius: var(--radius-sm); object-fit: cover;">
+          <div class="overview-rental">
+            <div class="overview-rental-info">
+              <img src="${data.getImagePath(r.image)}" alt="${r.packageName}">
               <div>
                 <div style="font-weight: 600; font-size: 0.95rem; color: var(--color-deep-ink);">${r.packageName}</div>
                 <div style="font-size: 0.775rem; color: var(--color-muted-text);">${r.rentalId} • ${r.tenureMonths} Months • ₹${r.monthlyRate.toLocaleString('en-IN')}/mo</div>
@@ -192,13 +198,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="package-card-body">
           <div class="package-card-category">${pkg.category}</div>
-          <h4 class="package-card-title" style="font-size: 1.05rem;">${pkg.name}</h4>
+          <h4 class="package-card-title" style="">${pkg.name}</h4>
           <p class="package-card-desc" style="font-size: 0.8125rem;">${pkg.tagline}</p>
           <div class="package-card-pricing">
-            <span class="price-val" style="font-size: 1.25rem;">₹${pkg.monthlyRates[12].toLocaleString('en-IN')}<span style="font-size: 0.75rem; font-weight: normal;">/mo</span></span>
+            <span class="price-val" style="">₹${pkg.monthlyRates[12].toLocaleString('en-IN')}<span style="font-size: 0.75rem; font-weight: normal;">/mo</span></span>
             <span style="font-size: 0.72rem; color: var(--color-muted-text);">12-mo plan</span>
           </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div class="two-column-grid" style="gap: 8px;">
             <a href="package-details.html?id=${pkg.id}" class="btn btn-outline btn-sm" target="_blank">Specs</a>
             <button type="button" class="btn btn-primary btn-sm" onclick="window.NestloopDash.requestPackageQuick('${pkg.id}')">Add Rental</button>
           </div>
@@ -285,12 +291,12 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         tableBody.innerHTML = state.billingHistory.map(inv => `
           <tr>
-            <td style="font-weight: 600;">${inv.invoiceId}</td>
-            <td>${inv.date}</td>
-            <td style="color: var(--color-muted-text); font-size: 0.8125rem;">${inv.period}</td>
-            <td style="font-weight: 700; color: var(--color-deep-ink);">₹${inv.amount.toLocaleString('en-IN')}</td>
-            <td><span class="chip chip-paid">${inv.status}</span></td>
-            <td>
+            <td data-label="Invoice" style="font-weight: 600;">${inv.invoiceId}</td>
+            <td data-label="Date">${inv.date}</td>
+            <td data-label="Rental period" style="color: var(--color-muted-text); font-size: 0.8125rem;">${inv.period}</td>
+            <td data-label="Amount" style="font-weight: 700; color: var(--color-deep-ink);">₹${inv.amount.toLocaleString('en-IN')}</td>
+            <td data-label="Status"><span class="chip chip-paid">${inv.status}</span></td>
+            <td data-label="Download">
               <button type="button" class="btn btn-outline btn-sm" onclick="window.NestloopDash.openReceipt('${inv.invoiceId}')" title="Download Official PDF Receipt">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 PDF Receipt
@@ -312,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
           period: "Simulated Advance Month Payment",
           amount: totalMonthly,
           status: "Paid",
-          method: "Demonstration Payment (Verified)",
+          method: "Demonstration Payment",
           items: state.rentals.map(r => ({
             description: `Monthly Rental: ${r.packageName} (${r.rentalId})`,
             amount: r.monthlyRate
@@ -370,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${req.notes ? `<div style="font-size: 0.75rem; color: var(--color-muted-text); font-style: italic; margin-top: 4px;">Note: "${req.notes}"</div>` : ''}
         </div>
         <div style="text-align: end; font-size: 0.75rem; color: var(--color-muted-text);">
-          Dispatch Route Under Logistics Review
+          Demo request · Pending review
         </div>
       </div>
     `).join('');
@@ -451,6 +457,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  let modalTrigger = null;
+  function openModal(modal) {
+    modalTrigger = document.activeElement;
+    modal.classList.add('is-active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.querySelector('.dash-layout').inert = true;
+    document.body.style.overflow = 'hidden';
+    modal.getBoundingClientRect();
+    modal.querySelector('button, input, select')?.focus();
+  }
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('is-active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.querySelector('.dash-layout').inert = false;
+    document.body.style.overflow = '';
+    modalTrigger?.focus();
+  }
+
   // Modals & Interactive Workflow Handlers
   function setupModals() {
     const swapModal = document.getElementById('modal-swap-request');
@@ -459,8 +484,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        if (swapModal) swapModal.classList.remove('is-active');
-        if (returnModal) returnModal.classList.remove('is-active');
+        closeModal(document.querySelector('.modal-overlay.is-active'));
+      });
+    });
+
+    [swapModal, returnModal].filter(Boolean).forEach(modal => {
+      modal.setAttribute('aria-hidden', 'true');
+      modal.addEventListener('click', e => { if (e.target === modal) closeModal(modal); });
+      modal.addEventListener('keydown', e => {
+        if (e.key === 'Escape') { closeModal(modal); return; }
+        if (e.key !== 'Tab') return;
+        const items = [...modal.querySelectorAll('button, input, select, textarea, a[href]')].filter(el => !el.disabled && el.getClientRects().length);
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       });
     });
 
@@ -497,13 +534,13 @@ document.addEventListener('DOMContentLoaded', () => {
         state.requests.unshift(newReq);
         data.saveDemoState(state);
 
-        swapModal.classList.remove('is-active');
+        closeModal(swapModal);
         swapForm.reset();
         renderRequests();
         renderOverview();
 
         if (window.NestloopApp && window.NestloopApp.showToast) {
-          window.NestloopApp.showToast(`Swap request ${newReq.requestId} submitted for logistics review!`, 'success');
+          window.NestloopApp.showToast(`Swap request ${newReq.requestId} saved in this demo!`, 'success');
         }
         switchView('requests');
       });
@@ -541,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
         state.requests.unshift(newReq);
         data.saveDemoState(state);
 
-        returnModal.classList.remove('is-active');
+        closeModal(returnModal);
         returnForm.reset();
         renderRequests();
         renderOverview();
@@ -587,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
       }
 
-      modal.classList.add('is-active');
+      openModal(modal);
     },
 
     openReturnModal: function (rentalId) {
@@ -600,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <option value="${r.rentalId}" ${r.rentalId === rentalId ? 'selected' : ''}>${r.packageName} (${r.rentalId})</option>
       `).join('');
 
-      modal.classList.add('is-active');
+      openModal(modal);
     },
 
     requestPackageQuick: function (pkgId) {

@@ -13,8 +13,8 @@
 
 /* Sidebar */
 .dash-sidebar {
-  width: 260px;
-  background-color: var(--color-card-bg);
+  width: 228px;
+  background-color: var(--color-warm-chalk);
   border-inline-end: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
@@ -59,14 +59,15 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
+  padding: 12px;
   border-radius: var(--radius-sm);
   color: var(--color-deep-ink);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: var(--navbar-link-size);
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-fast);
+  border-inline-start: 3px solid transparent;
 }
 
 .dash-nav-link svg {
@@ -90,6 +91,7 @@
   background-color: var(--color-cobalt-light);
   color: var(--color-cobalt);
   font-weight: 600;
+  border-inline-start-color: var(--color-cobalt);
 }
 
 .dash-nav-link.active svg {
@@ -163,21 +165,24 @@
 }
 
 .dash-topbar {
-  height: 68px;
+  height: auto;
   background-color: var(--color-card-bg);
   border-bottom: 1px solid var(--color-border);
-  padding: 0 32px;
+  padding: 14px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 800;
+  min-height: 72px;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .dash-topbar-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: var(--h3-subsection-size);
   font-weight: 700;
   color: var(--color-deep-ink);
 }
@@ -201,8 +206,11 @@
 }
 
 .dash-content {
-  padding: 32px;
+  padding: 28px;
   flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
 }
 
 .dash-view {
@@ -217,18 +225,23 @@
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 0;
   margin-bottom: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-card-bg);
 }
 
 .metric-card {
   background-color: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  box-shadow: var(--shadow-sm);
+  border: 0;
+  border-radius: 0;
+  padding: 18px;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
+  border-inline-end: 1px solid var(--color-border);
 }
 
 .metric-header {
@@ -239,11 +252,11 @@
 }
 
 .metric-label {
-  font-size: 0.8125rem;
+  font-size: var(--eyebrow-size);
   font-weight: 600;
   color: var(--color-muted-text);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: .04em;
 }
 
 .metric-icon {
@@ -259,7 +272,7 @@
 
 .metric-value {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: var(--price-size);
   font-weight: 800;
   color: var(--color-deep-ink);
   margin-bottom: 4px;
@@ -272,16 +285,16 @@
 
 /* Next Payment Banner Widget */
 .next-payment-banner {
-  background: linear-gradient(135deg, var(--color-deep-ink) 0%, #2A323D 100%);
-  color: #FFFFFF;
+  background: var(--color-pale-mint);
+  color: var(--color-deep-ink);
   border-radius: var(--radius-lg);
-  padding: 24px 28px;
+  padding: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   margin-bottom: 32px;
-  box-shadow: var(--shadow-md);
+  box-shadow: none;
 }
 
 .banner-info {
@@ -294,26 +307,27 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #C7DFCD;
+  color: var(--color-success);
   font-weight: 700;
 }
 
 .banner-title {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: var(--h3-subsection-size);
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--color-deep-ink);
 }
 
 .banner-desc {
   font-size: 0.875rem;
-  color: #A4B0BE;
+  color: var(--color-muted-text);
 }
 
 .banner-actions {
   display: flex;
   gap: 12px;
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 /* Active Rentals List Table/Cards */
@@ -328,12 +342,12 @@
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 20px 24px;
+  padding: 18px;
   display: grid;
-  grid-template-columns: 140px 1.4fr 1.2fr auto;
-  gap: 24px;
+  grid-template-columns: 150px minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 20px;
   align-items: center;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   transition: border-color var(--transition-fast);
 }
 
@@ -342,15 +356,15 @@
 }
 
 .rental-thumb-img {
-  width: 140px;
-  height: 95px;
+  width: 150px;
+  height: 120px;
   border-radius: var(--radius-sm);
   object-fit: cover;
 }
 
 .rental-info-col h4 {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: var(--card-heading-size);
   font-weight: 700;
   margin-bottom: 4px;
   color: var(--color-deep-ink);
@@ -384,8 +398,12 @@
 
 .rental-actions-col {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 8px;
+  grid-column: 2 / -1;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
 }
 
 /* Billing & Payment Invoices Table */
@@ -443,18 +461,17 @@
   background-color: rgba(18, 22, 26, 0.65);
   backdrop-filter: blur(4px);
   z-index: 3000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 20px;
   opacity: 0;
-  visibility: hidden;
   transition: all var(--transition-normal);
 }
 
 .modal-overlay.is-active {
   opacity: 1;
-  visibility: visible;
+  display: flex;
 }
 
 .modal-dialog {
@@ -469,6 +486,7 @@
   flex-direction: column;
   transform: translateY(20px);
   transition: transform var(--transition-normal);
+  max-height: calc(100dvh - 32px);
 }
 
 .modal-overlay.is-active .modal-dialog {
@@ -485,14 +503,15 @@
 
 .modal-title {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: var(--card-heading-size);
   font-weight: 700;
 }
 
 .modal-body {
   padding: 24px;
   overflow-y: auto;
-  max-height: 75vh;
+  max-height: none;
+  min-height: 0;
 }
 
 .modal-footer {
@@ -545,11 +564,11 @@
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 22px;
+  padding: 20px;
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 .doc-icon-box {
@@ -570,9 +589,10 @@
 
 .doc-title {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: var(--card-heading-size);
   font-weight: 700;
   margin-bottom: 4px;
+  overflow-wrap: anywhere;
 }
 
 .doc-meta {
@@ -646,3 +666,71 @@
     flex-direction: column;
   }
 }
+
+/* Comfortable customer workspace with compact account facts and room imagery. */
+.dash-welcome { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 24px; }
+.dash-welcome .section-h2 { margin-bottom: 6px; }
+.metric-card:last-child { border-inline-end: 0; }
+.next-payment-banner .btn-outline { color: var(--color-deep-ink) !important; border-color: var(--color-border) !important; }
+.overview-rental { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding-block: 18px; border-bottom: 1px solid var(--color-border); }
+.overview-rental-info { display: flex; gap: 18px; align-items: center; min-width: 0; }
+.overview-rental img { width: 112px; height: 84px; object-fit: cover; border-radius: var(--radius-sm); flex-shrink: 0; }
+.request-card-info > div:first-child { flex-wrap: wrap; }
+.request-history-card { border-inline-start: 3px solid var(--color-warning); }
+.doc-info { min-width: 0; }
+.dash-topbar-actions { flex-wrap: wrap; }
+.data-table td:nth-child(4) { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.modal-header, .modal-footer { flex-shrink: 0; }
+.modal-overlay { padding: 16px; }
+@media (max-width: 1200px) {
+  .rental-item-card { grid-template-columns: 120px minmax(0, 1fr); }
+  .rental-thumb-img { width: 120px; }
+  .rental-meta-col, .rental-actions-col { grid-column: 1 / -1; }
+  .next-payment-banner { flex-wrap: wrap; }
+  #dash-browse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1024px) {
+  .metric-card { border-bottom: 1px solid var(--color-border); }
+  .dash-sidebar { width: 210px; }
+  .dash-topbar, .dash-content { padding: 20px; }
+  .dash-topbar-actions { gap: 8px; }
+  .data-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .data-table, .data-table tbody { display: block; }
+  .data-table tr { display: grid; grid-template-columns: 1fr 1fr; padding: 16px; border-bottom: 1px solid var(--color-border); }
+  .data-table td { display: flex; flex-direction: column; padding: 8px; border: 0; overflow-wrap: anywhere; }
+  .data-table td::before { content: attr(data-label); font-size: var(--eyebrow-size); color: var(--color-muted-text); margin-bottom: 4px; }
+}
+@media (max-width: 768px) {
+  .dash-sidebar { width: 100%; }
+  .dash-sidebar-header { padding: 16px; }
+  .dash-sidebar-footer { display: none; }
+  .dash-nav { padding: 8px; }
+  .dash-nav-link { padding: 10px 12px; border-inline-start: 0; border-bottom: 2px solid transparent; }
+  .dash-nav-link.active { border-bottom-color: var(--color-cobalt); }
+  .dash-topbar { position: static; padding: 16px; }
+  .dash-content { padding: 20px 16px; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .metric-header { gap: 8px; }
+  .metric-icon { display: none; }
+  .rental-item-card { grid-template-columns: 100px minmax(0, 1fr); }
+  .rental-thumb-img { width: 100px; height: 110px; }
+  .request-history-card { align-items: start; flex-direction: column; padding: 20px; }
+  .banner-actions { width: 100%; }
+  .overview-rental { grid-template-columns: 1fr; }
+  .overview-rental > .btn { justify-self: start; }
+}
+@media (max-width: 480px) {
+  #dash-browse-grid { grid-template-columns: 1fr; }
+  .rental-item-card { grid-template-columns: 1fr; }
+  .rental-thumb-img { width: 100%; height: 180px; }
+  .rental-actions-col { flex-direction: column; }
+  .rental-meta-col { gap: 14px; }
+  .overview-rental img { width: 80px; height: 80px; }
+  .dash-topbar-actions { gap: 6px; }
+  .dash-demo-tag { display: none; }
+  .modal-body, .modal-header, .modal-footer { padding: 16px; }
+  .data-table tr { grid-template-columns: 1fr; }
+  .data-table td { flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+}
+.modal-dialog > form { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+.dash-nav-link svg { width: var(--icon-size-md); height: var(--icon-size-md); }

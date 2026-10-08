@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3 class="card-title">${city.name}</h3>
             <div style="font-size: 0.8125rem; color: var(--color-muted-text);">${city.state}</div>
           </div>
-          <span class="chip chip-active">${city.status}</span>
+          <span class="chip chip-active">Demo coverage</span>
         </div>
         <div style="font-size: 0.8125rem; color: var(--color-deep-ink); font-weight: 600; margin-top: 10px;">
-          Avg. Delivery: <span style="color: var(--color-cobalt);">${city.avgDeliveryDays}</span>
+          Sample estimate: <span style="color: var(--color-cobalt);">${city.avgDeliveryDays}</span>
         </div>
         <div style="margin-top: 12px; border-top: 1px solid var(--color-border); padding-top: 10px;">
-          <div style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text);">Active Logistics Hubs</div>
+          <div style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text);">Sample service areas</div>
           <ul class="city-hubs-list">
             ${city.hubs.map(h => `<li>• ${h}</li>`).join('')}
           </ul>
@@ -82,9 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="display: flex; gap: 14px; align-items: flex-start;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink: 0; margin-top: 2px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           <div>
-            <div style="font-weight: 700; font-size: 1rem; margin-bottom: 4px;">PIN Code ${check.pin} is Fully Supported!</div>
-            <div style="font-size: 0.875rem; margin-bottom: 6px;"><strong>Region:</strong> ${check.area}, ${check.city} • <strong>Delivery SLA:</strong> ${check.timeline}</div>
-            <div style="font-size: 0.8125rem; opacity: 0.9;">Includes free delivery, complete technician assembly, and complimentary haul-away of protective packaging.</div>
+            <div style="font-weight: 700; font-size: 1rem; margin-bottom: 4px;">PIN Code ${check.pin} is supported in the demo dataset</div>
+            <div style="font-size: 0.875rem; margin-bottom: 6px;"><strong>Region:</strong> ${check.area}, ${check.city} • <strong>Sample estimate:</strong> ${check.timeline}</div>
+            <div style="font-size: 0.8125rem; opacity: 0.9;">This is a sample result, not confirmation of a real delivery service.</div>
             <a href="packages.html" class="btn btn-primary btn-sm" style="margin-top: 12px; display: inline-flex;">Explore Available Packages</a>
           </div>
         </div>
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div>
             <div style="font-weight: 700; font-size: 1rem; margin-bottom: 4px;">PIN Code ${check.pin} Outside Active Network</div>
             <div style="font-size: 0.875rem; margin-bottom: 8px;">${check.message}</div>
-            <div style="font-size: 0.8125rem;">You can submit an expansion request below; our logistics team reviews high-density student & corporate zones weekly.</div>
+            <div style="font-size: 0.8125rem;">Try the interest form below. This demonstration does not send a request.</div>
           </div>
         </div>
       `;
@@ -140,9 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (window.NestloopApp && window.NestloopApp.showToast) {
-        window.NestloopApp.showToast(`Expansion interest registered for ${city} (${pin})!`, 'success');
+        window.NestloopApp.showToast(`Demo form completed for ${city} (${pin}). Nothing was sent.`, 'success');
       } else {
-        alert(`Thank you! We've recorded interest for PIN ${pin}. We will notify ${email} once routing opens.`);
+        alert(`Demo form completed for PIN ${pin}. Nothing was sent or subscribed.`);
       }
 
       requestForm.reset();

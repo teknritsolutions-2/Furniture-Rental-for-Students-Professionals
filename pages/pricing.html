@@ -16,8 +16,7 @@
 
   <!-- Top Announcement Strip -->
   <div class="top-notice-bar" role="region" aria-label="Announcement">
-    <span class="top-notice-badge">Fee Transparency</span>
-    <span>No hidden cancellation traps, no assembly surcharges, and fully refundable security deposits.</span>
+    <span class="top-notice-badge">Explore the demo</span><span>Furniture for your next chapter. Sample prices · No real bookings or payments.</span>
   </div>
 
   <!-- Shared Header -->
@@ -122,21 +121,21 @@
         <!-- Title & Intro -->
         <div class="section-header text-center">
           <span class="eyebrow">Predictable Monthly Rates</span>
-          <h1 class="inner-h1">Transparent Subscription Pricing</h1>
+          <h1 class="inner-h1">A room that fits your budget.</h1>
           <p class="body-lead">
-            No surprise add-ons. Our rates include white-glove room delivery, full assembly, and wear-and-tear protection.
+            Compare sample furniture bundles, monthly rent and refundable deposits. Choose a tenure to see the difference.
           </p>
           <div style="font-size: 0.775rem; color: var(--color-muted-text); margin-top: 8px;">
             * Clearly labeled illustrative demonstration pricing. Final rates are confirmed on executed agreements.
           </div>
 
           <!-- Tenure Switcher -->
-          <div style="margin-top: 28px; display: inline-flex; align-items: center; gap: 12px; background: var(--color-card-bg); padding: 6px 10px; border-radius: var(--radius-full); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+          <div class="pricing-tenure-control" style="margin-top: 28px; display: inline-flex; align-items: center; gap: 12px; background: var(--color-card-bg); padding: 6px 10px; border-radius: var(--radius-full); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
             <span style="font-size: 0.8125rem; font-weight: 700; color: var(--color-muted-text); padding-inline-start: 8px;">Select Tenure:</span>
             <div class="tenure-btn-group" style="border: none;">
               <button type="button" class="btn btn-sm btn-outline" data-pricing-tenure="3">3 Months</button>
               <button type="button" class="btn btn-sm btn-outline" data-pricing-tenure="6">6 Months</button>
-              <button type="button" class="btn btn-sm btn-primary active" data-pricing-tenure="12">12 Months (Best Value)</button>
+              <button type="button" class="btn btn-sm btn-outline active" data-pricing-tenure="12">12 Months</button>
             </div>
           </div>
         </div>
@@ -145,7 +144,8 @@
         <div class="pricing-cards-grid">
           <!-- Tier 1: Starter -->
           <div class="pricing-card">
-            <div class="pricing-card-header">
+            <img class="pricing-room-img" src="../assets/images/package-starter-student.webp" alt="Room inspiration for this sample furniture tier" loading="lazy">
+            <div class="pricing-card-header" data-photo="added">
               <span class="chip chip-starter" style="margin-bottom: 8px;">Starter Tier</span>
               <h3 class="card-title">Study &amp; Compact Studio</h3>
               <p class="body-sm" style="margin-top: 4px;">Designed for college students and compact studio apartments.</p>
@@ -166,7 +166,7 @@
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
-                <span>Free delivery &amp; technician setup</span>
+                <span>Delivery &amp; setup: ₹0 in this sample</span>
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
@@ -187,7 +187,8 @@
           <!-- Tier 2: Essential (Popular) -->
           <div class="pricing-card is-popular">
             <div class="popular-ribbon">Most Popular</div>
-            <div class="pricing-card-header">
+            <img class="pricing-room-img" src="../assets/images/category-bedroom.webp" alt="Room inspiration for this sample furniture tier" loading="lazy">
+            <div class="pricing-card-header" data-photo="added">
               <span class="chip chip-essential" style="margin-bottom: 8px;">Essential Tier</span>
               <h3 class="card-title">1BHK &amp; Pro Workstation</h3>
               <p class="body-sm" style="margin-top: 4px;">Balanced everyday comfort for working professionals and couples.</p>
@@ -212,11 +213,11 @@
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
-                <span>Free style swaps after 6 months</span>
+                <span>Try the demo swap request flow</span>
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
-                <span>Free intra-city relocation support</span>
+                <span>Explore relocation requests</span>
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
@@ -229,7 +230,8 @@
 
           <!-- Tier 3: Premium -->
           <div class="pricing-card">
-            <div class="pricing-card-header">
+            <img class="pricing-room-img" src="../assets/images/package-premium-living.webp" alt="Room inspiration for this sample furniture tier" loading="lazy">
+            <div class="pricing-card-header" data-photo="added">
               <span class="chip chip-premium" style="margin-bottom: 8px;">Premium Tier</span>
               <h3 class="card-title">2BHK &amp; Executive Suites</h3>
               <p class="body-sm" style="margin-top: 4px;">Turnkey designer furnishing for corporate relocations and full residences.</p>
@@ -277,25 +279,25 @@
             <h2 class="section-h2">How Deposits, Swaps &amp; Returns Work</h2>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div class="three-column-grid" style="gap: 24px;">
             <div class="card">
               <h3 class="card-title" style="margin-bottom: 8px;">Refundable Security Deposit</h3>
               <p class="body-sm">
-                Deposits are pegged at 1.5x of your monthly rental rate. When your tenure concludes and items are inspected for basic structural integrity, 100% of your deposit is returned to your original payment account within 5 to 7 business days.
+                The sample deposit is 1.5× the selected monthly rent. A real agreement would need to specify inspection criteria, deductions and refund timing.
               </p>
             </div>
 
             <div class="card">
               <h3 class="card-title" style="margin-bottom: 8px;">Item Swap Policy</h3>
               <p class="body-sm">
-                Need to change a sofa color or swap a single bed for a queen bed? Customers on 6+ month plans can submit a swap request directly through the customer dashboard. We coordinate collection of the existing piece and delivery of the new item in one trip.
+                Try requesting a different bundle through the dashboard. This saves a sample request for review; it does not confirm stock, delivery or swap fees.
               </p>
             </div>
 
             <div class="card">
               <h3 class="card-title" style="margin-bottom: 8px;">Early Return Process</h3>
               <p class="body-sm">
-                If your company relocates you or your semester ends early, you can request pickup with 14 days notice. Any tenure adjustments or early settlement terms are calculated transparently without punitive charges.
+                Try an early-return request in the dashboard. The demo records a preferred date; actual notice periods, settlement costs and pickup arrangements are not confirmed.
               </p>
             </div>
           </div>
@@ -321,7 +323,7 @@
                 <span class="faq-icon">▾</span>
               </button>
               <div class="faq-answer">
-                No. Standard delivery, staircase carry (up to 4 floors if no elevator), complete technician assembly, and haul-away of protective packaging are included free on all packages across our active coverage cities.
+                The demo cost model sets delivery and assembly to ₹0. Real access requirements, charges and service availability would need confirmation.
               </div>
             </div>
 
@@ -331,7 +333,7 @@
                 <span class="faq-icon">▾</span>
               </button>
               <div class="faq-answer">
-                Normal everyday wear and tear (minor fabric fading, tiny wood surface scuffs) is completely protected under our rental agreement with zero deduction. For accidental deep stains or spills, our care team provides free scheduled upholstery cleaning.
+                Care and damage coverage shown in this prototype are sample terms. Actual exclusions, fees and cleaning services would need confirmation.
               </div>
             </div>
           </div>
@@ -402,7 +404,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 NESTLOOP Furnishing Solutions. Static demonstration platform.</div>
+        <div>© 2026 NESTLOOP Furnishing Solutions. Furniture rental demonstration. Sample prices and policies.</div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -420,10 +422,15 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Accordion toggle
-      document.querySelectorAll('.faq-question').forEach(btn => {
+      document.querySelectorAll('.faq-question').forEach((btn, index) => {
+        const answer = btn.closest('.faq-item').querySelector('.faq-answer');
+        answer.id = `faq-answer-${index}`;
+        btn.setAttribute('aria-controls', answer.id);
+        btn.setAttribute('aria-expanded', btn.closest('.faq-item').classList.contains('is-open'));
         btn.addEventListener('click', () => {
           const item = btn.closest('.faq-item');
           item.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', item.classList.contains('is-open'));
         });
       });
 
