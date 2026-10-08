@@ -26,6 +26,7 @@
     initMobileDrawer();
     initDropdowns();
     highlightActiveNav();
+    initNavAuthLink();
   });
 
   // Theme Toggle logic
@@ -210,6 +211,25 @@
         }
       }
     });
+  }
+
+  // Initialize and ensure direct Customer Dashboard link behavior across all pages
+  function initNavAuthLink() {
+    const authLink = document.getElementById('nav-auth-link');
+    if (!authLink) return;
+    const isPagesDir = window.location.pathname.includes('/pages/');
+    const dashUrl = isPagesDir ? 'dashboard.html' : 'pages/dashboard.html';
+    authLink.href = dashUrl;
+    authLink.setAttribute('title', 'Open Customer Rental Dashboard');
+
+    const auth = window.NestloopAuth;
+    if (auth && auth.isAuthenticated()) {
+      const user = auth.getCurrentUser();
+      const initials = (user && user.avatar) ? user.avatar : 'AC';
+      authLink.innerHTML = `<span class="user-avatar" style="width: 22px; height: 22px; font-size: 0.65rem; border-radius: 50%; background: var(--color-cobalt); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-inline-end: 6px;">${initials}</span><span>Dashboard</span>`;
+    } else {
+      authLink.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 5px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span>Dashboard</span>`;
+    }
   }
 
   // Toast Notification System

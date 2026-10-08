@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const data = window.NestloopData;
   const pdfGen = window.NestloopPDF;
 
-  // Route Guard: Redirect unauthenticated users
-  if (!auth.guardDashboard()) return;
+  // Route Guard / Auto-Initialization (Allows direct view without prior login)
+  auth.guardDashboard();
 
-  // State
-  let user = auth.getCurrentUser();
+  // State: load active demo user or initialize Alex Chen automatically
+  let user = auth.getCurrentUser() || auth.switchDemoUser(0);
   let state = data.getDemoState();
 
   // Navigation Links
@@ -48,12 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
       switchView('overview');
     }
 
+    // Persona switch button in topbar
+    const switchPersonaBtn = document.getElementById('dash-switch-user-btn');
+    if (switchPersonaBtn) {
+      switchPersonaBtn.addEventListener('click', () => {
+        const isCurrentAlex = user.name.toLowerCase().includes('alex');
+        user = auth.switchDemoUser(isCurrentAlex ? 1 : 0);
+        renderUserMini();
+        renderAllViews();
+        if (window.NestloopApp && window.NestloopApp.showToast) {
+          window.NestloopApp.showToast(`Active Profile: ${user.name} (${user.role})`);
+        }
+      });
+    }
+
     // Top logout button
     const logoutBtns = document.querySelectorAll('.action-logout');
     logoutBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        if (confirm("Sign out of the NESTLOOP customer demonstration session?")) {
+        if (confirm("Sign out of current demonstration session? (You can re-enter anytime).")) {
           auth.logout();
         }
       });
@@ -105,10 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const avatarEls = document.querySelectorAll('.user-avatar-text');
     const nameEls = document.querySelectorAll('.user-name-text');
     const roleEls = document.querySelectorAll('.user-role-text');
+    const personaLabel = document.getElementById('dash-persona-label');
 
     avatarEls.forEach(el => el.textContent = user.avatar || "AC");
     nameEls.forEach(el => el.textContent = user.name || "Alex Chen");
     roleEls.forEach(el => el.textContent = user.role || "Customer");
+
+    if (personaLabel && user && user.name) {
+      const firstName = user.name.split(' ')[0];
+      const shortRole = (user.role && user.role.toLowerCase().includes('student')) ? 'Student' : 'Pro';
+      personaLabel.textContent = `${firstName} (${shortRole})`;
+    }
   }
 
   // 1. Overview View

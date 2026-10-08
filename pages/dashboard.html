@@ -85,7 +85,13 @@
         <h1 class="dash-topbar-title" id="dash-topbar-title">Account Overview</h1>
 
         <div class="dash-topbar-actions">
-          <span class="dash-demo-tag">Demonstration Session</span>
+          <span class="dash-demo-tag">Demo Mode</span>
+
+          <!-- Demo Persona Quick Switcher -->
+          <button type="button" class="btn btn-outline btn-sm" id="dash-switch-user-btn" title="Click to toggle between Alex Chen and Priya Sharma" style="font-size: 0.8125rem; padding: 4px 10px; height: 36px; border-color: var(--color-cobalt); color: var(--color-cobalt); gap: 6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span id="dash-persona-label">Alex Chen</span> ⇄
+          </button>
 
           <!-- Theme Toggle -->
           <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme">

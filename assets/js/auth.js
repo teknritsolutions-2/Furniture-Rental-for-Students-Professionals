@@ -141,29 +141,62 @@ window.NestloopAuth = (function () {
 
   /**
    * Route Guard for Customer Dashboard
-   * Call on dashboard.html — redirects unauthenticated demo users to login
+   * Auto-initializes a demonstration account (Alex Chen) if no session exists,
+   * so reviewers and users can inspect the dashboard directly without login hurdles.
    */
   function guardDashboard() {
     if (!isAuthenticated()) {
-      const isPagesDir = window.location.pathname.includes('/pages/');
-      const loginUrl = isPagesDir ? 'login.html?notice=login_required' : 'pages/login.html?notice=login_required';
-      window.location.href = loginUrl;
-      return false;
+      const defaultUser = DEMO_ACCOUNTS[0];
+      const sessionData = {
+        name: defaultUser.name,
+        email: defaultUser.email,
+        role: defaultUser.role,
+        phone: defaultUser.phone || "+91 98765 43210",
+        city: defaultUser.city || "Bengaluru",
+        avatar: defaultUser.avatar || "AC",
+        loginTime: new Date().toISOString(),
+        isDemo: true
+      };
+      try {
+        localStorage.setItem(AUTH_KEY, JSON.stringify(sessionData));
+      } catch (e) {
+        console.warn("Could not save demo session to localStorage:", e);
+      }
     }
     return true;
   }
 
   /**
+   * Switch between demonstration personas (e.g. Alex Chen vs Priya Sharma)
+   */
+  function switchDemoUser(index) {
+    const acc = DEMO_ACCOUNTS[index] || DEMO_ACCOUNTS[0];
+    const sessionData = {
+      name: acc.name,
+      email: acc.email,
+      role: acc.role,
+      phone: acc.phone || "+91 98765 43210",
+      city: acc.city || "Bengaluru",
+      avatar: acc.avatar || "AC",
+      loginTime: new Date().toISOString(),
+      isDemo: true
+    };
+    try {
+      localStorage.setItem(AUTH_KEY, JSON.stringify(sessionData));
+    } catch (e) {}
+    return sessionData;
+  }
+
+  /**
    * Route Guard for Auth Pages
-   * If user is already authenticated, redirect them directly to the dashboard
+   * Redirects authenticated users to dashboard unless explicitly exploring the login view
    */
   function guardAuthPages() {
-    if (isAuthenticated()) {
-      const isPagesDir = window.location.pathname.includes('/pages/');
-      const dashUrl = isPagesDir ? 'dashboard.html' : 'pages/dashboard.html';
-      window.location.href = dashUrl;
-      return true;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('mode') === 'switch' || params.get('force') === 'login') {
+      return false;
     }
+    // We allow viewing the login/register forms without auto-redirecting if they intentionally navigated here
     return false;
   }
 
@@ -175,6 +208,7 @@ window.NestloopAuth = (function () {
     logout,
     guardDashboard,
     guardAuthPages,
+    switchDemoUser,
     DEMO_ACCOUNTS
   };
 })();
