@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Login — Demonstration Portal | NESTLOOP</title>
+  <meta name="description" content="Sign in to the NESTLOOP customer portal to manage active rentals, view upcoming due dates, initiate swaps, and download agreements.">
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
+
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body class="auth-page-wrapper">
+  <a href="#login-form" class="skip-link">Skip to login form</a>
+
+  <!-- Clean Auth-Specific Header (No Full Site Navbar) -->
+  <header class="auth-header">
+    <a href="../index.html" class="brand-link" aria-label="Return to NESTLOOP Home">
+      <img src="../assets/brand/logo.svg" alt="NESTLOOP Logo" class="brand-logo logo-light" style="height: 36px;">
+      <img src="../assets/brand/logo-white.svg" alt="NESTLOOP Logo" class="brand-logo logo-dark" style="height: 36px;">
+    </a>
+
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle></svg>
+      </button>
+      <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
+      <a href="../index.html" class="btn btn-outline btn-sm">
+        ← Back to Storefront
+      </a>
+    </div>
+  </header>
+
+  <!-- Centered Auth Card Container -->
+  <main class="auth-container">
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <span class="chip chip-essential" style="margin-bottom: 8px;">Customer Portal</span>
+        <h1 class="subsection-h3" style="font-size: 1.45rem; margin-bottom: 6px;">Sign in to your rental portal</h1>
+        <p class="body-sm">Access your active subscriptions, monthly billing, and swap requests.</p>
+      </div>
+
+      <!-- Explicit Demonstration Credentials Callout -->
+      <div class="demo-credentials-callout" role="note">
+        <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; margin-bottom: 4px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span>Static Demonstration Environment</span>
+        </div>
+        <p style="font-size: 0.775rem; margin-bottom: 8px;">
+          Click a demo profile below to auto-fill credentials and start a client-side demonstration session:
+        </p>
+        <div class="demo-accounts-pill-box">
+          <button type="button" class="demo-account-pill" id="fill-alex">
+            👤 Alex Chen (Professional)
+          </button>
+          <button type="button" class="demo-account-pill" id="fill-priya">
+            🎓 Priya Sharma (Student)
+          </button>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" novalidate>
+        <div id="login-error-alert" style="display: none; padding: 10px 14px; background-color: var(--color-danger-bg); border: 1px solid #FAD2CF; color: var(--color-danger); border-radius: var(--radius-sm); font-size: 0.8125rem; margin-bottom: 16px;"></div>
+
+        <div class="form-group" id="group-email">
+          <label for="login-email" class="form-label">Email Address</label>
+          <input type="email" id="login-email" class="form-control" placeholder="name@domain.com" required autocomplete="email">
+          <span class="form-error">Please enter a valid email address.</span>
+        </div>
+
+        <div class="form-group" id="group-password">
+          <label for="login-password" class="form-label">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="login-password" class="form-control" placeholder="Enter password (demo: password123)" required autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="btn-toggle-pw" aria-label="Show password" title="Show or hide password">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            </button>
+          </div>
+          <span class="form-error">Please enter your password.</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; height: 46px; margin-top: 10px;">
+          Sign In to Customer Dashboard
+        </button>
+
+        <div class="auth-divider">or explore options</div>
+
+        <div style="text-align: center; font-size: 0.875rem;">
+          <span style="color: var(--color-muted-text);">New customer to NESTLOOP?</span>
+          <a href="register.html" style="color: var(--color-cobalt); font-weight: 600; margin-inline-start: 4px; text-decoration: none;">Create Demo Profile</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer style="padding: 20px; text-align: center; font-size: 0.75rem; color: var(--color-muted-text); border-top: 1px solid var(--color-border); background-color: var(--color-card-bg);">
+    NESTLOOP Demonstration Architecture • No actual financial or personal credentials collected.
+  </footer>
+
+  <script src="../assets/data/data.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const auth = window.NestloopAuth;
+
+      // If already logged in, redirect straight to dashboard
+      auth.guardAuthPages();
+
+      const form = document.getElementById('login-form');
+      const emailInput = document.getElementById('login-email');
+      const pwInput = document.getElementById('login-password');
+      const errBox = document.getElementById('login-error-alert');
+      const togglePwBtn = document.getElementById('btn-toggle-pw');
+
+      // Check URL query parameters for notice
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('notice') === 'login_required') {
+        errBox.style.display = 'block';
+        errBox.textContent = 'Please sign in to access the customer rental portal. Use the demo credentials below.';
+      }
+
+      // 1-Click Demo Pre-Fill buttons
+      document.getElementById('fill-alex').addEventListener('click', () => {
+        emailInput.value = 'alex.chen@nestloop.demo';
+        pwInput.value = 'password123';
+        errBox.style.display = 'none';
+      });
+
+      document.getElementById('fill-priya').addEventListener('click', () => {
+        emailInput.value = 'priya.sharma@nestloop.demo';
+        pwInput.value = 'password123';
+        errBox.style.display = 'none';
+      });
+
+      // Show / Hide Password toggle
+      togglePwBtn.addEventListener('click', () => {
+        const isPw = pwInput.type === 'password';
+        pwInput.type = isPw ? 'text' : 'password';
+        togglePwBtn.setAttribute('aria-label', isPw ? 'Hide password' : 'Show password');
+      });
+
+      // Handle Submission
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        errBox.style.display = 'none';
+
+        const email = emailInput.value.trim();
+        const pw = pwInput.value.trim();
+
+        if (!email || !pw) {
+          errBox.style.display = 'block';
+          errBox.textContent = 'Please provide both your demo email and password.';
+          return;
+        }
+
+        const res = auth.login(email, pw);
+        if (res.success) {
+          if (window.NestloopApp && window.NestloopApp.showToast) {
+            window.NestloopApp.showToast(`Welcome back, ${res.user.name}!`, 'success');
+          }
+          const redirect = urlParams.get('redirect') || 'dashboard.html';
+          setTimeout(() => {
+            window.location.href = redirect;
+          }, 300);
+        } else {
+          errBox.style.display = 'block';
+          errBox.textContent = res.error;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

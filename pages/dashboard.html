@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard — Rental Management | NESTLOOP</title>
+  <meta name="description" content="Manage your active furniture rentals, track monthly payments, request item swaps, schedule early returns, and download verified rental agreements and payment receipts.">
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
+
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#dash-main-content" class="skip-link">Skip to portal workspace</a>
+
+  <div class="dash-layout" id="customer-dashboard-root">
+    <!-- Collapsible Responsive Sidebar -->
+    <aside class="dash-sidebar" aria-label="Customer Portal Navigation">
+      <div class="dash-sidebar-header">
+        <a href="../index.html" class="dash-sidebar-brand" aria-label="Return to Storefront">
+          <img src="../assets/brand/logo.svg" alt="NESTLOOP Logo" class="brand-logo logo-light">
+          <img src="../assets/brand/logo-white.svg" alt="NESTLOOP Logo" class="brand-logo logo-dark">
+        </a>
+      </div>
+
+      <!-- Main Portal Navigation Items -->
+      <nav class="dash-nav" role="navigation">
+        <a href="#overview" class="dash-nav-link active" data-dash-view="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Overview</span>
+        </a>
+
+        <a href="#browse" class="dash-nav-link" data-dash-view="browse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Browse Packages</span>
+        </a>
+
+        <a href="#rentals" class="dash-nav-link" data-dash-view="rentals">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"></path><rect x="2" y="9" width="20" height="12" rx="2"></rect><line x1="2" y1="14" x2="22" y2="14"></line></svg>
+          <span>My Rentals</span>
+          <span class="dash-nav-badge" id="sidebar-rentals-count">2</span>
+        </a>
+
+        <a href="#billing" class="dash-nav-link" data-dash-view="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+          <span>Billing &amp; Due Dates</span>
+        </a>
+
+        <a href="#requests" class="dash-nav-link" data-dash-view="requests">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          <span>Swap / Return</span>
+        </a>
+
+        <a href="#documents" class="dash-nav-link" data-dash-view="documents">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Documents</span>
+        </a>
+
+        <a href="#settings" class="dash-nav-link" data-dash-view="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Profile &amp; Settings</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar User Profile Footer -->
+      <div class="dash-sidebar-footer">
+        <div class="user-mini-profile">
+          <div class="user-avatar user-avatar-text">AC</div>
+          <div class="user-details-mini">
+            <span class="user-name-mini user-name-text">Alex Chen</span>
+            <span class="user-role-mini user-role-text">Working Professional</span>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline btn-sm action-logout" style="width: 100%; margin-top: 6px;">
+          Sign Out (Demo)
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="dash-main" id="dash-main-content">
+      <!-- Top Bar -->
+      <header class="dash-topbar">
+        <h1 class="dash-topbar-title" id="dash-topbar-title">Account Overview</h1>
+
+        <div class="dash-topbar-actions">
+          <span class="dash-demo-tag">Demonstration Session</span>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle></svg>
+          </button>
+
+          <!-- RTL Toggle -->
+          <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
+
+          <!-- Return to Public Storefront -->
+          <a href="../index.html" class="btn btn-outline btn-sm">Storefront</a>
+        </div>
+      </header>
+
+      <!-- Dashboard Content View Area -->
+      <main class="dash-content">
+        <!-- VIEW 1: OVERVIEW -->
+        <section id="view-overview" class="dash-view active" aria-labelledby="view-overview-title">
+          <h2 id="view-overview-title" class="visually-hidden" style="position: absolute; left: -9999px;">Overview</h2>
+          <!-- Metrics Cards Row -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Active Rentals</span>
+                <div class="metric-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"></path><rect x="2" y="9" width="20" height="12" rx="2"></rect></svg>
+                </div>
+              </div>
+              <div class="metric-value" id="metric-active-count">2</div>
+              <div class="metric-sub">Active in Bengaluru residence</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Monthly Rent Total</span>
+                <div class="metric-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                </div>
+              </div>
+              <div class="metric-value" id="metric-monthly-total">₹3,298</div>
+              <div class="metric-sub">Auto-debit active on 15th</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Next Payment Due</span>
+                <div class="metric-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+              </div>
+              <div class="metric-value" style="font-size: 1.35rem;" id="metric-next-due">2026-10-15</div>
+              <div class="metric-sub">Cycle: Oct 15 – Nov 14</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Pending Requests</span>
+                <div class="metric-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"></path></svg>
+                </div>
+              </div>
+              <div class="metric-value" id="metric-pending-count">1</div>
+              <div class="metric-sub">Swap dispatch under review</div>
+            </div>
+          </div>
+
+          <!-- Next Payment Widget Banner -->
+          <div class="next-payment-banner">
+            <div class="banner-info">
+              <span class="banner-tag">Upcoming Payment Cycle</span>
+              <div class="banner-title">Next Recurring Due: <span id="banner-pay-amount">₹3,298</span></div>
+              <div class="banner-desc">Scheduled for deduction on <span id="banner-pay-date">October 15, 2026</span> via registered demo payment mode.</div>
+            </div>
+            <div class="banner-actions">
+              <a href="#billing" class="btn btn-primary" onclick="window.location.hash='billing'">Manage Billing</a>
+              <button type="button" class="btn btn-outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);" onclick="window.location.hash='requests'">Request Item Swap</button>
+            </div>
+          </div>
+
+          <!-- Active Furniture Quick Overview -->
+          <div class="card" style="margin-bottom: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <h3 class="card-title">Currently Subscribed Furniture</h3>
+              <a href="#rentals" class="btn btn-outline btn-sm" onclick="window.location.hash='rentals'">View All Details →</a>
+            </div>
+            <div id="overview-rentals-preview">
+              <!-- Rendered by dashboard.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: BROWSE PACKAGES FROM PORTAL -->
+        <section id="view-browse" class="dash-view" aria-labelledby="view-browse-title">
+          <div style="margin-bottom: 24px;">
+            <h2 id="view-browse-title" class="subsection-h3">Add Furniture to Your Account</h2>
+            <p class="body-sm">Browse our full catalogue directly from your customer dashboard and add new bundles without repeating identity checks.</p>
+          </div>
+          <div id="dash-browse-grid" class="packages-grid">
+            <!-- Populated by assets/js/dashboard.js -->
+          </div>
+        </section>
+
+        <!-- VIEW 3: MY RENTALS -->
+        <section id="view-rentals" class="dash-view" aria-labelledby="view-rentals-title">
+          <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <h2 id="view-rentals-title" class="subsection-h3">My Active Rental Subscriptions</h2>
+              <p class="body-sm">Detailed records of all furniture pieces delivered to your apartment.</p>
+            </div>
+            <a href="#browse" class="btn btn-primary btn-sm" onclick="window.location.hash='browse'">+ Add Another Bundle</a>
+          </div>
+
+          <div id="my-rentals-list" class="rentals-list-grid">
+            <!-- Populated by assets/js/dashboard.js -->
+          </div>
+        </section>
+
+        <!-- VIEW 4: BILLING & DUE DATES -->
+        <section id="view-billing" class="dash-view" aria-labelledby="view-billing-title">
+          <div style="margin-bottom: 24px;">
+            <h2 id="view-billing-title" class="subsection-h3">Billing Schedule &amp; Invoices</h2>
+            <p class="body-sm">Transparent monthly accounting with itemized breakdowns and official PDF receipt downloads.</p>
+          </div>
+
+          <div class="card" style="margin-bottom: 28px; padding: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-muted-text); text-transform: uppercase;">Total Monthly Commitment</div>
+              <div style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--color-deep-ink);" id="billing-monthly-sum">₹3,298 / month</div>
+              <div style="font-size: 0.8125rem; color: var(--color-muted-text);">Due on the 15th of every month • Includes all applicable taxes</div>
+            </div>
+            <button type="button" id="btn-demo-pay-now" class="btn btn-primary">
+              Simulate Advance Payment (Demo)
+            </button>
+          </div>
+
+          <div class="data-table-card">
+            <div class="data-table-header">
+              <h3 class="card-title">Past Statements &amp; Payment History</h3>
+              <span style="font-size: 0.775rem; color: var(--color-muted-text);">All amounts in INR</span>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Invoice #</th>
+                    <th>Date</th>
+                    <th>Billing Cycle</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Receipt PDF</th>
+                  </tr>
+                </thead>
+                <tbody id="billing-history-tbody">
+                  <!-- Populated by assets/js/dashboard.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 5: SWAP & RETURN REQUESTS -->
+        <section id="view-requests" class="dash-view" aria-labelledby="view-requests-title">
+          <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <h2 id="view-requests-title" class="subsection-h3">Furniture Swap &amp; Early-Return Requests</h2>
+              <p class="body-sm">Submit modification requests. Your active rental remains intact until our logistics dispatch is finalized.</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button type="button" class="btn btn-primary btn-sm" onclick="window.NestloopDash.openSwapModal()">
+                + Request Item Swap
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="window.NestloopDash.openReturnModal()">
+                + Request Early Return
+              </button>
+            </div>
+          </div>
+
+          <div id="requests-history-list" class="requests-history-grid">
+            <!-- Populated by assets/js/dashboard.js -->
+          </div>
+        </section>
+
+        <!-- VIEW 6: DOCUMENTS -->
+        <section id="view-documents" class="dash-view" aria-labelledby="view-documents-title">
+          <div style="margin-bottom: 24px;">
+            <h2 id="view-documents-title" class="subsection-h3">Rental Agreements &amp; Payment Receipts</h2>
+            <p class="body-sm">Download real, vector-rendered PDF documents for your lease terms, damage warranties, and corporate expense proofs.</p>
+          </div>
+
+          <h3 class="card-title" style="margin-bottom: 14px;">Executed Rental Agreements (PDF)</h3>
+          <div id="docs-agreements-list" class="docs-grid" style="margin-bottom: 36px;">
+            <!-- Populated by assets/js/dashboard.js -->
+          </div>
+
+          <h3 class="card-title" style="margin-bottom: 14px;">Payment Receipts (PDF)</h3>
+          <div id="docs-receipts-list" class="docs-grid">
+            <!-- Populated by assets/js/dashboard.js -->
+          </div>
+        </section>
+
+        <!-- VIEW 7: PROFILE & SETTINGS -->
+        <section id="view-settings" class="dash-view" aria-labelledby="view-settings-title">
+          <div style="margin-bottom: 24px;">
+            <h2 id="view-settings-title" class="subsection-h3">Customer Profile &amp; Demonstration Settings</h2>
+            <p class="body-sm">Manage simulated contact credentials, delivery address preferences, and demonstration state resets.</p>
+          </div>
+
+          <div class="card" style="max-width: 680px; padding: 32px; margin-bottom: 32px;">
+            <h3 class="card-title" style="margin-bottom: 18px;">Personal Information (Demo)</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label for="settings-name" class="form-label">Full Name</label>
+                <input type="text" id="settings-name" class="form-control" readonly>
+              </div>
+              <div class="form-group">
+                <label for="settings-email" class="form-label">Email Address</label>
+                <input type="email" id="settings-email" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="settings-phone" class="form-label">Phone Contact</label>
+              <input type="tel" id="settings-phone" class="form-control" value="+91 98765 43210" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="settings-address" class="form-label">Registered Residence Address</label>
+              <textarea id="settings-address" class="form-textarea" rows="2" readonly></textarea>
+            </div>
+          </div>
+
+          <div class="card" style="max-width: 680px; padding: 32px; border-color: #FAD2CF; background-color: var(--color-card-bg);">
+            <h3 class="card-title" style="color: var(--color-danger); margin-bottom: 8px;">Reset Demonstration Data</h3>
+            <p class="body-sm" style="margin-bottom: 16px;">
+              Reset all active rentals, swap requests, and payment transactions back to the original default seed state.
+            </p>
+            <button type="button" id="btn-reset-demo-data" class="btn btn-outline" style="color: var(--color-danger); border-color: var(--color-danger);">
+              Reset All Demo State to Seed
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL: SWAP REQUEST WORKFLOW -->
+  <div class="modal-overlay" id="modal-swap-request" role="dialog" aria-modal="true" aria-labelledby="swap-modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="swap-modal-title">Request a Furniture Item Swap</h3>
+        <button type="button" class="drawer-close-btn" data-close-modal aria-label="Close dialog">✕</button>
+      </div>
+      <form id="form-swap-request">
+        <div class="modal-body">
+          <p class="body-sm" style="margin-bottom: 18px;">
+            Select which item you wish to swap, your preferred replacement bundle, and your target date. Our dispatch team will inspect access routes and contact you within 24 hours.
+          </p>
+
+          <div class="form-group">
+            <label for="swap-rental-select" class="form-label">Current Rented Item to Swap</label>
+            <select id="swap-rental-select" class="form-select" required></select>
+          </div>
+
+          <div class="form-group">
+            <label for="swap-replacement-select" class="form-label">Desired Replacement Package / Piece</label>
+            <select id="swap-replacement-select" class="form-select" required></select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label for="swap-reason" class="form-label">Reason for Swap</label>
+              <select id="swap-reason" class="form-select">
+                <option value="Need larger seating / space">Need larger seating / space</option>
+                <option value="Relocating to another apartment">Relocating to another apartment</option>
+                <option value="Seasonal interior refresh">Seasonal interior refresh</option>
+                <option value="Academic semester concluded">Academic semester concluded</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="swap-date" class="form-label">Target Swap Date</label>
+              <input type="date" id="swap-date" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="swap-notes" class="form-label">Notes for Delivery Technicians (Optional)</label>
+            <textarea id="swap-notes" class="form-textarea" placeholder="e.g. 3rd floor with freight elevator available"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Swap Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: EARLY RETURN REQUEST WORKFLOW -->
+  <div class="modal-overlay" id="modal-return-request" role="dialog" aria-modal="true" aria-labelledby="return-modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="return-modal-title">Request Early Furniture Return</h3>
+        <button type="button" class="drawer-close-btn" data-close-modal aria-label="Close dialog">✕</button>
+      </div>
+      <form id="form-return-request">
+        <div class="modal-body">
+          <p class="body-sm" style="margin-bottom: 18px;">
+            Need to conclude a subscription early? Submit your preferred pickup date. Your active rental state remains active until physical collection and quality check.
+          </p>
+
+          <div class="form-group">
+            <label for="return-rental-select" class="form-label">Rental Item to Return</label>
+            <select id="return-rental-select" class="form-select" required></select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label for="return-date" class="form-label">Preferred Pickup Date</label>
+              <input type="date" id="return-date" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="return-reason" class="form-label">Primary Return Reason</label>
+              <select id="return-reason" class="form-select">
+                <option value="Moving out of city">Moving out of city</option>
+                <option value="Graduating / Course finished">Graduating / Course finished</option>
+                <option value="Lease ending early">Lease ending early</option>
+                <option value="Purchased own furniture">Purchased own furniture</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="return-notes" class="form-label">Access or Packing Instructions</label>
+            <textarea id="return-notes" class="form-textarea" placeholder="e.g. Building gate code or elevator clearance details"></textarea>
+          </div>
+
+          <div style="font-size: 0.75rem; color: var(--color-muted-text); background: var(--color-surface-tint); padding: 10px; border-radius: var(--radius-sm);">
+            * Security deposit reconciliation is finalized within 5 to 7 business days following item inspection.
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-secondary">Submit Return Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Real jsPDF Vendor & NESTLOOP Scripts -->
+  <script src="../assets/vendor/jspdf.umd.min.js"></script>
+  <script src="../assets/data/data.js"></script>
+  <script src="../assets/js/pdf-generator.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniture Packages Catalogue — Starter, Essential &amp; Premium | NESTLOOP</title>
+  <meta name="description" content="Browse curated furniture packages for students and professionals. Filter by tier, room category, and tenure with transparent monthly rental pricing.">
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
+
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Announcement Strip -->
+  <div class="top-notice-bar" role="region" aria-label="Announcement">
+    <span class="top-notice-badge">Move-In Special</span>
+    <span>Zero delivery or assembly charges on all Starter, Essential, and Premium furniture bundles.</span>
+  </div>
+
+  <!-- Shared Header -->
+  <header class="site-header" id="site-header">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="brand-link" aria-label="NESTLOOP Homepage">
+        <img src="../assets/brand/logo.svg" alt="NESTLOOP Logo" class="brand-logo logo-light">
+        <img src="../assets/brand/logo-white.svg" alt="NESTLOOP Logo" class="brand-logo logo-dark">
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu-desktop">
+          <li class="nav-item-dropdown">
+            <button type="button" class="nav-link dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              <span>Home</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../index.html" class="dropdown-item">
+                  <span class="dropdown-item-title">Home 1: Storefront</span>
+                  <span class="dropdown-item-desc">Affordable &amp; conversion focus</span>
+                </a>
+              </li>
+              <li>
+                <a href="home2.html" class="dropdown-item">
+                  <span class="dropdown-item-title">Home 2: Modular Living</span>
+                  <span class="dropdown-item-desc">Editorial layout &amp; room stories</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="packages.html" class="nav-link active">Packages</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="coverage.html" class="nav-link">Coverage Areas</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line></svg>
+        </button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle direction">
+          <span class="dir-label-text">RTL</span>
+        </button>
+        <a href="login.html" class="btn btn-outline btn-sm" id="nav-auth-link">Login</a>
+        <a href="packages.html" class="btn btn-primary btn-sm">Explore Packages</a>
+        <button type="button" class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <a href="../index.html" class="brand-link">
+        <img src="../assets/brand/logo.svg" alt="NESTLOOP Logo" class="brand-logo logo-light" style="height: 32px;">
+        <img src="../assets/brand/logo-white.svg" alt="NESTLOOP Logo" class="brand-logo logo-dark" style="height: 32px;">
+      </a>
+      <button type="button" class="drawer-close-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="drawer-body">
+      <ul class="drawer-nav-list">
+        <li>
+          <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text); padding: 8px 14px 4px 14px;">Home Variations</div>
+          <div class="drawer-subnav">
+            <a href="../index.html" class="drawer-sublink">Home 1: Storefront</a>
+            <a href="home2.html" class="drawer-sublink">Home 2: Modular Living</a>
+          </div>
+        </li>
+        <li><a href="packages.html" class="drawer-nav-link active">Packages</a></li>
+        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
+        <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
+        <li><a href="coverage.html" class="drawer-nav-link">Coverage Areas</a></li>
+        <li><a href="about.html" class="drawer-nav-link">About</a></li>
+        <li><a href="faq.html" class="drawer-nav-link">FAQs</a></li>
+        <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="drawer-nav-link">Customer Dashboard</a></li>
+      </ul>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-toggles">
+        <button type="button" class="utility-btn theme-toggle-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle></svg></button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
+        <a href="login.html" class="btn btn-primary btn-sm" style="flex: 1;">Login</a>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <div class="section" style="padding-top: 48px;">
+      <div class="container">
+        <!-- Page Title & Intro -->
+        <div class="section-header" style="max-width: 720px;">
+          <span class="eyebrow">Curated Collections</span>
+          <h1 class="inner-h1">Furniture Packages Catalogue</h1>
+          <p class="body-lead">
+            Explore turnkey bundles for compact student bedrooms, work-from-home setups, and full 1BHK/2BHK apartments. Select your preferred tenure to view live monthly estimates.
+          </p>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="catalogue-filters" role="search" aria-label="Filter Packages">
+          <!-- Top Row: Tier & Category Pills -->
+          <div class="filter-row-top">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text);">Filter by Package Tier:</span>
+              <div class="filter-group-pills">
+                <button type="button" class="filter-pill active" data-filter-tier="all">All Tiers (9)</button>
+                <button type="button" class="filter-pill" data-filter-tier="Starter">Starter</button>
+                <button type="button" class="filter-pill" data-filter-tier="Essential">Essential</button>
+                <button type="button" class="filter-pill" data-filter-tier="Premium">Premium</button>
+              </div>
+            </div>
+
+            <!-- Search Field -->
+            <div class="filter-search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="filter-search" class="form-input" placeholder="Search by item, room or feature..." aria-label="Search packages">
+            </div>
+          </div>
+
+          <!-- Bottom Row: Room Category, Audience, Tenure Toggle, Reset -->
+          <div class="filter-row-bottom">
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <!-- Room Category Filter -->
+              <div class="filter-group-pills">
+                <button type="button" class="filter-pill active" data-filter-category="all">All Rooms</button>
+                <button type="button" class="filter-pill" data-filter-category="bedroom">Bedroom</button>
+                <button type="button" class="filter-pill" data-filter-category="living">Living Room</button>
+                <button type="button" class="filter-pill" data-filter-category="workspace">Workspace</button>
+                <button type="button" class="filter-pill" data-filter-category="apartment">Full Flat</button>
+              </div>
+
+              <!-- Audience Dropdown -->
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <label for="filter-audience" style="font-size: 0.8125rem; font-weight: 600; color: var(--color-muted-text);">Audience:</label>
+                <select id="filter-audience" class="form-select" style="height: 34px; padding: 0 10px; font-size: 0.8125rem; width: auto;">
+                  <option value="all">All Audiences</option>
+                  <option value="Student">Students Only</option>
+                  <option value="Professional">Professionals Only</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Live Tenure Selector -->
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div class="tenure-toggle-inline">
+                <span style="font-weight: 600; font-size: 0.8125rem; color: var(--color-muted-text);">Tenure:</span>
+                <div class="tenure-btn-group">
+                  <button type="button" class="tenure-btn" data-tenure-val="3">3 Mos</button>
+                  <button type="button" class="tenure-btn" data-tenure-val="6">6 Mos</button>
+                  <button type="button" class="tenure-btn active" data-tenure-val="12">12 Mos</button>
+                </div>
+              </div>
+
+              <button type="button" id="filter-reset-btn" class="btn btn-outline btn-sm" style="font-size: 0.8rem; height: 32px; padding: 0 10px;">
+                Reset Filters
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Count Indicator -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <span id="packages-count-badge" style="font-size: 0.875rem; font-weight: 600; color: var(--color-muted-text);">
+            Showing all 9 Bundles
+          </span>
+          <span style="font-size: 0.775rem; color: var(--color-muted-text);">
+            * Sample demonstration pricing in INR including GST
+          </span>
+        </div>
+
+        <!-- Packages Grid Root (populated by packages.js) -->
+        <div id="packages-grid" class="packages-grid" aria-live="polite">
+          <!-- Populated by assets/js/packages.js -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-link">
+            <img src="../assets/brand/logo-white.svg" alt="NESTLOOP Logo" style="height: 38px;">
+          </a>
+          <p>
+            NESTLOOP is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.
+          </p>
+          <div class="footer-badges">
+            <span class="footer-badge-pill">Circular Lifecycle</span>
+            <span class="footer-badge-pill">White-Glove Setup</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Pages / Explore</h4>
+          <ul class="footer-nav">
+            <li><a href="../index.html">Home 1: Storefront</a></li>
+            <li><a href="home2.html">Home 2: Modular Living</a></li>
+            <li><a href="packages.html">Packages Catalogue</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="pricing.html">Pricing Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Packages</h4>
+          <ul class="footer-nav">
+            <li><a href="packages.html?tier=starter">Starter Bundles</a></li>
+            <li><a href="packages.html?tier=essential">Essential Sets</a></li>
+            <li><a href="packages.html?tier=premium">Premium Suites</a></li>
+            <li><a href="packages.html?category=workspace">WFH Workstations</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Support &amp; Portal</h4>
+          <ul class="footer-nav">
+            <li><a href="coverage.html">Coverage Areas</a></li>
+            <li><a href="about.html">About NESTLOOP</a></li>
+            <li><a href="faq.html">Rental FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="dashboard.html">Customer Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Legal &amp; Policy</h4>
+          <ul class="footer-nav">
+            <li><a href="terms.html">Rental Agreement Terms</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="login.html">Demo Portal Login</a></li>
+            <li><a href="register.html">Demo Registration</a></li>
+            <li><a href="../documentation/IMAGE-SOURCES.md">Image Sources &amp; Provenance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 NESTLOOP Furnishing Solutions. Static demonstration platform.</div>
+        <ul class="footer-bottom-links">
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="coverage.html">Coverage</a></li>
+          <li><a href="dashboard.html">Portal</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/data/data.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/packages.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.NestloopAuth && window.NestloopAuth.isAuthenticated()) {
+        const authLink = document.getElementById('nav-auth-link');
+        if (authLink) {
+          authLink.href = 'dashboard.html';
+          authLink.innerHTML = `<span class="user-avatar" style="width: 24px; height: 24px; font-size: 0.7rem;">AC</span><span>Dashboard</span>`;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

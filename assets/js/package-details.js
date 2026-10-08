@@ -1,0 +1,276 @@
+/**
+ * NESTLOOP — Package Details Controller
+ * Renders package details dynamically based on ?id= query param,
+ * provides thumbnail photo gallery switching, dynamic tenure cost recalculation,
+ * and handles the interactive demo rental request workflow.
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const detailRoot = document.getElementById('package-detail-container');
+  if (!detailRoot) return;
+
+  const data = window.NestloopData;
+  if (!data) return;
+
+  // Read URL params
+  const params = new URLSearchParams(window.location.search);
+  const packageId = params.get('id') || 'starter-student-room';
+  let selectedTenure = parseInt(params.get('tenure'), 10) || 12;
+
+  const pkg = data.getPackageById(packageId);
+
+  // Set document title
+  document.title = `${pkg.name} — Furniture Rental | NESTLOOP`;
+
+  // Gallery items (main package photo + authentic detail close-ups)
+  const galleryPhotos = [
+    { src: data.getImagePath(pkg.image), alt: `${pkg.name} Room View` },
+    { src: data.getImagePath('gallery-detail-1.webp'), alt: 'Solid Wood Construction Detail' },
+    { src: data.getImagePath('gallery-detail-2.webp'), alt: 'Stain-Resistant Performance Fabric' },
+    { src: data.getImagePath('gallery-detail-3.webp'), alt: 'Ergonomic Adjustment & Cable Conduit' }
+  ];
+
+  let currentActivePhotoIndex = 0;
+
+  function renderView() {
+    const cost = data.calculateCost(pkg, selectedTenure);
+    const tierChipClass = pkg.tier === 'Starter' ? 'chip-starter' : (pkg.tier === 'Essential' ? 'chip-essential' : 'chip-premium');
+
+    detailRoot.innerHTML = `
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 24px;">
+        <ol style="display: flex; gap: 8px; list-style: none; font-size: 0.875rem; color: var(--color-muted-text); align-items: center;">
+          <li><a href="../index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+          <li>/</li>
+          <li><a href="packages.html" style="color: inherit; text-decoration: none;">Packages</a></li>
+          <li>/</li>
+          <li style="color: var(--color-deep-ink); font-weight: 600;">${pkg.name}</li>
+        </ol>
+      </nav>
+
+      <div class="detail-layout">
+        <!-- Media Gallery -->
+        <div class="detail-gallery">
+          <img id="detail-main-img" class="detail-main-img" src="${galleryPhotos[currentActivePhotoIndex].src}" alt="${galleryPhotos[currentActivePhotoIndex].alt}">
+          <div class="detail-thumbs">
+            ${galleryPhotos.map((photo, idx) => `
+              <button type="button" class="detail-thumb-btn ${idx === currentActivePhotoIndex ? 'active' : ''}" data-thumb-idx="${idx}" aria-label="View photo ${idx + 1}">
+                <img src="${photo.src}" alt="${photo.alt}">
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- Included Furniture Breakdown -->
+          <div class="card" style="margin-top: 24px;">
+            <h3 class="subsection-h3" style="margin-bottom: 16px;">Included Furniture Pieces (${pkg.includedItems.length})</h3>
+            <ul class="items-checklist">
+              ${pkg.includedItems.map(item => `
+                <li class="checklist-item">
+                  <div class="checklist-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <div>
+                    <div style="font-weight: 600; color: var(--color-deep-ink); font-size: 0.95rem;">${item.qty}x ${item.name}</div>
+                    <div style="font-size: 0.8125rem; color: var(--color-muted-text);">${item.specs}</div>
+                  </div>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <!-- Room Fit & Specs -->
+          <div class="card" style="margin-top: 20px;">
+            <h3 class="subsection-h3" style="margin-bottom: 14px;">Package Specifications</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 0.875rem;">
+              <div>
+                <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Room Compatibility</div>
+                <div style="font-weight: 600;">${pkg.roomFit}</div>
+              </div>
+              <div>
+                <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Aesthetic Finish</div>
+                <div style="font-weight: 600;">${pkg.packageSpecs.finish}</div>
+              </div>
+              <div>
+                <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Delivery & Setup</div>
+                <div style="font-weight: 600; color: var(--color-success);">${pkg.packageSpecs.assemblyRequirement}</div>
+              </div>
+              <div>
+                <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Care Guarantee</div>
+                <div style="font-weight: 600;">${pkg.packageSpecs.maintenanceCover}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Configuration & Booking Side -->
+        <div class="detail-sidebar">
+          <div class="detail-config-card" id="rent-config">
+            <div>
+              <span class="chip ${tierChipClass}" style="margin-bottom: 10px;">${pkg.tier} Bundle</span>
+              <h1 class="inner-h1" style="margin-bottom: 8px;">${pkg.name}</h1>
+              <p class="body-lead" style="font-size: 1rem; margin-bottom: 16px;">${pkg.tagline}</p>
+              <div style="font-size: 0.875rem; color: var(--color-muted-text);">${pkg.shortDescription}</div>
+            </div>
+
+            <!-- Tenure Selector -->
+            <div>
+              <label class="form-label" style="margin-bottom: 8px; display: block;">Select Rental Tenure</label>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                <button type="button" class="btn ${selectedTenure === 3 ? 'btn-secondary' : 'btn-outline'} btn-sm" data-detail-tenure="3">
+                  3 Months
+                </button>
+                <button type="button" class="btn ${selectedTenure === 6 ? 'btn-secondary' : 'btn-outline'} btn-sm" data-detail-tenure="6">
+                  6 Months
+                </button>
+                <button type="button" class="btn ${selectedTenure === 12 ? 'btn-secondary' : 'btn-outline'} btn-sm" data-detail-tenure="12">
+                  12 Months
+                </button>
+              </div>
+              <div style="font-size: 0.75rem; color: var(--color-muted-text); margin-top: 6px;">
+                ${selectedTenure === 12 ? '★ Most cost-effective rate with free annual deep-cleaning' : 'Extend or swap anytime with 14-day notice'}
+              </div>
+            </div>
+
+            <!-- Pricing Breakdown -->
+            <div class="detail-cost-breakdown">
+              <div class="cost-row">
+                <span>Monthly Rent (${selectedTenure} mos)</span>
+                <span style="font-weight: 700; font-size: 1.15rem; color: var(--color-cobalt);">₹${cost.monthlyRate.toLocaleString('en-IN')} / mo</span>
+              </div>
+              <div class="cost-row">
+                <span>Refundable Security Deposit (1.5x)</span>
+                <span>₹${cost.deposit.toLocaleString('en-IN')}</span>
+              </div>
+              <div class="cost-row">
+                <span>White-Glove Delivery & Assembly</span>
+                <span style="color: var(--color-success); font-weight: 600;">FREE</span>
+              </div>
+              <div class="cost-row total-first">
+                <span>Total Due on Delivery (Demo)</span>
+                <span style="color: var(--color-deep-ink); font-size: 1.2rem;">₹${cost.totalFirstMonth.toLocaleString('en-IN')}</span>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <div>
+              <button type="button" id="btn-request-rental" class="btn btn-primary btn-lg" style="width: 100%;">
+                Request This Rental (Demo)
+              </button>
+              <p style="font-size: 0.75rem; color: var(--color-muted-text); text-align: center; margin-top: 10px;">
+                Zero commitment checkout • No credit card required for demonstration
+              </p>
+            </div>
+
+            <!-- Highlights Checklist -->
+            <div style="border-top: 1px solid var(--color-border); padding-top: 18px;">
+              <h4 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; color: var(--color-deep-ink);">Why Rent With NESTLOOP</h4>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.8125rem; color: var(--color-muted-text);">
+                ${pkg.highlights.map(h => `<li style="display: flex; gap: 8px; align-items: center;"><span style="color: var(--color-cobalt); font-weight: bold;">✓</span> ${h}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    attachEvents();
+  }
+
+  function attachEvents() {
+    // Thumbnail switching
+    const thumbs = detailRoot.querySelectorAll('.detail-thumb-btn');
+    const mainImg = detailRoot.getElementById ? detailRoot.getElementById('detail-main-img') : document.getElementById('detail-main-img');
+
+    thumbs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-thumb-idx'), 10);
+        currentActivePhotoIndex = idx;
+        if (mainImg) {
+          mainImg.src = galleryPhotos[idx].src;
+          mainImg.alt = galleryPhotos[idx].alt;
+        }
+        thumbs.forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Tenure buttons
+    const tenureButtons = detailRoot.querySelectorAll('[data-detail-tenure]');
+    tenureButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedTenure = parseInt(btn.getAttribute('data-detail-tenure'), 10);
+        renderView();
+      });
+    });
+
+    // Request Rental action
+    const reqBtn = detailRoot.querySelector('#btn-request-rental');
+    if (reqBtn) {
+      reqBtn.addEventListener('click', handleRentalRequest);
+    }
+  }
+
+  function handleRentalRequest() {
+    const auth = window.NestloopAuth;
+    const isAuthed = auth && auth.isAuthenticated();
+    const cost = data.calculateCost(pkg, selectedTenure);
+
+    // If logged in, add active rental directly into demo customer state!
+    if (isAuthed) {
+      const state = data.getDemoState();
+      const newRentalId = 'NL-' + Math.floor(1000 + Math.random() * 9000);
+      const newAgrId = 'AGR-2026-' + newRentalId;
+
+      const now = new Date();
+      const startDateStr = now.toISOString().split('T')[0];
+      const endDate = new Date(now);
+      endDate.setMonth(endDate.getMonth() + selectedTenure);
+      const endDateStr = endDate.toISOString().split('T')[0];
+
+      // Next due date: 15th of next month
+      const nextDue = new Date(now);
+      nextDue.setDate(15);
+      if (now.getDate() >= 15) {
+        nextDue.setMonth(nextDue.getMonth() + 1);
+      }
+      const nextDueStr = nextDue.toISOString().split('T')[0];
+
+      const newRentalRecord = {
+        rentalId: newRentalId,
+        packageId: pkg.id,
+        packageName: pkg.name,
+        category: pkg.category,
+        image: pkg.image,
+        tenureMonths: selectedTenure,
+        monthlyRate: cost.monthlyRate,
+        depositPaid: cost.deposit,
+        startDate: startDateStr,
+        endDate: endDateStr,
+        nextDueDate: nextDueStr,
+        status: "Active",
+        agreementNumber: newAgrId,
+        itemsSummary: pkg.includedItems.map(i => `${i.qty}x ${i.name.split(' (')[0]}`).join(', '),
+        paymentMethod: "Demo Billing Account"
+      };
+
+      state.rentals.unshift(newRentalRecord);
+      data.saveDemoState(state);
+
+      if (window.NestloopApp && window.NestloopApp.showToast) {
+        window.NestloopApp.showToast(`Package "${pkg.name}" added to your Active Rentals!`, 'success');
+      }
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html#rentals';
+      }, 800);
+    } else {
+      // Direct unauthenticated demo flow: save requested item in session and prompt login
+      if (confirm(`You selected "${pkg.name}" (${selectedTenure} months at ₹${cost.monthlyRate.toLocaleString('en-IN')}/mo).\n\nProceed to Customer Portal demo login to finalize your delivery scheduling?`)) {
+        window.location.href = `login.html?redirect=package-details.html?id=${pkg.id}&tenure=${selectedTenure}`;
+      }
+    }
+  }
+
+  // Initial render
+  renderView();
+});

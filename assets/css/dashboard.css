@@ -1,0 +1,648 @@
+/**
+ * NESTLOOP — Customer Dashboard CSS
+ * SaaS-grade customer rental management portal layout, sidebar, top header,
+ * metrics widgets, active rental cards, billing schedule table, swap & return modal/forms,
+ * document download center, and responsive collapsing drawer.
+ */
+
+.dash-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-surface-tint);
+}
+
+/* Sidebar */
+.dash-sidebar {
+  width: 260px;
+  background-color: var(--color-card-bg);
+  border-inline-end: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 900;
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.dash-sidebar-header {
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dash-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.dash-sidebar-brand img {
+  height: 32px;
+}
+
+.dash-nav {
+  padding: 16px 12px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+}
+
+.dash-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--color-deep-ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dash-nav-link svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-muted-text);
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.dash-nav-link:hover {
+  background-color: var(--color-surface-tint);
+  color: var(--color-cobalt);
+}
+
+.dash-nav-link:hover svg {
+  color: var(--color-cobalt);
+}
+
+.dash-nav-link.active {
+  background-color: var(--color-cobalt-light);
+  color: var(--color-cobalt);
+  font-weight: 600;
+}
+
+.dash-nav-link.active svg {
+  color: var(--color-cobalt);
+}
+
+.dash-nav-badge {
+  margin-inline-start: auto;
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-cobalt);
+  color: #FFFFFF;
+}
+
+.dash-sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-mini-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-cobalt);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.user-details-mini {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.user-name-mini {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-deep-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role-mini {
+  font-size: 0.72rem;
+  color: var(--color-muted-text);
+}
+
+/* Main Dashboard Workspace */
+.dash-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.dash-topbar {
+  height: 68px;
+  background-color: var(--color-card-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 800;
+}
+
+.dash-topbar-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-deep-ink);
+}
+
+.dash-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-demo-tag {
+  background-color: var(--color-pale-mint);
+  border: 1px solid var(--color-pale-mint-darker);
+  color: var(--color-success);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.dash-content {
+  padding: 32px;
+  flex: 1;
+}
+
+.dash-view {
+  display: none;
+}
+
+.dash-view.active {
+  display: block;
+}
+
+/* Metrics Row */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.metric-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.metric-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-muted-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cobalt);
+}
+
+.metric-value {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-deep-ink);
+  margin-bottom: 4px;
+}
+
+.metric-sub {
+  font-size: 0.75rem;
+  color: var(--color-muted-text);
+}
+
+/* Next Payment Banner Widget */
+.next-payment-banner {
+  background: linear-gradient(135deg, var(--color-deep-ink) 0%, #2A323D 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.banner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.banner-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #C7DFCD;
+  font-weight: 700;
+}
+
+.banner-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.banner-desc {
+  font-size: 0.875rem;
+  color: #A4B0BE;
+}
+
+.banner-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Active Rentals List Table/Cards */
+.rentals-list-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.rental-item-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 140px 1.4fr 1.2fr auto;
+  gap: 24px;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.rental-item-card:hover {
+  border-color: var(--color-cobalt);
+}
+
+.rental-thumb-img {
+  width: 140px;
+  height: 95px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.rental-info-col h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--color-deep-ink);
+}
+
+.rental-info-col p {
+  font-size: 0.8125rem;
+  color: var(--color-muted-text);
+  line-height: 1.4;
+}
+
+.rental-meta-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+  font-size: 0.8125rem;
+}
+
+.meta-field label {
+  color: var(--color-muted-text);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.meta-field span {
+  font-weight: 600;
+  color: var(--color-deep-ink);
+}
+
+.rental-actions-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Billing & Payment Invoices Table */
+.data-table-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 32px;
+}
+
+.data-table-header {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 14px 20px;
+  text-align: start;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.875rem;
+}
+
+.data-table th {
+  background-color: var(--color-surface-tint);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--color-muted-text);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background-color: var(--color-surface-tint);
+}
+
+/* Swap & Early Return Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(18, 22, 26, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.modal-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 580px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px);
+  transition: transform var(--transition-normal);
+}
+
+.modal-overlay.is-active .modal-dialog {
+  transform: translateY(0);
+}
+
+.modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  max-height: 75vh;
+}
+
+.modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  background-color: var(--color-surface-tint);
+}
+
+/* Request History Cards */
+.requests-history-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.request-history-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.request-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.request-id-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-cobalt);
+}
+
+/* Documents Grid */
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.doc-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.doc-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-cobalt-light);
+  color: var(--color-cobalt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.doc-info {
+  flex: 1;
+}
+
+.doc-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.doc-meta {
+  font-size: 0.775rem;
+  color: var(--color-muted-text);
+  margin-bottom: 12px;
+}
+
+/* Responsive Dashboard Breakpoints */
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .rental-item-card {
+    grid-template-columns: 120px 1fr;
+    gap: 16px;
+  }
+  .rental-meta-col {
+    grid-column: 1 / 3;
+  }
+  .rental-actions-col {
+    grid-column: 1 / 3;
+    flex-direction: row;
+  }
+  .docs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-layout {
+    flex-direction: column;
+  }
+  .dash-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+  .dash-nav {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 14px;
+  }
+  .dash-nav-link {
+    padding: 8px 12px;
+  }
+  .dash-content {
+    padding: 20px 16px;
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .next-payment-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rental-item-card {
+    grid-template-columns: 1fr;
+  }
+  .rental-thumb-img {
+    width: 100%;
+    height: 160px;
+  }
+  .rental-meta-col,
+  .rental-actions-col {
+    grid-column: auto;
+  }
+  .rental-actions-col {
+    flex-direction: column;
+  }
+}

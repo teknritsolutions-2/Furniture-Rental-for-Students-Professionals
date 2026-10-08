@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NESTLOOP — Furniture Rental for Students & Working Professionals</title>
+  <meta name="description" content="Flexible, affordable furniture rental packages for students and city professionals. Move into fully furnished bedrooms, living spaces, and ergonomic workspaces with zero capital burden.">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+
+  <!-- Core Design Tokens & Styles -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Announcement Strip -->
+  <div class="top-notice-bar" role="region" aria-label="Announcement">
+    <span class="top-notice-badge">Circular Living</span>
+    <span>Free white-glove delivery, zero maintenance fees &amp; flexible swaps on all 6+ month tenures.</span>
+  </div>
+
+  <!-- Sticky Header & Shared Navbar -->
+  <header class="site-header" id="site-header">
+    <div class="container navbar-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-link" aria-label="NESTLOOP Homepage">
+        <img src="assets/brand/logo.svg" alt="NESTLOOP Logo" class="brand-logo logo-light">
+        <img src="assets/brand/logo-white.svg" alt="NESTLOOP Logo" class="brand-logo logo-dark">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu-desktop">
+          <!-- Home Dropdown -->
+          <li class="nav-item-dropdown">
+            <button type="button" class="nav-link dropdown-trigger active" aria-expanded="false" aria-haspopup="true">
+              <span>Home</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="index.html" class="dropdown-item active">
+                  <span class="dropdown-item-title">Home 1: Storefront</span>
+                  <span class="dropdown-item-desc">Affordable &amp; conversion focus</span>
+                </a>
+              </li>
+              <li>
+                <a href="pages/home2.html" class="dropdown-item">
+                  <span class="dropdown-item-title">Home 2: Modular Living</span>
+                  <span class="dropdown-item-desc">Editorial layout &amp; room stories</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li><a href="pages/packages.html" class="nav-link">Packages</a></li>
+          <li><a href="pages/how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="pages/pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="pages/coverage.html" class="nav-link">Coverage Areas</a></li>
+          <li><a href="pages/about.html" class="nav-link">About</a></li>
+          <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Theme, RTL, Auth, CTA) -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+
+        <!-- RTL Toggle -->
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle text direction" title="Toggle LTR / RTL">
+          <span class="dir-label-text">RTL</span>
+        </button>
+
+        <!-- Customer Login / Dashboard Link -->
+        <a href="pages/login.html" class="btn btn-outline btn-sm" id="nav-auth-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Login</span>
+        </a>
+
+        <!-- Primary CTA -->
+        <a href="pages/packages.html" class="btn btn-primary btn-sm">Explore Packages</a>
+
+        <!-- Mobile Drawer Toggle -->
+        <button type="button" class="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Drawer Container -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div class="drawer-header">
+      <a href="index.html" class="brand-link">
+        <img src="assets/brand/logo.svg" alt="NESTLOOP Logo" class="brand-logo logo-light" style="height: 32px;">
+        <img src="assets/brand/logo-white.svg" alt="NESTLOOP Logo" class="brand-logo logo-dark" style="height: 32px;">
+      </a>
+      <button type="button" class="drawer-close-btn" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <ul class="drawer-nav-list">
+        <li>
+          <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text); padding: 8px 14px 4px 14px;">Home Variations</div>
+          <div class="drawer-subnav">
+            <a href="index.html" class="drawer-sublink active">Home 1: Storefront</a>
+            <a href="pages/home2.html" class="drawer-sublink">Home 2: Modular Living</a>
+          </div>
+        </li>
+        <li><a href="pages/packages.html" class="drawer-nav-link">Packages</a></li>
+        <li><a href="pages/how-it-works.html" class="drawer-nav-link">How It Works</a></li>
+        <li><a href="pages/pricing.html" class="drawer-nav-link">Pricing</a></li>
+        <li><a href="pages/coverage.html" class="drawer-nav-link">Coverage Areas</a></li>
+        <li><a href="pages/about.html" class="drawer-nav-link">About</a></li>
+        <li><a href="pages/faq.html" class="drawer-nav-link">FAQs</a></li>
+        <li><a href="pages/contact.html" class="drawer-nav-link">Contact</a></li>
+        <li><a href="pages/dashboard.html" class="drawer-nav-link">Customer Dashboard</a></li>
+      </ul>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-toggles">
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line></svg>
+        </button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle direction">
+          <span class="dir-label-text">RTL</span>
+        </button>
+        <a href="pages/login.html" class="btn btn-primary btn-sm" style="flex: 1;">Customer Login</a>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- SECTION 1: HERO STOREFRONT & DISCOVERY BAR -->
+    <section class="section hero-home1" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-home1-grid">
+          <div class="hero-home1-content">
+            <span class="eyebrow">Flexible Urban Living</span>
+            <h1 id="hero-title" class="hero-h1">Move in. Settle down. Stay flexible.</h1>
+            <p class="body-lead">
+              Rethink how you furnish your city apartment. Genuine designer living rooms, cozy student bedrooms, and ergonomic workstations rented on your terms — delivered and assembled free within 72 hours.
+            </p>
+
+            <div class="hero-home1-perks">
+              <div class="hero-perk-item">
+                <span class="hero-perk-icon">✓</span>
+                <span>Zero capital lock-in</span>
+              </div>
+              <div class="hero-perk-item">
+                <span class="hero-perk-icon">✓</span>
+                <span>Free relocations &amp; swaps</span>
+              </div>
+              <div class="hero-perk-item">
+                <span class="hero-perk-icon">✓</span>
+                <span>White-glove assembly</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="pages/packages.html" class="btn btn-primary btn-lg">Explore Packages</a>
+              <a href="pages/how-it-works.html" class="btn btn-outline btn-lg">How It Works</a>
+            </div>
+          </div>
+
+          <div class="hero-home1-media">
+            <div class="hero-image-frame">
+              <img src="assets/images/hero-home1.webp" alt="Authentic modern apartment furnished with emerald green sofa, walnut coffee table, and plants" loading="eager" fetchpriority="high">
+            </div>
+            <div class="hero-floating-badge">
+              <div class="badge-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.9rem; color: var(--color-deep-ink);">100% Damage Covered</div>
+                <div style="font-size: 0.775rem; color: var(--color-muted-text);">Normal wear &amp; tear protected</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Functional Discovery Bar (Active filter link to Packages) -->
+        <div class="discovery-bar-wrapper">
+          <form id="hero-discovery-form" class="discovery-bar" action="pages/packages.html" method="GET">
+            <div class="discovery-field">
+              <label for="disc-audience">I am a</label>
+              <select id="disc-audience" name="audience">
+                <option value="all">Student or Professional</option>
+                <option value="Student">University Student</option>
+                <option value="Professional">Working Professional</option>
+              </select>
+            </div>
+
+            <div class="discovery-field">
+              <label for="disc-category">Furniture for</label>
+              <select id="disc-category" name="category">
+                <option value="all">Any Room or Whole Home</option>
+                <option value="bedroom">Bedroom Setup</option>
+                <option value="living">Living Room Lounge</option>
+                <option value="workspace">Ergonomic Workspace</option>
+                <option value="apartment">Full 1BHK / 2BHK Flat</option>
+              </select>
+            </div>
+
+            <div class="discovery-field">
+              <label for="disc-tenure">Rental Tenure</label>
+              <select id="disc-tenure" name="tenure">
+                <option value="12">12 Months (Best Value)</option>
+                <option value="6">6 Months (Semester / Project)</option>
+                <option value="3">3 Months (Short Stay)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="height: 44px; margin-top: 14px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>Find Matching Bundles</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FAST AFFORDABILITY & BENEFITS -->
+    <section class="section" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Smart Flexibility</span>
+          <h2 id="benefits-title" class="section-h2">Why renting beats buying every time</h2>
+          <p class="body-lead">Moving for a college term or a new job shouldn't mean draining your savings or dealing with cumbersome furniture disposal.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </div>
+            <h3 class="card-title">Zero Capital Depletion</h3>
+            <p class="body-text">Avoid spending ₹1,50,000+ upfront on temporary furniture. Pay small predictable monthly rates starting at ₹1,049 with minimal refundable deposit.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon-box" style="background-color: var(--color-pale-mint); color: var(--color-success);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"></path><path d="M4 20L21 3"></path><path d="M21 16v5h-5"></path><path d="M15 15l6 6"></path><path d="M4 4l5 5"></path></svg>
+            </div>
+            <h3 class="card-title">Free Swaps As Needs Shift</h3>
+            <p class="body-text">Started as a bachelor and upgrading to a 2BHK with a partner? Upgrade or swap individual room pieces effortlessly right from your portal.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <h3 class="card-title">Full Digital Account Control</h3>
+            <p class="body-text">Access real-time agreements, payment receipts, due-date management, and swap requests directly inside the NESTLOOP customer dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: STARTER / ESSENTIAL / PREMIUM PACKAGE PREVIEW -->
+    <section class="section section-tinted" aria-labelledby="featured-bundles-title">
+      <div class="container">
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="eyebrow">Curated Packages</span>
+            <h2 id="featured-bundles-title" class="section-h2">Popular Move-In Bundles</h2>
+            <p class="body-lead" style="max-width: 580px;">Balanced furnishings thoughtfully paired for immediate comfort and seamless functionality.</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 0.8125rem; font-weight: 600; color: var(--color-muted-text);">Tenure:</span>
+            <div class="tenure-btn-group" id="home-tenure-toggle">
+              <button type="button" class="tenure-btn active" data-home-tenure="12">12 Mos</button>
+              <button type="button" class="tenure-btn" data-home-tenure="6">6 Mos</button>
+              <button type="button" class="tenure-btn" data-home-tenure="3">3 Mos</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="packages-grid" id="home-featured-packages-grid">
+          <!-- Populated dynamically or static fallback -->
+          <!-- Card 1: Starter Student Room -->
+          <article class="card package-card card-hover">
+            <div class="package-card-img-wrap">
+              <span class="chip chip-starter package-card-tag">Starter Tier</span>
+              <img src="assets/images/package-starter-student.webp" alt="Student study desk and chair setup" loading="lazy">
+            </div>
+            <div class="package-card-body">
+              <div class="package-card-category">Bedroom • Students &amp; Compact Nooks</div>
+              <h3 class="package-card-title">Student Core Study Room</h3>
+              <p class="package-card-desc">Solid student study desk, ergonomic task chair, single storage bed, and modular 3-tier bookcase.</p>
+              <div class="package-items-pills">
+                <span class="package-item-pill">1x Study Desk</span>
+                <span class="package-item-pill">1x ErgoMesh Chair</span>
+                <span class="package-item-pill">1x Single Storage Bed</span>
+                <span class="package-item-pill">+2 more</span>
+              </div>
+              <div class="package-card-pricing">
+                <div>
+                  <span class="price-val" id="home-pkg-price-0">₹1,199</span>
+                  <span class="price-period">/ month</span>
+                </div>
+                <div class="price-tenure-note">12-month tenure</div>
+              </div>
+              <div class="package-card-actions">
+                <a href="pages/package-details.html?id=starter-student-room" class="btn btn-outline btn-sm">View Details</a>
+                <a href="pages/package-details.html?id=starter-student-room#rent-config" class="btn btn-primary btn-sm">Select Package</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Essential 1BHK Full Apartment -->
+          <article class="card package-card card-hover">
+            <div class="package-card-img-wrap">
+              <span class="chip chip-essential package-card-tag">Essential Tier</span>
+              <img src="assets/images/package-essential-1bhk.webp" alt="Balanced 1BHK living and bedroom furniture package" loading="lazy">
+            </div>
+            <div class="package-card-body">
+              <div class="package-card-category">Full Apartment • Solo Professionals &amp; Couples</div>
+              <h3 class="package-card-title">Essential 1BHK Full Apartment</h3>
+              <p class="package-card-desc">Queen bed + orthopedic mattress, 3-seater living room sofa, dining table with 2 chairs, and coffee table.</p>
+              <div class="package-items-pills">
+                <span class="package-item-pill">1x Queen Platform Bed</span>
+                <span class="package-item-pill">1x 3-Seater Sofa</span>
+                <span class="package-item-pill">1x Bistro Dining Set</span>
+                <span class="package-item-pill">+4 more</span>
+              </div>
+              <div class="package-card-pricing">
+                <div>
+                  <span class="price-val" id="home-pkg-price-1">₹3,499</span>
+                  <span class="price-period">/ month</span>
+                </div>
+                <div class="price-tenure-note">12-month tenure</div>
+              </div>
+              <div class="package-card-actions">
+                <a href="pages/package-details.html?id=essential-1bhk-combo" class="btn btn-outline btn-sm">View Details</a>
+                <a href="pages/package-details.html?id=essential-1bhk-combo#rent-config" class="btn btn-primary btn-sm">Select Package</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Premium 2BHK Executive Residence -->
+          <article class="card package-card card-hover">
+            <div class="package-card-img-wrap">
+              <span class="chip chip-premium package-card-tag">Premium Tier</span>
+              <img src="assets/images/package-premium-2bhk.webp" alt="Premium 2BHK furniture set in modern apartment" loading="lazy">
+            </div>
+            <div class="package-card-body">
+              <div class="package-card-category">Full Apartment • Executive Residence</div>
+              <h3 class="package-card-title">Premium 2BHK Executive Set</h3>
+              <p class="package-card-desc">Master &amp; guest bedroom suites, reversible sectional lounger sofa, solid walnut 4-seater dining suite, and media unit.</p>
+              <div class="package-items-pills">
+                <span class="package-item-pill">1x King Heritage Suite</span>
+                <span class="package-item-pill">1x Queen Guest Suite</span>
+                <span class="package-item-pill">1x Sectional Sofa</span>
+                <span class="package-item-pill">+4 more</span>
+              </div>
+              <div class="package-card-pricing">
+                <div>
+                  <span class="price-val" id="home-pkg-price-2">₹5,999</span>
+                  <span class="price-period">/ month</span>
+                </div>
+                <div class="price-tenure-note">12-month tenure</div>
+              </div>
+              <div class="package-card-actions">
+                <a href="pages/package-details.html?id=premium-2bhk-executive" class="btn btn-outline btn-sm">View Details</a>
+                <a href="pages/package-details.html?id=premium-2bhk-executive#rent-config" class="btn btn-primary btn-sm">Select Package</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="pages/packages.html" class="btn btn-secondary btn-lg">Browse All 9 Furniture Bundles</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: BROWSE FURNITURE BY ROOM -->
+    <section class="section" aria-labelledby="rooms-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Room-by-Room Collections</span>
+          <h2 id="rooms-title" class="section-h2">Furnish by Living Zone</h2>
+          <p class="body-lead">Whether you need an entire apartment or just a dedicated work desk for your current room, we have you covered.</p>
+        </div>
+
+        <div class="room-grid">
+          <!-- Room 1: Bedroom -->
+          <a href="pages/packages.html?category=bedroom" class="room-card" aria-label="Browse Bedroom Furniture Packages">
+            <img src="assets/images/category-bedroom.webp" alt="Contemporary bedroom furniture" loading="lazy">
+            <div class="room-card-overlay">
+              <h3 class="room-card-title">Bedroom</h3>
+              <span class="room-card-count">Beds, Ortho Mattresses &amp; Wardrobes</span>
+            </div>
+          </a>
+
+          <!-- Room 2: Living Room -->
+          <a href="pages/packages.html?category=living" class="room-card" aria-label="Browse Living Room Furniture Packages">
+            <img src="assets/images/category-living.webp" alt="Scandinavian living room sofa and tables" loading="lazy">
+            <div class="room-card-overlay">
+              <h3 class="room-card-title">Living Room</h3>
+              <span class="room-card-count">Plush Sofas, Coffee Tables &amp; TV Consoles</span>
+            </div>
+          </a>
+
+          <!-- Room 3: Workspace -->
+          <a href="pages/packages.html?category=workspace" class="room-card" aria-label="Browse Workspace Furniture Packages">
+            <img src="assets/images/category-workspace.webp" alt="Ergonomic desk and chair workspace" loading="lazy">
+            <div class="room-card-overlay">
+              <h3 class="room-card-title">Home Office &amp; Study</h3>
+              <span class="room-card-count">Ergonomic Chairs, Desks &amp; Shelving</span>
+            </div>
+          </a>
+
+          <!-- Room 4: Full Apartment -->
+          <a href="pages/packages.html?category=apartment" class="room-card" aria-label="Browse Full Apartment Furniture Packages">
+            <img src="assets/images/category-studio.webp" alt="Complete furnished apartment studio" loading="lazy">
+            <div class="room-card-overlay">
+              <h3 class="room-card-title">Full Apartment</h3>
+              <span class="room-card-count">Complete 1BHK &amp; 2BHK Turnkey Sets</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: REAL PHOTO-LED FURNISHED VS UNFURNISHED COMPARISON -->
+    <section class="section section-tinted" aria-labelledby="editorial-split-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">The Moving Reality</span>
+          <h2 id="editorial-split-title" class="section-h2">Furnished with NESTLOOP vs Empty Space</h2>
+          <p class="body-lead">Skip the physical exhaustion of secondhand furniture hunting, assembly manuals, and heavy stairwell hauling.</p>
+        </div>
+
+        <div class="split-editorial">
+          <!-- Side 1: The Old Way (Unfurnished) -->
+          <div class="split-editorial-side is-unfurnished">
+            <div>
+              <img src="assets/images/editorial-unfurnished.webp" alt="Empty, cold apartment space with bare floor" class="split-side-img" loading="lazy">
+              <span class="chip" style="background-color: var(--color-neutral-grey); color: var(--color-muted-text); margin-bottom: 8px;">The Hassle of Buying</span>
+              <h3 class="card-title">Upfront Expense &amp; Logistics Hassle</h3>
+              <ul class="comparison-list">
+                <li class="comparison-item">
+                  <span class="comp-icon-bad">✕</span>
+                  <span><strong>High upfront cash burden:</strong> ₹1,20,000+ wiped out before first rent cycle.</span>
+                </li>
+                <li class="comparison-item">
+                  <span class="comp-icon-bad">✕</span>
+                  <span><strong>Endless assembly frustration:</strong> Missing screws, unaligned flat-pack joints.</span>
+                </li>
+                <li class="comparison-item">
+                  <span class="comp-icon-bad">✕</span>
+                  <span><strong>Resale nightmare when relocating:</strong> Distressed sales at 80% loss on classified apps.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Side 2: The NESTLOOP Way (Furnished) -->
+          <div class="split-editorial-side">
+            <div>
+              <img src="assets/images/editorial-furnished.webp" alt="Warm, stylishly furnished apartment living room with sofa and plants" class="split-side-img" loading="lazy">
+              <span class="chip chip-active" style="margin-bottom: 8px;">The NESTLOOP Experience</span>
+              <h3 class="card-title">Turnkey Comfort on Day One</h3>
+              <ul class="comparison-list">
+                <li class="comparison-item">
+                  <span class="comp-icon-good">✓</span>
+                  <span><strong>Affordable monthly payments:</strong> Transparent subscription starting at ₹1,199/mo.</span>
+                </li>
+                <li class="comparison-item">
+                  <span class="comp-icon-good">✓</span>
+                  <span><strong>White-glove delivery &amp; assembly:</strong> Delivered into your room and built free.</span>
+                </li>
+                <li class="comparison-item">
+                  <span class="comp-icon-good">✓</span>
+                  <span><strong>Zero relocation friction:</strong> We pick up, relocate, or swap when your lease ends.</span>
+                </li>
+              </ul>
+            </div>
+            <div style="margin-top: 24px;">
+              <a href="pages/packages.html" class="btn btn-primary" style="width: 100%;">Choose Your Turnkey Bundle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: RENT VS BUY COMPARISON (Illustrative Assumptions) -->
+    <section class="section" aria-labelledby="rent-buy-title">
+      <div class="container container-narrow">
+        <div class="section-header text-center">
+          <span class="eyebrow">Cost Transparency</span>
+          <h2 id="rent-buy-title" class="section-h2">12-Month Financial Comparison</h2>
+          <p class="body-lead">Illustrative sample model based on furnishing a typical 1BHK flat in a tier-1 metropolitan city.</p>
+        </div>
+
+        <div class="rent-vs-buy-box">
+          <table class="rent-vs-buy-table" aria-label="Rent vs Buy Financial Table">
+            <thead>
+              <tr>
+                <th scope="col">Expense Category</th>
+                <th scope="col">Buying New Furniture</th>
+                <th scope="col" class="cell-highlight">Renting with NESTLOOP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Initial Capital Outlay</strong></td>
+                <td style="color: var(--color-danger);">₹1,45,000 (Depleted upfront)</td>
+                <td class="cell-highlight">₹5,248 (1st mo rent + refundable deposit)</td>
+              </tr>
+              <tr>
+                <td><strong>Delivery &amp; Room Assembly</strong></td>
+                <td>₹4,500 – ₹7,000 (Third-party movers)</td>
+                <td class="cell-highlight">₹0 (White-Glove Included)</td>
+              </tr>
+              <tr>
+                <td><strong>Maintenance &amp; Sanitization</strong></td>
+                <td>Out-of-pocket repairs &amp; cleaning</td>
+                <td class="cell-highlight">Covered under care guarantee</td>
+              </tr>
+              <tr>
+                <td><strong>Flexibility to Swap Styles</strong></td>
+                <td>Impossible without selling at loss</td>
+                <td class="cell-highlight">Simple portal request anytime</td>
+              </tr>
+              <tr>
+                <td><strong>Exit &amp; Moving Relocation</strong></td>
+                <td>Heavy truck hiring or scrap loss</td>
+                <td class="cell-highlight">Free scheduled pickup &amp; return</td>
+              </tr>
+              <tr>
+                <td><strong>12-Month Net Cash Required</strong></td>
+                <td style="font-weight: 700; color: var(--color-danger);">~₹1,52,000 Out-of-pocket</td>
+                <td class="cell-highlight" style="font-weight: 800; font-size: 1.05rem;">₹41,988 Total (Deposit refunded)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--color-muted-text); text-align: center; margin-top: 14px;">
+          * Illustrative demonstration comparison assuming standard retail purchases of queen bed, orthopaedic mattress, sofa, dining set, and desk vs Essential 1BHK rental at ₹3,499/mo over 12 months.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 7: STUDENT VS WORKING PROFESSIONAL USE CASES -->
+    <section class="section section-tinted" aria-labelledby="audience-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Tailored Solutions</span>
+          <h2 id="audience-title" class="section-h2">Designed for Your Chapter in Life</h2>
+          <p class="body-lead">Every phase has unique priorities — university semesters require compact study spaces, while career moves need polished comfort.</p>
+        </div>
+
+        <div class="audience-tabs" role="tablist">
+          <button type="button" class="tab-btn active" id="tab-student" role="tab" aria-selected="true" aria-controls="view-student">For University Students</button>
+          <button type="button" class="tab-btn" id="tab-pro" role="tab" aria-selected="false" aria-controls="view-pro">For Working Professionals</button>
+        </div>
+
+        <!-- Student View -->
+        <div class="audience-view active" id="view-student" role="tabpanel" aria-labelledby="tab-student">
+          <img src="assets/images/lifestyle-student.webp" alt="Student study nook in cozy apartment bedroom" class="audience-view-img" loading="lazy">
+          <div>
+            <span class="chip chip-starter" style="margin-bottom: 12px;">Semester-Friendly Flexibility</span>
+            <h3 class="subsection-h3" style="margin-bottom: 12px;">Study without hostel compromises</h3>
+            <p class="body-text" style="margin-bottom: 16px;">
+              Don't settle for back pain on flimsy plastic chairs. Our student packages deliver ergonomic mesh desk chairs, anti-scratch study tables, and underbed storage that fits inside shared flats and PGs.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; font-size: 0.9rem;">
+              <li style="display: flex; gap: 8px;"><strong>✓ 3 to 6-month semester leases:</strong> Match your college schedule without locking in summer rent.</li>
+              <li style="display: flex; gap: 8px;"><strong>✓ Low security deposit:</strong> Keep your monthly pocket money intact for textbooks and living.</li>
+              <li style="display: flex; gap: 8px;"><strong>✓ Hassle-free vacation hold:</strong> Pause or return items when returning home for holidays.</li>
+            </ul>
+            <a href="pages/packages.html?audience=Student" class="btn btn-primary">View Student Bundles</a>
+          </div>
+        </div>
+
+        <!-- Professional View -->
+        <div class="audience-view" id="view-pro" role="tabpanel" aria-labelledby="tab-pro">
+          <img src="assets/images/lifestyle-professional.webp" alt="Professional living and dining apartment setup" class="audience-view-img" loading="lazy">
+          <div>
+            <span class="chip chip-essential" style="margin-bottom: 12px;">Work-Life Balance</span>
+            <h3 class="subsection-h3" style="margin-bottom: 12px;">Executive presence &amp; ergonomic comfort</h3>
+            <p class="body-text" style="margin-bottom: 16px;">
+              Whether setting up in HITEC City, Whitefield, or Bandra, our executive workspace and living sets provide camera-ready aesthetic appeal and certified lumbar ergonomics for 8+ hour workdays.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; font-size: 0.9rem;">
+              <li style="display: flex; gap: 8px;"><strong>✓ Solid oak &amp; dual-monitor desks:</strong> Engineered for multi-screen setups with hidden cable management.</li>
+              <li style="display: flex; gap: 8px;"><strong>✓ Inter-city lease transfer:</strong> Moving offices between Bengaluru and Hyderabad? Your furniture moves seamlessly.</li>
+              <li style="display: flex; gap: 8px;"><strong>✓ GST billing support:</strong> Corporate expense receipts downloadable with one click from your portal.</li>
+            </ul>
+            <a href="pages/packages.html?audience=Professional" class="btn btn-primary">View Professional Sets</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: HOW RENTAL WORKS EDITORIAL JOURNEY -->
+    <section class="section" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Seamless Process</span>
+          <h2 id="journey-title" class="section-h2">From Selection to Move-In</h2>
+          <p class="body-lead">Furnishing your home should take minutes, not weekends. Four simple steps to your new space.</p>
+        </div>
+
+        <div class="steps-editorial-grid">
+          <div class="step-editorial-card">
+            <div class="step-num-badge">01</div>
+            <h3 class="card-title">Pick Your Package</h3>
+            <p class="body-sm">Select a room bundle or whole-apartment set matching your floor plan and rental budget.</p>
+          </div>
+
+          <div class="step-editorial-card">
+            <div class="step-num-badge">02</div>
+            <h3 class="card-title">Check Delivery Slot</h3>
+            <p class="body-sm">Confirm coverage in Hyderabad, Bengaluru, Pune, Chennai or Mumbai and select your move-in date.</p>
+          </div>
+
+          <div class="step-editorial-card">
+            <div class="step-num-badge">03</div>
+            <h3 class="card-title">White-Glove Setup</h3>
+            <p class="body-sm">Technicians deliver, unpack, assemble, and position every item without you lifting a finger.</p>
+          </div>
+
+          <div class="step-editorial-card">
+            <div class="step-num-badge">04</div>
+            <h3 class="card-title">Flex &amp; Swap</h3>
+            <p class="body-sm">Extend tenure, swap sofa styles, or request return anytime through your customer portal.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="pages/how-it-works.html" class="btn btn-outline">Read Full Rental Journey &amp; Policies</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: QUICK COVERAGE CHECKER STRIP -->
+    <section class="section section-tinted" aria-labelledby="coverage-strip-title">
+      <div class="container">
+        <div class="coverage-strip-box">
+          <div>
+            <span class="eyebrow">Service Corridors</span>
+            <h2 id="coverage-strip-title" class="section-h2">Check delivery availability in your area</h2>
+            <p class="body-text" style="margin-top: 8px;">
+              Active white-glove fleet servicing Hyderabad, Bengaluru, Pune, Chennai, and Mumbai metropolitan hubs.
+            </p>
+          </div>
+
+          <div>
+            <form id="home-coverage-form" class="checker-inline-form">
+              <input type="text" id="home-pin-input" class="form-input" placeholder="Enter 6-digit postal PIN (e.g. 560102)" maxlength="6" pattern="\d{6}" required>
+              <button type="submit" class="btn btn-primary" style="height: 46px;">Check</button>
+            </form>
+            <div id="home-coverage-result" class="coverage-result-inline"></div>
+            <div style="font-size: 0.75rem; color: var(--color-muted-text); margin-top: 8px;">
+              Try demo PINs: <code>500081</code> (Madhapur), <code>560102</code> (HSR Layout), <code>411057</code> (Hinjawadi)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: CLOSING BOOKING CTA -->
+    <section class="section" style="background: linear-gradient(135deg, var(--color-deep-ink) 0%, #171B20 100%); color: #FFFFFF;" aria-labelledby="cta-title">
+      <div class="container" style="text-align: center; padding-block: 20px;">
+        <span class="chip" style="background: rgba(255, 255, 255, 0.12); color: #C7DFCD; margin-bottom: 16px;">Move In Ready</span>
+        <h2 id="cta-title" class="section-h2" style="color: #FFFFFF; max-width: 640px; margin-inline: auto; margin-bottom: 16px;">
+          Ready to experience furniture that moves with you?
+        </h2>
+        <p class="body-lead" style="color: #A4B0BE; max-width: 540px; margin-inline: auto; margin-bottom: 32px;">
+          Select your package today and have your apartment completely furnished within 48 to 72 hours.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="pages/packages.html" class="btn btn-primary btn-lg">Browse Furniture Packages</a>
+          <a href="pages/login.html" class="btn btn-outline btn-lg" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);">Access Customer Portal</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-link">
+            <img src="assets/brand/logo-white.svg" alt="NESTLOOP Logo" style="height: 38px;">
+          </a>
+          <p>
+            NESTLOOP is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.
+          </p>
+          <div class="footer-badges">
+            <span class="footer-badge-pill">Circular Lifecycle</span>
+            <span class="footer-badge-pill">Zero Landfill Goal</span>
+            <span class="footer-badge-pill">White-Glove Setup</span>
+          </div>
+        </div>
+
+        <!-- Col 1: Pages / Explore -->
+        <div>
+          <h4 class="footer-col-title">Pages / Explore</h4>
+          <ul class="footer-nav">
+            <li><a href="index.html">Home 1: Storefront</a></li>
+            <li><a href="pages/home2.html">Home 2: Modular Living</a></li>
+            <li><a href="pages/packages.html">Packages Catalogue</a></li>
+            <li><a href="pages/how-it-works.html">How It Works</a></li>
+            <li><a href="pages/pricing.html">Pricing Calculator</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Packages -->
+        <div>
+          <h4 class="footer-col-title">Packages</h4>
+          <ul class="footer-nav">
+            <li><a href="pages/packages.html?tier=starter">Starter Bundles</a></li>
+            <li><a href="pages/packages.html?tier=essential">Essential Sets</a></li>
+            <li><a href="pages/packages.html?tier=premium">Premium Suites</a></li>
+            <li><a href="pages/packages.html?category=workspace">WFH Workstations</a></li>
+            <li><a href="pages/packages.html?category=bedroom">Bedroom Sets</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div>
+          <h4 class="footer-col-title">Support &amp; Portal</h4>
+          <ul class="footer-nav">
+            <li><a href="pages/coverage.html">Coverage Areas</a></li>
+            <li><a href="pages/about.html">About NESTLOOP</a></li>
+            <li><a href="pages/faq.html">Rental FAQs</a></li>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+            <li><a href="pages/dashboard.html">Customer Dashboard</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal / Demo -->
+        <div>
+          <h4 class="footer-col-title">Legal &amp; Policy</h4>
+          <ul class="footer-nav">
+            <li><a href="pages/terms.html">Rental Agreement Terms</a></li>
+            <li><a href="pages/privacy.html">Privacy Policy</a></li>
+            <li><a href="pages/login.html">Demo Portal Login</a></li>
+            <li><a href="pages/register.html">Demo Registration</a></li>
+            <li><a href="documentation/IMAGE-SOURCES.md">Image Sources &amp; Provenance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 NESTLOOP Furnishing Solutions. Static demonstration platform.
+        </div>
+        <ul class="footer-bottom-links">
+          <li><a href="pages/terms.html">Terms</a></li>
+          <li><a href="pages/privacy.html">Privacy</a></li>
+          <li><a href="pages/coverage.html">Coverage</a></li>
+          <li><a href="pages/dashboard.html">Portal</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/data/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    // Home 1 Page Specific Interactions
+    document.addEventListener('DOMContentLoaded', () => {
+      // Home tenure toggle for featured packages preview
+      const homeTenureBtns = document.querySelectorAll('[data-home-tenure]');
+      const p0 = document.getElementById('home-pkg-price-0');
+      const p1 = document.getElementById('home-pkg-price-1');
+      const p2 = document.getElementById('home-pkg-price-2');
+
+      const prices = {
+        12: ['₹1,199', '₹3,499', '₹5,999'],
+        6: ['₹1,449', '₹3,999', '₹6,999'],
+        3: ['₹1,699', '₹4,599', '₹7,999']
+      };
+
+      homeTenureBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const t = btn.getAttribute('data-home-tenure');
+          homeTenureBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (p0) p0.textContent = prices[t][0];
+          if (p1) p1.textContent = prices[t][1];
+          if (p2) p2.textContent = prices[t][2];
+          document.querySelectorAll('.price-tenure-note').forEach(el => {
+            el.textContent = `${t}-month tenure`;
+          });
+        });
+      });
+
+      // Student vs Professional Tabs
+      const tabStudent = document.getElementById('tab-student');
+      const tabPro = document.getElementById('tab-pro');
+      const viewStudent = document.getElementById('view-student');
+      const viewPro = document.getElementById('view-pro');
+
+      if (tabStudent && tabPro) {
+        tabStudent.addEventListener('click', () => {
+          tabStudent.classList.add('active');
+          tabStudent.setAttribute('aria-selected', 'true');
+          tabPro.classList.remove('active');
+          tabPro.setAttribute('aria-selected', 'false');
+          viewStudent.classList.add('active');
+          viewPro.classList.remove('active');
+        });
+
+        tabPro.addEventListener('click', () => {
+          tabPro.classList.add('active');
+          tabPro.setAttribute('aria-selected', 'true');
+          tabStudent.classList.remove('active');
+          tabStudent.setAttribute('aria-selected', 'false');
+          viewPro.classList.add('active');
+          viewStudent.classList.remove('active');
+        });
+      }
+
+      // Home Inline Coverage Checker
+      const homeForm = document.getElementById('home-coverage-form');
+      const homeInput = document.getElementById('home-pin-input');
+      const homeResult = document.getElementById('home-coverage-result');
+
+      if (homeForm && homeInput && homeResult) {
+        homeForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const pin = homeInput.value.trim();
+          const res = window.NestloopData.checkPinCode(pin);
+          homeResult.style.display = 'block';
+
+          if (res.status === 'supported') {
+            homeResult.style.backgroundColor = 'var(--color-success-bg)';
+            homeResult.style.color = '#137333';
+            homeResult.innerHTML = `<strong>✓ PIN ${pin} Supported!</strong> Delivery available within ${res.timeline} in ${res.area} (${res.city}). <a href="pages/packages.html" style="color: inherit; text-decoration: underline; margin-inline-start: 8px;">Explore Packages →</a>`;
+          } else if (res.status === 'needs_confirmation') {
+            homeResult.style.backgroundColor = 'var(--color-warning-bg)';
+            homeResult.style.color = '#B06000';
+            homeResult.innerHTML = `<strong>! PIN ${pin} Corridor:</strong> Extended service zone (${res.city}). Elevator clearance required.`;
+          } else {
+            homeResult.style.backgroundColor = 'var(--color-danger-bg)';
+            homeResult.style.color = '#C5221F';
+            homeResult.innerHTML = `<strong>✕ PIN ${pin} Outside Route:</strong> Currently outside standard delivery corridors. <a href="pages/coverage.html" style="color: inherit; text-decoration: underline;">Request Area Availability →</a>`;
+          }
+        });
+      }
+
+      // Dynamic Auth Link update
+      if (window.NestloopAuth && window.NestloopAuth.isAuthenticated()) {
+        const authLink = document.getElementById('nav-auth-link');
+        if (authLink) {
+          authLink.href = 'pages/dashboard.html';
+          authLink.innerHTML = `<span class="user-avatar" style="width: 24px; height: 24px; font-size: 0.7rem;">AC</span><span>Dashboard</span>`;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
