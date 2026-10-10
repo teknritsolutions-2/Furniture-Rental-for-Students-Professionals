@@ -14,56 +14,33 @@
 <body class="auth-page-wrapper">
   <a href="#login-form" class="skip-link">Skip to login form</a>
 
-  <!-- Clean Auth-Specific Header (No Full Site Navbar) -->
-  <header class="auth-header">
-    <a href="../index.html" class="brand-link" aria-label="Return to MODULIV Home">
-      <img src="../assets/brand/logo.svg" alt="MODULIV Logo" class="brand-logo logo-light" style="height: 36px;">
-      <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark" style="height: 36px;">
+  <!-- Top Utility Bar (No Full Navbar) -->
+  <div class="auth-top-bar">
+    <a href="../index.html" class="auth-back-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      <span>Back to Storefront</span>
     </a>
 
-    <div style="display: flex; align-items: center; gap: 12px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
       <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
       <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
-      <a href="../index.html" class="btn btn-outline btn-sm">
-        ← Back to Storefront
-      </a>
     </div>
-  </header>
+  </div>
 
   <!-- Centered Auth Card Container -->
   <main class="auth-container">
+    <!-- Brand Logo on Top of Card -->
+    <div class="auth-brand-center">
+      <a href="../index.html" class="brand-link" aria-label="MODULIV Home">
+        <img src="../assets/brand/logo.svg" alt="MODULIV" class="brand-logo logo-light" style="height: 42px;">
+        <img src="../assets/brand/logo-white.svg" alt="MODULIV" class="brand-logo logo-dark" style="height: 42px;">
+      </a>
+    </div>
+
     <div class="auth-card">
       <div class="auth-card-header">
-        <span class="chip chip-essential" style="margin-bottom: 8px;">Customer Portal</span>
-        <h1 class="subsection-h3" style="margin-bottom: 6px;">Sign in to your rental portal</h1>
-        <p class="body-sm">Access your active subscriptions, monthly billing, and swap requests.</p>
-      </div>
-
-      <!-- Instant Direct Access Button -->
-      <div style="margin-bottom: 16px;">
-        <a href="dashboard.html" class="btn btn-outline" style="width: 100%; border-color: var(--color-forest); color: var(--color-forest); font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; background-color: var(--color-forest-pale); text-decoration: none;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-          <span>Open Dashboard Directly (No Login Needed) &rarr;</span>
-        </a>
-      </div>
-
-      <!-- Explicit Demonstration Credentials Callout -->
-      <div class="demo-credentials-callout" role="note">
-        <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; margin-bottom: 4px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-          <span>Static Demonstration Environment</span>
-        </div>
-        <p style="font-size: 0.775rem; margin-bottom: 8px;">
-          Click a demo profile below to auto-fill credentials and start a client-side demonstration session:
-        </p>
-        <div class="demo-accounts-pill-box">
-          <button type="button" class="demo-account-pill" id="fill-alex">
-            👤 Alex Chen (Professional)
-          </button>
-          <button type="button" class="demo-account-pill" id="fill-priya">
-            🎓 Priya Sharma (Student)
-          </button>
-        </div>
+        <h1 class="subsection-h3" style="margin-bottom: 6px;">Sign in to your account</h1>
+        <p class="body-sm">Welcome back! Please enter your credentials to continue.</p>
       </div>
 
       <!-- Login Form -->
@@ -77,9 +54,12 @@
         </div>
 
         <div class="form-group" id="group-password">
-          <label for="login-password" class="form-label">Password</label>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label for="login-password" class="form-label" style="margin-bottom: 0;">Password</label>
+            <a href="#" class="auth-forgot-link" onclick="alert('Password reset instructions have been simulated to your registered email.'); return false;">Forgot password?</a>
+          </div>
           <div class="password-input-wrap">
-            <input type="password" id="login-password" class="form-control" placeholder="Enter password (demo: password123)" required autocomplete="current-password">
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
             <button type="button" class="password-toggle-btn" id="btn-toggle-pw" aria-label="Show password" title="Show or hide password">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
             </button>
@@ -87,23 +67,32 @@
           <span class="form-error">Please enter your password.</span>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
-          Sign In to Customer Dashboard
+        <div class="auth-remember-row">
+          <label class="auth-remember-label">
+            <input type="checkbox" id="login-remember" checked>
+            <span>Remember this device</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Sign In
         </button>
 
-        <div class="auth-divider">or explore options</div>
+        <div class="auth-divider">or</div>
 
         <div style="text-align: center; font-size: 0.875rem;">
-          <span style="color: var(--color-muted-text);">New customer to MODULIV?</span>
-          <a href="register.html" id="link-create-account" style="color: var(--color-forest); font-weight: 600; margin-inline-start: 4px; text-decoration: none;">Create Account</a>
+          <span style="color: var(--color-muted-text);">Don't have an account?</span>
+          <a href="register.html" id="link-create-account" style="color: var(--color-forest); font-weight: 600; margin-inline-start: 4px; text-decoration: none;">Create an account</a>
+        </div>
+
+        <div class="auth-quick-fill">
+          <span>Demo:</span>
+          <button type="button" class="btn-quick-fill" id="fill-alex">👤 Alex</button>
+          <button type="button" class="btn-quick-fill" id="fill-priya">🎓 Priya</button>
         </div>
       </form>
     </div>
   </main>
-
-  <footer style="padding: 20px; text-align: center; font-size: 0.75rem; color: var(--color-muted-text); border-top: 1px solid var(--color-border); background-color: var(--color-card-bg);">
-    MODULIV Demonstration Architecture • Frontend simulation only.
-  </footer>
 
   <script src="../assets/data/data.js"></script>
   <script src="../assets/js/app.js"></script>
