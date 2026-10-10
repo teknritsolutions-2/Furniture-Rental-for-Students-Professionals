@@ -97,14 +97,14 @@
 
         <div style="text-align: center; font-size: 0.875rem;">
           <span style="color: var(--color-muted-text);">New customer to NESTLOOP?</span>
-          <a href="register.html" style="color: var(--color-forest); font-weight: 600; margin-inline-start: 4px; text-decoration: none;">Create Demo Profile</a>
+          <a href="register.html" id="link-create-account" style="color: var(--color-forest); font-weight: 600; margin-inline-start: 4px; text-decoration: none;">Create Account</a>
         </div>
       </form>
     </div>
   </main>
 
   <footer style="padding: 20px; text-align: center; font-size: 0.75rem; color: var(--color-muted-text); border-top: 1px solid var(--color-border); background-color: var(--color-card-bg);">
-    NESTLOOP Demonstration Architecture • No actual financial or personal credentials collected.
+    NESTLOOP Demonstration Architecture • Frontend simulation only.
   </footer>
 
   <script src="../assets/data/data.js"></script>
@@ -122,9 +122,16 @@
       const pwInput = document.getElementById('login-password');
       const errBox = document.getElementById('login-error-alert');
       const togglePwBtn = document.getElementById('btn-toggle-pw');
+      const registerLink = document.getElementById('link-create-account');
 
-      // Check URL query parameters for notice
+      // Check URL query parameters for notice and redirect
       const urlParams = new URLSearchParams(window.location.search);
+      const rawRedirect = urlParams.get('redirect');
+
+      if (rawRedirect && registerLink) {
+        registerLink.href = `register.html?redirect=${encodeURIComponent(rawRedirect)}`;
+      }
+
       if (urlParams.get('notice') === 'login_required') {
         errBox.style.display = 'block';
         errBox.textContent = 'Please sign in to access the customer rental portal. Use the demo credentials below.';
@@ -150,6 +157,17 @@
         togglePwBtn.setAttribute('aria-label', isPw ? 'Hide password' : 'Show password');
       });
 
+      // Sanitize redirect target to strictly avoid open redirects and loops
+      function sanitizeRedirect(target) {
+        if (!target) return 'dashboard.html';
+        const trimmed = String(target).trim();
+        // Disallow external URLs or absolute protocols
+        if (/^(?:[a-z]+:|\/\/)/i.test(trimmed)) return 'dashboard.html';
+        // Prevent loop back to login
+        if (trimmed.includes('login.html')) return 'dashboard.html';
+        return trimmed;
+      }
+
       // Handle Submission
       form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -160,7 +178,7 @@
 
         if (!email || !pw) {
           errBox.style.display = 'block';
-          errBox.textContent = 'Please provide both your demo email and password.';
+          errBox.textContent = 'Please provide both your email and password.';
           return;
         }
 
@@ -169,9 +187,9 @@
           if (window.NestloopApp && window.NestloopApp.showToast) {
             window.NestloopApp.showToast(`Welcome back, ${res.user.name}!`, 'success');
           }
-          const redirect = urlParams.get('redirect') || 'dashboard.html';
+          const destination = sanitizeRedirect(rawRedirect);
           setTimeout(() => {
-            window.location.href = redirect;
+            window.location.href = destination;
           }, 300);
         } else {
           errBox.style.display = 'block';

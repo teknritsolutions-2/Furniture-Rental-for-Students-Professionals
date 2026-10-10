@@ -306,26 +306,31 @@
    HOME 1 — FEATURED PACKAGES (Asymmetric editorial showcase)
    ========================================================================== */
 
-/* Featured packages: one dominant + two supporting, varied proportions */
+/* Featured packages: asymmetric editorial showcase (one dominant + two supporting) */
 .featured-bundles {
   display: grid;
   grid-template-columns: 1.25fr 1fr 1fr;
-  grid-template-rows: auto;
   gap: 24px;
+  align-items: stretch;
 }
 
 .featured-bundles > :first-child {
-  grid-row: 1 / 3;
-  /* Make first card taller — hero package */
+  border: 1px solid var(--color-forest);
+  box-shadow: var(--shadow-md);
+  position: relative;
 }
 
 .featured-bundles > :first-child .package-card-img-wrap {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 16 / 10;
 }
 
 .featured-bundles > :nth-child(2),
 .featured-bundles > :nth-child(3) {
-  /* Two supporting cards standard height */
+  border: 1px solid var(--color-border);
+}
+
+.featured-bundles .package-card-pricing {
+  margin-top: auto;
 }
 
 .packages-grid {
@@ -1371,6 +1376,50 @@
   background: var(--color-danger-bg);
 }
 
+/* PIN Shortcut Buttons — semantic, accessible pill controls */
+.pin-shortcut-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-forest);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pin-shortcut-btn:hover {
+  background-color: var(--color-forest-pale);
+  border-color: var(--color-forest);
+  color: var(--color-forest-dark);
+}
+
+.pin-shortcut-btn:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 2px;
+  background-color: var(--color-forest-pale);
+}
+
+[data-theme="dark"] .pin-shortcut-btn {
+  background-color: #172620;
+  border-color: #2F4239;
+  color: #DCE9E1;
+}
+
+[data-theme="dark"] .pin-shortcut-btn:hover {
+  background-color: #265946;
+  border-color: #3B755F;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .pin-shortcut-btn:focus-visible {
+  outline-color: #DCE9E1;
+}
+
 /* City directory — compact list instead of oversized cards */
 .cities-grid {
   display: grid;
@@ -1775,7 +1824,33 @@
     grid-template-columns: 1fr;
   }
   .hero-home2-stats {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.40);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 14px;
+    gap: 8px;
+  }
+  .hero-home2-stats .hero-stat-item {
+    text-align: center;
+    flex: 1;
+  }
+  .hero-home2-stats .hero-stat-num {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.1;
+  }
+  .hero-home2-stats .hero-stat-label {
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 2px;
   }
   .steps-editorial-grid {
     grid-template-columns: 1fr;
@@ -1808,10 +1883,12 @@
   .story-card-large {
     grid-column: auto;
     aspect-ratio: 4 / 3;
-    min-height: 280px;
+    max-width: 100%;
+    min-height: auto;
   }
   .story-card {
     min-height: 220px;
+    max-width: 100%;
   }
   .benefits-grid {
     gap: 0;

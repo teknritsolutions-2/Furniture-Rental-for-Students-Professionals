@@ -16,9 +16,13 @@
 
   // Path helper: handles root index.html vs pages/ subfolder
   function getImagePath(relativeImageName) {
-    const isInsidePages = window.location.pathname.includes('/pages/') || 
-      (!window.location.pathname.endsWith('index.html') && window.location.pathname.split('/').filter(Boolean).length > 1 && !window.location.pathname.endsWith('/'));
-    return (isInsidePages ? '../assets/images/' : 'assets/images/') + relativeImageName;
+    if (!relativeImageName) return '';
+    if (relativeImageName.startsWith('http://') || relativeImageName.startsWith('https://')) {
+      return relativeImageName;
+    }
+    const cleanName = relativeImageName.replace(/^(\.\.\/)*assets\/images\//, '').replace(/^\/+/, '');
+    const isInsidePages = window.location.pathname.includes('/pages/');
+    return (isInsidePages ? '../assets/images/' : 'assets/images/') + cleanName;
   }
 
   const PACKAGES = [
@@ -512,11 +516,11 @@
         tenureMonths: 6,
         monthlyRate: 1799,
         depositPaid: 2699,
-        startDate: "2025-12-15",
-        endDate: "2026-06-15",
+        startDate: "2026-06-15",
+        endDate: "2026-12-15",
         nextDueDate: "2026-10-15",
         status: "Active",
-        agreementNumber: "AGR-2025-NL7821",
+        agreementNumber: "AGR-2026-NL7821",
         itemsSummary: "2-Seater Sofa, Dual Nesting Coffee Tables, TV Console, Arc Lamp",
         paymentMethod: "HDFC Auto-Debit (Demo **** 4112)"
       },
@@ -599,7 +603,23 @@
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // Self-heal known outdated seed date inconsistency while strictly preserving user modifications
+        if (parsed && Array.isArray(parsed.rentals)) {
+          let updated = false;
+          parsed.rentals.forEach(r => {
+            if (r.rentalId === 'NL-7821' && r.endDate === '2026-06-15' && r.nextDueDate === '2026-10-15') {
+              r.startDate = '2026-06-15';
+              r.endDate = '2026-12-15';
+              r.agreementNumber = 'AGR-2026-NL7821';
+              updated = true;
+            }
+          });
+          if (updated) {
+            saveDemoState(parsed);
+          }
+        }
+        return parsed;
       }
     } catch (e) {
       console.warn("Could not read localStorage for NESTLOOP demo:", e);

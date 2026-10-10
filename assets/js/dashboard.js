@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <button type="button" class="btn btn-outline btn-sm" onclick="window.NestloopDash.openAgreement('${r.rentalId}')">
-              Agreement PDF
+              Rental Agreement
             </button>
           </div>
         `).join('');
@@ -264,13 +264,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="rental-actions-col">
           <button type="button" class="btn btn-outline btn-sm" onclick="window.NestloopDash.openAgreement('${rental.rentalId}')">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            Agreement PDF
+            Rental Agreement
           </button>
           <button type="button" class="btn btn-secondary btn-sm" onclick="window.NestloopDash.openSwapModal('${rental.rentalId}')">
-            Swap Item
+            Request Swap
           </button>
           <button type="button" class="btn btn-outline btn-sm" style="color: var(--color-muted-text);" onclick="window.NestloopDash.openReturnModal('${rental.rentalId}')">
-            Early Return
+            Request Early Return
           </button>
         </div>
       </div>
@@ -297,9 +297,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <td data-label="Amount" style="font-weight: 700; color: var(--color-deep-ink);">₹${inv.amount.toLocaleString('en-IN')}</td>
             <td data-label="Status"><span class="chip chip-paid">${inv.status}</span></td>
             <td data-label="Download">
-              <button type="button" class="btn btn-outline btn-sm" onclick="window.NestloopDash.openReceipt('${inv.invoiceId}')" title="Download Official PDF Receipt">
+              <button type="button" class="btn btn-outline btn-sm" onclick="window.NestloopDash.openReceipt('${inv.invoiceId}')" title="Download Receipt (Sample)">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                PDF Receipt
+                Download Receipt
               </button>
             </td>
           </tr>
@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderDocuments();
 
         if (window.NestloopApp && window.NestloopApp.showToast) {
-          window.NestloopApp.showToast(`Demonstration payment of ₹${totalMonthly.toLocaleString('en-IN')} processed successfully!`, 'success');
+          window.NestloopApp.showToast(`Sample payment recorded for ₹${totalMonthly.toLocaleString('en-IN')} (Demonstration Preview).`, 'success');
         }
       };
     }
@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="doc-title">${rental.agreementNumber}</div>
               <div class="doc-meta">${rental.packageName} • Term: ${rental.tenureMonths} Months (${rental.startDate})</div>
               <button type="button" class="btn btn-outline btn-sm" onclick="window.NestloopDash.openAgreement('${rental.rentalId}')">
-                Download PDF
+                Download Agreement
               </button>
             </div>
           </div>
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="doc-title">${inv.invoiceId} (₹${inv.amount.toLocaleString('en-IN')})</div>
               <div class="doc-meta">Paid on ${inv.date} • ${inv.period}</div>
               <button type="button" class="btn btn-outline btn-sm" onclick="window.NestloopDash.openReceipt('${inv.invoiceId}')">
-                Download PDF
+                Download Receipt
               </button>
             </div>
           </div>

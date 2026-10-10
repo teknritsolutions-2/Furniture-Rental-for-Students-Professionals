@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" width="200" height="48" fill="none">
   <!-- Brand Mark Icon: Modular Interlocking Nesting Loop (Dark/White theme) -->
   <g transform="translate(4, 6)">
-    <rect width="36" height="36" rx="9" fill="#131E2C" stroke="#223348" stroke-width="1"/>
-    <path d="M11 22V15C11 11.6863 13.6863 9 17 9H20C23.3137 9 26 11.6863 26 15C26 18.3137 23.3137 21 20 21H13" stroke="#5B8ABF" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M25 14V21C25 24.3137 22.3137 27 19 27H16C12.6863 27 10 24.3137 10 21C10 17.6863 12.6863 15 16 15H23" stroke="#DCE5EF" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect width="36" height="36" rx="9" fill="#15372B" stroke="#3B6C58" stroke-width="1"/>
+    <path d="M11 22V15C11 11.6863 13.6863 9 17 9H20C23.3137 9 26 11.6863 26 15C26 18.3137 23.3137 21 20 21H13" stroke="#DCE9E1" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M25 14V21C25 24.3137 22.3137 27 19 27H16C12.6863 27 10 24.3137 10 21C10 17.6863 12.6863 15 16 15H23" stroke="#EEF4EF" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="18" cy="18" r="2.2" fill="#FFFFFF"/>
   </g>
   <!-- Wordmark -->
-  <text x="50" y="27" font-family="'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="20" letter-spacing="-0.03em" fill="#F8F9FA">NEST<tspan fill="#5B8ABF">LOOP</tspan></text>
-  <text x="51" y="38" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="7.5" letter-spacing="0.14em" fill="#94A3B8">FURNITURE ON YOUR TERMS</text>
+  <text x="50" y="27" font-family="'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="20" letter-spacing="-0.03em" fill="#FFFFFF">NEST<tspan fill="#DCE9E1">LOOP</tspan></text>
+  <text x="51" y="38" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="7.5" letter-spacing="0.14em" fill="#DCE9E1" opacity="0.85">FURNITURE ON YOUR TERMS</text>
 </svg>

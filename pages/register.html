@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Demo Registration | NESTLOOP</title>
-  <meta name="description" content="Create a demonstration profile on NESTLOOP to explore customer rental subscriptions, agreements, and billing schedules.">
+  <title>Create Customer Account | NESTLOOP</title>
+  <meta name="description" content="Create a customer account on NESTLOOP to explore furniture packages, rental agreements, and billing schedules.">
   <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
 
   <link rel="stylesheet" href="../assets/css/tokens.css">
@@ -34,13 +34,13 @@
   <main class="auth-container">
     <div class="auth-card">
       <div class="auth-card-header">
-        <span class="chip chip-starter" style="margin-bottom: 8px;">Demo Onboarding</span>
-        <h1 class="subsection-h3" style="margin-bottom: 6px;">Create your customer demo profile</h1>
-        <p class="body-sm">Simulate setting up your rental account and browsing personal dashboard tools.</p>
+        <span class="chip chip-starter" style="margin-bottom: 8px;">Customer Portal</span>
+        <h1 class="subsection-h3" style="margin-bottom: 6px;">Create your customer profile</h1>
+        <p class="body-sm">Set up your profile to manage packages, view agreements, and access dashboard tools.</p>
       </div>
 
       <div class="demo-credentials-callout">
-        <strong>Demo Registration Note:</strong> This form creates a local simulated profile stored in your browser's LocalStorage. No real identity checks or credit cards are involved.
+        <strong>Demonstration Account:</strong> Profile is stored locally in your browser session for this frontend demo. No real identity checks or credit cards are involved.
       </div>
 
       <form id="register-form" novalidate>
@@ -87,13 +87,13 @@
         </div>
 
         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
-          Create Demo Account &amp; Open Portal
+          Create Account &amp; Open Portal
         </button>
 
-        <div class="auth-divider">already have a profile?</div>
+        <div class="auth-divider">already have an account?</div>
 
         <div style="text-align: center; font-size: 0.875rem;">
-          <span style="color: var(--color-muted-text);">Have demo credentials?</span>
+          <span style="color: var(--color-muted-text);">Already registered?</span>
           <a href="login.html" style="color: var(--color-forest); font-weight: 600; margin-inline-start: 4px; text-decoration: none;">Sign In Here</a>
         </div>
       </form>
@@ -101,7 +101,7 @@
   </main>
 
   <footer style="padding: 20px; text-align: center; font-size: 0.75rem; color: var(--color-muted-text); border-top: 1px solid var(--color-border); background-color: var(--color-card-bg);">
-    NESTLOOP Demonstration Architecture • Static client-side state.
+    NESTLOOP Demonstration Architecture • Frontend simulation only.
   </footer>
 
   <script src="../assets/data/data.js"></script>
@@ -147,8 +147,18 @@
           if (window.NestloopApp && window.NestloopApp.showToast) {
             window.NestloopApp.showToast(`Account created for ${res.user.name}!`, 'success');
           }
+          const urlParams = new URLSearchParams(window.location.search);
+          const rawRedirect = urlParams.get('redirect');
+          function sanitizeRedirect(target) {
+            if (!target) return 'dashboard.html';
+            const trimmed = String(target).trim();
+            if (/^(?:[a-z]+:|\/\/)/i.test(trimmed)) return 'dashboard.html';
+            if (trimmed.includes('register.html') || trimmed.includes('login.html')) return 'dashboard.html';
+            return trimmed;
+          }
+          const destination = sanitizeRedirect(rawRedirect);
           setTimeout(() => {
-            window.location.href = 'dashboard.html';
+            window.location.href = destination;
           }, 300);
         } else {
           errBox.style.display = 'block';

@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span style="color: var(--color-success); font-weight: 600;">₹${cost.delivery + cost.assembly}</span>
               </div>
               <div class="cost-row total-first">
-                <span>Total Due on Delivery (Demo)</span>
+                <span>Estimated Upfront Total</span>
                 <span style="color: var(--color-deep-ink); font-size: 1.2rem;">₹${cost.totalFirstMonth.toLocaleString('en-IN')}</span>
               </div>
             </div>
@@ -157,10 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- Action Button -->
             <div>
               <button type="button" id="btn-request-rental" class="btn btn-primary btn-lg" style="width: 100%;">
-                Request This Rental (Demo)
+                Request Rental
               </button>
               <p style="font-size: 0.75rem; color: var(--color-muted-text); text-align: center; margin-top: 10px;">
-                Demo request only. No payment, booking or delivery is made.
+                Demonstration request. Saves to your local customer session.
               </p>
             </div>
 
@@ -272,13 +272,33 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'dashboard.html#rentals';
       }, 800);
     } else {
-      // Direct unauthenticated demo flow: save requested item in session and prompt login
-      if (confirm(`You selected "${pkg.name}" (${selectedTenure} months at ₹${cost.monthlyRate.toLocaleString('en-IN')}/mo).\n\nContinue to the demo login to save this sample rental? No delivery is scheduled.`)) {
-        window.location.href = `login.html?redirect=package-details.html?id=${pkg.id}&tenure=${selectedTenure}`;
+      // Direct unauthenticated demo flow: preserve requested item and tenure, then prompt login
+      if (confirm(`You selected "${pkg.name}" (${selectedTenure} months at ₹${cost.monthlyRate.toLocaleString('en-IN')}/mo).\n\nContinue to sign in to save this sample rental?`)) {
+        const destParams = new URLSearchParams();
+        destParams.set('id', pkg.id);
+        destParams.set('tenure', String(selectedTenure));
+        destParams.set('auto_request', '1');
+        const targetDest = 'package-details.html?' + destParams.toString();
+
+        const loginParams = new URLSearchParams();
+        loginParams.set('redirect', targetDest);
+        window.location.href = 'login.html?' + loginParams.toString();
       }
     }
   }
 
   // Initial render
   renderView();
+
+  // If returning authenticated from login with auto_request parameter, execute rental request
+  if (params.get('auto_request') === '1' && window.NestloopAuth && window.NestloopAuth.isAuthenticated()) {
+    // Remove auto_request from URL history cleanly without reloading
+    const cleanUrl = new URL(window.location.href);
+    cleanUrl.searchParams.delete('auto_request');
+    window.history.replaceState(null, '', cleanUrl.toString());
+
+    setTimeout(() => {
+      handleRentalRequest();
+    }, 400);
+  }
 });

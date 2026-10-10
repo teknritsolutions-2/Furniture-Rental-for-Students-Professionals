@@ -163,13 +163,15 @@
           <!-- Deterministic Result Container -->
           <div id="coverage-status-result" class="coverage-status-box" role="status" aria-live="polite"></div>
 
-          <div style="margin-top: 16px; font-size: 0.8125rem; color: var(--color-muted-text);">
-            Quick demo PIN suggestions: 
-            <a href="javascript:void(0)" onclick="document.getElementById('coverage-pin-input').value='500081';document.getElementById('coverage-checker-form').dispatchEvent(new Event('submit'))" style="color: var(--color-forest); margin-inline: 4px;">500081 (Madhapur)</a> |
-            <a href="javascript:void(0)" onclick="document.getElementById('coverage-pin-input').value='560100';document.getElementById('coverage-checker-form').dispatchEvent(new Event('submit'))" style="color: var(--color-forest); margin-inline: 4px;">560100 (Electronic City)</a> |
-            <a href="javascript:void(0)" onclick="document.getElementById('coverage-pin-input').value='411057';document.getElementById('coverage-checker-form').dispatchEvent(new Event('submit'))" style="color: var(--color-forest); margin-inline: 4px;">411057 (Hinjawadi)</a> |
-            <a href="javascript:void(0)" onclick="document.getElementById('coverage-pin-input').value='600096';document.getElementById('coverage-checker-form').dispatchEvent(new Event('submit'))" style="color: var(--color-forest); margin-inline: 4px;">600096 (Perungudi)</a> |
-            <a href="javascript:void(0)" onclick="document.getElementById('coverage-pin-input').value='400051';document.getElementById('coverage-checker-form').dispatchEvent(new Event('submit'))" style="color: var(--color-forest); margin-inline: 4px;">400051 (Bandra East)</a>
+          <div class="pin-shortcuts-wrapper" style="margin-top: 18px;">
+            <span class="pin-shortcuts-label" style="font-size: 0.8125rem; font-weight: 600; color: var(--color-muted-text); display: block; margin-bottom: 8px;">Sample PIN shortcuts:</span>
+            <div class="pin-shortcuts-group" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+              <button type="button" class="pin-shortcut-btn" data-pin="500081">500081 (Madhapur)</button>
+              <button type="button" class="pin-shortcut-btn" data-pin="560100">560100 (Electronic City)</button>
+              <button type="button" class="pin-shortcut-btn" data-pin="411057">411057 (Hinjawadi)</button>
+              <button type="button" class="pin-shortcut-btn" data-pin="600096">600096 (Perungudi)</button>
+              <button type="button" class="pin-shortcut-btn" data-pin="400051">400051 (Bandra East)</button>
+            </div>
           </div>
         </div>
 
@@ -293,20 +295,20 @@
           </ul>
         </div>
 
+        <!-- Col 4: Account & Legal -->
         <div>
-          <h4 class="footer-col-title">Legal &amp; Policy</h4>
+          <h4 class="footer-col-title">Account &amp; Legal</h4>
           <ul class="footer-nav">
+            <li><a href="login.html">Customer Login</a></li>
+            <li><a href="register.html">Create Account</a></li>
             <li><a href="terms.html">Rental Agreement Terms</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="login.html">Demo Portal Login</a></li>
-            <li><a href="register.html">Demo Registration</a></li>
-            <li><a href="../documentation/IMAGE-SOURCES.md">Image Sources &amp; Provenance</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 NESTLOOP Furnishing Solutions. Furniture rental demonstration. Sample prices and policies.</div>
+        <div>&copy; 2026 NESTLOOP Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.</div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>

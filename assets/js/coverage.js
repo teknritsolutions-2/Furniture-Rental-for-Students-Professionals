@@ -62,6 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Handle accessible button shortcuts
+  const shortcutButtons = document.querySelectorAll('.pin-shortcut-btn');
+  shortcutButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pin = btn.getAttribute('data-pin');
+      if (pin && pinInput) {
+        pinInput.value = pin;
+        checkCurrentPin();
+      }
+    });
+  });
+
   function checkCurrentPin() {
     if (!pinInput || !resultBox) return;
     const pin = pinInput.value.trim();

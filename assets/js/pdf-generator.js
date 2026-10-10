@@ -49,8 +49,8 @@ window.NestloopPDF = (function () {
     });
     doc.restoreGraphicsState && doc.restoreGraphicsState();
 
-    // Top Header Banner
-    doc.setFillColor(16, 32, 53); // Midnight Navy dark
+    // Top Header Banner — Forest Green
+    doc.setFillColor(21, 55, 43); // Dark Forest #15372B
     doc.rect(0, 0, pageWidth, 28, "F");
 
     doc.setTextColor(255, 255, 255);
@@ -58,18 +58,18 @@ window.NestloopPDF = (function () {
     doc.setFontSize(18);
     doc.text("NESTLOOP", 18, 16);
 
-    doc.setTextColor(69, 123, 157); // Slate accent
+    doc.setTextColor(220, 233, 225); // Light Forest #DCE9E1
     doc.setFontSize(10);
     doc.text("FURNITURE THAT MOVES WITH YOU", 18, 22);
 
-    doc.setTextColor(220, 229, 239);
+    doc.setTextColor(238, 244, 239); // Pale Forest #EEF4EF
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8.5);
     doc.text("SAMPLE RENTAL AGREEMENT", pageWidth - 18, 14, { align: "right" });
     doc.text("DEMO SPECIMEN ONLY", pageWidth - 18, 20, { align: "right" });
 
     // Document Meta Strip
-    doc.setFillColor(240, 244, 248);
+    doc.setFillColor(238, 244, 239); // Pale Forest #EEF4EF
     doc.rect(14, 34, pageWidth - 28, 22, "F");
     doc.setDrawColor(226, 232, 240);
     doc.rect(14, 34, pageWidth - 28, 22, "S");
@@ -133,12 +133,12 @@ window.NestloopPDF = (function () {
     doc.text("2. RENTED FURNITURE SPECIFICATIONS & PRICING", 18, y);
 
     y += 6;
-    doc.setDrawColor(29, 53, 87);
+    doc.setDrawColor(35, 76, 62); // Primary Forest #234C3E
     doc.line(18, y, pageWidth - 18, y);
 
     // Table Header
     y += 7;
-    doc.setFillColor(240, 244, 248); // Pale navy
+    doc.setFillColor(238, 244, 239); // Pale Forest #EEF4EF
     doc.rect(18, y, pageWidth - 36, 8, "F");
     doc.setFontSize(8.5);
     doc.setFont("helvetica", "bold");
@@ -265,8 +265,8 @@ window.NestloopPDF = (function () {
     });
     doc.restoreGraphicsState && doc.restoreGraphicsState();
 
-    // Header Bar
-    doc.setFillColor(16, 32, 53); // Midnight Navy dark
+    // Header Bar — Forest Green
+    doc.setFillColor(21, 55, 43); // Dark Forest #15372B
     doc.rect(0, 0, pageWidth, 28, "F");
 
     doc.setTextColor(255, 255, 255);
@@ -274,18 +274,18 @@ window.NestloopPDF = (function () {
     doc.setFontSize(18);
     doc.text("NESTLOOP", 18, 16);
 
-    doc.setTextColor(69, 123, 157); // Slate accent
+    doc.setTextColor(220, 233, 225); // Light Forest #DCE9E1
     doc.setFontSize(10);
     doc.text("FURNITURE THAT MOVES WITH YOU", 18, 22);
 
-    doc.setTextColor(220, 229, 239);
+    doc.setTextColor(238, 244, 239); // Pale Forest #EEF4EF
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8.5);
     doc.text("PAYMENT RECEIPT", pageWidth - 18, 14, { align: "right" });
     doc.text("STATUS: PAID (DEMO)", pageWidth - 18, 20, { align: "right" });
 
     // Meta Grid
-    doc.setFillColor(240, 244, 248);
+    doc.setFillColor(238, 244, 239); // Pale Forest #EEF4EF
     doc.rect(14, 34, pageWidth - 28, 24, "F");
     doc.setDrawColor(226, 232, 240);
     doc.rect(14, 34, pageWidth - 28, 24, "S");
@@ -322,7 +322,7 @@ window.NestloopPDF = (function () {
 
     // Itemized Table
     y += 12;
-    doc.setFillColor(240, 244, 248);
+    doc.setFillColor(238, 244, 239); // Pale Forest
     doc.rect(18, y, pageWidth - 36, 8, "F");
 
     doc.setFont("helvetica", "bold");
