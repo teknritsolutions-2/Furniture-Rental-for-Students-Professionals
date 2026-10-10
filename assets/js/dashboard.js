@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const targetViewId = link.getAttribute('data-dash-view');
         switchView(targetViewId);
+        closeSidebar();
       });
     });
 
@@ -53,19 +54,39 @@ document.addEventListener('DOMContentLoaded', () => {
       switchView('overview');
     }
 
-    // Persona switch button in topbar
-    const switchPersonaBtn = document.getElementById('dash-switch-user-btn');
-    if (switchPersonaBtn) {
-      switchPersonaBtn.addEventListener('click', () => {
-        const isCurrentAlex = user.name.toLowerCase().includes('alex');
-        user = auth.switchDemoUser(isCurrentAlex ? 1 : 0);
-        renderUserMini();
-        renderAllViews();
-        if (window.NestloopApp && window.NestloopApp.showToast) {
-          window.NestloopApp.showToast(`Active Profile: ${user.name}`);
-        }
-      });
+    // Sidebar Drawer Toggle for tablet / mobile
+    const sidebarToggle = document.getElementById('dash-sidebar-toggle');
+    const sidebarCloseBtn = document.getElementById('dash-sidebar-close-btn');
+    const sidebarEl = document.getElementById('dash-sidebar');
+    const sidebarOverlay = document.getElementById('dash-sidebar-overlay');
+
+    function openSidebar() {
+      if (sidebarEl) sidebarEl.classList.add('open');
+      if (sidebarOverlay) sidebarOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
+
+    function closeSidebar() {
+      if (sidebarEl) sidebarEl.classList.remove('open');
+      if (sidebarOverlay) sidebarOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener('click', openSidebar);
+    }
+    if (sidebarCloseBtn) {
+      sidebarCloseBtn.addEventListener('click', closeSidebar);
+    }
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSidebar();
+      }
+    });
 
     // Top logout button
     const logoutBtns = document.querySelectorAll('.action-logout');

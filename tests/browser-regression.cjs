@@ -71,6 +71,7 @@ fs.mkdirSync(output, { recursive: true });
   check('Mobile menu restores focus', await page.locator('.mobile-menu-toggle').evaluate(e => e === document.activeElement));
   await page.locator('.mobile-menu-toggle').click(); await page.locator('.drawer-sublink[href="pages/home2.html"]').click();
   await page.waitForURL('**/home2.html');check('Home 2 navigation', await page.locator('#home2-title').isVisible());
+  await page.setViewportSize({width:1440,height:1000});
   await goto('pages/dashboard.html');
   for (const view of ['browse','rentals','billing','requests','documents','settings','overview']) {
     await page.locator(`[data-dash-view="${view}"]`).click(); check(`Dashboard ${view} navigation`, await page.locator(`#view-${view}`).isVisible());
