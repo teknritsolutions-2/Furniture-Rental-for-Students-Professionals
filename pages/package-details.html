@@ -19,7 +19,7 @@
     <span class="top-notice-badge">Explore the demo</span><span>Furniture for your next chapter. Sample prices · No real bookings or payments.</span>
   </div>
 
-  <!-- Shared Header -->
+  <!-- Sticky Header & Shared Navbar -->
   <header class="site-header" id="site-header">
     <div class="container navbar-inner">
       <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
@@ -27,6 +27,7 @@
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark">
       </a>
 
+      <!-- Desktop Navigation: Home, About, Packages, Pricing, Coverage Areas, Contact Us -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu-desktop">
           <li class="nav-item-dropdown">
@@ -34,24 +35,27 @@
               <span>Home</span>
               <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <ul class="dropdown-menu"><li><a href="../index.html" class="dropdown-item">Storefront</a></li><li><a href="home2.html" class="dropdown-item">Modular Living</a></li></ul>
+            <ul class="dropdown-menu">
+              <li><a href="../index.html" class="dropdown-item">Homepage 1</a></li>
+              <li><a href="home2.html" class="dropdown-item">Homepage 2</a></li>
+            </ul>
           </li>
-
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="packages.html" class="nav-link active">Packages</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="coverage.html" class="nav-link">Coverage Areas</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
-        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle direction">
-          <span class="dir-label-text">RTL</span>
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle text direction" title="Toggle LTR / RTL"><span class="dir-label-text">RTL</span></button>
         <a href="dashboard.html" class="btn btn-outline btn-sm" id="nav-auth-link" title="Open Customer Rental Dashboard">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 4px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
           <span>Dashboard</span>
         </a>
         <a href="packages.html" class="btn btn-primary btn-sm">Explore Packages</a>
@@ -62,85 +66,163 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer Overlay & Drawer Container -->
   <div class="mobile-drawer-overlay"></div>
-  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true">
+  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
     <div class="drawer-header">
       <a href="../index.html" class="brand-link">
         <img src="../assets/brand/logo.svg" alt="MODULIV Logo" class="brand-logo logo-light" style="height: 32px;">
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark" style="height: 32px;">
       </a>
-      <button type="button" class="drawer-close-btn" aria-label="Close menu">
+      <button type="button" class="drawer-close-btn" aria-label="Close navigation menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
     </div>
+
     <div class="drawer-body">
       <ul class="drawer-nav-list">
         <li>
           <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text); padding: 8px 14px 4px 14px;">Home Variations</div>
           <div class="drawer-subnav">
-            <a href="../index.html" class="drawer-sublink">Home 1: Storefront</a>
-            <a href="home2.html" class="drawer-sublink">Home 2: Modular Living</a>
+            <a href="../index.html" class="drawer-sublink">Homepage 1</a>
+            <a href="home2.html" class="drawer-sublink">Homepage 2</a>
           </div>
         </li>
+        <li><a href="about.html" class="drawer-nav-link">About</a></li>
         <li><a href="packages.html" class="drawer-nav-link active">Packages</a></li>
-        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
         <li><a href="coverage.html" class="drawer-nav-link">Coverage Areas</a></li>
-        <li><a href="about.html" class="drawer-nav-link">About</a></li>
+        <li><a href="contact.html" class="drawer-nav-link">Contact Us</a></li>
+        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="faq.html" class="drawer-nav-link">FAQs</a></li>
-        <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
         <li><a href="dashboard.html" class="drawer-nav-link">Customer Dashboard</a></li>
       </ul>
     </div>
+
     <div class="drawer-footer">
       <div class="drawer-toggles">
-        <button type="button" class="utility-btn theme-toggle-btn"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
-        <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
-        <a href="login.html" class="btn btn-primary btn-sm" style="flex: 1;">Login</a>
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle direction">
+          <span class="dir-label-text">RTL</span>
+        </button>
+        <a href="login.html" class="btn btn-primary btn-sm" style="flex: 1;">Customer Login</a>
       </div>
     </div>
   </aside>
 
   <main id="main-content">
-    <div class="section" style="padding-top: 36px;">
+    <!-- SECTION 1: DYNAMIC PACKAGE DETAILS CONFIGURATOR ROOT -->
+    <section class="section" style="padding-top: 36px;">
       <div class="container" id="package-detail-container">
         <!-- Rendered dynamically by assets/js/package-details.js -->
         <div style="padding: 60px 20px; text-align: center; color: var(--color-muted-text);">
           Loading package configuration...
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- SECTION 2: WHITE-GLOVE SERVICE & INCLUSIONS -->
+    <section class="section section-tinted" aria-labelledby="package-perks-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">The MODULIV Standard</span>
+          <h2 id="package-perks-title" class="section-h2">What comes included with this package</h2>
+          <p class="body-lead" style="max-width: 600px; margin-inline: auto;">
+            Zero hidden charges. Every package comes fully supported throughout your active lease tenure.
+          </p>
+        </div>
+
+        <div class="grid grid-3" style="gap: 24px;">
+          <div class="card" style="padding: 24px; border-radius: var(--radius-lg); text-align: start;">
+            <div style="font-size: 1.5rem; margin-bottom: 8px;">🛠️</div>
+            <h3 class="card-title" style="margin-bottom: 8px;">Free 48-Hour Assembly</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">Our technicians place and assemble every item precisely where you want it. Zero tools or manual labor needed.</p>
+          </div>
+          <div class="card" style="padding: 24px; border-radius: var(--radius-lg); text-align: start;">
+            <div style="font-size: 1.5rem; margin-bottom: 8px;">🛡️</div>
+            <h3 class="card-title" style="margin-bottom: 8px;">Built-In Care Protection</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">Accidental minor scuffs, normal fabric wear, and pet marks are 100% forgiven under our care covenant.</p>
+          </div>
+          <div class="card" style="padding: 24px; border-radius: var(--radius-lg); text-align: start;">
+            <div style="font-size: 1.5rem; margin-bottom: 8px;">🔄</div>
+            <h3 class="card-title" style="margin-bottom: 8px;">Seamless Room Swaps</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">Need to change styles or add an ergonomic chair midway through your tenure? Request a swap via the portal anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: FREQUENTLY ASKED QUESTIONS -->
+    <section class="section" aria-labelledby="package-faq-title">
+      <div class="container container-narrow">
+        <div class="section-header text-center">
+          <span class="eyebrow">Rental Clarifications</span>
+          <h2 id="package-faq-title" class="section-h2">Frequently Asked Questions</h2>
+          <p class="body-lead">Quick answers about tenures, deposits, and delivery.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="card" style="padding: 24px; border-radius: var(--radius-md);">
+            <h3 class="card-title" style="font-size: 1.05rem; margin-bottom: 8px;">How is the security deposit calculated?</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">The refundable deposit is 1.5x your monthly subscription rate. It is held securely and returned to your original bank account within 7 business days following item return inspection.</p>
+          </div>
+          <div class="card" style="padding: 24px; border-radius: var(--radius-md);">
+            <h3 class="card-title" style="font-size: 1.05rem; margin-bottom: 8px;">Can I extend or shorten my rental tenure?</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">Yes. You can extend your subscription at the same discounted monthly rate directly from the customer dashboard. For early terminations, a modest adjustment to the standard shorter tenure rate applies.</p>
+          </div>
+          <div class="card" style="padding: 24px; border-radius: var(--radius-md);">
+            <h3 class="card-title" style="font-size: 1.05rem; margin-bottom: 8px;">What happens if I move to a new apartment in the city?</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">We provide one free intra-city relocation per year for customers on 6-month or 12-month tenures. Our team will disassemble, move, and reassemble everything at your new address.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: HIGH-CONVERSION CTA BANNER -->
+    <section class="section cta-banner-section" aria-labelledby="package-cta-title">
+      <div class="container text-center">
+        <span class="cta-chip-ready">Move In Ready</span>
+        <h2 id="package-cta-title" class="section-h2">
+          Talk to a MODULIV spatial concierge today.
+        </h2>
+        <p class="body-lead">
+          Have questions about specific room dimensions or custom furniture substitutions? Our team responds within 2 hours.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Contact Concierge</a>
+          <a href="packages.html" class="btn btn-outline btn-lg">Browse Other Packages</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Shared Footer -->
+  <!-- Shared Footer — Modern Indigo Gradient & Lighting Aura -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
+        <!-- Brand Column -->
         <div class="footer-brand">
-          <a href="../index.html" class="brand-link">
+          <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
             <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" style="height: 38px;">
           </a>
           <p>
             MODULIV is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.
           </p>
-          <div class="footer-badges">
-            <span class="footer-badge-pill">Circular Lifecycle</span>
-            <span class="footer-badge-pill">White-Glove Setup</span>
-          </div>
         </div>
 
+        <!-- Col 1: Pages / Explore -->
         <div>
           <h4 class="footer-col-title">Pages / Explore</h4>
           <ul class="footer-nav">
-            <li><a href="../index.html">Home 1: Storefront</a></li>
-            <li><a href="home2.html">Home 2: Modular Living</a></li>
+            <li><a href="../index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
             <li><a href="packages.html">Packages Catalogue</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="pricing.html">Pricing Calculator</a></li>
           </ul>
         </div>
 
+        <!-- Col 2: Packages -->
         <div>
           <h4 class="footer-col-title">Packages</h4>
           <ul class="footer-nav">
@@ -148,9 +230,11 @@
             <li><a href="packages.html?tier=essential">Essential Sets</a></li>
             <li><a href="packages.html?tier=premium">Premium Suites</a></li>
             <li><a href="packages.html?category=workspace">WFH Workstations</a></li>
+            <li><a href="packages.html?category=bedroom">Bedroom Sets</a></li>
           </ul>
         </div>
 
+        <!-- Col 3: Support -->
         <div>
           <h4 class="footer-col-title">Support &amp; Portal</h4>
           <ul class="footer-nav">
@@ -175,7 +259,9 @@
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.</div>
+        <div>
+          &copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.
+        </div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -196,7 +282,6 @@
         const authLink = document.getElementById('nav-auth-link');
         if (authLink) {
           authLink.href = 'dashboard.html';
-          /* authLink left clean */
         }
       }
     });

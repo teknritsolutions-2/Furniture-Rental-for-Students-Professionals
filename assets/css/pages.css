@@ -4,14 +4,17 @@
  * Home 1, Home 2, Packages, Package Details, Pricing, Coverage, Auth.
  */
 
-/* Section Spacing */
+/* Section Spacing & Distinct Light Background Rhythms */
 .section {
   padding-block: var(--section-spacing);
   position: relative;
+  background-color: var(--color-white);
 }
 
 .section-tinted {
-  background-color: var(--color-forest-pale);
+  background-color: var(--color-surface-tint);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .section-header {
@@ -43,10 +46,10 @@
   background: var(--color-warm-chalk);
 }
 
-/* Two-panel architectural layout: content left ~42%, photography right ~58% */
+/* Two-panel architectural layout: balanced editorial content left, photography right */
 .hero-home1-grid {
   display: grid;
-  grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
   min-height: clamp(480px, 70vh, 720px);
   align-items: stretch;
 }
@@ -56,22 +59,22 @@
   flex-direction: column;
   justify-content: center;
   padding-block: clamp(48px, 7vw, 88px);
-  padding-inline-end: clamp(32px, 5vw, 72px);
+  padding-inline-end: clamp(24px, 4vw, 48px);
   padding-inline-start: var(--gutter);
 }
 
 .hero-home1-content .hero-h1 {
   margin-bottom: 20px;
-  max-width: 12ch;
+  max-width: 14ch;
 }
 
 .hero-accent {
-  color: var(--color-forest);
+  color: var(--color-slate-accent);
 }
 
 .hero-home1-content .body-lead {
   margin-bottom: 28px;
-  max-width: 39ch;
+  max-width: 44ch;
   color: var(--color-secondary-grey);
 }
 
@@ -497,7 +500,7 @@
 }
 
 .comp-icon-good {
-  color: var(--color-forest);
+  color: var(--color-slate-accent);
   flex-shrink: 0;
   margin-top: 3px;
   font-weight: 700;
@@ -535,6 +538,7 @@
   font-weight: 700;
   font-size: 0.875rem;
   letter-spacing: 0.04em;
+  color: var(--color-deep-ink);
 }
 
 .rent-vs-buy-table tr:last-child td {
@@ -542,9 +546,15 @@
 }
 
 .cell-highlight {
-  background-color: var(--color-forest-pale);
+  background-color: #EBF2F8;
   font-weight: 600;
-  color: var(--color-forest-dark);
+  color: #0F172A;
+}
+
+[data-theme="dark"] .cell-highlight {
+  background-color: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  color: #FFFFFF !important;
 }
 
 /* ==========================================================================
@@ -1057,7 +1067,7 @@
 
 /* Home 2 — Quick Tenure & Delivery Estimator Widget */
 .quick-estimator-box {
-  background: linear-gradient(135deg, var(--color-navy-dark) 0%, #1D3557 100%);
+  background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-navy) 100%);
   color: #FFFFFF;
   border-radius: var(--radius-lg);
   padding: 36px 40px;
@@ -1531,19 +1541,19 @@
 }
 
 [data-theme="dark"] .pin-shortcut-btn {
-  background-color: #172620;
-  border-color: #2F4239;
-  color: #DCE9E1;
+  background-color: #1E2230;
+  border-color: #2E3548;
+  color: #E2E8F0;
 }
 
 [data-theme="dark"] .pin-shortcut-btn:hover {
-  background-color: #265946;
-  border-color: #3B755F;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #0F172A;
 }
 
 [data-theme="dark"] .pin-shortcut-btn:focus-visible {
-  outline-color: #DCE9E1;
+  outline-color: #38BDF8;
 }
 
 /* City directory — compact list instead of oversized cards */

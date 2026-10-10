@@ -19,7 +19,7 @@
     <span class="top-notice-badge">Explore the demo</span><span>Furniture for your next chapter. Sample prices · No real bookings or payments.</span>
   </div>
 
-  <!-- Shared Header -->
+  <!-- Sticky Header & Shared Navbar -->
   <header class="site-header" id="site-header">
     <div class="container navbar-inner">
       <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
@@ -27,6 +27,7 @@
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark">
       </a>
 
+      <!-- Desktop Navigation: Home, About, Packages, Pricing, Coverage Areas, Contact Us -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu-desktop">
           <li class="nav-item-dropdown">
@@ -34,24 +35,27 @@
               <span>Home</span>
               <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <ul class="dropdown-menu"><li><a href="../index.html" class="dropdown-item">Storefront</a></li><li><a href="home2.html" class="dropdown-item">Modular Living</a></li></ul>
+            <ul class="dropdown-menu">
+              <li><a href="../index.html" class="dropdown-item">Homepage 1</a></li>
+              <li><a href="home2.html" class="dropdown-item">Homepage 2</a></li>
+            </ul>
           </li>
-
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="packages.html" class="nav-link active">Packages</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="coverage.html" class="nav-link">Coverage Areas</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
-        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle direction">
-          <span class="dir-label-text">RTL</span>
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle text direction" title="Toggle LTR / RTL"><span class="dir-label-text">RTL</span></button>
         <a href="dashboard.html" class="btn btn-outline btn-sm" id="nav-auth-link" title="Open Customer Rental Dashboard">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 4px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
           <span>Dashboard</span>
         </a>
         <a href="packages.html" class="btn btn-primary btn-sm">Explore Packages</a>
@@ -62,53 +66,58 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer Overlay & Drawer Container -->
   <div class="mobile-drawer-overlay"></div>
-  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true">
+  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
     <div class="drawer-header">
       <a href="../index.html" class="brand-link">
         <img src="../assets/brand/logo.svg" alt="MODULIV Logo" class="brand-logo logo-light" style="height: 32px;">
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark" style="height: 32px;">
       </a>
-      <button type="button" class="drawer-close-btn" aria-label="Close menu">
+      <button type="button" class="drawer-close-btn" aria-label="Close navigation menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
     </div>
+
     <div class="drawer-body">
       <ul class="drawer-nav-list">
         <li>
           <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text); padding: 8px 14px 4px 14px;">Home Variations</div>
           <div class="drawer-subnav">
-            <a href="../index.html" class="drawer-sublink">Home 1: Storefront</a>
-            <a href="home2.html" class="drawer-sublink">Home 2: Modular Living</a>
+            <a href="../index.html" class="drawer-sublink">Homepage 1</a>
+            <a href="home2.html" class="drawer-sublink">Homepage 2</a>
           </div>
         </li>
+        <li><a href="about.html" class="drawer-nav-link">About</a></li>
         <li><a href="packages.html" class="drawer-nav-link active">Packages</a></li>
-        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
         <li><a href="coverage.html" class="drawer-nav-link">Coverage Areas</a></li>
-        <li><a href="about.html" class="drawer-nav-link">About</a></li>
+        <li><a href="contact.html" class="drawer-nav-link">Contact Us</a></li>
+        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="faq.html" class="drawer-nav-link">FAQs</a></li>
-        <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
         <li><a href="dashboard.html" class="drawer-nav-link">Customer Dashboard</a></li>
       </ul>
     </div>
+
     <div class="drawer-footer">
       <div class="drawer-toggles">
-        <button type="button" class="utility-btn theme-toggle-btn"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
-        <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
-        <a href="login.html" class="btn btn-primary btn-sm" style="flex: 1;">Login</a>
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle direction">
+          <span class="dir-label-text">RTL</span>
+        </button>
+        <a href="login.html" class="btn btn-primary btn-sm" style="flex: 1;">Customer Login</a>
       </div>
     </div>
   </aside>
 
   <main id="main-content">
-    <div class="section" style="padding-top: 48px;">
+    <!-- SECTION 1: CATALOGUE HERO, SEARCH, CONTROLS & DYNAMIC PACKAGES GRID -->
+    <section class="section" style="padding-top: 48px;" aria-labelledby="catalogue-title">
       <div class="container">
         <!-- Page Title & Intro -->
         <div class="section-header" style="max-width: 720px;">
           <span class="eyebrow">Curated Collections</span>
-          <h1 class="inner-h1">Furniture Packages Catalogue</h1>
+          <h1 id="catalogue-title" class="inner-h1">Furniture Packages Catalogue</h1>
           <p class="body-lead">
             Explore turnkey bundles for compact student bedrooms, work-from-home setups, and full 1BHK/2BHK apartments. Select your preferred tenure to view live monthly estimates.
           </p>
@@ -188,40 +197,231 @@
 
         <!-- Packages Grid Root (populated by packages.js) -->
         <div id="packages-grid" class="packages-grid" aria-live="polite">
-          <!-- Populated by assets/js/packages.js -->
+          <!-- Populated dynamically by assets/js/packages.js -->
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- SECTION 2: TIER COMPARISON & INCLUSIONS MATRIX -->
+    <section class="section section-tinted" aria-labelledby="matrix-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Tier Breakdown</span>
+          <h2 id="matrix-title" class="section-h2">Find the setup that fits your living style</h2>
+          <p class="body-lead" style="max-width: 620px; margin-inline: auto;">
+            Compare specifications, materials, and support inclusions across our Starter, Essential, and Premium packages.
+          </p>
+        </div>
+
+        <div style="overflow-x: auto; background: var(--color-card-bg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+          <table style="width: 100%; border-collapse: collapse; min-width: 680px; text-align: start; font-size: 0.9375rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--color-border); background: var(--color-forest-pale);">
+                <th style="padding: 16px 20px; text-align: start; font-weight: 700; color: var(--color-deep-ink);">Feature / Service</th>
+                <th style="padding: 16px 20px; text-align: center; font-weight: 700; color: var(--color-deep-ink);"><span class="chip chip-starter">Starter Tier</span></th>
+                <th style="padding: 16px 20px; text-align: center; font-weight: 700; color: var(--color-deep-ink);"><span class="chip chip-essential">Essential Tier</span></th>
+                <th style="padding: 16px 20px; text-align: center; font-weight: 700; color: var(--color-deep-ink);"><span class="chip chip-premium">Premium Suite</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 14px 20px; font-weight: 600; color: var(--color-deep-ink);">Primary Furniture Materials</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Reinforced Engineered Birch</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Kiln-Dried Solid Oak + Steel</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Solid Teak + Brushed Brass</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 14px 20px; font-weight: 600; color: var(--color-deep-ink);">Delivery &amp; White-Glove Assembly</td>
+                <td style="padding: 14px 20px; text-align: center; color: #16A34A; font-weight: 700;">Included (72 Hrs)</td>
+                <td style="padding: 14px 20px; text-align: center; color: #16A34A; font-weight: 700;">Included (48 Hrs)</td>
+                <td style="padding: 14px 20px; text-align: center; color: #16A34A; font-weight: 700;">Priority (24–48 Hrs)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 14px 20px; font-weight: 600; color: var(--color-deep-ink);">Accidental Damage Waiver</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Up to ₹1,500 coverage</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Up to ₹3,500 coverage</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Comprehensive Zero-Deductible</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 14px 20px; font-weight: 600; color: var(--color-deep-ink);">Complimentary Upholstery Steam Clean</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Upon request (chargeable)</td>
+                <td style="padding: 14px 20px; text-align: center; color: #16A34A; font-weight: 700;">1x per 12-month lease</td>
+                <td style="padding: 14px 20px; text-align: center; color: #16A34A; font-weight: 700;">2x per 12-month lease</td>
+              </tr>
+              <tr>
+                <td style="padding: 14px 20px; font-weight: 600; color: var(--color-deep-ink);">Mid-Tenure Room Swap Flexibility</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Standard notice (21 days)</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Priority notice (14 days)</td>
+                <td style="padding: 14px 20px; text-align: center; color: var(--color-muted-text);">Express swap (7 days)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: COMMERCIAL CRAFTSMANSHIP & SUSTAINABILITY -->
+    <section class="section" aria-labelledby="craft-title">
+      <div class="container">
+        <div class="grid grid-2" style="align-items: center; gap: 48px;">
+          <div>
+            <span class="eyebrow">Materials &amp; Longevity</span>
+            <h2 id="craft-title" class="section-h2">Engineered for real living, not showroom fragility.</h2>
+            <p class="body-lead" style="margin-bottom: 20px;">
+              Every furniture item in the MODULIV inventory is custom-engineered to endure multi-year student and professional lifecycles without losing structural integrity or aesthetic appeal.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--color-forest-pale); display: flex; align-items: center; justify-content: center; color: var(--color-forest); flex-shrink: 0; font-weight: 700;">✓</div>
+                <div>
+                  <strong style="color: var(--color-deep-ink); display: block; font-size: 0.95rem;">Hospital-Grade UV-C Sanitization</strong>
+                  <p class="body-sm" style="color: var(--color-muted-text);">Every returned item is stripped, thermally sanitized at 140°C, and treated with medical UV-C light before reaching its next home.</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--color-forest-pale); display: flex; align-items: center; justify-content: center; color: var(--color-forest); flex-shrink: 0; font-weight: 700;">✓</div>
+                <div>
+                  <strong style="color: var(--color-deep-ink); display: block; font-size: 0.95rem;">High-Martindale Spill-Resistant Upholstery</strong>
+                  <p class="body-sm" style="color: var(--color-muted-text);">All sofas and chairs use 45,000+ Martindale rub-count textiles treated with hydrophobic coatings that prevent coffee and water absorption.</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--color-forest-pale); display: flex; align-items: center; justify-content: center; color: var(--color-forest); flex-shrink: 0; font-weight: 700;">✓</div>
+                <div>
+                  <strong style="color: var(--color-deep-ink); display: block; font-size: 0.95rem;">FSC-Certified Solid Hardwoods</strong>
+                  <p class="body-sm" style="color: var(--color-muted-text);">Sustainably forested teak, oak, and birch frames designed for modular disassembly and 100% component circularity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position: relative;">
+            <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--color-border);">
+              <img src="../assets/images/gallery-detail-2.webp" alt="MODULIV sustainably crafted wooden furniture in bright apartment" loading="lazy" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3;">
+            </div>
+            <div style="position: absolute; bottom: 20px; inset-inline-start: 20px; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(8px); padding: 14px 20px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.15); color: #FFFFFF; max-width: 280px;">
+              <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: #93C5FD; display: block;">Circularity Standard</span>
+              <strong style="font-size: 0.95rem;">Zero Landfill Commitment</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CUSTOM FLAT FURNISHING CONCIERGE -->
+    <section class="section section-tinted" aria-labelledby="concierge-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Personalized Support</span>
+          <h2 id="concierge-title" class="section-h2">Need a tailored bundle for your specific apartment?</h2>
+          <p class="body-lead" style="max-width: 620px; margin-inline: auto;">
+            Our interior advisors review your floor plan and create a bespoke furniture combination matching your room dimensions within 2 hours.
+          </p>
+        </div>
+
+        <div class="grid grid-3" style="gap: 24px;">
+          <div class="card" style="padding: 28px; border-radius: var(--radius-lg); text-align: start;">
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-forest); margin-bottom: 12px;">01</div>
+            <h3 class="card-title" style="margin-bottom: 8px;">Share Your Floor Plan</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">Upload a quick photo or rough dimensions of your apartment, student room, or home office setup.</p>
+          </div>
+          <div class="card" style="padding: 28px; border-radius: var(--radius-lg); text-align: start;">
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-forest); margin-bottom: 12px;">02</div>
+            <h3 class="card-title" style="margin-bottom: 8px;">Get a 3D Furniture Map</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">We curate a balanced setup ensuring walkaways, power access, and natural light remain unblocked.</p>
+          </div>
+          <div class="card" style="padding: 28px; border-radius: var(--radius-lg); text-align: start;">
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-forest); margin-bottom: 12px;">03</div>
+            <h3 class="card-title" style="margin-bottom: 8px;">One-Click Move-In</h3>
+            <p class="body-sm" style="color: var(--color-muted-text);">Confirm your customized bundle online and lock in your delivery slot. Zero upfront buying commitment.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="contact.html" class="btn btn-primary btn-md">Request Free Room Consultation →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TRANSPARENT PRICING & ZERO HIDDEN CHARGES SLA -->
+    <section class="section" aria-labelledby="sla-title">
+      <div class="container text-center">
+        <div class="section-header" style="max-width: 680px; margin-inline: auto;">
+          <span class="eyebrow">Zero Surprises</span>
+          <h2 id="sla-title" class="section-h2">Our Complete Service Level Agreement</h2>
+          <p class="body-lead">What you see is what you pay. Transparent monthly rentals with zero hidden add-ons.</p>
+        </div>
+
+        <div class="grid grid-4" style="gap: 20px;">
+          <div class="card" style="padding: 24px; text-align: center; border-radius: var(--radius-md);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🚚</div>
+            <strong style="display: block; color: var(--color-deep-ink); margin-bottom: 6px;">₹0 Delivery &amp; Setup</strong>
+            <p class="body-sm" style="color: var(--color-muted-text);">Complete white-glove transport, carry-up, and assembly at no added charge.</p>
+          </div>
+          <div class="card" style="padding: 24px; text-align: center; border-radius: var(--radius-md);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🛡️</div>
+            <strong style="display: block; color: var(--color-deep-ink); margin-bottom: 6px;">Damage Protection</strong>
+            <p class="body-sm" style="color: var(--color-muted-text);">Normal everyday scuffs, pet scratches, and wear are fully covered by MODULIV.</p>
+          </div>
+          <div class="card" style="padding: 24px; text-align: center; border-radius: var(--radius-md);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🔄</div>
+            <strong style="display: block; color: var(--color-deep-ink); margin-bottom: 6px;">Free Relocation</strong>
+            <p class="body-sm" style="color: var(--color-muted-text);">Moving within the city? We dismantle, transport, and reassemble for free once a year.</p>
+          </div>
+          <div class="card" style="padding: 24px; text-align: center; border-radius: var(--radius-md);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">⚡</div>
+            <strong style="display: block; color: var(--color-deep-ink); margin-bottom: 6px;">7-Day Deposit Return</strong>
+            <p class="body-sm" style="color: var(--color-muted-text);">100% of your refundable security deposit returned within 7 business days of pickup.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: HIGH-CONVERSION CTA BANNER -->
+    <section class="section cta-banner-section" aria-labelledby="packages-cta-title">
+      <div class="container text-center">
+        <span class="cta-chip-ready">Move In Ready</span>
+        <h2 id="packages-cta-title" class="section-h2">
+          Settle into your next chapter with flexible subscriptions and zero upfront hassle.
+        </h2>
+        <p class="body-lead">
+          Choose your tenure, customize your items, and schedule your free delivery in 48 hours.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="pricing.html" class="btn btn-primary btn-lg">Compare All Tenures</a>
+          <a href="coverage.html" class="btn btn-outline btn-lg">Check Your City Coverage</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Shared Footer -->
+  <!-- Shared Footer — Modern Indigo Gradient & Lighting Aura -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
+        <!-- Brand Column -->
         <div class="footer-brand">
-          <a href="../index.html" class="brand-link">
+          <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
             <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" style="height: 38px;">
           </a>
           <p>
             MODULIV is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.
           </p>
-          <div class="footer-badges">
-            <span class="footer-badge-pill">Circular Lifecycle</span>
-            <span class="footer-badge-pill">White-Glove Setup</span>
-          </div>
         </div>
 
+        <!-- Col 1: Pages / Explore -->
         <div>
           <h4 class="footer-col-title">Pages / Explore</h4>
           <ul class="footer-nav">
-            <li><a href="../index.html">Home 1: Storefront</a></li>
-            <li><a href="home2.html">Home 2: Modular Living</a></li>
+            <li><a href="../index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
             <li><a href="packages.html">Packages Catalogue</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="pricing.html">Pricing Calculator</a></li>
           </ul>
         </div>
 
+        <!-- Col 2: Packages -->
         <div>
           <h4 class="footer-col-title">Packages</h4>
           <ul class="footer-nav">
@@ -229,9 +429,11 @@
             <li><a href="packages.html?tier=essential">Essential Sets</a></li>
             <li><a href="packages.html?tier=premium">Premium Suites</a></li>
             <li><a href="packages.html?category=workspace">WFH Workstations</a></li>
+            <li><a href="packages.html?category=bedroom">Bedroom Sets</a></li>
           </ul>
         </div>
 
+        <!-- Col 3: Support -->
         <div>
           <h4 class="footer-col-title">Support &amp; Portal</h4>
           <ul class="footer-nav">
@@ -256,7 +458,9 @@
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.</div>
+        <div>
+          &copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.
+        </div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -277,7 +481,6 @@
         const authLink = document.getElementById('nav-auth-link');
         if (authLink) {
           authLink.href = 'dashboard.html';
-          /* authLink left clean */
         }
       }
     });

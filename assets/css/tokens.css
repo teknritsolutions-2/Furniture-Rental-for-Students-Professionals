@@ -1,21 +1,23 @@
 /**
- * NESTLOOP — Design System & Global Tokens
+ * MODULIV — Design System & Global Tokens
  * Core tokens, shared typography scales, palette, dark mode variables, and spacing.
- * Brand: Forest Green single-color system — #234C3E primary
+ * Brand: Midnight Navy & Deep Slate System — #1D3557 primary
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
   /* =============================================
-     MODULIV BRAND PALETTE — Midnight Navy & Deep Slate System
+     MODULIV BRAND PALETTE — Midnight Navy & Sky Blue System
+     Anchored on the 'Move In Ready' (#BAE6FD / #0284C7 / #1D3557) palette
+     Zero violet/purple tint. Pure architectural, prestigious navy blue.
      ============================================= */
-  --color-navy-dark:      #102035; /* Deep Midnight Navy */
-  --color-navy:           #1D3557; /* Primary Brand Navy */
-  --color-navy-medium:    #2E5077; /* Medium Slate Blue */
-  --color-navy-light:     #DCE5EF; /* Soft Ice Blue */
-  --color-navy-pale:      #F0F4F8; /* Subtle Surface Tint */
-  --color-slate-accent:   #457B9D; /* Cerulean Glow Accent */
+  --color-navy-dark:      #102035; /* Deep Architectural Midnight Navy */
+  --color-navy:           #1D3557; /* Primary Brand Navy Blue — Prestigious & Crisp */
+  --color-navy-medium:    #2563EB; /* Vibrant Royal / Ocean Blue */
+  --color-navy-light:     #BAE6FD; /* Signature Sky Blue (from 'Move In Ready' CTA) */
+  --color-navy-pale:      #F0F9FF; /* Light Sky Surface Tint — Cures milky/chalk look */
+  --color-slate-accent:   #0284C7; /* Active Sky Accent Blue */
 
   /* Palette Aliases for full CSS backward compatibility */
   --color-forest-dark:    var(--color-navy-dark);
@@ -25,9 +27,9 @@
   --color-forest-pale:    var(--color-navy-pale);
 
   /* Neutrals & Backgrounds — Crisp, Modern Light Mode */
-  --color-warm-chalk:     #F8FAFC; /* Slate-50: Crisp, clean, luminous light mode */
+  --color-warm-chalk:     #F8FAFC; /* Slate-50: Crisp, clean light canvas */
   --color-white:          #FFFFFF;
-  --color-off-white:      #F1F5F9; /* Slate-100 */
+  --color-off-white:      #F0F9FF; /* Light Sky Tint */
   --color-deep-ink:       #0F172A; /* Slate-900: High-contrast ultra-sharp readability */
   --color-charcoal:       #0F172A;
   --color-secondary-grey: #64748B; /* Slate-500 */
@@ -44,13 +46,13 @@
 
   /* Surface & Card */
   --color-card-bg:        #FFFFFF;
-  --color-surface-tint:   #F1F5F9;
-  --color-badge-bg:       #E2EAF4;
-  --color-badge-text:     #102035;
+  --color-surface-tint:   #F0F9FF; /* Crisp Light Sky Tint for alternating sections */
+  --color-badge-bg:       #E0F2FE;
+  --color-badge-text:     #0369A1;
 
   /* Muted / Ink */
   --color-muted-text:     #64748B;
-  --color-ink-surface:    #0B132B;
+  --color-ink-surface:    #102035;
 
   /* Semantic Status Colors */
   --color-success:        #16A34A;
@@ -61,10 +63,10 @@
   --color-danger-bg:      #FEF2F2;
 
   /* Elevation / Shadows */
-  --shadow-sm:   0 1px 2px rgba(32, 38, 34, 0.04);
-  --shadow-md:   0 4px 18px rgba(32, 38, 34, 0.07);
-  --shadow-lg:   0 12px 32px rgba(32, 38, 34, 0.10), 0 4px 10px rgba(32, 38, 34, 0.05);
-  --shadow-card-hover: 0 16px 40px rgba(32, 38, 34, 0.13), 0 6px 14px rgba(32, 38, 34, 0.06);
+  --shadow-sm:   0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md:   0 4px 18px rgba(15, 23, 42, 0.07);
+  --shadow-lg:   0 12px 32px rgba(15, 23, 42, 0.10), 0 4px 10px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 16px 40px rgba(15, 23, 42, 0.13), 0 6px 14px rgba(15, 23, 42, 0.06);
 
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -131,9 +133,9 @@
   --label-size:       0.875rem;
   --price-size:       1.5rem;
 
-  /* Responsive Outer Gutters */
+  /* Responsive Outer Gutters & Section Spacing */
   --gutter:           64px;
-  --section-spacing:  88px;
+  --section-spacing:  clamp(44px, 5.2vw, 62px);
 
   /* Transitions */
   --transition-fast:   0.18s cubic-bezier(0.16, 1, 0.3, 1);
@@ -143,70 +145,73 @@
 
 /* Tablet & Mobile Gutter Breakpoints */
 @media (max-width: 1120px) {
-  :root { --gutter: 40px; --section-spacing: 60px; }
+  :root { --gutter: 40px; --section-spacing: 48px; }
 }
 @media (max-width: 768px) {
-  :root { --gutter: 24px; --section-spacing: 48px; }
+  :root { --gutter: 24px; --section-spacing: 38px; }
 }
 @media (max-width: 480px) {
-  :root { --gutter: 18px; --section-spacing: 36px; }
+  :root { --gutter: 18px; --section-spacing: 30px; }
 }
 @media (max-width: 340px) {
-  :root { --gutter: 14px; --section-spacing: 30px; }
+  :root { --gutter: 14px; --section-spacing: 26px; }
 }
 
 /* =============================================
-   DARK THEME OVERRIDES
+   DARK THEME OVERRIDES — TRUE DARK CHARCOAL/OBSIDIAN
+   Darker version, NOT saturated blue. High contrast text.
    ============================================= */
 [data-theme="dark"] {
-  --color-warm-chalk:   #0B132B;
-  --color-white:        #102035;
-  --color-forest:       #457B9D;
-  --color-forest-dark:  #0B132B;
-  --color-forest-medium:#2E5077;
-  --color-forest-light: #1A2E4B;
-  --color-forest-pale:  #0D1B2E;
+  --color-warm-chalk:     #0D0F14; /* Neutral Obsidian Canvas */
+  --color-white:          #161922; /* Primary Surface */
+  --color-off-white:      #12151D;
+  --color-card-bg:        #171A24; /* Card & Box background */
+  --color-surface-tint:   #181C2C; /* Elevated Surface / Secondary */
+  --color-ink-surface:    #090B0F;
 
-  --color-navy-dark:      #080E1A;
-  --color-navy:           #457B9D;
-  --color-navy-medium:    #2E5077;
-  --color-navy-light:     #1A2E4B;
-  --color-navy-pale:      #0D1B2E;
-  --color-slate-accent:   #A8DADC;
-
-  --color-warm-chalk:     #0B132B;
-  --color-off-white:      #0D1830;
-  --color-deep-ink:       #F8FAFC;
+  /* Text & Typography: 100% Crisp White & High-Contrast Light Slate */
+  --color-deep-ink:       #FFFFFF; /* 100% Crisp White */
   --color-charcoal:       #F8FAFC;
-  --color-secondary-grey: #94A3B8;
-
-  --color-cobalt:         #457B9D;
-  --color-cobalt-hover:   #6497B1;
-  --color-cobalt-light:   rgba(69, 123, 157, 0.20);
-  --color-cobalt-subtle:  rgba(69, 123, 157, 0.10);
-  --color-pale-mint:      #0D1B2E;
-  --color-pale-mint-darker: #1A2E4B;
-
-  --color-neutral-grey:   #102035;
+  --color-secondary-grey: #94A3B8; /* Slate-400 */
   --color-muted-text:     #94A3B8;
-  --color-border:         #1E3250;
-  --color-card-bg:        #102035;
-  --color-surface-tint:   #0C182A;
-  --color-badge-bg:       #162C48;
-  --color-badge-text:     #DCE5EF;
-  --color-ink-surface:    #060B14;
+  --color-border:         #272E44; /* Sleek neutral border */
 
-  --color-success:    #22C55E;
-  --color-success-bg: #052E16;
-  --color-warning:    #F59E0B;
-  --color-warning-bg: #2D1A03;
-  --color-danger:     #EF4444;
-  --color-danger-bg:  #2D0B0B;
+  /* Brand Accents in Dark Mode — Crisp Sky Blue & Pure White */
+  --color-navy:           #FFFFFF;
+  --color-navy-dark:      #F1F5F9;
+  --color-navy-medium:    #7DD3FC;
+  --color-navy-light:     #1E293B;
+  --color-navy-pale:      #131B2E;
+  --color-slate-accent:   #38BDF8;
 
-  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.5);
-  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.5);
-  --shadow-lg:  0 12px 32px rgba(0, 0, 0, 0.6);
-  --shadow-card-hover: 0 18px 40px rgba(0, 0, 0, 0.7);
+  --color-forest:         #FFFFFF;
+  --color-forest-dark:    #FFFFFF;
+  --color-forest-medium:  #7DD3FC;
+  --color-forest-light:   #1E293B;
+  --color-forest-pale:    rgba(255, 255, 255, 0.08);
+
+  --color-cobalt:         #38BDF8;
+  --color-cobalt-hover:   #7DD3FC;
+  --color-cobalt-light:   rgba(56, 189, 248, 0.15);
+  --color-cobalt-subtle:  rgba(56, 189, 248, 0.08);
+  --color-pale-mint:      #171A24;
+  --color-pale-mint-darker: #1E2230;
+
+  --color-badge-bg:       #1E2433;
+  --color-badge-text:     #E2E8F0;
+  --color-neutral-grey:   #171A24;
+
+  --color-success:        #22C55E;
+  --color-success-bg:     rgba(34, 197, 94, 0.15);
+  --color-warning:        #F59E0B;
+  --color-warning-bg:     rgba(245, 158, 11, 0.15);
+  --color-danger:         #EF4444;
+  --color-danger-bg:      rgba(239, 68, 68, 0.15);
+
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg:  0 12px 32px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 18px 40px rgba(0, 0, 0, 0.65);
 }
 
 /* =============================================

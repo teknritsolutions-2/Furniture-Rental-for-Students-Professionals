@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How Furniture Rental Works — Step-by-Step Rental Journey | MODULIV</title>
-  <meta name="description" content="Discover how easy renting furniture is with MODULIV. From curated package selection and white-glove setup to digital portal management and flexible swaps.">
+  <title>How It Works — MODULIV Furniture Rental Journey</title>
+  <meta name="description" content="Discover the simple 4-step MODULIV rental experience: choose your package, select a delivery slot, enjoy white-glove setup, and manage swaps digitally.">
   <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
 
   <link rel="stylesheet" href="../assets/css/tokens.css">
@@ -14,12 +14,12 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Top Announcement Strip -->
+  <!-- Top Announcement Bar -->
   <div class="top-notice-bar" role="region" aria-label="Announcement">
     <span class="top-notice-badge">Explore the demo</span><span>Furniture for your next chapter. Sample prices · No real bookings or payments.</span>
   </div>
 
-  <!-- Shared Header -->
+  <!-- Header & Shared Navbar (Identical to Home 1) -->
   <header class="site-header" id="site-header">
     <div class="container navbar-inner">
       <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
@@ -27,6 +27,7 @@
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark">
       </a>
 
+      <!-- Desktop Navigation: Home, About, Packages, Pricing, Coverage Areas, Contact Us -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu-desktop">
           <li class="nav-item-dropdown">
@@ -34,22 +35,27 @@
               <span>Home</span>
               <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <ul class="dropdown-menu"><li><a href="../index.html" class="dropdown-item">Storefront</a></li><li><a href="home2.html" class="dropdown-item">Modular Living</a></li></ul>
+            <ul class="dropdown-menu">
+              <li><a href="../index.html" class="dropdown-item">Homepage 1</a></li>
+              <li><a href="home2.html" class="dropdown-item">Homepage 2</a></li>
+            </ul>
           </li>
-
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="packages.html" class="nav-link">Packages</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="coverage.html" class="nav-link">Coverage Areas</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
-        <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle text direction" title="Toggle LTR / RTL"><span class="dir-label-text">RTL</span></button>
         <a href="dashboard.html" class="btn btn-outline btn-sm" id="nav-auth-link" title="Open Customer Rental Dashboard">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 4px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
           <span>Dashboard</span>
         </a>
         <a href="packages.html" class="btn btn-primary btn-sm">Explore Packages</a>
@@ -60,34 +66,32 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer (Identical to Home 1) -->
   <div class="mobile-drawer-overlay"></div>
-  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true">
+  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="drawer-header">
       <a href="../index.html" class="brand-link">
         <img src="../assets/brand/logo.svg" alt="MODULIV Logo" class="brand-logo logo-light" style="height: 32px;">
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark" style="height: 32px;">
       </a>
-      <button type="button" class="drawer-close-btn" aria-label="Close menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
+      <button type="button" class="drawer-close-btn" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
     </div>
     <div class="drawer-body">
       <ul class="drawer-nav-list">
         <li>
           <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text); padding: 8px 14px 4px 14px;">Home Variations</div>
           <div class="drawer-subnav">
-            <a href="../index.html" class="drawer-sublink">Home 1: Storefront</a>
-            <a href="home2.html" class="drawer-sublink">Home 2: Modular Living</a>
+            <a href="../index.html" class="drawer-sublink">Homepage 1</a>
+            <a href="home2.html" class="drawer-sublink">Homepage 2</a>
           </div>
         </li>
+        <li><a href="about.html" class="drawer-nav-link">About</a></li>
         <li><a href="packages.html" class="drawer-nav-link">Packages</a></li>
-        <li><a href="how-it-works.html" class="drawer-nav-link active">How It Works</a></li>
         <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
         <li><a href="coverage.html" class="drawer-nav-link">Coverage Areas</a></li>
-        <li><a href="about.html" class="drawer-nav-link">About</a></li>
+        <li><a href="contact.html" class="drawer-nav-link">Contact Us</a></li>
+        <li><a href="how-it-works.html" class="drawer-nav-link active">How It Works</a></li>
         <li><a href="faq.html" class="drawer-nav-link">FAQs</a></li>
-        <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
         <li><a href="dashboard.html" class="drawer-nav-link">Customer Dashboard</a></li>
       </ul>
     </div>
@@ -102,26 +106,60 @@
 
   <main id="main-content">
     <div class="container"><p class="demo-context">Explore a furniture rental concept. Services, locations and policies shown here are illustrative.</p></div>
-    <div class="section" style="padding-top: 48px;">
+
+    <!-- SECTION 1: HERO & SUMMARY STRIP -->
+    <section class="section" aria-labelledby="how-hero-title" style="padding-top: 48px;">
       <div class="container">
-        <!-- Hero Title -->
-        <div class="section-header text-center" style="max-width: 760px; margin-inline: auto;">
+        <div class="section-header text-center" style="max-width: 780px; margin-inline: auto;">
           <span class="eyebrow">The Rental Experience</span>
-          <h1 class="inner-h1">How Renting with MODULIV Works</h1>
+          <h1 id="how-hero-title" class="inner-h1">How Renting with MODULIV Works</h1>
           <p class="body-lead">
-            Moving to a new city shouldn't be stressful. We've engineered an end-to-end rental journey that gets you settled in days, adapts whenever your plans change, and manages everything digitally.
+            Moving to a new city shouldn't mean buying disposable flat-packs or hauling heavy trucks. We have engineered an effortless 4-step rental journey that adapts as your life evolves.
           </p>
         </div>
 
-        <!-- Editorial Step-by-Step Journey -->
-        <div style="display: flex; flex-direction: column; gap: 0; margin-bottom: 48px;">
+        <!-- 4 Key Value Pillars -->
+        <div class="three-column-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 36px;">
+          <div class="card text-center" style="padding: 24px;">
+            <div style="font-size: 2rem; margin-bottom: 8px;">🛋️</div>
+            <h3 class="card-title">1. Curate Room</h3>
+            <p class="body-sm" style="margin: 0;">Pre-matched sets designed for modern floor plans.</p>
+          </div>
+          <div class="card text-center" style="padding: 24px;">
+            <div style="font-size: 2rem; margin-bottom: 8px;">⚡</div>
+            <h3 class="card-title">2. 48h Delivery</h3>
+            <p class="body-sm" style="margin: 0;">Verified postal corridors with chosen time windows.</p>
+          </div>
+          <div class="card text-center" style="padding: 24px;">
+            <div style="font-size: 2rem; margin-bottom: 8px;">🛠️</div>
+            <h3 class="card-title">3. White-Glove Setup</h3>
+            <p class="body-sm" style="margin: 0;">Zero tools or labor needed. Technicians assemble all.</p>
+          </div>
+          <div class="card text-center" style="padding: 24px;">
+            <div style="font-size: 2rem; margin-bottom: 8px;">🔄</div>
+            <h3 class="card-title">4. Swap &amp; Move</h3>
+            <p class="body-sm" style="margin: 0;">Change styles, relocate, or return with 1 click.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 4-STEP STEP-BY-STEP VISUAL JOURNEY -->
+    <section class="section section-tinted" aria-labelledby="journey-steps-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Step-by-Step</span>
+          <h2 id="journey-steps-title" class="section-h2">From Empty Room to Complete Home</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 48px;">
           <!-- Step 1 -->
-          <div class="journey-step two-column-grid" style="gap: 36px; align-items: center; ">
+          <div class="journey-step two-column-grid" style="gap: 40px; align-items: center;">
             <div>
-              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-forest); margin-bottom: 6px;">01</div>
-              <h2 class="subsection-h3" style="margin-bottom: 12px;">Choose Your Curated Room Package</h2>
+              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-deep-ink); margin-bottom: 6px;">01</div>
+              <h3 class="subsection-h3" style="margin-bottom: 12px;">Choose Your Curated Room Package</h3>
               <p class="body-text" style="margin-bottom: 16px;">
-                Browse our Starter, Essential, or Premium bundles tailored for single study bedrooms, work-from-home focus pods, or full 1BHK/2BHK flats. Compare the included pieces and sample dimensions on each package page.
+                Browse our Starter, Essential, or Premium bundles tailored for compact student bedrooms, work-from-home focus pods, or full 1BHK/2BHK flats. Compare the included pieces and sample dimensions on each package page.
               </p>
               <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.875rem;">
                 <li style="display: flex; gap: 8px;"><strong>✓ Pick pre-matched pieces:</strong> No mismatched colors or awkward heights.</li>
@@ -134,15 +172,15 @@
           </div>
 
           <!-- Step 2 -->
-          <div class="journey-step two-column-grid" style="gap: 36px; align-items: center; ">
+          <div class="journey-step two-column-grid" style="gap: 40px; align-items: center;">
             <div style="order: 2;">
-              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-forest); margin-bottom: 6px;">02</div>
-              <h2 class="subsection-h3" style="margin-bottom: 12px;">Check PIN Code &amp; Select Delivery Slot</h2>
+              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-deep-ink); margin-bottom: 6px;">02</div>
+              <h3 class="subsection-h3" style="margin-bottom: 12px;">Check PIN Code &amp; Select Delivery Slot</h3>
               <p class="body-text" style="margin-bottom: 16px;">
                 Enter your 6-digit postal code across Hyderabad, Bengaluru, Pune, Chennai, or Mumbai. Select a delivery window that aligns with your apartment lease commencement.
               </p>
               <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.875rem;">
-                <li style="display: flex; gap: 8px;"><strong>✓ 48 to 72-hour turnaround:</strong> Illustrative delivery estimates only.</li>
+                <li style="display: flex; gap: 8px;"><strong>✓ 48 to 72-hour turnaround:</strong> Staged and routed rapidly from regional depots.</li>
                 <li style="display: flex; gap: 8px;"><strong>✓ Weekend and evening slots:</strong> Book around your work or college schedule.</li>
               </ul>
             </div>
@@ -152,10 +190,10 @@
           </div>
 
           <!-- Step 3 -->
-          <div class="journey-step two-column-grid" style="gap: 36px; align-items: center; ">
+          <div class="journey-step two-column-grid" style="gap: 40px; align-items: center;">
             <div>
-              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-forest); margin-bottom: 6px;">03</div>
-              <h2 class="subsection-h3" style="margin-bottom: 12px;">White-Glove Delivery &amp; Assembly</h2>
+              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-deep-ink); margin-bottom: 6px;">03</div>
+              <h3 class="subsection-h3" style="margin-bottom: 12px;">White-Glove Delivery &amp; Assembly</h3>
               <p class="body-text" style="margin-bottom: 16px;">
                 Our trained technicians arrive, transport items directly into your designated rooms, bolt frames securely, adjust leveling feet, and wipe down surfaces.
               </p>
@@ -170,12 +208,12 @@
           </div>
 
           <!-- Step 4 -->
-          <div class="journey-step two-column-grid" style="gap: 36px; align-items: center; ">
+          <div class="journey-step two-column-grid" style="gap: 40px; align-items: center;">
             <div style="order: 2;">
-              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-forest); margin-bottom: 6px;">04</div>
-              <h2 class="subsection-h3" style="margin-bottom: 12px;">Manage Everything in Your Customer Dashboard</h2>
+              <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-deep-ink); margin-bottom: 6px;">04</div>
+              <h3 class="subsection-h3" style="margin-bottom: 12px;">Manage Everything in Your Customer Dashboard</h3>
               <p class="body-text" style="margin-bottom: 16px;">
-                Open the public demonstration dashboard to track active subscriptions, view next monthly due dates (the 15th of each month), initiate item swaps, submit early-return notices, and download sample PDF agreements and payment receipts.
+                Open your digital dashboard to track active subscriptions, view next monthly due dates (the 15th of each month), initiate item swaps, submit early-return notices, and download sample PDF agreements and payment receipts.
               </p>
               <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.875rem;">
                 <li style="display: flex; gap: 8px;"><strong>✓ Itemized billing statements:</strong> Perfect for corporate expense claims.</li>
@@ -187,50 +225,160 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Closing CTA Box -->
-        <div class="card" style="text-align: center; padding: 48px; background-color: var(--color-surface-tint);">
-          <h2 class="section-h2" style="margin-bottom: 12px;">Experience the freedom of flexible furniture</h2>
-          <p class="body-lead" style="max-width: 580px; margin-inline: auto; margin-bottom: 28px;">
-            Whether staying for a 3-month internship or a multi-year executive assignment, MODULIV makes living simple.
-          </p>
-          <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-            <a href="packages.html" class="btn btn-primary btn-lg">Browse All Packages</a>
-            <a href="pricing.html" class="btn btn-outline btn-lg">Explore Pricing Tiers</a>
+    <!-- SECTION 3: DELIVERY DAY WALKTHROUGH -->
+    <section class="section" aria-labelledby="delivery-day-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">On-Site Logistics</span>
+          <h2 id="delivery-day-title" class="section-h2">What Happens on Delivery Day</h2>
+          <p class="body-lead">From the morning dispatch notification to the final handover, here is what you can expect.</p>
+        </div>
+
+        <div class="three-column-grid" style="gap: 24px;">
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom: 8px;">Morning Dispatch SMS</h3>
+            <p class="body-sm">You receive a 2-hour arrival window with lead driver contact and vehicle registration for gated apartment security.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom: 8px;">Careful Room Staging</h3>
+            <p class="body-sm">Technicians lay protective floor runners and assemble beds, study tables, and sofas in your designated bedrooms and living areas.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom: 8px;">Zero Waste Clean-Up</h3>
+            <p class="body-sm">Every carton, strap, and protective quilt is packed into the vehicle, leaving your newly furnished home sparkling clean.</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- SECTION 4: IN-TENANCY FLEXIBILITY & SWAPS -->
+    <section class="section section-tinted" aria-labelledby="swaps-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Living On Your Terms</span>
+          <h2 id="swaps-title" class="section-h2">Adapt Your Space Whenever Life Changes</h2>
+          <p class="body-lead">Your subscription evolves as you do — no trapped contracts.</p>
+        </div>
+
+        <div class="two-column-grid" style="gap: 32px;">
+          <div class="card" style="padding: 36px;">
+            <span class="chip chip-brand" style="margin-bottom: 12px;">Mid-Term Style Swaps</span>
+            <h3 class="card-title" style="margin-bottom: 12px;">Swap Items Without Leaving Home</h3>
+            <p class="body-sm" style="margin-bottom: 16px;">
+              Moved from remote work to hybrid and need to swap your large study desk for an extra lounge armchair? Submit a swap request in your portal; we deliver the new item and retrieve the old in a single synchronized visit.
+            </p>
+            <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-deep-ink);">Included free on 6 and 12-month subscriptions.</div>
+          </div>
+
+          <div class="card" style="padding: 36px;">
+            <span class="chip chip-brand" style="margin-bottom: 12px;">Vacation Lease Hold</span>
+            <h3 class="card-title" style="margin-bottom: 12px;">Pause Billing for Summer Holidays</h3>
+            <p class="body-sm" style="margin-bottom: 16px;">
+              College students going home for summer semester breaks or professionals on extended overseas client assignments can pause monthly billing for up to 45 days while securing their active room inventory.
+            </p>
+            <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-deep-ink);">Simple 1-click hold request in customer dashboard.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: LEASE END & RELOCATION OPTIONS -->
+    <section class="section" aria-labelledby="lease-end-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Smooth Transitions</span>
+          <h2 id="lease-end-title" class="section-h2">When Your Tenancy Nears Completion</h2>
+          <p class="body-lead">No last-minute panic or classified ad distress sales. Choose between three simple paths.</p>
+        </div>
+
+        <div class="three-column-grid" style="gap: 24px;">
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom: 8px;">Path 1: Extend Tenancy</h3>
+            <p class="body-sm">Enjoying your flat? Extend with a single tap in your dashboard and lock in lower monthly loyalty rates.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom: 8px;">Path 2: Relocate Within City</h3>
+            <p class="body-sm">Moving to another neighborhood? Our team moves your furniture to the new address for free on 12-month plans.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom: 8px;">Path 3: Schedule Return</h3>
+            <p class="body-sm">Pick a pickup date. Our technicians disassemble and haul away. Your deposit is refunded to bank within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: THE CIRCULAR RECONDITIONING LOOP -->
+    <section class="section section-tinted" aria-labelledby="circular-refurb-title">
+      <div class="container">
+        <div class="two-column-grid card" style="gap: 40px; align-items: center; padding: 40px; margin-bottom: 0;">
+          <div>
+            <span class="chip chip-brand" style="margin-bottom: 12px;">Closed Ecological Loop</span>
+            <h2 id="circular-refurb-title" class="subsection-h3" style="margin-bottom: 14px;">What Happens When Furniture Returns?</h2>
+            <p class="body-text" style="margin-bottom: 14px;">
+              Unlike consumer retail where returned items end up in scrap piles, every MODULIV item is welcomed back into our circular refurbishment center.
+            </p>
+            <p class="body-text" style="margin-bottom: 14px;">
+              Our craftsmen treat each piece with 140°C thermal steam sanitization, apply food-safe organic beeswax to restore natural timber luster, and replace any high-wear hardware parts.
+            </p>
+            <p class="body-text">
+              This circular stewardship reduces household waste by 85% compared to purchasing fast furniture.
+            </p>
+          </div>
+          <div>
+            <img src="../assets/images/about-circular.webp" alt="Clean sustainable circular interior" style="width: 100%; aspect-ratio: 16/11; border-radius: var(--radius-md); object-fit: cover; box-shadow: var(--shadow-sm);" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CLOSING CALL TO ACTION -->
+    <section class="section cta-banner-section" aria-labelledby="how-cta-title">
+      <div class="container text-center">
+        <span class="cta-chip-ready">Move In Ready</span>
+        <h2 id="how-cta-title" class="section-h2">
+          Experience the freedom of flexible furniture
+        </h2>
+        <p class="body-lead">
+          Whether staying for a 3-month internship or a multi-year executive assignment, MODULIV makes living simple.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="packages.html" class="btn btn-primary btn-lg">Browse All Packages</a>
+          <a href="pricing.html" class="btn btn-outline btn-lg">Explore Pricing Tiers</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Shared Footer -->
+  <!-- Standardized Shared Site Footer (Identical on all pages) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="../index.html" class="brand-link">
+          <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
             <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" style="height: 38px;">
           </a>
           <p>
             MODULIV is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.
           </p>
-          <div class="footer-badges">
-            <span class="footer-badge-pill">Circular Lifecycle</span>
-            <span class="footer-badge-pill">White-Glove Setup</span>
-          </div>
         </div>
 
+        <!-- Col 1: Pages / Explore -->
         <div>
           <h4 class="footer-col-title">Pages / Explore</h4>
           <ul class="footer-nav">
-            <li><a href="../index.html">Home 1: Storefront</a></li>
-            <li><a href="home2.html">Home 2: Modular Living</a></li>
+            <li><a href="../index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
             <li><a href="packages.html">Packages Catalogue</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="pricing.html">Pricing Calculator</a></li>
           </ul>
         </div>
 
+        <!-- Col 2: Packages -->
         <div>
           <h4 class="footer-col-title">Packages</h4>
           <ul class="footer-nav">
@@ -238,9 +386,11 @@
             <li><a href="packages.html?tier=essential">Essential Sets</a></li>
             <li><a href="packages.html?tier=premium">Premium Suites</a></li>
             <li><a href="packages.html?category=workspace">WFH Workstations</a></li>
+            <li><a href="packages.html?category=bedroom">Bedroom Sets</a></li>
           </ul>
         </div>
 
+        <!-- Col 3: Support -->
         <div>
           <h4 class="footer-col-title">Support &amp; Portal</h4>
           <ul class="footer-nav">
@@ -265,7 +415,9 @@
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.</div>
+        <div>
+          &copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.
+        </div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -279,16 +431,5 @@
   <script src="../assets/data/data.js"></script>
   <script src="../assets/js/app.js"></script>
   <script src="../assets/js/auth.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.NestloopAuth && window.NestloopAuth.isAuthenticated()) {
-        const authLink = document.getElementById('nav-auth-link');
-        if (authLink) {
-          authLink.href = 'dashboard.html';
-          /* authLink left clean */
-        }
-      }
-    });
-  </script>
 </body>
 </html>

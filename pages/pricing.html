@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing &amp; Cost Transparency — Starter, Essential &amp; Premium | MODULIV</title>
-  <meta name="description" content="Transparent, predictable monthly furniture rental pricing. Compare Starter, Essential, and Premium tiers across 3, 6, and 12-month tenures with zero hidden fees.">
+  <title>Pricing Plans & Rates — MODULIV Furniture Rental</title>
+  <meta name="description" content="Transparent, predictable monthly furniture rental rates for students and professionals. Compare Starter, Essential and Premium tiers across 3, 6, and 12-month tenures.">
   <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
 
   <link rel="stylesheet" href="../assets/css/tokens.css">
@@ -14,12 +14,12 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Top Announcement Strip -->
+  <!-- Top Announcement Bar -->
   <div class="top-notice-bar" role="region" aria-label="Announcement">
     <span class="top-notice-badge">Explore the demo</span><span>Furniture for your next chapter. Sample prices · No real bookings or payments.</span>
   </div>
 
-  <!-- Shared Header -->
+  <!-- Header & Shared Navbar -->
   <header class="site-header" id="site-header">
     <div class="container navbar-inner">
       <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
@@ -27,6 +27,7 @@
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark">
       </a>
 
+      <!-- Desktop Navigation: Home, About, Packages, Pricing, Coverage Areas, Contact Us -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu-desktop">
           <li class="nav-item-dropdown">
@@ -34,22 +35,27 @@
               <span>Home</span>
               <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <ul class="dropdown-menu"><li><a href="../index.html" class="dropdown-item">Storefront</a></li><li><a href="home2.html" class="dropdown-item">Modular Living</a></li></ul>
+            <ul class="dropdown-menu">
+              <li><a href="../index.html" class="dropdown-item">Homepage 1</a></li>
+              <li><a href="home2.html" class="dropdown-item">Homepage 2</a></li>
+            </ul>
           </li>
-
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="packages.html" class="nav-link">Packages</a></li>
           <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
           <li><a href="coverage.html" class="nav-link">Coverage Areas</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
-        <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle text direction" title="Toggle LTR / RTL"><span class="dir-label-text">RTL</span></button>
         <a href="dashboard.html" class="btn btn-outline btn-sm" id="nav-auth-link" title="Open Customer Rental Dashboard">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 4px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
           <span>Dashboard</span>
         </a>
         <a href="packages.html" class="btn btn-primary btn-sm">Explore Packages</a>
@@ -62,32 +68,30 @@
 
   <!-- Mobile Drawer -->
   <div class="mobile-drawer-overlay"></div>
-  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true">
+  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="drawer-header">
       <a href="../index.html" class="brand-link">
         <img src="../assets/brand/logo.svg" alt="MODULIV Logo" class="brand-logo logo-light" style="height: 32px;">
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark" style="height: 32px;">
       </a>
-      <button type="button" class="drawer-close-btn" aria-label="Close menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
+      <button type="button" class="drawer-close-btn" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
     </div>
     <div class="drawer-body">
       <ul class="drawer-nav-list">
         <li>
           <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text); padding: 8px 14px 4px 14px;">Home Variations</div>
           <div class="drawer-subnav">
-            <a href="../index.html" class="drawer-sublink">Home 1: Storefront</a>
-            <a href="home2.html" class="drawer-sublink">Home 2: Modular Living</a>
+            <a href="../index.html" class="drawer-sublink">Homepage 1</a>
+            <a href="home2.html" class="drawer-sublink">Homepage 2</a>
           </div>
         </li>
+        <li><a href="about.html" class="drawer-nav-link">About</a></li>
         <li><a href="packages.html" class="drawer-nav-link">Packages</a></li>
-        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="pricing.html" class="drawer-nav-link active">Pricing</a></li>
         <li><a href="coverage.html" class="drawer-nav-link">Coverage Areas</a></li>
-        <li><a href="about.html" class="drawer-nav-link">About</a></li>
+        <li><a href="contact.html" class="drawer-nav-link">Contact Us</a></li>
+        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="faq.html" class="drawer-nav-link">FAQs</a></li>
-        <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
         <li><a href="dashboard.html" class="drawer-nav-link">Customer Dashboard</a></li>
       </ul>
     </div>
@@ -101,14 +105,14 @@
   </aside>
 
   <main id="main-content">
-    <div class="section" style="padding-top: 48px;">
+    <!-- SECTION 1: HERO & TENURE CONTROL -->
+    <section class="section" aria-labelledby="pricing-hero-title" style="padding-top: 48px;">
       <div class="container">
-        <!-- Title & Intro -->
-        <div class="section-header text-center">
+        <div class="section-header text-center" style="max-width: 780px; margin-inline: auto;">
           <span class="eyebrow">Predictable Monthly Rates</span>
-          <h1 class="inner-h1">A room that fits your budget.</h1>
+          <h1 id="pricing-hero-title" class="inner-h1">A Room That Fits Your Budget</h1>
           <p class="body-lead">
-            Compare sample furniture bundles, monthly rent and refundable deposits. Choose a tenure to see the difference.
+            Compare sample furniture bundles, monthly rent, and refundable deposits. Choose your subscription tenure to see immediate rate adjustments.
           </p>
           <div style="font-size: 0.775rem; color: var(--color-muted-text); margin-top: 8px;">
             * Clearly labeled illustrative demonstration pricing. Final rates are confirmed on executed agreements.
@@ -125,14 +129,14 @@
           </div>
         </div>
 
-        <!-- Pricing Cards Grid -->
+        <!-- SECTION 2: PRICING CARDS GRID -->
         <div class="pricing-cards-grid">
           <!-- Tier 1: Starter -->
           <div class="pricing-card">
-            <img class="pricing-room-img" src="../assets/images/package-starter-student.webp" alt="Room inspiration for this sample furniture tier" loading="lazy">
-            <div class="pricing-card-header" data-photo="added">
-              <span class="chip chip-starter" style="margin-bottom: 8px;">Starter Tier</span>
-              <h3 class="card-title">Study &amp; Compact Studio</h3>
+            <img class="pricing-room-img" src="../assets/images/package-starter-student.webp" alt="Room inspiration for Starter Tier" loading="lazy">
+            <div class="pricing-card-header">
+              <span class="chip chip-brand" style="margin-bottom: 8px;">Starter Tier</span>
+              <h2 class="card-title">Study &amp; Compact Studio</h2>
               <p class="body-sm" style="margin-top: 4px;">Designed for college students and compact studio apartments.</p>
               
               <div class="pricing-card-price">
@@ -162,7 +166,7 @@
                 <span>Vacation lease pause options</span>
               </li>
               <li class="pricing-feature-item" style="color: var(--color-muted-text);">
-                <span>– Custom finish selection</span>
+                <span>– Mid-term furniture style swaps</span>
               </li>
             </ul>
 
@@ -172,14 +176,14 @@
           <!-- Tier 2: Essential (Popular) -->
           <div class="pricing-card is-popular">
             <div class="popular-ribbon">Most Popular</div>
-            <img class="pricing-room-img" src="../assets/images/category-bedroom.webp" alt="Room inspiration for this sample furniture tier" loading="lazy">
-            <div class="pricing-card-header" data-photo="added">
-              <span class="chip chip-essential" style="margin-bottom: 8px;">Essential Tier</span>
-              <h3 class="card-title">1BHK &amp; Pro Workstation</h3>
+            <img class="pricing-room-img" src="../assets/images/category-bedroom.webp" alt="Room inspiration for Essential Tier" loading="lazy">
+            <div class="pricing-card-header">
+              <span class="chip chip-brand" style="margin-bottom: 8px;">Essential Tier</span>
+              <h2 class="card-title">1BHK &amp; Pro Workstation</h2>
               <p class="body-sm" style="margin-top: 4px;">Balanced everyday comfort for working professionals and couples.</p>
               
               <div class="pricing-card-price">
-                <span class="pricing-amount" id="price-val-essential" style="color: var(--color-forest);">₹1,999</span>
+                <span class="pricing-amount" id="price-val-essential" style="color: var(--color-deep-ink);">₹1,999</span>
                 <span class="price-period">/ month</span>
               </div>
               <div style="font-size: 0.75rem; color: var(--color-muted-text); margin-top: 4px;">
@@ -198,11 +202,11 @@
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
-                <span>Try the demo swap request flow</span>
+                <span>1 Free style swap every 6 months</span>
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
-                <span>Explore relocation requests</span>
+                <span>Inter-city relocation transfer support</span>
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
@@ -215,10 +219,10 @@
 
           <!-- Tier 3: Premium -->
           <div class="pricing-card">
-            <img class="pricing-room-img" src="../assets/images/package-premium-living.webp" alt="Room inspiration for this sample furniture tier" loading="lazy">
-            <div class="pricing-card-header" data-photo="added">
-              <span class="chip chip-premium" style="margin-bottom: 8px;">Premium Tier</span>
-              <h3 class="card-title">2BHK &amp; Executive Suites</h3>
+            <img class="pricing-room-img" src="../assets/images/package-premium-living.webp" alt="Room inspiration for Premium Tier" loading="lazy">
+            <div class="pricing-card-header">
+              <span class="chip chip-brand" style="margin-bottom: 8px;">Premium Tier</span>
+              <h2 class="card-title">2BHK &amp; Executive Suites</h2>
               <p class="body-sm" style="margin-top: 4px;">Turnkey designer furnishing for corporate relocations and full residences.</p>
               
               <div class="pricing-card-price">
@@ -249,112 +253,281 @@
               </li>
               <li class="pricing-feature-item">
                 <span style="color: var(--color-success); font-weight: bold;">✓</span>
-                <span>Priority swap privileges every 6 months</span>
+                <span>Priority swap privileges anytime</span>
               </li>
             </ul>
 
             <a href="packages.html?tier=premium" class="btn btn-outline" style="width: 100%;">View Premium Packages</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Transparent Terms Explanation Grid -->
-        <div style="margin-top: 40px; border-top: 1px solid var(--color-border); padding-top: 48px;">
-          <div class="section-header text-center">
-            <span class="eyebrow">Clear Rental Policies</span>
-            <h2 class="section-h2">How Deposits, Swaps &amp; Returns Work</h2>
-          </div>
-
-          <div class="three-column-grid" style="gap: 24px;">
-            <div class="card">
-              <h3 class="card-title" style="margin-bottom: 8px;">Refundable Security Deposit</h3>
-              <p class="body-sm">
-                The sample deposit is 1.5× the selected monthly rent. A real agreement would need to specify inspection criteria, deductions and refund timing.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3 class="card-title" style="margin-bottom: 8px;">Item Swap Policy</h3>
-              <p class="body-sm">
-                Try requesting a different bundle through the dashboard. This saves a sample request for review; it does not confirm stock, delivery or swap fees.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3 class="card-title" style="margin-bottom: 8px;">Early Return Process</h3>
-              <p class="body-sm">
-                Try an early-return request in the dashboard. The demo records a preferred date; actual notice periods, settlement costs and pickup arrangements are not confirmed.
-              </p>
-            </div>
-          </div>
+    <!-- SECTION 3: COMPREHENSIVE TIER MATRIX TABLE -->
+    <section class="section section-tinted" aria-labelledby="matrix-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Direct Comparison</span>
+          <h2 id="matrix-title" class="section-h2">Tier Feature Comparison Matrix</h2>
+          <p class="body-lead">Side-by-side breakdown of inclusions, services, and flexibility benefits across all subscription tiers.</p>
         </div>
 
-        <!-- Pricing FAQ Accordion -->
-        <div style="margin-top: 56px; max-width: 800px; margin-inline: auto;">
-          <h3 class="subsection-h3" style="text-align: center; margin-bottom: 24px;">Billing &amp; Pricing Frequently Asked Questions</h3>
-          <div class="faq-list">
-            <div class="faq-item is-open">
-              <button type="button" class="faq-question">
-                <span>When is my monthly rent payment due?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                Your monthly billing cycle begins on the date of physical delivery and assembly. All ongoing recurring payments fall due on the 15th calendar day of each month, with itemized tax invoices generated directly in your customer dashboard.
-              </div>
-            </div>
+        <div class="rent-vs-buy-box">
+          <table class="rent-vs-buy-table" aria-label="Tier Comparison Matrix">
+            <thead>
+              <tr>
+                <th scope="col">Feature / Inclusions</th>
+                <th scope="col">Starter Tier</th>
+                <th scope="col" class="cell-highlight">Essential (Most Popular)</th>
+                <th scope="col">Premium Executive</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Target Dwelling</strong></td>
+                <td>Studio / PG Private Room</td>
+                <td class="cell-highlight">1BHK / 2-Room Flat</td>
+                <td>2BHK / Executive Residence</td>
+              </tr>
+              <tr>
+                <td><strong>Included Furniture Pieces</strong></td>
+                <td>3 Essential Pieces</td>
+                <td class="cell-highlight">6 Coordinated Pieces</td>
+                <td>11 Full Turnkey Suite Pieces</td>
+              </tr>
+              <tr>
+                <td><strong>Delivery &amp; Assembly Fee</strong></td>
+                <td>₹0 (White-Glove Included)</td>
+                <td class="cell-highlight">₹0 (White-Glove Included)</td>
+                <td>₹0 (Priority Staging Included)</td>
+              </tr>
+              <tr>
+                <td><strong>Mid-Lease Item Swaps</strong></td>
+                <td>Available on fee basis</td>
+                <td class="cell-highlight">1 Free Swap every 6 months</td>
+                <td>Priority Swaps anytime</td>
+              </tr>
+              <tr>
+                <td><strong>Everyday Wear &amp; Tear Cover</strong></td>
+                <td>Included (Zero deduction)</td>
+                <td class="cell-highlight">Included (Zero deduction)</td>
+                <td>VIP Comprehensive Cover</td>
+              </tr>
+              <tr>
+                <td><strong>Vacation Lease Hold</strong></td>
+                <td>Up to 30 days pause</td>
+                <td class="cell-highlight">Up to 60 days pause</td>
+                <td>Up to 90 days pause</td>
+              </tr>
+              <tr>
+                <td><strong>Relocation Within City</strong></td>
+                <td>Discounted transit rates</td>
+                <td class="cell-highlight">1 Free Move on 12-mo plans</td>
+                <td>Free Priority Relocation</td>
+              </tr>
+              <tr>
+                <td><strong>Deposit Return SLA</strong></td>
+                <td>Within 48 hours</td>
+                <td class="cell-highlight">Within 48 hours</td>
+                <td>Immediate Same-Day UPI</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>Are there extra charges for delivery and assembly?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                The demo cost model sets delivery and assembly to ₹0. Real access requirements, charges and service availability would need confirmation.
-              </div>
-            </div>
+    <!-- SECTION 4: DEPOSIT REFUND LIFECYCLE -->
+    <section class="section" aria-labelledby="deposit-lifecycle-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Clear Finance</span>
+          <h2 id="deposit-lifecycle-title" class="section-h2">The 100% Refundable Security Deposit Process</h2>
+          <p class="body-lead">No opaque deductions or weeks of chasing property managers. Here is our straightforward escrow protocol.</p>
+        </div>
 
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>What happens if I accidentally scratch or spill on a sofa?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                Care and damage coverage shown in this prototype are sample terms. Actual exclusions, fees and cleaning services would need confirmation.
-              </div>
+        <div class="three-column-grid" style="gap: 24px;">
+          <div class="card">
+            <div style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--color-navy); margin-bottom: 8px;">Step 1</div>
+            <h3 class="card-title">Initial Escrow</h3>
+            <p class="body-sm">
+              A standard deposit equivalent to 1.5× monthly rental is collected at digital agreement signing and held in an interest-neutral tenant escrow balance.
+            </p>
+          </div>
+
+          <div class="card">
+            <div style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--color-navy); margin-bottom: 8px;">Step 2</div>
+            <h3 class="card-title">In-Lease Protection</h3>
+            <p class="body-sm">
+              Normal surface friction, microscopic scuffs, and natural timber settling are 100% forgiven under our everyday living policy without deposit penalties.
+            </p>
+          </div>
+
+          <div class="card">
+            <div style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--color-navy); margin-bottom: 8px;">Step 3</div>
+            <h3 class="card-title">Instant 48-Hour Refund</h3>
+            <p class="body-sm">
+              Our pickup technician executes a 3-minute app-based clearance check. Your deposit refund is initiated directly to your bank account or UPI within 48 hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: STUDENT & CORPORATE PARTNERSHIP PERKS -->
+    <section class="section section-tinted" aria-labelledby="discounts-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Exclusive Subsidies</span>
+          <h2 id="discounts-title" class="section-h2">Student &amp; Corporate Partnership Savings</h2>
+        </div>
+
+        <div class="two-column-grid" style="gap: 32px;">
+          <div class="card" style="padding: 36px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="chip chip-brand">Student Program</span>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-success);">Save 10% Extra</span>
+            </div>
+            <h3 class="card-title" style="margin-bottom: 10px;">Semester Academic Discount</h3>
+            <p class="body-sm" style="margin-bottom: 16px;">
+              Verify using your active college ID or university email (.edu/.ac.in) to unlock a 10% monthly discount across Starter and Essential bedroom setups.
+            </p>
+            <div style="font-size: 0.8125rem; color: var(--color-muted-text);">
+              Includes flexible semester dates that match university holiday calendars with zero summer holding fees.
+            </div>
+          </div>
+
+          <div class="card" style="padding: 36px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="chip chip-brand">Corporate Benefits</span>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-navy);">Employer Invoicing</span>
+            </div>
+            <h3 class="card-title" style="margin-bottom: 10px;">Executive Relocation Credit</h3>
+            <p class="body-sm" style="margin-bottom: 16px;">
+              Relocating with a tech partner firm? Take advantage of consolidated corporate billing with automated monthly GST invoices formatted for corporate expense portals.
+            </p>
+            <div style="font-size: 0.8125rem; color: var(--color-muted-text);">
+              Priority 24-hour white-glove setup and dedicated move-in concierges for corporate transferees.
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- SECTION 6: ZERO HIDDEN FEES GUARANTEE -->
+    <section class="section" aria-labelledby="no-hidden-fees-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Price Transparency</span>
+          <h2 id="no-hidden-fees-title" class="section-h2">Our Zero Hidden Fees Commitment</h2>
+          <p class="body-lead">What you see is exactly what you pay. We never bill surprise surcharges on moving day.</p>
+        </div>
+
+        <div class="three-column-grid" style="gap: 20px;">
+          <div class="card" style="padding: 24px;">
+            <h3 class="card-title" style="font-size: 1rem; margin-bottom: 6px;">₹0 Elevator Surcharge</h3>
+            <p class="body-sm">Even in buildings without passenger elevators, carry-up up to 4 floors is included free of charge.</p>
+          </div>
+
+          <div class="card" style="padding: 24px;">
+            <h3 class="card-title" style="font-size: 1rem; margin-bottom: 6px;">₹0 Tool &amp; Assembly Cost</h3>
+            <p class="body-sm">Bolts, frame alignment, leveling pads, and torque wrenches are fully furnished by our technicians.</p>
+          </div>
+
+          <div class="card" style="padding: 24px;">
+            <h3 class="card-title" style="font-size: 1rem; margin-bottom: 6px;">₹0 Packaging Removal</h3>
+            <p class="body-sm">All transport quilts, ties, and protective covers are removed and recycled by our logistics team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: BILLING FAQ & CTA -->
+    <section class="section section-tinted" aria-labelledby="billing-faq-title">
+      <div class="container container-narrow">
+        <div class="section-header text-center">
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2 id="billing-faq-title" class="section-h2">Billing &amp; Payments FAQ</h2>
+        </div>
+
+        <div class="faq-list" style="margin-bottom: 48px;">
+          <div class="faq-item is-open">
+            <button type="button" class="faq-question">
+              <span>When is my monthly rent payment due?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Your billing cycle begins on the date of physical delivery and room assembly. All ongoing recurring payments fall due on the 15th calendar day of each month, with itemized tax invoices generated directly inside your customer dashboard.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Are there extra charges for delivery and assembly?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              The demo cost model sets delivery and assembly to ₹0. In actual operations, standard corridor routes receive full white-glove setup at ₹0 without surprise moving-day additions.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>What happens if I need to relocate to another city?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Subscribers moving between our active metropolitan corridors (Hyderabad, Bengaluru, Pune, Chennai, Mumbai) can transfer their furniture lease seamlessly without lease-break fees.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: HIGH-CONVERSION PRICING CTA BANNER -->
+    <section class="section cta-banner-section" aria-labelledby="pricing-cta-title">
+      <div class="container text-center">
+        <span class="cta-chip-ready">Move In Ready</span>
+        <h2 id="pricing-cta-title" class="section-h2">
+          Ready to configure your living space on your terms?
+        </h2>
+        <p class="body-lead">
+          Lock in transparent monthly rates across 3, 6, or 12-month tenures with ₹0 delivery, free setup, and easy style swaps.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="packages.html" class="btn btn-primary btn-lg">Browse Curated Packages</a>
+          <a href="coverage.html" class="btn btn-outline btn-lg">Check Your Delivery PIN</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Shared Footer -->
+  <!-- Standardized Shared Site Footer (Identical on all pages) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="../index.html" class="brand-link">
+          <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
             <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" style="height: 38px;">
           </a>
           <p>
             MODULIV is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.
           </p>
-          <div class="footer-badges">
-            <span class="footer-badge-pill">Circular Lifecycle</span>
-            <span class="footer-badge-pill">White-Glove Setup</span>
-          </div>
         </div>
 
+        <!-- Col 1: Pages / Explore -->
         <div>
           <h4 class="footer-col-title">Pages / Explore</h4>
           <ul class="footer-nav">
-            <li><a href="../index.html">Home 1: Storefront</a></li>
-            <li><a href="home2.html">Home 2: Modular Living</a></li>
+            <li><a href="../index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
             <li><a href="packages.html">Packages Catalogue</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="pricing.html">Pricing Calculator</a></li>
           </ul>
         </div>
 
+        <!-- Col 2: Packages -->
         <div>
           <h4 class="footer-col-title">Packages</h4>
           <ul class="footer-nav">
@@ -362,9 +535,11 @@
             <li><a href="packages.html?tier=essential">Essential Sets</a></li>
             <li><a href="packages.html?tier=premium">Premium Suites</a></li>
             <li><a href="packages.html?category=workspace">WFH Workstations</a></li>
+            <li><a href="packages.html?category=bedroom">Bedroom Sets</a></li>
           </ul>
         </div>
 
+        <!-- Col 3: Support -->
         <div>
           <h4 class="footer-col-title">Support &amp; Portal</h4>
           <ul class="footer-nav">
@@ -389,7 +564,9 @@
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.</div>
+        <div>
+          &copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.
+        </div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -403,29 +580,85 @@
   <script src="../assets/data/data.js"></script>
   <script src="../assets/js/app.js"></script>
   <script src="../assets/js/auth.js"></script>
-  <script src="../assets/js/pricing.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Accordion toggle
-      document.querySelectorAll('.faq-question').forEach((btn, index) => {
-        const answer = btn.closest('.faq-item').querySelector('.faq-answer');
-        answer.id = `faq-answer-${index}`;
-        btn.setAttribute('aria-controls', answer.id);
-        btn.setAttribute('aria-expanded', btn.closest('.faq-item').classList.contains('is-open'));
+      // Interactive tenure buttons on pricing page
+      const tenureButtons = document.querySelectorAll('[data-pricing-tenure]');
+      const priceStarter = document.getElementById('price-val-starter');
+      const depositStarter = document.getElementById('deposit-val-starter');
+      const priceEssential = document.getElementById('price-val-essential');
+      const depositEssential = document.getElementById('deposit-val-essential');
+      const pricePremium = document.getElementById('price-val-premium');
+      const depositPremium = document.getElementById('deposit-val-premium');
+
+      const tenurePricingMap = {
+        '3': {
+          starter: { price: '₹1,699', deposit: '₹2,549' },
+          essential: { price: '₹2,699', deposit: '₹4,049' },
+          premium: { price: '₹4,099', deposit: '₹6,149' }
+        },
+        '6': {
+          starter: { price: '₹1,399', deposit: '₹2,099' },
+          essential: { price: '₹2,299', deposit: '₹3,449' },
+          premium: { price: '₹3,449', deposit: '₹5,174' }
+        },
+        '12': {
+          starter: { price: '₹1,199', deposit: '₹1,799' },
+          essential: { price: '₹1,999', deposit: '₹2,999' },
+          premium: { price: '₹2,999', deposit: '₹4,499' }
+        }
+      };
+
+      function updatePricing(tenure) {
+        const data = tenurePricingMap[tenure] || tenurePricingMap['12'];
+        tenureButtons.forEach(btn => {
+          const isActive = btn.dataset.pricingTenure === tenure;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        if (priceStarter && depositStarter) {
+          priceStarter.textContent = data.starter.price;
+          depositStarter.textContent = data.starter.deposit;
+        }
+        if (priceEssential && depositEssential) {
+          priceEssential.textContent = data.essential.price;
+          depositEssential.textContent = data.essential.deposit;
+        }
+        if (pricePremium && depositPremium) {
+          pricePremium.textContent = data.premium.price;
+          depositPremium.textContent = data.premium.deposit;
+        }
+
+        document.querySelectorAll('.pricing-card a').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href) {
+            const [base, query] = href.split('?');
+            const params = new URLSearchParams(query || '');
+            params.set('tenure', tenure);
+            a.setAttribute('href', `${base}?${params.toString()}`);
+          }
+        });
+      }
+
+      tenureButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-          const item = btn.closest('.faq-item');
-          item.classList.toggle('is-open');
-          btn.setAttribute('aria-expanded', item.classList.contains('is-open'));
+          updatePricing(btn.dataset.pricingTenure);
         });
       });
 
-      if (window.NestloopAuth && window.NestloopAuth.isAuthenticated()) {
-        const authLink = document.getElementById('nav-auth-link');
-        if (authLink) {
-          authLink.href = 'dashboard.html';
-          /* authLink left clean */
-        }
-      }
+      // Initialize with default 12 months
+      updatePricing('12');
+
+      // FAQ Accordion interactions
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const item = q.closest('.faq-item');
+          if (item) {
+            item.classList.toggle('is-open');
+          }
+        });
+      });
     });
   </script>
 </body>

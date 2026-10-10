@@ -39,14 +39,17 @@
               <span>Home</span>
               <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <ul class="dropdown-menu"><li><a href="index.html" class="dropdown-item active">Storefront</a></li><li><a href="pages/home2.html" class="dropdown-item">Modular Living</a></li></ul>
+            <ul class="dropdown-menu">
+              <li><a href="index.html" class="dropdown-item active">Homepage 1</a></li>
+              <li><a href="pages/home2.html" class="dropdown-item">Homepage 2</a></li>
+            </ul>
           </li>
 
+          <li><a href="pages/about.html" class="nav-link">About</a></li>
           <li><a href="pages/packages.html" class="nav-link">Packages</a></li>
           <li><a href="pages/pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="pages/coverage.html" class="nav-link">Coverage Areas</a></li>
-          <li><a href="pages/about.html" class="nav-link">About</a></li>
-          <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+          <li><a href="pages/contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
@@ -95,17 +98,17 @@
         <li>
           <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text); padding: 8px 14px 4px 14px;">Home Variations</div>
           <div class="drawer-subnav">
-            <a href="index.html" class="drawer-sublink active">Home 1: Storefront</a>
-            <a href="pages/home2.html" class="drawer-sublink">Home 2: Modular Living</a>
+            <a href="index.html" class="drawer-sublink active">Homepage 1</a>
+            <a href="pages/home2.html" class="drawer-sublink">Homepage 2</a>
           </div>
         </li>
+        <li><a href="pages/about.html" class="drawer-nav-link">About</a></li>
         <li><a href="pages/packages.html" class="drawer-nav-link">Packages</a></li>
-        <li><a href="pages/how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="pages/pricing.html" class="drawer-nav-link">Pricing</a></li>
         <li><a href="pages/coverage.html" class="drawer-nav-link">Coverage Areas</a></li>
-        <li><a href="pages/about.html" class="drawer-nav-link">About</a></li>
+        <li><a href="pages/contact.html" class="drawer-nav-link">Contact Us</a></li>
+        <li><a href="pages/how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="pages/faq.html" class="drawer-nav-link">FAQs</a></li>
-        <li><a href="pages/contact.html" class="drawer-nav-link">Contact</a></li>
         <li><a href="pages/dashboard.html" class="drawer-nav-link">Customer Dashboard</a></li>
       </ul>
     </div>
@@ -458,7 +461,7 @@
           <div class="split-editorial-side">
             <div>
               <img src="assets/images/gallery-detail-1.webp" alt="Warm, stylishly furnished apartment living room with sofa and plants" class="split-side-img" loading="lazy">
-              <span class="chip chip-active" style="margin-bottom: 8px;">The MODULIV Experience</span>
+              <span class="chip chip-brand" style="margin-bottom: 8px;">The MODULIV Experience</span>
               <h3 class="card-title">A place to make your own</h3>
               <ul class="comparison-list">
                 <li class="comparison-item">
@@ -661,18 +664,18 @@
     </section>
 
     <!-- SECTION 10: CLOSING BOOKING CTA -->
-    <section class="section" style="background: linear-gradient(135deg, var(--color-ink-surface) 0%, #102035 100%); color: #FFFFFF;" aria-labelledby="cta-title">
-      <div class="container" style="text-align: center; padding-block: 20px;">
-        <span class="chip" style="background: rgba(255, 255, 255, 0.12); color: #BAE6FD; margin-bottom: 16px;">Move In Ready</span>
-        <h2 id="cta-title" class="section-h2" style="color: #FFFFFF; max-width: 640px; margin-inline: auto; margin-bottom: 16px;">
+    <section class="section cta-banner-section" aria-labelledby="cta-title">
+      <div class="container" style="text-align: center;">
+        <span class="cta-chip-ready">Move In Ready</span>
+        <h2 id="cta-title" class="section-h2">
           Ready to experience furniture that moves with you?
         </h2>
-        <p class="body-lead" style="color: #CBD5E1; max-width: 540px; margin-inline: auto; margin-bottom: 32px;">
+        <p class="body-lead">
           Find the right room bundle, compare sample costs and explore your rental dashboard.
         </p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
           <a href="pages/packages.html" class="btn btn-primary btn-lg">Browse Furniture Packages</a>
-          <a href="pages/dashboard.html" class="btn btn-outline btn-lg" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);">Access Customer Portal</a>
+          <a href="pages/dashboard.html" class="btn btn-outline btn-lg">Access Customer Portal</a>
         </div>
       </div>
     </section>
@@ -684,25 +687,20 @@
       <div class="footer-top">
         <!-- Brand Column -->
         <div class="footer-brand">
-          <a href="index.html" class="brand-link">
+          <a href="index.html" class="brand-link" aria-label="MODULIV Homepage">
             <img src="assets/brand/logo-white.svg" alt="MODULIV Logo" style="height: 38px;">
           </a>
           <p>
             MODULIV is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.
           </p>
-          <div class="footer-badges">
-            <span class="footer-badge-pill">Circular Lifecycle</span>
-            <span class="footer-badge-pill">Zero Landfill Goal</span>
-            <span class="footer-badge-pill">White-Glove Setup</span>
-          </div>
         </div>
 
         <!-- Col 1: Pages / Explore -->
         <div>
           <h4 class="footer-col-title">Pages / Explore</h4>
           <ul class="footer-nav">
-            <li><a href="index.html">Home 1: Storefront</a></li>
-            <li><a href="pages/home2.html">Home 2: Modular Living</a></li>
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="pages/home2.html">Home 2</a></li>
             <li><a href="pages/packages.html">Packages Catalogue</a></li>
             <li><a href="pages/how-it-works.html">How It Works</a></li>
             <li><a href="pages/pricing.html">Pricing Calculator</a></li>

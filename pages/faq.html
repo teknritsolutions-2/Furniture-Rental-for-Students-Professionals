@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frequently Asked Questions — Furniture Rental Help | MODULIV</title>
-  <meta name="description" content="Answers to common questions about lease durations, security deposits, white-glove setup, furniture maintenance, swaps, returns, and digital agreements.">
+  <title>Frequently Asked Questions — MODULIV Furniture Rental Knowledge Base</title>
+  <meta name="description" content="Answers to common questions about MODULIV furniture rental subscriptions, refundable deposits, white-glove delivery, mid-lease swaps, and vacation holds.">
   <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
 
   <link rel="stylesheet" href="../assets/css/tokens.css">
@@ -14,6 +14,12 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- Top Announcement Bar -->
+  <div class="top-notice-bar" role="region" aria-label="Announcement">
+    <span class="top-notice-badge">Explore the demo</span><span>Furniture for your next chapter. Sample prices · No real bookings or payments.</span>
+  </div>
+
+  <!-- Header & Shared Navbar -->
   <header class="site-header" id="site-header">
     <div class="container navbar-inner">
       <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
@@ -21,6 +27,7 @@
         <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark">
       </a>
 
+      <!-- Desktop Navigation: Home, About, Packages, Pricing, Coverage Areas, Contact Us -->
       <nav aria-label="Primary Navigation">
         <ul class="nav-menu-desktop">
           <li class="nav-item-dropdown">
@@ -28,21 +35,27 @@
               <span>Home</span>
               <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <ul class="dropdown-menu"><li><a href="../index.html" class="dropdown-item">Storefront</a></li><li><a href="home2.html" class="dropdown-item">Modular Living</a></li></ul>
+            <ul class="dropdown-menu">
+              <li><a href="../index.html" class="dropdown-item">Homepage 1</a></li>
+              <li><a href="home2.html" class="dropdown-item">Homepage 2</a></li>
+            </ul>
           </li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="packages.html" class="nav-link">Packages</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="coverage.html" class="nav-link">Coverage Areas</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
-        <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
+        <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button type="button" class="utility-btn dir-toggle-btn rtl-pill" aria-label="Toggle text direction" title="Toggle LTR / RTL"><span class="dir-label-text">RTL</span></button>
         <a href="dashboard.html" class="btn btn-outline btn-sm" id="nav-auth-link" title="Open Customer Rental Dashboard">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end: 4px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
           <span>Dashboard</span>
         </a>
         <a href="packages.html" class="btn btn-primary btn-sm">Explore Packages</a>
@@ -55,7 +68,7 @@
 
   <!-- Mobile Drawer -->
   <div class="mobile-drawer-overlay"></div>
-  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true">
+  <aside class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="drawer-header">
       <a href="../index.html" class="brand-link">
         <img src="../assets/brand/logo.svg" alt="MODULIV Logo" class="brand-logo logo-light" style="height: 32px;">
@@ -68,17 +81,17 @@
         <li>
           <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text); padding: 8px 14px 4px 14px;">Home Variations</div>
           <div class="drawer-subnav">
-            <a href="../index.html" class="drawer-sublink">Home 1: Storefront</a>
-            <a href="home2.html" class="drawer-sublink">Home 2: Modular Living</a>
+            <a href="../index.html" class="drawer-sublink">Homepage 1</a>
+            <a href="home2.html" class="drawer-sublink">Homepage 2</a>
           </div>
         </li>
+        <li><a href="about.html" class="drawer-nav-link">About</a></li>
         <li><a href="packages.html" class="drawer-nav-link">Packages</a></li>
-        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="pricing.html" class="drawer-nav-link">Pricing</a></li>
         <li><a href="coverage.html" class="drawer-nav-link">Coverage Areas</a></li>
-        <li><a href="about.html" class="drawer-nav-link">About</a></li>
+        <li><a href="contact.html" class="drawer-nav-link">Contact Us</a></li>
+        <li><a href="how-it-works.html" class="drawer-nav-link">How It Works</a></li>
         <li><a href="faq.html" class="drawer-nav-link active">FAQs</a></li>
-        <li><a href="contact.html" class="drawer-nav-link">Contact</a></li>
         <li><a href="dashboard.html" class="drawer-nav-link">Customer Dashboard</a></li>
       </ul>
     </div>
@@ -93,155 +106,260 @@
 
   <main id="main-content">
     <div class="container"><p class="demo-context">Explore a furniture rental concept. Services, locations and policies shown here are illustrative.</p></div>
-    <div class="section" style="padding-top: 48px;">
+
+    <!-- SECTION 1: HERO & SEARCH -->
+    <section class="section" aria-labelledby="faq-hero-title" style="padding-top: 48px;">
       <div class="container container-narrow">
         <div class="section-header text-center">
           <span class="eyebrow">Knowledge Base</span>
-          <h1 class="inner-h1">Frequently Asked Questions</h1>
+          <h1 id="faq-hero-title" class="inner-h1">Frequently Asked Questions</h1>
           <p class="body-lead">
             Everything you need to know about leases, security deposit refunds, delivery corridors, maintenance coverage, and customer portal workflows.
           </p>
         </div>
 
-        <!-- Category 1: Leases, Tenures & Deposits -->
-        <div style="margin-bottom: 40px;">
-          <h2 class="subsection-h3" style="color: var(--color-forest); margin-bottom: 16px;">1. Leases, Tenures &amp; Security Deposits</h2>
-          <div class="faq-list">
-            <div class="faq-item is-open">
-              <button type="button" class="faq-question">
-                <span>What rental tenures does MODULIV offer?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                We offer three standard subscription durations: 3 months (short stays &amp; internships), 6 months (college semesters &amp; project stints), and 12 months (best monthly savings). Tenures can be extended seamlessly anytime via your customer dashboard.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>How is the refundable security deposit calculated and returned?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                The demo calculates deposits at 1.5× monthly rent. No deposit is collected or refunded here; actual conditions would require a confirmed agreement.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>Can I return furniture before my tenure expires?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                Yes. Life changes happen. You can initiate an Early Return Request in your portal with 14 days advance notice. Early settlements reconcile the price difference between shorter tenures transparently without punitive hidden fees.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 2: Delivery, Assembly & Care -->
-        <div style="margin-bottom: 40px;">
-          <h2 class="subsection-h3" style="color: var(--color-forest); margin-bottom: 16px;">2. Delivery, Assembly &amp; Furniture Condition</h2>
-          <div class="faq-list">
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>How quickly can I get my furniture delivered?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                The coverage checker shows sample delivery estimates for five cities. These are not live availability or dispatch promises.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>What is the physical condition of the furniture I will receive?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                The concept is built around reuse and care. Exact furniture condition and preparation standards would need confirmation before a real rental.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>What happens if an item gets scratched or damaged during my stay?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                Care and damage coverage shown in this prototype are sample terms. Actual exclusions, fees and cleaning services would need confirmation. Structural replacement is only assessed in cases of intentional mutilation.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Category 3: Swaps & Customer Portal -->
-        <div style="margin-bottom: 48px;">
-          <h2 class="subsection-h3" style="color: var(--color-forest); margin-bottom: 16px;">3. Swaps, Billing &amp; Customer Portal</h2>
-          <div class="faq-list">
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>How does the furniture swap feature work?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                Subscribers on 6+ month plans can request an item swap directly inside the customer dashboard. Simply choose your current piece, pick your desired replacement, and provide a preferred date. Our team handles collection and replacement in a single trip.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>How do I download rental agreements and tax receipts?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                Once logged in, open the "Documents" or "Billing" tab in your portal. You can download official vector PDF copies of your signed rental agreements and itemized GST payment receipts with a single click.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button type="button" class="faq-question">
-                <span>When are recurring monthly payments billed?</span>
-                <span class="faq-icon">▾</span>
-              </button>
-              <div class="faq-answer">
-                Monthly rental payments fall due on the 15th calendar day of each ongoing billing month, with automated reminder notices delivered to your registered email and portal notifications.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="text-align: center; padding: 36px; background-color: var(--color-surface-tint);">
-          <h3 class="card-title" style="margin-bottom: 8px;">Still have questions?</h3>
-          <p class="body-sm" style="margin-bottom: 18px;">Our customer support team is available Monday through Saturday to answer specific room configuration queries.</p>
-          <a href="contact.html" class="btn btn-primary">Contact Support Team</a>
+        <!-- Filter Search Bar -->
+        <div class="filter-search-box" style="max-width: 540px; margin-inline: auto; margin-bottom: 24px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="faq-search-input" class="form-input" placeholder="Search questions (e.g. deposit, refund, swap, damage)..." aria-label="Search FAQs">
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- SECTION 2: CATEGORY 1 — LEASES & SECURITY DEPOSITS -->
+    <section class="section section-tinted" aria-labelledby="cat1-title">
+      <div class="container container-narrow">
+        <h2 id="cat1-title" class="subsection-h3" style="color: var(--color-deep-ink); margin-bottom: 16px;">1. Leases, Tenures &amp; Security Deposits</h2>
+        <div class="faq-list">
+          <div class="faq-item is-open">
+            <button type="button" class="faq-question">
+              <span>What rental tenures does MODULIV offer?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              We offer three standard subscription durations: 3 months (short stays &amp; internships), 6 months (college semesters &amp; project stints), and 12 months (best monthly savings). Tenures can be extended seamlessly anytime via your customer dashboard.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How is the refundable security deposit calculated and returned?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              The deposit is calculated at 1.5× your monthly subscription rent. It is held in an escrow balance and refunded via UPI or direct bank transfer within 48 hours following physical pickup and clearance inspection.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Can I return furniture before my tenure expires?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Yes. You can initiate an Early Return Request in your customer dashboard with 14 days advance notice. Early settlements reconcile the difference to the shorter tenure rate without punitive termination fees.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CATEGORY 2 — DELIVERY & ASSEMBLY -->
+    <section class="section" aria-labelledby="cat2-title">
+      <div class="container container-narrow">
+        <h2 id="cat2-title" class="subsection-h3" style="color: var(--color-deep-ink); margin-bottom: 16px;">2. Delivery, Assembly &amp; White-Glove Logistics</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How quickly can I get my furniture delivered?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Inside standard metropolitan corridors (Hyderabad, Bengaluru, Pune, Chennai, Mumbai), white-glove delivery and assembly are scheduled within 48 to 72 hours of executed agreement signing.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>What is the physical condition of the furniture I will receive?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Every item undergoes our 7-step refurbishment protocol: 140°C thermal steam sanitization, joinery realignment, and natural organic beeswax buffing. Items arrive in showroom-grade condition.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Do I need to assemble the furniture myself?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Never. Our trained logistics technicians handle everything: room-of-choice placement, frame bolting, leveling, and complete removal of all protective transport wrap.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CATEGORY 3 — CLEANING & WEAR-AND-TEAR -->
+    <section class="section section-tinted" aria-labelledby="cat3-title">
+      <div class="container container-narrow">
+        <h2 id="cat3-title" class="subsection-h3" style="color: var(--color-deep-ink); margin-bottom: 16px;">3. Cleaning, Maintenance &amp; Accidental Wear</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>What happens if I accidentally scratch a tabletop or spill coffee?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Normal everyday living friction, minor surface scratches, and light fabric spots are 100% covered under our fair wear-and-tear policy. Zero deductions are made for standard living usage.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Can I request a complimentary maintenance checkup?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Yes. Subscribers on 6+ month plans can request a free in-home maintenance visit every 6 months to tighten bed frame bolts, re-level desks, or deep-shampoo sofa upholstery.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>What if a mechanism breaks (e.g. ergonomic chair gas lift)?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Simply submit a maintenance request with a quick photo through your portal. Our local technician visits within 24 hours to repair the mechanism or swap the item free of charge.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CATEGORY 4 — SWAPS & RELOCATIONS -->
+    <section class="section" aria-labelledby="cat4-title">
+      <div class="container container-narrow">
+        <h2 id="cat4-title" class="subsection-h3" style="color: var(--color-deep-ink); margin-bottom: 16px;">4. Swaps, City Relocations &amp; Vacation Holds</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How does the furniture style swap feature work?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Subscribers on 6+ month plans can request a free furniture swap. Select your current item in the dashboard, choose the replacement piece, and pick a date. We deliver and collect in a single synchronized trip.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Can I pause my subscription when going home for college holidays?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Yes! Students on semester plans can pause billing for up to 45 days during summer vacations while retaining their package booking without termination penalties.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>What if I move to a new apartment within the city?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              We offer free relocation assistance for 12-month subscribers. Our team disassembles your furniture at the old address, transports it, and reassembles it in your new flat.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CATEGORY 5 — PORTAL & BILLING -->
+    <section class="section section-tinted" aria-labelledby="cat5-title">
+      <div class="container container-narrow">
+        <h2 id="cat5-title" class="subsection-h3" style="color: var(--color-deep-ink); margin-bottom: 16px;">5. Customer Portal, Invoicing &amp; Tax Documents</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How do I access monthly GST tax invoices?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              All tax invoices and digital rental agreements are permanently stored and downloadable as signed PDFs inside your Customer Dashboard under the "Billing History" tab.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Can my company pay for my furniture subscription directly?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              Yes. We support corporate invoicing with corporate GST details, purchase order mapping, and direct corporate net-30 billing accounts for relocating employees.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>What payment methods are supported?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-answer">
+              We accept all major UPI apps (Google Pay, PhonePe, Paytm), credit and debit cards, net banking, and automatic monthly recurring standing instructions (e-NACH).
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: STILL HAVE QUESTIONS CTA -->
+    <section class="section cta-banner-section" aria-labelledby="faq-cta-title">
+      <div class="container text-center">
+        <span class="cta-chip-ready">Move In Ready</span>
+        <h2 id="faq-cta-title" class="section-h2">
+          Still have questions?
+        </h2>
+        <p class="body-lead">
+          Our friendly regional team is ready to assist your specific apartment setup and tenure plan.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Contact Support Team</a>
+          <a href="dashboard.html" class="btn btn-outline btn-lg">Open Customer Dashboard</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Shared Footer -->
+  <!-- Standardized Shared Site Footer (Identical on all pages) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="../index.html" class="brand-link"><img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" style="height: 38px;"></a>
-          <p>MODULIV is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.</p>
-          <div class="footer-badges">
-            <span class="footer-badge-pill">Circular Lifecycle</span>
-            <span class="footer-badge-pill">White-Glove Setup</span>
-          </div>
+          <a href="../index.html" class="brand-link" aria-label="MODULIV Homepage">
+            <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" style="height: 38px;">
+          </a>
+          <p>
+            MODULIV is a flexible furniture rental platform providing curated, durable room packages for university students and relocating city professionals.
+          </p>
         </div>
+
+        <!-- Col 1: Pages / Explore -->
         <div>
           <h4 class="footer-col-title">Pages / Explore</h4>
           <ul class="footer-nav">
-            <li><a href="../index.html">Home 1: Storefront</a></li>
-            <li><a href="home2.html">Home 2: Modular Living</a></li>
+            <li><a href="../index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
             <li><a href="packages.html">Packages Catalogue</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="pricing.html">Pricing Calculator</a></li>
           </ul>
         </div>
+
+        <!-- Col 2: Packages -->
         <div>
           <h4 class="footer-col-title">Packages</h4>
           <ul class="footer-nav">
@@ -249,8 +367,11 @@
             <li><a href="packages.html?tier=essential">Essential Sets</a></li>
             <li><a href="packages.html?tier=premium">Premium Suites</a></li>
             <li><a href="packages.html?category=workspace">WFH Workstations</a></li>
+            <li><a href="packages.html?category=bedroom">Bedroom Sets</a></li>
           </ul>
         </div>
+
+        <!-- Col 3: Support -->
         <div>
           <h4 class="footer-col-title">Support &amp; Portal</h4>
           <ul class="footer-nav">
@@ -261,6 +382,7 @@
             <li><a href="dashboard.html">Customer Dashboard</a></li>
           </ul>
         </div>
+
         <!-- Col 4: Account & Legal -->
         <div>
           <h4 class="footer-col-title">Account &amp; Legal</h4>
@@ -272,8 +394,11 @@
           </ul>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <div>&copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.</div>
+        <div>
+          &copy; 2026 MODULIV Furnishing Solutions. Curated furniture rental for students &amp; professionals. Sample demonstration pricing.
+        </div>
         <ul class="footer-bottom-links">
           <li><a href="terms.html">Terms</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -289,24 +414,31 @@
   <script src="../assets/js/auth.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.faq-question').forEach((btn, index) => {
-        const answer = btn.closest('.faq-item').querySelector('.faq-answer');
-        answer.id = `faq-answer-${index}`;
-        btn.setAttribute('aria-controls', answer.id);
-        btn.setAttribute('aria-expanded', btn.closest('.faq-item').classList.contains('is-open'));
+      // Accordion toggle
+      document.querySelectorAll('.faq-question').forEach(btn => {
         btn.addEventListener('click', () => {
           const item = btn.closest('.faq-item');
-          item.classList.toggle('is-open');
-          btn.setAttribute('aria-expanded', item.classList.contains('is-open'));
+          if (item) {
+            item.classList.toggle('is-open');
+          }
         });
       });
 
-      if (window.NestloopAuth && window.NestloopAuth.isAuthenticated()) {
-        const authLink = document.getElementById('nav-auth-link');
-        if (authLink) {
-          authLink.href = 'dashboard.html';
-          /* authLink left clean */
-        }
+      // Live search filter
+      const searchInput = document.getElementById('faq-search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase().trim();
+          document.querySelectorAll('.faq-item').forEach(item => {
+            const text = item.textContent.toLowerCase();
+            if (!query || text.includes(query)) {
+              item.style.display = 'block';
+              if (query) item.classList.add('is-open');
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
       }
     });
   </script>
