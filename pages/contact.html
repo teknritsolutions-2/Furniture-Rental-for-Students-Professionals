@@ -279,7 +279,7 @@
           alertBox.style.display = 'block';
           alertBox.style.backgroundColor = 'var(--color-danger-bg)';
           alertBox.style.color = 'var(--color-danger)';
-          alertBox.style.border = '1px solid #FAD2CF';
+          alertBox.style.border = '1px solid var(--color-danger)';
           alertBox.textContent = 'Please fill out all required fields before submitting.';
           return;
         }
@@ -287,7 +287,7 @@
         alertBox.style.display = 'block';
         alertBox.style.backgroundColor = 'var(--color-success-bg)';
         alertBox.style.color = 'var(--color-success)';
-        alertBox.style.border = '1px solid #B7E1CD';
+        alertBox.style.border = '1px solid var(--color-success)';
         alertBox.innerHTML = `<strong>Thank you, ${name}!</strong> Your demonstration form is complete. No message was sent and no follow-up is scheduled.`;
 
         form.reset();

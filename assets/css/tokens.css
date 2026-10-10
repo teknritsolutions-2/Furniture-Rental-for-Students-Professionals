@@ -1,62 +1,70 @@
 /**
  * NESTLOOP — Design System & Global Tokens
  * Core tokens, shared typography scales, palette, dark mode variables, and spacing.
- * Brand: Forest Green single-color system — #234C3E primary
+ * Brand: Midnight Navy & Deep Slate single-color system — #1D3557 primary
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
   /* =============================================
-     FOREST GREEN — Single Primary Color System
+     MIDNIGHT NAVY & DEEP SLATE — Single Primary Color System
      ============================================= */
-  --color-forest-dark:    #15372B;
-  --color-forest:         #234C3E;
-  --color-forest-medium:  #3B6C58;
-  --color-forest-light:   #DCE9E1;
-  --color-forest-pale:    #EEF4EF;
+  --color-navy-dark:      #102035;
+  --color-navy:           #1D3557;
+  --color-navy-medium:    #2E5077;
+  --color-navy-light:     #DCE5EF;
+  --color-navy-pale:      #F0F4F8;
+  --color-slate-accent:   #457B9D;
+
+  /* Aliases mapped to Midnight Navy palette */
+  --color-forest-dark:    #102035;
+  --color-forest:         #1D3557;
+  --color-forest-medium:  #2E5077;
+  --color-forest-light:   #DCE5EF;
+  --color-forest-pale:    #F0F4F8;
 
   /* Neutrals & Backgrounds */
-  --color-warm-chalk:     #F7F7F4;
+  --color-warm-chalk:     #F8F9FA;
   --color-white:          #FFFFFF;
-  --color-off-white:      #F7F7F4;
-  --color-deep-ink:       #202622;
-  --color-charcoal:       #202622;
-  --color-secondary-grey: #6B746E;
-  --color-border:         #DCE1DC;
-  --color-neutral-grey:   #E8EBE8;
+  --color-off-white:      #F8F9FA;
+  --color-deep-ink:       #1A202C;
+  --color-charcoal:       #1A202C;
+  --color-secondary-grey: #64748B;
+  --color-border:         #E2E8F0;
+  --color-neutral-grey:   #EDF2F7;
 
-  /* Semantic / Functional aliases (mapped from forest palette) */
+  /* Semantic / Functional aliases */
   --color-cobalt:         var(--color-forest);
   --color-cobalt-hover:   var(--color-forest-dark);
-  --color-cobalt-light:   rgba(35, 76, 62, 0.10);
-  --color-cobalt-subtle:  rgba(35, 76, 62, 0.05);
+  --color-cobalt-light:   rgba(29, 53, 87, 0.10);
+  --color-cobalt-subtle:  rgba(29, 53, 87, 0.05);
   --color-pale-mint:      var(--color-forest-pale);
   --color-pale-mint-darker: var(--color-forest-light);
 
   /* Surface & Card */
   --color-card-bg:        #FFFFFF;
-  --color-surface-tint:   #F2F4F2;
-  --color-badge-bg:       #E4EEE9;
-  --color-badge-text:     #1A4535;
+  --color-surface-tint:   #F1F5F9;
+  --color-badge-bg:       #E2EAF2;
+  --color-badge-text:     #162E4D;
 
   /* Muted / Ink */
-  --color-muted-text:     #6B746E;
-  --color-ink-surface:    #1A2421;
+  --color-muted-text:     #64748B;
+  --color-ink-surface:    #0F172A;
 
   /* Semantic Status Colors */
-  --color-success:        #1E7E4E;
-  --color-success-bg:     #E6F4EA;
-  --color-warning:        #B26A00;
-  --color-warning-bg:     #FEF7E0;
-  --color-danger:         #C62828;
-  --color-danger-bg:      #FFEBEE;
+  --color-success:        #16A34A;
+  --color-success-bg:     #F0FDF4;
+  --color-warning:        #D97706;
+  --color-warning-bg:     #FFFBEB;
+  --color-danger:         #DC2626;
+  --color-danger-bg:      #FEF2F2;
 
-  /* Elevation / Shadows */
-  --shadow-sm:   0 1px 2px rgba(32, 38, 34, 0.04);
-  --shadow-md:   0 4px 18px rgba(32, 38, 34, 0.07);
-  --shadow-lg:   0 12px 32px rgba(32, 38, 34, 0.10), 0 4px 10px rgba(32, 38, 34, 0.05);
-  --shadow-card-hover: 0 16px 40px rgba(32, 38, 34, 0.13), 0 6px 14px rgba(32, 38, 34, 0.06);
+  /* Elevation / Shadows (slate tinted) */
+  --shadow-sm:   0 1px 2px rgba(16, 32, 53, 0.04);
+  --shadow-md:   0 4px 18px rgba(16, 32, 53, 0.07);
+  --shadow-lg:   0 12px 32px rgba(16, 32, 53, 0.10), 0 4px 10px rgba(16, 32, 53, 0.05);
+  --shadow-card-hover: 0 16px 40px rgba(16, 32, 53, 0.13), 0 6px 14px rgba(16, 32, 53, 0.06);
 
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -151,37 +159,44 @@
    DARK THEME OVERRIDES
    ============================================= */
 [data-theme="dark"] {
-  --color-warm-chalk:   #111916;
-  --color-white:        #161E1B;
-  --color-deep-ink:     #E8EDE9;
-  --color-forest:       #4F8C72;
-  --color-forest-dark:  #3B6C58;
-  --color-forest-medium:#5FA685;
-  --color-forest-light: #1C3028;
-  --color-forest-pale:  #152219;
+  --color-warm-chalk:   #0B131E;
+  --color-white:        #131E2C;
+  --color-deep-ink:     #E2E8F0;
+  --color-navy-dark:    #1C2E42;
+  --color-navy:         #4D77A6;
+  --color-navy-medium:  #5B8ABF;
+  --color-navy-light:   #162537;
+  --color-navy-pale:    #0F1824;
+  --color-slate-accent: #5B8ABF;
 
-  --color-cobalt:         #4F8C72;
-  --color-cobalt-hover:   #5FA685;
-  --color-cobalt-light:   rgba(79, 140, 114, 0.18);
-  --color-cobalt-subtle:  rgba(79, 140, 114, 0.08);
-  --color-pale-mint:      #152219;
-  --color-pale-mint-darker: #1C3028;
+  --color-forest:       #4D77A6;
+  --color-forest-dark:  #1C2E42;
+  --color-forest-medium:#5B8ABF;
+  --color-forest-light: #162537;
+  --color-forest-pale:  #0F1824;
 
-  --color-neutral-grey:   #212B26;
-  --color-muted-text:     #8A9690;
-  --color-border:         #283330;
-  --color-card-bg:        #192320;
-  --color-surface-tint:   #141C19;
-  --color-badge-bg:       #1A2F24;
-  --color-badge-text:     #7DBF9E;
-  --color-ink-surface:    #0F1714;
+  --color-cobalt:         #4D77A6;
+  --color-cobalt-hover:   #5B8ABF;
+  --color-cobalt-light:   rgba(77, 119, 166, 0.18);
+  --color-cobalt-subtle:  rgba(77, 119, 166, 0.08);
+  --color-pale-mint:      #0F1824;
+  --color-pale-mint-darker: #162537;
 
-  --color-success:    #34A853;
-  --color-success-bg: #0E2918;
-  --color-warning:    #F9AB00;
-  --color-warning-bg: #2A1E04;
-  --color-danger:     #EA4335;
-  --color-danger-bg:  #2D0F0C;
+  --color-neutral-grey:   #1A2636;
+  --color-muted-text:     #8A9EB2;
+  --color-border:         #223348;
+  --color-card-bg:        #131E2C;
+  --color-surface-tint:   #0E1722;
+  --color-badge-bg:       #1B2D42;
+  --color-badge-text:     #82B2E6;
+  --color-ink-surface:    #090F17;
+
+  --color-success:    #22C55E;
+  --color-success-bg: #052E16;
+  --color-warning:    #F59E0B;
+  --color-warning-bg: #2D1A03;
+  --color-danger:     #EF4444;
+  --color-danger-bg:  #2D0B0B;
 
   --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.5);
   --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.5);
@@ -234,7 +249,7 @@ body {
   transform: scaleX(-1);
 }
 
-/* Focus indicator — forest green */
+/* Focus indicator — navy */
 :focus-visible {
   outline: 2px solid var(--color-forest);
   outline-offset: 3px;

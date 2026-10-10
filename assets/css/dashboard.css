@@ -1,6 +1,6 @@
 /**
  * NESTLOOP — Customer Dashboard CSS
- * Forest Green brand — contemporary furniture-rental customer portal.
+ * Midnight Navy & Deep Slate brand — contemporary furniture-rental customer portal.
  * Sidebar, overview hierarchy, rentals list, billing ledger, modals, documents.
  */
 
@@ -27,7 +27,7 @@
 }
 
 [data-theme="dark"] .dash-sidebar {
-  background-color: #0D1612;
+  background-color: #09101A;
   border-inline-end: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -106,11 +106,11 @@
   background-color: rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
   font-weight: 600;
-  border-inline-start-color: #7DBF9E;
+  border-inline-start-color: #5B8ABF;
 }
 
 .dash-nav-link.active svg {
-  color: #7DBF9E;
+  color: #82B2E6;
 }
 
 .dash-nav-badge {
@@ -118,9 +118,9 @@
   font-size: 0.7rem;
   padding: 2px 7px;
   border-radius: var(--radius-full);
-  background-color: rgba(125, 191, 158, 0.25);
-  color: #7DBF9E;
-  border: 1px solid rgba(125, 191, 158, 0.35);
+  background-color: rgba(91, 138, 191, 0.25);
+  color: #82B2E6;
+  border: 1px solid rgba(91, 138, 191, 0.35);
 }
 
 .dash-sidebar-footer {
@@ -568,7 +568,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 20, 0.70);
+  background-color: rgba(10, 18, 30, 0.70);
   backdrop-filter: blur(4px);
   z-index: 3000;
   display: none;
@@ -846,7 +846,7 @@
     flex-shrink: 0;
   }
   .dash-nav-link.active {
-    border-bottom-color: #7DBF9E;
+    border-bottom-color: #5B8ABF;
     background-color: rgba(255,255,255,0.10);
   }
   .dash-topbar {

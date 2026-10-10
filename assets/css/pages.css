@@ -1,6 +1,6 @@
 /**
  * NESTLOOP — Pages CSS
- * Complete creative redesign — Forest Green single-color brand.
+ * Complete creative redesign — Midnight Navy & Deep Slate single-color brand.
  * Home 1, Home 2, Packages, Package Details, Pricing, Coverage, Auth.
  */
 
@@ -130,7 +130,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(21, 55, 43, 0.45) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(16, 32, 53, 0.45) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -151,7 +151,7 @@
 }
 
 [data-theme="dark"] .hero-floating-badge {
-  background-color: rgba(25, 35, 32, 0.92);
+  background-color: rgba(19, 30, 44, 0.92);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -219,7 +219,7 @@
 
 .discovery-field select:focus {
   border-color: var(--color-forest);
-  box-shadow: 0 0 0 3px rgba(35, 76, 62, 0.10);
+  box-shadow: 0 0 0 3px rgba(29, 53, 87, 0.10);
 }
 
 /* ==========================================================================
@@ -418,7 +418,7 @@
 .room-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(21, 55, 43, 0.82) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(16, 32, 53, 0.85) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -721,9 +721,9 @@
   inset: 0;
   background: linear-gradient(
     160deg,
-    rgba(21, 55, 43, 0.70) 0%,
-    rgba(21, 55, 43, 0.30) 50%,
-    rgba(21, 55, 43, 0.65) 100%
+    rgba(16, 32, 53, 0.75) 0%,
+    rgba(16, 32, 53, 0.35) 50%,
+    rgba(16, 32, 53, 0.70) 100%
   );
 }
 
@@ -756,11 +756,11 @@
 }
 
 .hero-home2-text .eyebrow {
-  color: #9BBFAD;
+  color: #93C5FD;
 }
 
 .hero-home2-text .eyebrow::before {
-  background-color: #9BBFAD;
+  background-color: #93C5FD;
 }
 
 .hero-home2-text .body-lead {
@@ -879,7 +879,7 @@
 .story-card-content {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 25%, rgba(21,55,43,.82) 100%);
+  background: linear-gradient(180deg, transparent 25%, rgba(16, 32, 53, 0.85) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
