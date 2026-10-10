@@ -1,175 +1,197 @@
 /**
  * NESTLOOP — Design System & Global Tokens
  * Core tokens, shared typography scales, palette, dark mode variables, and spacing.
+ * Brand: Forest Green single-color system — #234C3E primary
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Color Palette — Brand Prescribed */
-  --color-warm-chalk: #F7F6F2;
-  --color-white: #FFFFFF;
-  --color-deep-ink: #20252B;
-  --color-cobalt: #465DDE;
-  --color-cobalt-hover: #3649BA;
-  --color-cobalt-light: rgba(70, 93, 222, 0.10);
-  --color-cobalt-subtle: rgba(70, 93, 222, 0.05);
-  --color-pale-mint: #E6F1E9;
-  --color-pale-mint-darker: #C7DFCD;
-  --color-neutral-grey: #E5E7E6;
-  --color-muted-text: #656D73;
-  --color-border: #E0E2E0;
-  --color-card-bg: #FFFFFF;
-  --color-surface-tint: #F2F1EC;
-  --color-badge-bg: #EAEFFC;
-  --color-badge-text: #2F42AA;
-  --color-success: #1E7E4E;
-  --color-success-bg: #E6F4EA;
-  --color-warning: #B26A00;
-  --color-warning-bg: #FEF7E0;
-  --color-danger: #D93025;
-  --color-danger-bg: #FCE8E6;
+  /* =============================================
+     FOREST GREEN — Single Primary Color System
+     ============================================= */
+  --color-forest-dark:    #15372B;
+  --color-forest:         #234C3E;
+  --color-forest-medium:  #3B6C58;
+  --color-forest-light:   #DCE9E1;
+  --color-forest-pale:    #EEF4EF;
+
+  /* Neutrals & Backgrounds */
+  --color-warm-chalk:     #F7F7F4;
+  --color-white:          #FFFFFF;
+  --color-off-white:      #F7F7F4;
+  --color-deep-ink:       #202622;
+  --color-charcoal:       #202622;
+  --color-secondary-grey: #6B746E;
+  --color-border:         #DCE1DC;
+  --color-neutral-grey:   #E8EBE8;
+
+  /* Semantic / Functional aliases (mapped from forest palette) */
+  --color-cobalt:         var(--color-forest);
+  --color-cobalt-hover:   var(--color-forest-dark);
+  --color-cobalt-light:   rgba(35, 76, 62, 0.10);
+  --color-cobalt-subtle:  rgba(35, 76, 62, 0.05);
+  --color-pale-mint:      var(--color-forest-pale);
+  --color-pale-mint-darker: var(--color-forest-light);
+
+  /* Surface & Card */
+  --color-card-bg:        #FFFFFF;
+  --color-surface-tint:   #F2F4F2;
+  --color-badge-bg:       #E4EEE9;
+  --color-badge-text:     #1A4535;
+
+  /* Muted / Ink */
+  --color-muted-text:     #6B746E;
+  --color-ink-surface:    #1A2421;
+
+  /* Semantic Status Colors */
+  --color-success:        #1E7E4E;
+  --color-success-bg:     #E6F4EA;
+  --color-warning:        #B26A00;
+  --color-warning-bg:     #FEF7E0;
+  --color-danger:         #C62828;
+  --color-danger-bg:      #FFEBEE;
 
   /* Elevation / Shadows */
-  --shadow-sm: 0 1px 2px rgba(32,37,43,.025);
-  --shadow-md: 0 8px 24px rgba(32,37,43,.045);
-  --shadow-lg: 0 12px 28px rgba(32, 37, 43, 0.09), 0 4px 10px rgba(32, 37, 43, 0.04);
-  --shadow-card-hover: 0 16px 36px rgba(32, 37, 43, 0.12), 0 6px 14px rgba(32, 37, 43, 0.06);
+  --shadow-sm:   0 1px 2px rgba(32, 38, 34, 0.04);
+  --shadow-md:   0 4px 18px rgba(32, 38, 34, 0.07);
+  --shadow-lg:   0 12px 32px rgba(32, 38, 34, 0.10), 0 4px 10px rgba(32, 38, 34, 0.05);
+  --shadow-card-hover: 0 16px 40px rgba(32, 38, 34, 0.13), 0 6px 14px rgba(32, 38, 34, 0.06);
 
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* SHARED COMPONENT SIZING — CLIENT MANDATORY SPECIFICATION */
-  /* Home 1 and Home 2 Hero H1 MUST match at every breakpoint */
-  --h1-hero-size: clamp(2.35rem, 4.8vw, 3.65rem);
-  --h1-hero-line-height: 1.12;
+  /* =============================================
+     SHARED COMPONENT SIZING — CLIENT MANDATORY
+     Home 1 and Home 2 Hero H1 MUST match every breakpoint
+     ============================================= */
+  --h1-hero-size:           clamp(2.35rem, 4.8vw, 3.65rem);
+  --h1-hero-line-height:    1.12;
   --h1-hero-letter-spacing: -0.03em;
-  --h1-hero-weight: 800;
+  --h1-hero-weight:         800;
 
   /* Inner Page H1 */
-  --h1-inner-size: clamp(2.0rem, 3.8vw, 2.75rem);
-  --h1-inner-line-height: 1.18;
+  --h1-inner-size:           clamp(2.0rem, 3.8vw, 2.75rem);
+  --h1-inner-line-height:    1.18;
   --h1-inner-letter-spacing: -0.025em;
 
   /* Section H2 */
-  --h2-section-size: clamp(1.65rem, 2.8vw, 2.25rem);
-  --h2-section-line-height: 1.22;
+  --h2-section-size:           clamp(1.65rem, 2.8vw, 2.25rem);
+  --h2-section-line-height:    1.22;
   --h2-section-letter-spacing: -0.02em;
 
   /* Subsection H3 */
-  --h3-subsection-size: clamp(1.2rem, 1.8vw, 1.45rem);
-  --h3-subsection-line-height: 1.3;
+  --h3-subsection-size:           clamp(1.2rem, 1.8vw, 1.45rem);
+  --h3-subsection-line-height:    1.3;
   --h3-subsection-letter-spacing: -0.015em;
 
   /* Card Heading */
-  --card-heading-size: 1.15rem;
+  --card-heading-size:        1.15rem;
   --card-heading-line-height: 1.35;
-  --card-heading-weight: 700;
+  --card-heading-weight:      700;
 
   /* Functional & Body Text */
-  --body-size: 1rem;
-  --body-line-height: 1.6;
-  --body-sm-size: 0.875rem;
-  --body-sm-line-height: 1.5;
-  --eyebrow-size: 0.75rem;
+  --body-size:            1rem;
+  --body-line-height:     1.6;
+  --body-sm-size:         0.875rem;
+  --body-sm-line-height:  1.5;
+  --eyebrow-size:         0.75rem;
   --eyebrow-letter-spacing: 0.12em;
-  --eyebrow-weight: 700;
+  --eyebrow-weight:       700;
 
   /* Shared Interactive Dimensions */
-  --btn-height: 46px;
-  --btn-height-sm: 38px;
-  --btn-height-lg: 52px;
-  --btn-padding: 0 22px;
-  --btn-font-size: 0.9375rem;
-  --input-height: 46px;
-  --input-font-size: 0.9375rem;
-  --input-padding: 0 16px;
+  --btn-height:       46px;
+  --btn-height-sm:    38px;
+  --btn-height-lg:    52px;
+  --btn-padding:      0 22px;
+  --btn-font-size:    0.9375rem;
+  --input-height:     46px;
+  --input-font-size:  0.9375rem;
+  --input-padding:    0 16px;
   --navbar-link-size: 0.9375rem;
   --footer-heading-size: 0.875rem;
-  --footer-link-size: 0.875rem;
-  --card-padding: clamp(1.25rem, 2.2vw, 1.75rem);
-  --icon-size-md: 22px;
-  --icon-size-sm: 17px;
-  --radius-sm: 8px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
+  --footer-link-size:    0.875rem;
+  --card-padding:     clamp(1.25rem, 2.2vw, 1.75rem);
+  --icon-size-md:     22px;
+  --icon-size-sm:     17px;
+  --radius-sm:        8px;
+  --radius-md:        10px;
+  --radius-lg:        16px;
+  --radius-xl:        24px;
+  --radius-full:      9999px;
+  --label-size:       0.875rem;
+  --price-size:       1.5rem;
 
   /* Responsive Outer Gutters */
-  --gutter: 64px;
-  --section-spacing: 88px;
+  --gutter:           64px;
+  --section-spacing:  88px;
 
   /* Transitions */
-  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast:   0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --color-ink-surface: #202A29;
-  --label-size: 0.875rem;
-  --price-size: 1.5rem;
+  --transition-smooth: 0.4s  cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Tablet & Mobile Gutter Breakpoints */
 @media (max-width: 1120px) {
-  :root {
-    --gutter: 40px;
-    --section-spacing: 60px;
-  }
+  :root { --gutter: 40px; --section-spacing: 60px; }
 }
-
 @media (max-width: 768px) {
-  :root {
-    --gutter: 24px;
-    --section-spacing: 48px;
-  }
+  :root { --gutter: 24px; --section-spacing: 48px; }
 }
-
 @media (max-width: 480px) {
-  :root {
-    --gutter: 18px;
-    --section-spacing: 36px;
-  }
+  :root { --gutter: 18px; --section-spacing: 36px; }
 }
-
 @media (max-width: 340px) {
-  :root {
-    --gutter: 14px;
-    --section-spacing: 30px;
-  }
+  :root { --gutter: 14px; --section-spacing: 30px; }
 }
 
-/* Dark Theme Overrides */
+/* =============================================
+   DARK THEME OVERRIDES
+   ============================================= */
 [data-theme="dark"] {
-  --color-warm-chalk: #12161A;
-  --color-white: #1A2027;
-  --color-deep-ink: #F7F6F2;
-  --color-cobalt: #5D72ED;
-  --color-cobalt-hover: #7587F5;
-  --color-cobalt-light: rgba(93, 114, 237, 0.18);
-  --color-cobalt-subtle: rgba(93, 114, 237, 0.08);
-  --color-pale-mint: #1B2F25;
-  --color-pale-mint-darker: #264335;
-  --color-neutral-grey: #242B35;
-  --color-muted-text: #9EA6B0;
-  --color-border: #2D3542;
-  --color-card-bg: #1B2129;
-  --color-surface-tint: #161B22;
-  --color-badge-bg: #1C2647;
-  --color-badge-text: #96A9FA;
-  --color-success: #34A853;
-  --color-success-bg: #132E1E;
-  --color-warning: #F9AB00;
-  --color-warning-bg: #332608;
-  --color-danger: #EA4335;
-  --color-danger-bg: #341512;
+  --color-warm-chalk:   #111916;
+  --color-white:        #161E1B;
+  --color-deep-ink:     #E8EDE9;
+  --color-forest:       #4F8C72;
+  --color-forest-dark:  #3B6C58;
+  --color-forest-medium:#5FA685;
+  --color-forest-light: #1C3028;
+  --color-forest-pale:  #152219;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.55);
-  --shadow-card-hover: 0 18px 40px rgba(0, 0, 0, 0.65);
+  --color-cobalt:         #4F8C72;
+  --color-cobalt-hover:   #5FA685;
+  --color-cobalt-light:   rgba(79, 140, 114, 0.18);
+  --color-cobalt-subtle:  rgba(79, 140, 114, 0.08);
+  --color-pale-mint:      #152219;
+  --color-pale-mint-darker: #1C3028;
+
+  --color-neutral-grey:   #212B26;
+  --color-muted-text:     #8A9690;
+  --color-border:         #283330;
+  --color-card-bg:        #192320;
+  --color-surface-tint:   #141C19;
+  --color-badge-bg:       #1A2F24;
+  --color-badge-text:     #7DBF9E;
+  --color-ink-surface:    #0F1714;
+
+  --color-success:    #34A853;
+  --color-success-bg: #0E2918;
+  --color-warning:    #F9AB00;
+  --color-warning-bg: #2A1E04;
+  --color-danger:     #EA4335;
+  --color-danger-bg:  #2D0F0C;
+
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg:  0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 18px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* Base reset and logical directional layout */
+/* =============================================
+   BASE RESET
+   ============================================= */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -195,7 +217,7 @@ body {
   color: var(--color-deep-ink);
 }
 
-/* RTL Support - Directional & Logical properties */
+/* RTL Support */
 [dir="rtl"] {
   direction: rtl;
   text-align: right;
@@ -212,8 +234,8 @@ body {
   transform: scaleX(-1);
 }
 
-/* Focus indicator */
+/* Focus indicator — forest green */
 :focus-visible {
-  outline: 2px solid var(--color-cobalt);
+  outline: 2px solid var(--color-forest);
   outline-offset: 3px;
 }

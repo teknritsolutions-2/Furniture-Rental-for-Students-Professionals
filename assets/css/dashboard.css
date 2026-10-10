@@ -1,21 +1,21 @@
 /**
  * NESTLOOP — Customer Dashboard CSS
- * SaaS-grade customer rental management portal layout, sidebar, top header,
- * metrics widgets, active rental cards, billing schedule table, swap & return modal/forms,
- * document download center, and responsive collapsing drawer.
+ * Forest Green brand — contemporary furniture-rental customer portal.
+ * Sidebar, overview hierarchy, rentals list, billing ledger, modals, documents.
  */
 
 .dash-layout {
   display: flex;
   min-height: 100vh;
-  background-color: var(--color-surface-tint);
+  background-color: var(--color-warm-chalk);
 }
 
-/* Sidebar */
+/* ============================================================
+   SIDEBAR — Forest Green brand surface
+   ============================================================ */
 .dash-sidebar {
-  width: 228px;
-  background-color: var(--color-warm-chalk);
-  border-inline-end: 1px solid var(--color-border);
+  width: 240px;
+  background-color: var(--color-forest-dark);
   display: flex;
   flex-direction: column;
   position: sticky;
@@ -26,9 +26,14 @@
   transition: transform var(--transition-normal);
 }
 
+[data-theme="dark"] .dash-sidebar {
+  background-color: #0D1612;
+  border-inline-end: 1px solid rgba(255,255,255,0.06);
+}
+
 .dash-sidebar-header {
-  padding: 20px 22px;
-  border-bottom: 1px solid var(--color-border);
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,28 +47,38 @@
 }
 
 .dash-sidebar-brand img {
-  height: 32px;
+  height: 30px;
 }
 
+/* Nav links on dark sidebar background */
 .dash-nav {
-  padding: 16px 12px;
+  padding: 12px 10px;
   flex: 1;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   list-style: none;
+}
+
+.dash-nav-section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 12px 12px 6px;
 }
 
 .dash-nav-link {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px;
+  gap: 11px;
+  padding: 10px 12px;
   border-radius: var(--radius-sm);
-  color: var(--color-deep-ink);
+  color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
-  font-size: var(--navbar-link-size);
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -71,45 +86,46 @@
 }
 
 .dash-nav-link svg {
-  width: 20px;
-  height: 20px;
-  color: var(--color-muted-text);
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  color: rgba(255, 255, 255, 0.45);
   flex-shrink: 0;
   transition: color var(--transition-fast);
 }
 
 .dash-nav-link:hover {
-  background-color: var(--color-surface-tint);
-  color: var(--color-cobalt);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
 }
 
 .dash-nav-link:hover svg {
-  color: var(--color-cobalt);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .dash-nav-link.active {
-  background-color: var(--color-cobalt-light);
-  color: var(--color-cobalt);
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
   font-weight: 600;
-  border-inline-start-color: var(--color-cobalt);
+  border-inline-start-color: #7DBF9E;
 }
 
 .dash-nav-link.active svg {
-  color: var(--color-cobalt);
+  color: #7DBF9E;
 }
 
 .dash-nav-badge {
   margin-inline-start: auto;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   padding: 2px 7px;
   border-radius: var(--radius-full);
-  background-color: var(--color-cobalt);
-  color: #FFFFFF;
+  background-color: rgba(125, 191, 158, 0.25);
+  color: #7DBF9E;
+  border: 1px solid rgba(125, 191, 158, 0.35);
 }
 
 .dash-sidebar-footer {
-  padding: 16px 20px;
-  border-top: 1px solid var(--color-border);
+  padding: 16px 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -122,16 +138,16 @@
 }
 
 .user-avatar {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background-color: var(--color-cobalt);
+  background-color: var(--color-forest-medium);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   flex-shrink: 0;
 }
 
@@ -144,7 +160,7 @@
 .user-name-mini {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-deep-ink);
+  color: #FFFFFF;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -152,10 +168,12 @@
 
 .user-role-mini {
   font-size: 0.72rem;
-  color: var(--color-muted-text);
+  color: rgba(255, 255, 255, 0.50);
 }
 
-/* Main Dashboard Workspace */
+/* ============================================================
+   MAIN WORKSPACE
+   ============================================================ */
 .dash-main {
   flex: 1;
   display: flex;
@@ -175,7 +193,7 @@
   position: sticky;
   top: 0;
   z-index: 800;
-  min-height: 72px;
+  min-height: 68px;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -190,13 +208,14 @@
 .dash-topbar-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .dash-demo-tag {
-  background-color: var(--color-pale-mint);
-  border: 1px solid var(--color-pale-mint-darker);
-  color: var(--color-success);
+  background-color: var(--color-forest-pale);
+  border: 1px solid var(--color-forest-light);
+  color: var(--color-forest);
   padding: 4px 10px;
   border-radius: var(--radius-full);
   font-size: 0.72rem;
@@ -221,12 +240,101 @@
   display: block;
 }
 
-/* Metrics Row */
+/* Welcome bar */
+.dash-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.dash-welcome .section-h2 {
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   OVERVIEW — Hierarchical layout, not uniform KPI row
+   ============================================================ */
+
+/* Priority banner: Next Payment — most important info first */
+.next-payment-banner {
+  background-color: var(--color-forest);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  border: 1px solid var(--color-forest-dark);
+}
+
+[data-theme="dark"] .next-payment-banner {
+  background-color: var(--color-forest-dark);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.banner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.banner-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 700;
+}
+
+.banner-title {
+  font-family: var(--font-heading);
+  font-size: var(--h3-subsection-size);
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.banner-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.banner-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.next-payment-banner .btn-primary {
+  background-color: #FFFFFF;
+  color: var(--color-forest-dark) !important;
+  border-color: #FFFFFF;
+}
+
+.next-payment-banner .btn-primary:hover {
+  background-color: rgba(255,255,255,0.9);
+}
+
+.next-payment-banner .btn-outline {
+  color: rgba(255,255,255,0.85) !important;
+  border-color: rgba(255,255,255,0.35) !important;
+}
+
+.next-payment-banner .btn-outline:hover {
+  background-color: rgba(255,255,255,0.12) !important;
+  color: #FFFFFF !important;
+}
+
+/* Compact metrics row — secondary to the payment banner */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -237,127 +345,118 @@
   background-color: var(--color-card-bg);
   border: 0;
   border-radius: 0;
-  padding: 18px;
+  padding: 16px 20px;
   box-shadow: none;
   display: flex;
   flex-direction: column;
   border-inline-end: 1px solid var(--color-border);
 }
 
+.metric-card:last-child {
+  border-inline-end: 0;
+}
+
 .metric-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .metric-label {
-  font-size: var(--eyebrow-size);
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--color-muted-text);
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
 }
 
 .metric-icon {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: var(--radius-sm);
-  background-color: var(--color-surface-tint);
+  background-color: var(--color-forest-pale);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-cobalt);
+  color: var(--color-forest);
 }
 
 .metric-value {
   font-family: var(--font-heading);
-  font-size: var(--price-size);
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--color-deep-ink);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .metric-sub {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--color-muted-text);
 }
 
-/* Next Payment Banner Widget */
-.next-payment-banner {
-  background: var(--color-pale-mint);
-  color: var(--color-deep-ink);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  display: flex;
+/* Active rental compact rows on overview */
+.overview-rental {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 32px;
-  box-shadow: none;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.banner-info {
+.overview-rental-info {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  gap: 16px;
+  align-items: center;
+  min-width: 0;
 }
 
-.banner-tag {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-success);
-  font-weight: 700;
-}
-
-.banner-title {
-  font-family: var(--font-heading);
-  font-size: var(--h3-subsection-size);
-  font-weight: 700;
-  color: var(--color-deep-ink);
-}
-
-.banner-desc {
-  font-size: 0.875rem;
-  color: var(--color-muted-text);
-}
-
-.banner-actions {
-  display: flex;
-  gap: 12px;
+.overview-rental img {
+  width: 100px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
   flex-shrink: 0;
-  flex-wrap: wrap;
 }
 
-/* Active Rentals List Table/Cards */
+.overview-rental:last-child {
+  border-bottom: none;
+}
+
+/* ============================================================
+   ACTIVE RENTALS LIST
+   ============================================================ */
 .rentals-list-grid {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1px;
   margin-bottom: 32px;
+  background-color: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .rental-item-card {
   background-color: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 18px;
+  border: 0;
+  border-radius: 0;
+  padding: 20px;
   display: grid;
-  grid-template-columns: 150px minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: 120px minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 20px;
-  align-items: center;
-  box-shadow: none;
-  transition: border-color var(--transition-fast);
+  align-items: start;
+  transition: background-color var(--transition-fast);
 }
 
 .rental-item-card:hover {
-  border-color: var(--color-cobalt);
+  background-color: var(--color-forest-pale);
 }
 
 .rental-thumb-img {
-  width: 150px;
-  height: 120px;
+  width: 120px;
+  height: 90px;
   border-radius: var(--radius-sm);
   object-fit: cover;
 }
@@ -379,16 +478,17 @@
 .rental-meta-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 16px;
+  gap: 8px 16px;
   font-size: 0.8125rem;
 }
 
 .meta-field label {
   color: var(--color-muted-text);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   display: block;
+  margin-bottom: 2px;
 }
 
 .meta-field span {
@@ -402,26 +502,29 @@
   gap: 8px;
   grid-column: 2 / -1;
   flex-wrap: wrap;
-  padding-top: 12px;
+  padding-top: 14px;
   border-top: 1px solid var(--color-border);
+  margin-top: 4px;
 }
 
-/* Billing & Payment Invoices Table */
+/* ============================================================
+   BILLING & PAYMENT TABLE
+   ============================================================ */
 .data-table-card {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .data-table-header {
-  padding: 18px 24px;
+  padding: 16px 22px;
   border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--color-surface-tint);
 }
 
 .data-table {
@@ -431,7 +534,7 @@
 
 .data-table th,
 .data-table td {
-  padding: 14px 20px;
+  padding: 13px 20px;
   text-align: start;
   border-bottom: 1px solid var(--color-border);
   font-size: 0.875rem;
@@ -439,7 +542,7 @@
 
 .data-table th {
   background-color: var(--color-surface-tint);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
@@ -451,20 +554,27 @@
 }
 
 .data-table tr:hover td {
-  background-color: var(--color-surface-tint);
+  background-color: var(--color-forest-pale);
 }
 
-/* Swap & Early Return Modal */
+.data-table td:nth-child(4) {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   SWAP & EARLY RETURN MODAL
+   ============================================================ */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(18, 22, 26, 0.65);
+  background-color: rgba(15, 23, 20, 0.70);
   backdrop-filter: blur(4px);
   z-index: 3000;
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
   opacity: 0;
   transition: all var(--transition-normal);
 }
@@ -493,12 +603,21 @@
   transform: translateY(0);
 }
 
+.modal-dialog > form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .modal-header {
   padding: 20px 24px;
   border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
+  border-inline-start: 4px solid var(--color-forest);
 }
 
 .modal-title {
@@ -521,20 +640,24 @@
   justify-content: flex-end;
   gap: 12px;
   background-color: var(--color-surface-tint);
+  flex-shrink: 0;
 }
 
-/* Request History Cards */
+/* ============================================================
+   REQUEST HISTORY
+   ============================================================ */
 .requests-history-grid {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .request-history-card {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
+  border-inline-start: 3px solid var(--color-warning);
   border-radius: var(--radius-md);
-  padding: 20px 24px;
+  padding: 18px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -547,36 +670,48 @@
   gap: 4px;
 }
 
-.request-id-badge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-cobalt);
+.request-card-info > div:first-child {
+  flex-wrap: wrap;
 }
 
-/* Documents Grid */
+.request-id-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-forest-medium);
+}
+
+/* ============================================================
+   DOCUMENTS CENTER
+   ============================================================ */
 .docs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 
+/* Compact document rows instead of large empty cards */
 .doc-card {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 18px 20px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
-  box-shadow: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.doc-card:hover {
+  border-color: var(--color-forest-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .doc-icon-box {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-sm);
-  background-color: var(--color-cobalt-light);
-  color: var(--color-cobalt);
+  background-color: var(--color-forest-pale);
+  color: var(--color-forest);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -585,37 +720,92 @@
 
 .doc-info {
   flex: 1;
+  min-width: 0;
 }
 
 .doc-title {
   font-family: var(--font-heading);
   font-size: var(--card-heading-size);
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   overflow-wrap: anywhere;
 }
 
 .doc-meta {
   font-size: 0.775rem;
   color: var(--color-muted-text);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-/* Responsive Dashboard Breakpoints */
+/* ============================================================
+   RESPONSIVE — Dashboard
+   ============================================================ */
+@media (max-width: 1200px) {
+  .rental-item-card {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .rental-thumb-img {
+    width: 100px;
+  }
+  .rental-meta-col,
+  .rental-actions-col {
+    grid-column: 1 / -1;
+  }
+  .next-payment-banner {
+    flex-wrap: wrap;
+  }
+}
+
 @media (max-width: 1024px) {
+  .metric-card {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .dash-sidebar {
+    width: 220px;
+  }
+  .dash-topbar,
+  .dash-content {
+    padding: 18px 20px;
+  }
+  .dash-topbar-actions {
+    gap: 8px;
+  }
   .metrics-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .rental-item-card {
-    grid-template-columns: 120px 1fr;
-    gap: 16px;
+  /* Responsive table */
+  .data-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
   }
-  .rental-meta-col {
-    grid-column: 1 / 3;
+  .data-table,
+  .data-table tbody {
+    display: block;
   }
-  .rental-actions-col {
-    grid-column: 1 / 3;
-    flex-direction: row;
+  .data-table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 14px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .data-table td {
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    border: 0;
+    overflow-wrap: anywhere;
+  }
+  .data-table td::before {
+    content: attr(data-label);
+    font-size: var(--eyebrow-size);
+    color: var(--color-muted-text);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   .docs-grid {
     grid-template-columns: 1fr;
@@ -630,27 +820,87 @@
     width: 100%;
     height: auto;
     position: static;
+    background-color: var(--color-forest-dark);
+  }
+  .dash-sidebar-header {
+    padding: 14px 16px;
+  }
+  .dash-sidebar-footer {
+    display: none;
   }
   .dash-nav {
-    display: flex;
     flex-direction: row;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 10px 14px;
+    padding: 6px 8px;
+    gap: 2px;
+    scrollbar-width: none;
   }
+  .dash-nav::-webkit-scrollbar { display: none; }
+  .dash-nav-section-label { display: none; }
   .dash-nav-link {
     padding: 8px 12px;
+    border-inline-start: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    flex-shrink: 0;
+  }
+  .dash-nav-link.active {
+    border-bottom-color: #7DBF9E;
+    background-color: rgba(255,255,255,0.10);
+  }
+  .dash-topbar {
+    position: static;
+    padding: 14px 16px;
   }
   .dash-content {
-    padding: 20px 16px;
+    padding: 16px;
   }
   .metrics-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
+  .metric-icon { display: none; }
   .next-payment-banner {
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px;
   }
+  .banner-actions {
+    width: 100%;
+  }
+  .rental-item-card {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+  .rental-thumb-img {
+    width: 80px;
+    height: 80px;
+  }
+  .rental-actions-col {
+    flex-direction: row;
+  }
+  .request-history-card {
+    align-items: start;
+    flex-direction: column;
+    padding: 18px;
+  }
+  .overview-rental {
+    grid-template-columns: 1fr;
+  }
+  .overview-rental > .btn {
+    justify-self: start;
+  }
+  .data-table tr {
+    grid-template-columns: 1fr;
+  }
+  .data-table td {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
   .rental-item-card {
     grid-template-columns: 1fr;
   }
@@ -658,79 +908,31 @@
     width: 100%;
     height: 160px;
   }
-  .rental-meta-col,
-  .rental-actions-col {
-    grid-column: auto;
-  }
   .rental-actions-col {
     flex-direction: column;
   }
+  .rental-meta-col {
+    gap: 12px;
+  }
+  .overview-rental img {
+    width: 72px;
+    height: 72px;
+  }
+  .dash-topbar-actions {
+    gap: 6px;
+  }
+  .dash-demo-tag {
+    display: none;
+  }
+  .modal-body,
+  .modal-header,
+  .modal-footer {
+    padding: 16px;
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .metric-card {
+    border-inline-end: none;
+  }
 }
-
-/* Comfortable customer workspace with compact account facts and room imagery. */
-.dash-welcome { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 24px; }
-.dash-welcome .section-h2 { margin-bottom: 6px; }
-.metric-card:last-child { border-inline-end: 0; }
-.next-payment-banner .btn-outline { color: var(--color-deep-ink) !important; border-color: var(--color-border) !important; }
-.overview-rental { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding-block: 18px; border-bottom: 1px solid var(--color-border); }
-.overview-rental-info { display: flex; gap: 18px; align-items: center; min-width: 0; }
-.overview-rental img { width: 112px; height: 84px; object-fit: cover; border-radius: var(--radius-sm); flex-shrink: 0; }
-.request-card-info > div:first-child { flex-wrap: wrap; }
-.request-history-card { border-inline-start: 3px solid var(--color-warning); }
-.doc-info { min-width: 0; }
-.dash-topbar-actions { flex-wrap: wrap; }
-.data-table td:nth-child(4) { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.modal-header, .modal-footer { flex-shrink: 0; }
-.modal-overlay { padding: 16px; }
-@media (max-width: 1200px) {
-  .rental-item-card { grid-template-columns: 120px minmax(0, 1fr); }
-  .rental-thumb-img { width: 120px; }
-  .rental-meta-col, .rental-actions-col { grid-column: 1 / -1; }
-  .next-payment-banner { flex-wrap: wrap; }
-  #dash-browse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 1024px) {
-  .metric-card { border-bottom: 1px solid var(--color-border); }
-  .dash-sidebar { width: 210px; }
-  .dash-topbar, .dash-content { padding: 20px; }
-  .dash-topbar-actions { gap: 8px; }
-  .data-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .data-table, .data-table tbody { display: block; }
-  .data-table tr { display: grid; grid-template-columns: 1fr 1fr; padding: 16px; border-bottom: 1px solid var(--color-border); }
-  .data-table td { display: flex; flex-direction: column; padding: 8px; border: 0; overflow-wrap: anywhere; }
-  .data-table td::before { content: attr(data-label); font-size: var(--eyebrow-size); color: var(--color-muted-text); margin-bottom: 4px; }
-}
-@media (max-width: 768px) {
-  .dash-sidebar { width: 100%; }
-  .dash-sidebar-header { padding: 16px; }
-  .dash-sidebar-footer { display: none; }
-  .dash-nav { padding: 8px; }
-  .dash-nav-link { padding: 10px 12px; border-inline-start: 0; border-bottom: 2px solid transparent; }
-  .dash-nav-link.active { border-bottom-color: var(--color-cobalt); }
-  .dash-topbar { position: static; padding: 16px; }
-  .dash-content { padding: 20px 16px; }
-  .metrics-grid { grid-template-columns: 1fr 1fr; }
-  .metric-header { gap: 8px; }
-  .metric-icon { display: none; }
-  .rental-item-card { grid-template-columns: 100px minmax(0, 1fr); }
-  .rental-thumb-img { width: 100px; height: 110px; }
-  .request-history-card { align-items: start; flex-direction: column; padding: 20px; }
-  .banner-actions { width: 100%; }
-  .overview-rental { grid-template-columns: 1fr; }
-  .overview-rental > .btn { justify-self: start; }
-}
-@media (max-width: 480px) {
-  #dash-browse-grid { grid-template-columns: 1fr; }
-  .rental-item-card { grid-template-columns: 1fr; }
-  .rental-thumb-img { width: 100%; height: 180px; }
-  .rental-actions-col { flex-direction: column; }
-  .rental-meta-col { gap: 14px; }
-  .overview-rental img { width: 80px; height: 80px; }
-  .dash-topbar-actions { gap: 6px; }
-  .dash-demo-tag { display: none; }
-  .modal-body, .modal-header, .modal-footer { padding: 16px; }
-  .data-table tr { grid-template-columns: 1fr; }
-  .data-table td { flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
-}
-.modal-dialog > form { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
-.dash-nav-link svg { width: var(--icon-size-md); height: var(--icon-size-md); }

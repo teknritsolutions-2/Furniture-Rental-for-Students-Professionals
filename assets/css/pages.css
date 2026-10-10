@@ -1,21 +1,21 @@
 /**
  * NESTLOOP — Pages CSS
- * Specific styles for Home 1, Home 2, Packages catalogue, Package Details,
- * Pricing, Coverage checker, About, Contact, and Auth screens.
+ * Complete creative redesign — Forest Green single-color brand.
+ * Home 1, Home 2, Packages, Package Details, Pricing, Coverage, Auth.
  */
 
-/* Section Spacing Standard */
+/* Section Spacing */
 .section {
   padding-block: var(--section-spacing);
   position: relative;
 }
 
 .section-tinted {
-  background-color: var(--color-surface-tint);
+  background-color: var(--color-forest-pale);
 }
 
 .section-header {
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .section-header.text-center {
@@ -29,81 +29,92 @@
 }
 
 /* ==========================================================================
-   HOME 1 — Core Consumer Storefront
+   HOME 1 — EDITORIAL HERO (Redesigned: full-bleed architectural split)
    ========================================================================== */
 
-/* Home 1 Hero Section */
 .hero-home1 {
-  padding-top: 40px;
-  padding-bottom: 32px;
+  padding-top: 0;
+  padding-bottom: 0;
   background: var(--color-warm-chalk);
+  overflow: hidden;
 }
 
 [data-theme="dark"] .hero-home1 {
-  background: linear-gradient(180deg, #12161A 0%, #161B22 100%);
+  background: var(--color-warm-chalk);
 }
 
+/* Two-panel architectural layout: content left ~42%, photography right ~58% */
 .hero-home1-grid {
   display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.15fr);
-  gap: clamp(28px, 4vw, 64px);
-  align-items: center;
-  margin-bottom: 0;
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+  min-height: clamp(480px, 70vh, 720px);
+  align-items: stretch;
 }
 
 .hero-home1-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  padding-block: clamp(48px, 7vw, 88px);
+  padding-inline-end: clamp(32px, 5vw, 72px);
+  padding-inline-start: var(--gutter);
 }
 
 .hero-home1-content .hero-h1 {
-  margin-bottom: 18px;
-  max-width: 10ch;
+  margin-bottom: 20px;
+  max-width: 12ch;
+}
+
+.hero-accent {
+  color: var(--color-forest);
 }
 
 .hero-home1-content .body-lead {
-  margin-bottom: 24px;
-  max-width: 520px;
+  margin-bottom: 28px;
+  max-width: 39ch;
+  color: var(--color-secondary-grey);
 }
 
+/* Compact benefit checklist rail */
 .hero-home1-perks {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  margin-bottom: 24px;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
 }
 
 .hero-perk-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: var(--body-sm-size);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-deep-ink);
 }
 
 .hero-perk-icon {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background-color: var(--color-pale-mint);
-  color: var(--color-success);
+  background-color: var(--color-forest-pale);
+  color: var(--color-forest);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  flex-shrink: 0;
 }
 
+/* Photography panel — architecturally integrated, no card border-radius */
 .hero-home1-media {
   position: relative;
+  overflow: hidden;
 }
 
 .hero-image-frame {
-  position: relative;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  overflow: hidden;
-  box-shadow: none;
-  aspect-ratio: 5 / 4;
+  position: absolute;
+  inset: 0;
   background-color: var(--color-neutral-grey);
 }
 
@@ -114,49 +125,67 @@
   display: block;
 }
 
+/* Subtle dark gradient on photo bottom for floating badge legibility */
+.hero-image-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(21, 55, 43, 0.45) 0%, transparent 50%);
+  pointer-events: none;
+}
+
 .hero-floating-badge {
   position: absolute;
-  bottom: 20px;
-  inset-inline-start: 20px;
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-border);
+  bottom: 24px;
+  inset-inline-start: 24px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-md);
   padding: 12px 16px;
-  box-shadow: none;
   display: flex;
   align-items: center;
   gap: 12px;
   max-width: 280px;
+  z-index: 2;
+}
+
+[data-theme="dark"] .hero-floating-badge {
+  background-color: rgba(25, 35, 32, 0.92);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .hero-floating-badge .badge-icon {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-sm);
-  background-color: var(--color-cobalt-light);
-  color: var(--color-cobalt);
+  background-color: var(--color-forest-pale);
+  color: var(--color-forest);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-/* Functional Discovery Bar (Shared & fully interactive) */
+/* Discovery bar — flows naturally below the hero grid */
 .discovery-bar-wrapper {
-  margin-top: 0;
-  position: relative;
+  background-color: var(--color-card-bg);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .discovery-bar {
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md) 0 var(--radius-md) var(--radius-md);
-  padding: 22px 24px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 20px var(--gutter);
   box-shadow: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr auto;
   gap: 16px;
   align-items: end;
+  max-width: 1400px;
+  margin-inline: auto;
 }
 
 .discovery-field {
@@ -166,7 +195,7 @@
 }
 
 .discovery-field label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -189,57 +218,186 @@
 }
 
 .discovery-field select:focus {
-  border-color: var(--color-cobalt);
+  border-color: var(--color-forest);
+  box-shadow: 0 0 0 3px rgba(35, 76, 62, 0.10);
 }
 
-/* Fast Benefits Grid */
-.benefits-grid {
+/* ==========================================================================
+   HOME 1 — BENEFITS RAIL (Replaced card grid with editorial numbered rail)
+   ========================================================================== */
+
+/* Layout: narrow label col left, benefits rail right */
+[data-layout="benefits"] .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: .75fr 1.6fr;
+  gap: 48px;
+  align-items: start;
+}
+
+[data-layout="benefits"] .section-header {
+  margin: 0;
+  position: sticky;
+  top: 96px;
+}
+
+[data-layout="benefits"] .body-lead {
+  font-size: var(--body-size);
+  max-width: 30ch;
+}
+
+/* Editorial numbered benefit rail */
+.benefits-grid {
+  display: flex;
+  flex-direction: column;
   gap: 0;
-  border-block: 1px solid var(--color-border);
 }
 
 .benefit-card {
-  padding: 24px;
-  border-radius: 0;
+  padding: 28px 0;
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  column-gap: 20px;
+  align-items: start;
   background-color: transparent;
-  border: 0;
-  box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border-inline-end: 1px solid var(--color-border);
+  border-inline-end: none;
+}
+
+.benefit-card:last-child {
+  border-bottom: 1px solid var(--color-border);
 }
 
 .benefit-icon-box {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  background-color: var(--color-cobalt-light);
-  color: var(--color-cobalt);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-forest-pale);
+  color: var(--color-forest);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.benefit-num {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-forest-light);
+  line-height: 1;
+  padding-top: 8px;
+}
+
+[data-theme="dark"] .benefit-num {
+  color: var(--color-forest);
+  opacity: 0.4;
 }
 
 .benefit-card .card-title {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-/* Room Category Showcase */
+.benefit-card p {
+  font-size: var(--body-sm-size);
+  color: var(--color-muted-text);
+}
+
+/* ==========================================================================
+   HOME 1 — FEATURED PACKAGES (Asymmetric editorial showcase)
+   ========================================================================== */
+
+/* Featured packages: one dominant + two supporting, varied proportions */
+.featured-bundles {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 24px;
+}
+
+.featured-bundles > :first-child {
+  grid-row: 1 / 3;
+  /* Make first card taller — hero package */
+}
+
+.featured-bundles > :first-child .package-card-img-wrap {
+  aspect-ratio: 3 / 4;
+}
+
+.featured-bundles > :nth-child(2),
+.featured-bundles > :nth-child(3) {
+  /* Two supporting cards standard height */
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Tenure toggle */
+.tenure-btn-group {
+  display: inline-flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.tenure-btn {
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: var(--color-card-bg);
+  border: none;
+  cursor: pointer;
+  color: var(--color-deep-ink);
+  transition: all var(--transition-fast);
+}
+
+.tenure-btn.active {
+  background-color: var(--color-forest);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .tenure-btn.active {
+  background-color: var(--color-forest);
+}
+
+/* ==========================================================================
+   HOME 1 — ROOM CATEGORY GRID (Asymmetric editorial mosaic)
+   ========================================================================== */
+
 .room-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
-  gap: 16px;
+  grid-template-columns: 1.35fr 1fr 1.15fr;
+  grid-template-rows: 250px 240px;
+  grid-template-areas:
+    "living living bedroom"
+    "apartment workspace bedroom";
+  gap: 18px;
+}
+
+.room-card-living {
+  grid-area: living;
+}
+
+.room-card-bedroom {
+  grid-area: bedroom;
+}
+
+.room-card-workspace {
+  grid-area: workspace;
+}
+
+.room-card-apartment {
+  grid-area: apartment;
 }
 
 .room-card {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: unset;
+  height: 100%;
   background-color: var(--color-neutral-grey);
   border: 1px solid var(--color-border);
   text-decoration: none;
@@ -254,54 +412,47 @@
 }
 
 .room-card:hover img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .room-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(18, 22, 26, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(21, 55, 43, 0.82) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 22px;
+  padding: 20px;
   color: #FFFFFF;
 }
 
 .room-card-title {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .room-card-count {
-  font-size: 0.8125rem;
-  color: #C7DFCD;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
 }
 
-/* Furnished vs Unfurnished Split Comparison */
+/* ==========================================================================
+   HOME 1 — FURNISHED VS UNFURNISHED (Redesigned comparison panels)
+   ========================================================================== */
+
 .split-editorial {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 0;
-  background-color: transparent;
-  box-shadow: none;
-  gap: 24px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 32px;
+  align-items: start;
 }
 
 .split-editorial-side {
-  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-}
-
-.split-editorial-side.is-unfurnished {
-  background-color: transparent;
-  border-inline-end: 0;
+  gap: 0;
 }
 
 .split-side-img {
@@ -309,15 +460,15 @@
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   object-fit: cover;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .comparison-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 14px;
+  margin-top: 16px;
 }
 
 .comparison-item {
@@ -325,26 +476,38 @@
   align-items: flex-start;
   gap: 10px;
   font-size: 0.9rem;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.comparison-item:last-child {
+  border-bottom: none;
 }
 
 .comp-icon-bad {
   color: var(--color-danger);
   flex-shrink: 0;
   margin-top: 3px;
+  font-weight: 700;
 }
 
 .comp-icon-good {
-  color: var(--color-success);
+  color: var(--color-forest);
   flex-shrink: 0;
   margin-top: 3px;
+  font-weight: 700;
 }
 
-/* Rent vs Buy Table/Cards */
+/* ==========================================================================
+   HOME 1 — RENT VS BUY TABLE
+   ========================================================================== */
+
 .rent-vs-buy-box {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: var(--shadow-sm);
 }
 
@@ -374,34 +537,43 @@
 }
 
 .cell-highlight {
-  background-color: var(--color-cobalt-light);
+  background-color: var(--color-forest-pale);
   font-weight: 600;
-  color: var(--color-cobalt);
+  color: var(--color-forest-dark);
 }
 
-/* Student vs Professional Tab Switcher */
+/* ==========================================================================
+   HOME 1 — STUDENT VS PROFESSIONAL (Tab switcher, improved composition)
+   ========================================================================== */
+
 .audience-tabs {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 36px;
+  gap: 8px;
+  margin-bottom: 40px;
 }
 
 .tab-btn {
   padding: 10px 24px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   background-color: var(--color-card-bg);
   color: var(--color-deep-ink);
   font-weight: 600;
   cursor: pointer;
+  font-size: var(--btn-font-size);
   transition: all var(--transition-fast);
 }
 
 .tab-btn.active {
-  background-color: var(--color-cobalt);
+  background-color: var(--color-forest);
   color: #FFFFFF;
-  border-color: var(--color-cobalt);
+  border-color: var(--color-forest);
+}
+
+.tab-btn:not(.active):hover {
+  border-color: var(--color-forest);
+  color: var(--color-forest);
 }
 
 .audience-view {
@@ -411,60 +583,89 @@
 .audience-view.active {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 48px;
   align-items: center;
+  animation: audience-enter .24s ease-out;
+}
+
+@keyframes audience-enter {
+  from { opacity: .5; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .audience-view-img {
   width: 100%;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-lg);
-  box-shadow: none;
 }
 
-/* Step-Based How It Works Cards */
+/* ==========================================================================
+   HOME 1 — HOW IT WORKS PROCESS STRIP (Editorial numbered strip)
+   ========================================================================== */
+
 .steps-editorial-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 0;
   position: relative;
+}
+
+/* Horizontal connecting line */
+.steps-editorial-grid::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--color-forest) 0%, var(--color-forest-light) 100%);
+  z-index: 0;
 }
 
 .step-editorial-card {
   background-color: transparent;
   border: 0;
   border-radius: 0;
-  padding: 24px 0;
+  padding: 0 20px 28px 0;
   display: flex;
   flex-direction: column;
   position: relative;
-  border-top: 1px solid var(--color-border);
+  z-index: 1;
 }
 
 .step-num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-forest);
+  color: #FFFFFF;
   font-family: var(--font-heading);
-  font-size: var(--h3-subsection-size);
+  font-size: 0.875rem;
   font-weight: 800;
-  color: var(--color-cobalt);
-  opacity: 1;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
 }
 
 .step-editorial-card .card-title {
   margin-bottom: 8px;
 }
 
-/* Quick Coverage Checker Widget */
+/* ==========================================================================
+   HOME 1 — COVERAGE CHECKER STRIP
+   ========================================================================== */
+
 .coverage-strip-box {
-  background-color: var(--color-pale-mint);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-forest-pale);
+  border: 1px solid var(--color-forest-light);
   border-radius: var(--radius-lg);
-  padding: 32px;
-  box-shadow: none;
+  padding: 36px;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 36px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -486,78 +687,118 @@
 }
 
 /* ==========================================================================
-   HOME 2 — Distinct Modular Living / Editorial Split
+   HOME 2 — IMMERSIVE PANORAMIC HERO (Completely different from Home 1)
    ========================================================================== */
 
 .hero-home2 {
-  padding-top: clamp(40px, 6vw, 72px);
-  padding-bottom: clamp(48px, 6vw, 80px);
-  background-color: var(--color-warm-chalk);
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: var(--color-deep-ink);
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(480px, 68vh, 680px);
+  display: flex;
+  align-items: flex-end;
   border-bottom: 1px solid var(--color-border);
 }
 
-.hero-home2-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  align-items: center;
+/* Full-bleed photography background */
+.hero-home2-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.hero-home2-text {
+.hero-home2-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-home2-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(21, 55, 43, 0.70) 0%,
+    rgba(21, 55, 43, 0.30) 50%,
+    rgba(21, 55, 43, 0.65) 100%
+  );
+}
+
+.hero-home2-layout {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: clamp(40px, 6vw, 72px);
+  padding-inline: var(--gutter);
+  max-width: 1400px;
+  margin-inline: auto;
   display: grid;
-  flex-direction: column;
-  align-items: start;
-  grid-template-columns: 1.1fr 1fr;
-  column-gap: 64px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: flex-end;
 }
 
 /* NOTE: Home 2 Hero H1 uses the EXACT SAME token as Home 1 (--h1-hero-size) */
-.hero-home2-text .hero-h1 {
-  margin-bottom: 20px;
-}
-
-.hero-home2-media-mosaic {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-
-.mosaic-main {
-  aspect-ratio: 2.6 / 1;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: none;
-}
-
-.mosaic-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.mosaic-stacked {
-  display: none;
+.hero-home2-text {
+  display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 16px;
 }
 
-.mosaic-sub {
-  flex: 1;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
+.hero-home2-text .hero-h1 {
+  color: #FFFFFF;
+  max-width: 13ch;
+  margin: 0;
 }
 
-.mosaic-sub img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.hero-home2-text .eyebrow {
+  color: #9BBFAD;
 }
 
-/* Horizontal Category Navigation Bar on Home 2 */
+.hero-home2-text .eyebrow::before {
+  background-color: #9BBFAD;
+}
+
+.hero-home2-text .body-lead {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 38ch;
+  margin: 0;
+}
+
+.hero-home2-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.hero-stat-item {
+  text-align: end;
+  color: #FFFFFF;
+}
+
+.hero-stat-num {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hero-stat-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Home 2 category pill bar */
 .category-pills-bar {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   overflow-x: auto;
   padding-block: 8px;
   scrollbar-width: none;
@@ -570,12 +811,12 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 9px 18px;
   border-radius: var(--radius-full);
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   color: var(--color-deep-ink);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
@@ -584,32 +825,42 @@
 
 .category-pill:hover,
 .category-pill.active {
-  background-color: var(--color-cobalt);
+  background-color: var(--color-forest);
   color: #FFFFFF;
-  border-color: var(--color-cobalt);
+  border-color: var(--color-forest);
 }
 
-/* Photographic Room-Story Grid on Home 2 */
+/* ==========================================================================
+   HOME 2 — MAGAZINE-STYLE ROOM STORIES
+   ========================================================================== */
+
 .room-story-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr;
-  grid-template-rows: 250px 250px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: 360px 240px;
   gap: 16px;
 }
 
+/* Dominant large story — spans two rows */
 .story-card-large {
+  grid-column: 1;
   grid-row: 1 / 3;
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  display: block;
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
+/* Three supporting cards */
 .story-card {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  display: block;
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .story-card img,
@@ -628,19 +879,79 @@
 .story-card-content {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 15%, rgba(18,22,26,.85) 100%);
+  background: linear-gradient(180deg, transparent 25%, rgba(21,55,43,.82) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 22px;
   color: #FFFFFF;
 }
 
+.story-heading {
+  font-family: var(--font-heading);
+  font-size: var(--card-heading-size);
+  font-weight: 700;
+  line-height: var(--card-heading-line-height);
+  color: #FFFFFF;
+}
+
+.story-subtext {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.72);
+  margin-top: 4px;
+}
+
+/* Home 2 subscription timeline */
+.rental-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-block: 1px solid var(--color-border);
+}
+
+.timeline-step {
+  padding: 28px 24px;
+  border-inline-end: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.timeline-step:last-child {
+  border-inline-end: none;
+}
+
+.timeline-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-forest-light);
+  line-height: 1;
+}
+
+[data-theme="dark"] .timeline-num {
+  color: var(--color-forest);
+  opacity: 0.35;
+}
+
+.timeline-step-title {
+  font-family: var(--font-heading);
+  font-size: var(--card-heading-size);
+  font-weight: 700;
+  color: var(--color-deep-ink);
+}
+
+.timeline-step-text {
+  font-size: var(--body-sm-size);
+  color: var(--color-muted-text);
+  line-height: 1.5;
+}
+
 /* ==========================================================================
-   PACKAGES CATALOGUE & DETAILS
+   PACKAGES CATALOGUE — Modern furniture shopping experience
    ========================================================================== */
 
-/* Filter Bar */
 .catalogue-filters {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
@@ -650,7 +961,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: none;
 }
 
 .filter-row-top {
@@ -670,20 +980,26 @@
 .filter-pill {
   padding: 6px 14px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--color-border);
-  background-color: var(--color-surface-tint);
+  border: 1.5px solid var(--color-border);
+  background-color: var(--color-card-bg);
   font-size: var(--body-sm-size);
   font-weight: 600;
-  color: var(--color-deep-ink);
+  color: var(--color-secondary-grey);
   cursor: pointer;
   transition: all var(--transition-fast);
   min-height: 38px;
 }
 
 .filter-pill.active {
-  background-color: var(--color-cobalt);
+  background-color: var(--color-forest);
   color: #FFFFFF;
-  border-color: var(--color-cobalt);
+  border-color: var(--color-forest);
+}
+
+.filter-pill:not(.active):hover {
+  border-color: var(--color-forest);
+  color: var(--color-forest);
+  background-color: var(--color-forest-pale);
 }
 
 .filter-search-box {
@@ -698,6 +1014,17 @@
   height: var(--input-height);
   padding-inline-start: 36px;
   border-radius: var(--radius-full);
+  width: 100%;
+  border: 1px solid var(--color-border);
+  background: var(--color-card-bg);
+  font-size: var(--body-sm-size);
+  color: var(--color-deep-ink);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.filter-search-box input:focus {
+  border-color: var(--color-forest);
 }
 
 .filter-search-box svg {
@@ -725,45 +1052,15 @@
   gap: 8px;
 }
 
-.tenure-btn-group {
-  display: inline-flex;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-}
+/* ==========================================================================
+   PACKAGE DETAILS PAGE
+   ========================================================================== */
 
-.tenure-btn {
-  padding: 6px 14px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  background: var(--color-card-bg);
-  border: none;
-  cursor: pointer;
-  color: var(--color-deep-ink);
-  transition: all var(--transition-fast);
-}
-
-.tenure-btn.active {
-  background-color: var(--color-deep-ink);
-  color: #FFFFFF;
-}
-
-[data-theme="dark"] .tenure-btn.active {
-  background-color: var(--color-cobalt);
-}
-
-.packages-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-/* Package Details View */
 .detail-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 32px;
-  margin-bottom: 60px;
+  gap: 36px;
+  margin-bottom: 64px;
   align-items: start;
 }
 
@@ -775,17 +1072,16 @@
 
 .detail-main-img {
   width: 100%;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-lg);
   object-fit: cover;
-  box-shadow: none;
   background-color: var(--color-neutral-grey);
 }
 
 .detail-thumbs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 10px;
 }
 
 .detail-thumb-btn {
@@ -796,10 +1092,15 @@
   background: none;
   cursor: pointer;
   aspect-ratio: 4 / 3;
+  transition: border-color var(--transition-fast);
 }
 
 .detail-thumb-btn.active {
-  border-color: var(--color-cobalt);
+  border-color: var(--color-forest);
+}
+
+.detail-thumb-btn:hover {
+  border-color: var(--color-forest-medium);
 }
 
 .detail-thumb-btn img {
@@ -812,15 +1113,16 @@
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 26px;
-  box-shadow: none;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
+  position: sticky;
+  top: 92px;
 }
 
 .detail-cost-breakdown {
-  background-color: var(--color-surface-tint);
+  background-color: var(--color-forest-pale);
   border-radius: var(--radius-md);
   padding: 18px 20px;
   display: flex;
@@ -834,6 +1136,12 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
+}
+
+.cost-row > :last-child {
+  text-align: end;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
 }
 
 .cost-row.total-first {
@@ -860,18 +1168,55 @@
 }
 
 .checklist-icon {
-  color: var(--color-success);
+  color: var(--color-forest);
   margin-top: 2px;
 }
 
+.detail-tenures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.detail-tenures .btn {
+  padding-inline: 6px;
+}
+
+.detail-assumptions {
+  font-size: var(--body-sm-size);
+  color: var(--color-muted-text);
+  padding: 12px 0;
+}
+
+.related-package {
+  padding: 0;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-deep-ink);
+}
+
+.related-package img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.related-package > div {
+  padding: 20px;
+}
+
+.related-package .body-sm {
+  margin-block: 8px;
+}
+
 /* ==========================================================================
-   PRICING PAGE
+   PRICING PAGE — Furniture comparison, not SaaS
    ========================================================================== */
 
 .pricing-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
   margin-bottom: 56px;
 }
 
@@ -879,25 +1224,28 @@
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: none;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .pricing-card.is-popular {
-  border-color: var(--color-cobalt);
-  box-shadow: none;
+  border-color: var(--color-forest);
+  border-width: 2px;
+}
+
+.pricing-card.is-popular:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .popular-ribbon {
   position: absolute;
   top: -14px;
-  inset-inline-start: 20px;
-  transform: none;
-  background-color: var(--color-cobalt);
+  inset-inline-start: 24px;
+  background-color: var(--color-forest);
   color: #FFFFFF;
   padding: 4px 14px;
   border-radius: var(--radius-full);
@@ -907,14 +1255,22 @@
   text-transform: uppercase;
 }
 
+.pricing-room-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+
 .pricing-card-header {
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: 24px;
-  margin-bottom: 24px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .pricing-card-price {
-  margin-top: 14px;
+  margin-top: 12px;
   display: flex;
   align-items: baseline;
   gap: 4px;
@@ -943,6 +1299,26 @@
   font-size: 0.9rem;
 }
 
+.pricing-feature-item svg {
+  color: var(--color-forest);
+  flex-shrink: 0;
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.pricing-tenure-control {
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+}
+
+[data-pricing-tenure].active {
+  background: var(--color-forest);
+  color: #FFF;
+  border-color: var(--color-forest);
+}
+
 /* ==========================================================================
    COVERAGE PAGE
    ========================================================================== */
@@ -951,10 +1327,9 @@
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 28px;
-  box-shadow: none;
+  padding: 32px;
   margin-bottom: 48px;
-  border-inline-start: 4px solid var(--color-cobalt);
+  border-inline-start: 4px solid var(--color-forest);
 }
 
 .coverage-input-bar {
@@ -990,20 +1365,57 @@
   color: var(--color-danger);
 }
 
+.coverage-status-box.status-invalid {
+  display: block;
+  color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
+
+/* City directory — compact list instead of oversized cards */
 .cities-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   margin-bottom: 48px;
-  border-top: 1px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .city-card {
-  background-color: transparent;
+  background-color: var(--color-card-bg);
   border: 0;
   border-radius: 0;
   padding: 24px;
   border-bottom: 1px solid var(--color-border);
+  border-inline-end: 1px solid var(--color-border);
+}
+
+.city-card:nth-child(3n) {
+  border-inline-end: none;
+}
+
+.city-card:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.city-name {
+  font-family: var(--font-heading);
+  font-size: var(--card-heading-size);
+  font-weight: 700;
+  color: var(--color-deep-ink);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.city-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-forest);
+  flex-shrink: 0;
 }
 
 .city-hubs-list {
@@ -1017,7 +1429,7 @@
 }
 
 /* ==========================================================================
-   AUTH PAGES (Login & Register)
+   AUTH PAGES
    ========================================================================== */
 
 .auth-page-wrapper {
@@ -1060,8 +1472,8 @@
 }
 
 .demo-credentials-callout {
-  background-color: var(--color-pale-mint);
-  border: 1px solid var(--color-pale-mint-darker);
+  background-color: var(--color-forest-pale);
+  border: 1px solid var(--color-forest-light);
   border-radius: var(--radius-md);
   padding: 14px 18px;
   margin-bottom: 24px;
@@ -1084,11 +1496,13 @@
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .demo-account-pill:hover {
-  background-color: var(--color-cobalt-light);
-  border-color: var(--color-cobalt);
+  background-color: var(--color-forest-pale);
+  border-color: var(--color-forest);
+  color: var(--color-forest);
 }
 
 .auth-divider {
@@ -1131,7 +1545,7 @@
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .faq-item {
@@ -1139,6 +1553,11 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.faq-item.is-open {
+  border-color: var(--color-forest-light);
 }
 
 .faq-question {
@@ -1161,6 +1580,7 @@
 .faq-question .faq-icon {
   transition: transform var(--transition-fast);
   flex-shrink: 0;
+  color: var(--color-forest);
 }
 
 .faq-item.is-open .faq-icon {
@@ -1179,37 +1599,166 @@
   display: block;
 }
 
-/* Responsive Overrides */
-@media (max-width: 1024px) {
-  .hero-home1-grid,
-  .hero-home2-layout,
-  .detail-layout,
-  .coverage-strip-box,
-  .split-editorial,
-  .audience-view.active {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .benefits-grid,
-  .packages-grid,
-  .pricing-cards-grid,
-  .cities-grid {
+/* ==========================================================================
+   INNER PAGE BANNER (How It Works, About, Contact, etc.)
+   ========================================================================== */
+
+.page-hero-banner {
+  background-color: var(--color-forest-pale);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: clamp(40px, 6vw, 72px);
+}
+
+[data-theme="dark"] .page-hero-banner {
+  background-color: var(--color-warm-chalk);
+}
+
+.journey-step {
+  padding-block: 32px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.journey-step:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .featured-bundles {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-rows: auto;
   }
-  .steps-editorial-grid,
-  .room-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+  .featured-bundles > :first-child {
+    grid-row: auto;
+    grid-column: 1 / -1;
+  }
+  .featured-bundles > :first-child .package-card-img-wrap {
+    aspect-ratio: 16 / 7;
   }
   .room-story-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: 320px auto auto;
   }
   .story-card-large {
-    grid-row: auto;
     grid-column: 1 / 3;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 1120px) {
+  [data-layout="benefits"] .container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  [data-layout="benefits"] .section-header {
+    position: static;
+  }
+  .hero-home1-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .discovery-bar {
+    grid-template-columns: 1fr 1fr;
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-home1-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-home1-content {
+    padding-inline: var(--gutter);
+    padding-block: 40px 28px;
+    order: 1;
+  }
+  .hero-home1-media {
+    order: 0;
+    height: 320px;
+    position: relative;
+  }
+  .hero-image-frame {
+    border-radius: 0;
+  }
+  .hero-home2-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .hero-home2-stats {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 36px;
+  }
+  .hero-stat-item {
+    text-align: start;
+  }
+  .room-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 240px 200px 200px;
+    grid-template-areas:
+      "living living"
+      "bedroom workspace"
+      "apartment apartment";
+    gap: 14px;
+  }
+  .steps-editorial-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .steps-editorial-grid::before {
+    display: none;
+  }
+  .step-editorial-card {
+    padding: 0 0 20px;
+  }
+  .rental-timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+  .timeline-step {
+    border-inline-end: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .timeline-step:nth-child(2),
+  .timeline-step:last-child {
+    border-inline-end: none;
+  }
+  .packages-grid,
+  .pricing-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .cities-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .city-card:nth-child(3n) {
+    border-inline-end: 1px solid var(--color-border);
+  }
+  .city-card:nth-child(2n) {
+    border-inline-end: none;
+  }
+  .split-editorial {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .audience-view.active {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .coverage-strip-box,
+  .coverage-hero-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .detail-config-card {
+    position: static;
+  }
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
@@ -1217,131 +1766,160 @@
   .discovery-bar {
     grid-template-columns: 1fr;
     gap: 14px;
+    padding: 20px var(--gutter);
   }
-  .benefits-grid,
-  .packages-grid,
-  .pricing-cards-grid,
-  .cities-grid,
-  .steps-editorial-grid,
-  .room-grid {
+  .hero-home2 {
+    min-height: 400px;
+  }
+  .hero-home2-layout {
     grid-template-columns: 1fr;
+  }
+  .hero-home2-stats {
+    display: none;
+  }
+  .steps-editorial-grid {
+    grid-template-columns: 1fr;
+  }
+  .rental-timeline {
+    grid-template-columns: 1fr;
+    border-block: none;
+  }
+  .timeline-step {
+    border-inline-end: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 20px 0;
+  }
+  .timeline-step:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+  .room-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 180px 180px;
+    grid-template-areas:
+      "living living"
+      "bedroom workspace"
+      "apartment apartment";
+    gap: 12px;
+  }
+  .room-story-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .story-card-large {
+    grid-column: auto;
+    aspect-ratio: 4 / 3;
+    min-height: 280px;
+  }
+  .story-card {
+    min-height: 220px;
+  }
+  .benefits-grid {
+    gap: 0;
+  }
+  .benefit-card {
+    padding: 20px 0;
+  }
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+  .pricing-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .featured-bundles {
+    grid-template-columns: 1fr;
+  }
+  .featured-bundles > :first-child .package-card-img-wrap {
+    aspect-ratio: 3 / 2;
+  }
+  .split-editorial {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
   .coverage-input-bar {
     grid-template-columns: 1fr;
   }
-  .package-card-actions {
+  .cities-grid {
     grid-template-columns: 1fr;
+    border: none;
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .city-card {
+    border-inline-end: none !important;
+    border-bottom: 1px solid var(--color-border);
+    padding-inline: 0;
+  }
+  .city-card:nth-last-child(-n+3) {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .city-card:last-child {
+    border-bottom: none;
+  }
+  .catalogue-filters {
+    padding: 16px;
+  }
+  .filter-row-bottom > div {
+    flex-wrap: wrap;
+  }
+  .tenure-toggle-inline {
+    flex-wrap: wrap;
   }
 }
 
-/* Editorial compositions: a consistent type scale, varied photographic rhythm. */
-.hero-accent { color: var(--color-cobalt); }
-.hero-home1 .body-lead { max-width: 39ch; }
-.hero-home1 .hero-perk-item:last-child { display: none; }
-.hero-home2-text > .eyebrow { grid-column: 1 / -1; }
-.hero-home2-text > .hero-h1 { grid-column: 1; grid-row: 2 / 5; max-width: 13ch; }
-.hero-home2-text > .body-lead, .hero-home2-text > div, .home2-rental-note { grid-column: 2; }
-.home2-rental-note { font-size: var(--body-sm-size); color: var(--color-muted-text); margin-top: 20px; }
-.hero-home2 { padding-block: 48px 24px; }
-.benefit-card:last-child { border-inline-end: 0; }
-.benefit-card p { font-size: var(--body-sm-size); }
-[data-layout="benefits"] .container { display: grid; grid-template-columns: .8fr 1.6fr; gap: 40px; align-items: start; }
-[data-layout="benefits"] .section-header { margin: 0; }
-[data-layout="benefits"] .body-lead { font-size: var(--body-size); }
-.room-editorial .room-card:nth-child(even) { margin-top: 36px; }
-.room-card-title, .story-heading { font-size: var(--card-heading-size); line-height: var(--card-heading-line-height); }
-.story-heading { color: #fff; }
-.story-card { display: block; color: #fff; text-decoration: none; }
-.rental-timeline { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.rental-timeline .card { background: transparent; border: 0; border-top: 1px solid var(--color-border); border-radius: 0; padding: 24px 0; box-shadow: none; flex-direction: column; }
-.journey-step { padding-block: 32px; border-bottom: 1px solid var(--color-border); }
-.journey-step:first-child { border-top: 1px solid var(--color-border); }
-.pricing-room-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 20px; }
-.pricing-tenure-control { flex-wrap: wrap; justify-content: center; max-width: 100%; }
-[data-pricing-tenure].active { background: var(--color-cobalt); color: #fff; border-color: var(--color-cobalt); }
-.detail-sidebar { position: sticky; top: 92px; }
-.detail-gallery > .card { box-shadow: none; }
-.detail-assumptions { font-size: var(--body-sm-size); color: var(--color-muted-text); padding: 12px 0; }
-.detail-tenures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.detail-tenures .btn { padding-inline: 6px; }
-.cost-row > :last-child { text-align: end; flex-shrink: 0; font-variant-numeric: tabular-nums; }
-.coverage-status-box.status-invalid { display: block; color: var(--color-danger); background: var(--color-danger-bg); }
-.city-card:last-child { grid-column: 1 / -1; }
-.audience-view.active { animation: audience-enter .24s ease-out; }
-@keyframes audience-enter { from { opacity: .5; } to { opacity: 1; } }
-@media (max-width: 1120px) {
-  [data-layout="benefits"] .container { grid-template-columns: 1fr; gap: 24px; }
-  .discovery-bar { grid-template-columns: 1fr 1fr; border-radius: var(--radius-md); }
-  .hero-home1-grid { margin-bottom: 24px; }
-  .hero-image-frame { border-radius: var(--radius-lg); }
-  .benefits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero-home1-grid { grid-template-columns: .95fr 1fr; gap: 28px; }
-  .hero-image-frame { aspect-ratio: 4 / 5; }
-  .hero-home2-text { column-gap: 32px; }
-  .room-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .room-card { aspect-ratio: 2 / 3; }
-  .room-card-overlay { padding: 14px; }
-  .featured-bundles > :last-child, .pricing-cards-grid > :last-child { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
-  .pricing-cards-grid > :last-child .pricing-room-img { grid-row: span 3; height: 100%; }
-}
-@media (max-width: 1024px) {
-  .detail-sidebar { position: static; }
-  .detail-gallery { display: contents; }
-  .detail-layout { display: flex; flex-direction: column; gap: 18px; }
-  .detail-layout > *, .detail-gallery > * { width: 100%; }
-  .detail-main-img { aspect-ratio: 16 / 9; }
-  .detail-gallery > .card { order: 2; margin-top: 0 !important; }
-  .detail-assumptions { order: 1; }
-  .split-editorial { grid-template-columns: 1fr 1fr; gap: 24px; }
-  .room-story-grid { grid-template-rows: auto 260px 260px; }
-}
-@media (max-width: 768px) {
-  .hero-home1 { padding-top: 28px; }
-  .hero-home1-content .hero-h1 { max-width: 14ch; }
-  .hero-home1-grid { gap: 28px; }
-  .hero-image-frame { aspect-ratio: 4 / 3; }
-  .hero-home2-text { display: flex; }
-  .mosaic-main { aspect-ratio: 4 / 3; }
-  .benefits-grid { grid-template-columns: 1fr; }
-  .benefit-card { border-inline-end: 0; border-bottom: 1px solid var(--color-border); padding: 20px 0; }
-  .benefit-card:last-child { border-bottom: 0; }
-  .room-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-  .room-editorial .room-card:nth-child(even) { margin-top: 22px; }
-  .split-editorial { grid-template-columns: 1fr; gap: 32px; }
-  .rental-timeline { grid-template-columns: 1fr; gap: 0; }
-  .rental-timeline .card { flex-direction: row; }
-  .coverage-strip-box, .coverage-hero-card { padding: 22px; }
-  .journey-step > div { order: initial !important; }
-  .filter-row-bottom > div { flex-wrap: wrap; }
-  .catalogue-filters { padding: 18px; }
-  .tenure-toggle-inline { flex-wrap: wrap; }
-  .room-story-grid { grid-template-rows: auto; }
-  .story-card { min-height: 280px; }
-  .story-card-large { aspect-ratio: 4 / 3; }
-  .story-card-content { padding: 16px; }
-  .cities-grid { grid-template-columns: 1fr; }
-  .city-card { padding-inline: 0; }
-  .detail-config-card { padding: 20px; }
-  .detail-cost-breakdown { padding: 14px; }
-}
 @media (max-width: 480px) {
-  .discovery-bar { grid-template-columns: 1fr; padding: 20px; }
-  .section-header { margin-bottom: 28px; }
-  .room-card { aspect-ratio: 3 / 5; }
-  .room-card-overlay { padding: 12px; }
-  .room-story-grid { grid-template-columns: 1fr; }
-  .story-card-large { grid-column: auto; aspect-ratio: 3 / 4; }
-  .story-card { aspect-ratio: 4 / 3; min-height: 0; }
-  .audience-tabs { gap: 8px; }
-  .tab-btn { padding: 10px 14px; font-size: var(--btn-font-size); }
-  .rent-vs-buy-table th, .rent-vs-buy-table td { padding: 12px 8px; font-size: var(--body-sm-size); overflow-wrap: anywhere; }
-  .cost-row { flex-wrap: wrap; gap: 4px 12px; }
-  .pricing-tenure-control .btn { padding-inline: 10px; }
+  .discovery-bar {
+    padding: 16px;
+  }
+  .section-header {
+    margin-bottom: 28px;
+  }
+  .room-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "living"
+      "bedroom"
+      "workspace"
+      "apartment";
+    gap: 12px;
+  }
+  .room-card {
+    height: 200px;
+  }
+  .audience-tabs {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 9px 16px;
+    font-size: 0.875rem;
+  }
+  .rent-vs-buy-table th,
+  .rent-vs-buy-table td {
+    padding: 12px 8px;
+    font-size: var(--body-sm-size);
+    overflow-wrap: anywhere;
+  }
+  .cost-row {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .pricing-tenure-control .btn {
+    padding-inline: 10px;
+  }
+  .coverage-strip-box {
+    padding: 20px;
+  }
+  .checker-inline-form {
+    flex-direction: column;
+  }
+  .detail-config-card {
+    padding: 20px;
+  }
+  .detail-cost-breakdown {
+    padding: 14px;
+  }
+  @media (max-height: 950px) {
+    .detail-config-card { position: static; }
+  }
 }
-.related-package { padding: 0; overflow: hidden; text-decoration: none; color: var(--color-deep-ink); }
-.related-package img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-.related-package > div { padding: 20px; }
-.related-package .body-sm { margin-block: 8px; }
-@media (max-height: 950px) { .detail-sidebar { position: static; } }

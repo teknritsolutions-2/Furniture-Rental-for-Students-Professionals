@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="chip chip-active">Demo coverage</span>
         </div>
         <div style="font-size: 0.8125rem; color: var(--color-deep-ink); font-weight: 600; margin-top: 10px;">
-          Sample estimate: <span style="color: var(--color-cobalt);">${city.avgDeliveryDays}</span>
+          Sample estimate: <span style="color: var(--color-forest);">${city.avgDeliveryDays}</span>
         </div>
         <div style="margin-top: 12px; border-top: 1px solid var(--color-border); padding-top: 10px;">
           <div style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--color-muted-text);">Sample service areas</div>

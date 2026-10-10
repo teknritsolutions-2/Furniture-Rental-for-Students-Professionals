@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="detail-cost-breakdown">
               <div class="cost-row">
                 <span>Monthly Rent (${selectedTenure} mos)</span>
-                <span style="font-weight: 700; font-size: 1.15rem; color: var(--color-cobalt);">₹${cost.monthlyRate.toLocaleString('en-IN')} / mo</span>
+                <span style="font-weight: 700; font-size: 1.15rem; color: var(--color-forest);">₹${cost.monthlyRate.toLocaleString('en-IN')} / mo</span>
               </div>
               <div class="cost-row">
                 <span>Refundable deposit (demo)</span>
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="border-top: 1px solid var(--color-border); padding-top: 18px;">
               <h4 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; color: var(--color-deep-ink);">Sample package highlights</h4>
               <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.8125rem; color: var(--color-muted-text);">
-                ${pkg.highlights.map(h => `<li style="display: flex; gap: 8px; align-items: center;"><span style="color: var(--color-cobalt); font-weight: bold;">✓</span> ${h}</li>`).join('')}
+                ${pkg.highlights.map(h => `<li style="display: flex; gap: 8px; align-items: center;"><span style="color: var(--color-forest); font-weight: bold;">✓</span> ${h}</li>`).join('')}
               </ul>
             </div>
           </div>

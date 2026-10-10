@@ -88,7 +88,7 @@
           <span class="dash-demo-tag">Demo Mode</span>
 
           <!-- Demo Persona Quick Switcher -->
-          <button type="button" class="btn btn-outline btn-sm" id="dash-switch-user-btn" title="Click to toggle between Alex Chen and Priya Sharma" style="padding: 4px 10px; border-color: var(--color-cobalt); color: var(--color-cobalt); gap: 6px;">
+          <button type="button" class="btn btn-outline btn-sm" id="dash-switch-user-btn" title="Click to toggle between Alex Chen and Priya Sharma" style="padding: 4px 10px; border-color: var(--color-forest); color: var(--color-forest); gap: 6px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span id="dash-persona-label">Alex Chen</span> ⇄
           </button>
@@ -113,6 +113,20 @@
           <h2 id="view-overview-title" class="visually-hidden">Overview</h2>
           <!-- Metrics Cards Row -->
           <div class="dash-welcome"><div><span class="eyebrow">Your place, at a glance</span><h2 class="section-h2">Welcome home.</h2><p class="body-text">Your furniture, upcoming bills and next steps.</p></div></div>
+          <!-- Priority Banner: Next Payment Due & Primary Actions -->
+          <div class="next-payment-banner">
+            <div class="banner-info">
+              <span class="banner-tag">Upcoming Payment Cycle</span>
+              <div class="banner-title">Next Recurring Due: <span id="banner-pay-amount">₹3,298</span></div>
+              <div class="banner-desc">Sample payment due on <span id="banner-pay-date">October 15, 2026</span> via registered demo payment mode.</div>
+            </div>
+            <div class="banner-actions">
+              <a href="#billing" class="btn btn-primary" onclick="window.location.hash='billing'">Manage Billing</a>
+              <button type="button" class="btn btn-outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);" onclick="window.location.hash='requests'">Request Item Swap</button>
+            </div>
+          </div>
+
+          <!-- Secondary Summary Metrics -->
           <div class="metrics-grid">
             <div class="metric-card">
               <div class="metric-header">
@@ -156,19 +170,6 @@
               </div>
               <div class="metric-value" id="metric-pending-count">1</div>
               <div class="metric-sub">Requests saved in this browser</div>
-            </div>
-          </div>
-
-          <!-- Next Payment Widget Banner -->
-          <div class="next-payment-banner">
-            <div class="banner-info">
-              <span class="banner-tag">Upcoming Payment Cycle</span>
-              <div class="banner-title">Next Recurring Due: <span id="banner-pay-amount">₹3,298</span></div>
-              <div class="banner-desc">Sample payment due on <span id="banner-pay-date">October 15, 2026</span> via registered demo payment mode.</div>
-            </div>
-            <div class="banner-actions">
-              <a href="#billing" class="btn btn-primary" onclick="window.location.hash='billing'">Manage Billing</a>
-              <button type="button" class="btn btn-outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);" onclick="window.location.hash='requests'">Request Item Swap</button>
             </div>
           </div>
 

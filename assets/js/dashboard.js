@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="meta-field">
             <label>Monthly Rate</label>
-            <span style="color: var(--color-cobalt); font-size: 0.95rem;">₹${rental.monthlyRate.toLocaleString('en-IN')}/mo</span>
+            <span style="color: var(--color-forest); font-size: 0.95rem;">₹${rental.monthlyRate.toLocaleString('en-IN')}/mo</span>
           </div>
           <div class="meta-field">
             <label>Next Due Date</label>

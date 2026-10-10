@@ -141,8 +141,7 @@
   <main id="main-content">
     <!-- SECTION 1: HERO STOREFRONT & DISCOVERY BAR -->
     <section class="section hero-home1" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero-home1-grid">
+      <div class="hero-home1-grid">
           <div class="hero-home1-content">
             <span class="eyebrow">A little rent. A lot of home.</span>
             <h1 id="hero-title" class="hero-h1">Your space.<br>Your pace.<br><span class="hero-accent">Settle in.</span></h1>
@@ -187,9 +186,9 @@
           </div>
         </div>
 
-        <!-- Functional Discovery Bar (Active filter link to Packages) -->
-        <div class="discovery-bar-wrapper">
-          <form id="hero-discovery-form" class="discovery-bar" action="pages/packages.html" method="GET">
+      <!-- Functional Discovery Bar — full-width strip below the hero split -->
+      <div class="discovery-bar-wrapper">
+        <form id="hero-discovery-form" class="discovery-bar" action="pages/packages.html" method="GET">
             <div class="discovery-field">
               <label for="disc-audience">I am a</label>
               <select id="disc-audience" name="audience">
@@ -219,13 +218,12 @@
               </select>
             </div>
 
-            <button type="submit" class="btn btn-primary" >
+            <button type="submit" class="btn btn-primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               <span>Find Matching Bundles</span>
             </button>
           </form>
-        </div>
-      </div>
+      </div><!-- close discovery-bar-wrapper -->
     </section>
 
     <!-- SECTION 2: FAST AFFORDABILITY & BENEFITS -->
@@ -239,27 +237,35 @@
 
         <div class="benefits-grid">
           <div class="benefit-card">
-            <div class="benefit-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            <div class="benefit-num">01</div>
+            <div>
+              <h3 class="card-title">Keep your move-in lighter</h3>
+              <p class="body-text">Compare monthly sample rents and see exactly what's included before committing. No large upfront purchases, no disposal headaches.</p>
             </div>
-            <h3 class="card-title">Keep your move-in lighter</h3>
-            <p class="body-text">Compare monthly sample rents and deposits before committing to a full furniture purchase.</p>
           </div>
 
           <div class="benefit-card">
-            <div class="benefit-icon-box" style="background-color: var(--color-pale-mint); color: var(--color-success);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"></path><path d="M4 20L21 3"></path><path d="M21 16v5h-5"></path><path d="M15 15l6 6"></path><path d="M4 4l5 5"></path></svg>
+            <div class="benefit-num">02</div>
+            <div>
+              <h3 class="card-title">Make room for change</h3>
+              <p class="body-text">Started as a bachelor and upgrading to a 2BHK? Upgrade or swap individual room pieces effortlessly right from your customer portal.</p>
             </div>
-            <h3 class="card-title">Make room for change</h3>
-            <p class="body-text">Started as a bachelor and upgrading to a 2BHK with a partner? Upgrade or swap individual room pieces effortlessly right from your portal.</p>
           </div>
 
           <div class="benefit-card">
-            <div class="benefit-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <div class="benefit-num">03</div>
+            <div>
+              <h3 class="card-title">Your home, all in one place</h3>
+              <p class="body-text">Access real-time agreements, payment receipts, due-date management, and swap requests directly inside the NESTLOOP customer dashboard.</p>
             </div>
-            <h3 class="card-title">Your home, all in one place</h3>
-            <p class="body-text">Access real-time agreements, payment receipts, due-date management, and swap requests directly inside the NESTLOOP customer dashboard.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-num">04</div>
+            <div>
+              <h3 class="card-title">White-glove delivery &amp; assembly</h3>
+              <p class="body-text">Our team delivers, assembles, and cleans up. Move-in day should feel exciting — not exhausting.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -394,7 +400,7 @@
 
         <div class="room-grid room-editorial">
           <!-- Room 1: Bedroom -->
-          <a href="pages/packages.html?category=bedroom" class="room-card" aria-label="Browse Bedroom Furniture Packages">
+          <a href="pages/packages.html?category=bedroom" class="room-card room-card-bedroom" aria-label="Browse Bedroom Furniture Packages">
             <img src="assets/images/category-bedroom.webp" alt="Contemporary bedroom furniture" loading="lazy">
             <div class="room-card-overlay">
               <h3 class="room-card-title">Bedroom</h3>
@@ -403,7 +409,7 @@
           </a>
 
           <!-- Room 2: Living Room -->
-          <a href="pages/packages.html?category=living" class="room-card" aria-label="Browse Living Room Furniture Packages">
+          <a href="pages/packages.html?category=living" class="room-card room-card-living" aria-label="Browse Living Room Furniture Packages">
             <img src="assets/images/category-living.webp" alt="Bright shared lounge with sofas and chairs" loading="lazy">
             <div class="room-card-overlay">
               <h3 class="room-card-title">Living Room</h3>
@@ -412,7 +418,7 @@
           </a>
 
           <!-- Room 3: Workspace -->
-          <a href="pages/packages.html?category=workspace" class="room-card" aria-label="Browse Workspace Furniture Packages">
+          <a href="pages/packages.html?category=workspace" class="room-card room-card-workspace" aria-label="Browse Workspace Furniture Packages">
             <img src="assets/images/category-workspace.webp" alt="Ergonomic desk and chair workspace" loading="lazy">
             <div class="room-card-overlay">
               <h3 class="room-card-title">Home Office &amp; Study</h3>
@@ -421,7 +427,7 @@
           </a>
 
           <!-- Room 4: Full Apartment -->
-          <a href="pages/packages.html?category=apartment" class="room-card" aria-label="Browse Full Apartment Furniture Packages">
+          <a href="pages/packages.html?category=apartment" class="room-card room-card-apartment" aria-label="Browse Full Apartment Furniture Packages">
             <img src="assets/images/category-studio.webp" alt="Complete furnished apartment studio" loading="lazy">
             <div class="room-card-overlay">
               <h3 class="room-card-title">Full Apartment</h3>
