@@ -60,7 +60,7 @@
   justify-content: center;
   padding-block: clamp(48px, 7vw, 88px);
   padding-inline-end: clamp(24px, 4vw, 48px);
-  padding-inline-start: var(--gutter);
+  padding-inline-start: max(var(--gutter), calc((100vw - 1400px) / 2 + var(--gutter)));
 }
 
 .hero-home1-content .hero-h1 {
@@ -367,7 +367,8 @@
 }
 
 [data-theme="dark"] .tenure-btn.active {
-  background-color: var(--color-forest);
+  background-color: #FFFFFF;
+  color: #102035 !important;
 }
 
 /* ==========================================================================
@@ -610,6 +611,12 @@
   background-color: var(--color-forest);
   color: #FFFFFF;
   border-color: var(--color-forest);
+}
+
+[data-theme="dark"] .tab-btn.active {
+  background-color: #FFFFFF;
+  color: #102035 !important;
+  border-color: #FFFFFF;
 }
 
 .tab-btn:not(.active):hover {
@@ -871,6 +878,13 @@
   border-color: var(--color-forest);
 }
 
+[data-theme="dark"] .category-pill.active,
+[data-theme="dark"] .category-pill:hover {
+  background-color: #FFFFFF;
+  color: #102035 !important;
+  border-color: #FFFFFF;
+}
+
 /* ==========================================================================
    HOME 2 — MAGAZINE-STYLE ROOM STORIES
    ========================================================================== */
@@ -1105,6 +1119,18 @@
   box-shadow: var(--shadow-lg);
 }
 
+[data-theme="dark"] .quick-estimator-box {
+  background: linear-gradient(135deg, #102035 0%, #162B44 100%) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(69, 123, 157, 0.45) !important;
+}
+
+[data-theme="dark"] .quick-estimator-box .section-h2,
+[data-theme="dark"] .quick-estimator-box p,
+[data-theme="dark"] .quick-estimator-box strong {
+  color: #FFFFFF !important;
+}
+
 @media (max-width: 900px) {
   .philosophy-grid { grid-template-columns: 1fr 1fr; }
   .living-stories-grid { grid-template-columns: 1fr; }
@@ -1161,6 +1187,12 @@
   background-color: var(--color-forest);
   color: #FFFFFF;
   border-color: var(--color-forest);
+}
+
+[data-theme="dark"] .filter-pill.active {
+  background-color: #FFFFFF;
+  color: #102035 !important;
+  border-color: #FFFFFF;
 }
 
 .filter-pill:not(.active):hover {
@@ -1422,6 +1454,11 @@
   text-transform: uppercase;
 }
 
+[data-theme="dark"] .popular-ribbon {
+  background-color: #FFFFFF;
+  color: #102035 !important;
+}
+
 .pricing-room-img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -1484,6 +1521,12 @@
   background: var(--color-forest);
   color: #FFF;
   border-color: var(--color-forest);
+}
+
+[data-theme="dark"] [data-pricing-tenure].active {
+  background: #FFFFFF;
+  color: #102035 !important;
+  border-color: #FFFFFF;
 }
 
 /* ==========================================================================

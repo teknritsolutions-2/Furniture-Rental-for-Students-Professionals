@@ -187,8 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="package-card-actions">
-              <a href="${detailsUrl}" class="btn btn-outline btn-sm">View Details</a>
-              <a href="${detailsUrl}#rent-config" class="btn btn-primary btn-sm">Select Package</a>
+              <a href="${detailsUrl}#rent-config" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">Select Package</a>
             </div>
           </div>
         </article>

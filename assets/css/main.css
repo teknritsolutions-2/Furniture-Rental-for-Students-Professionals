@@ -158,6 +158,11 @@ img {
   text-transform: uppercase;
 }
 
+[data-theme="dark"] .top-notice-badge {
+  background-color: #FFFFFF;
+  color: #102035 !important;
+}
+
 /* Sticky Header & Navbar */
 .site-header {
   position: sticky;
