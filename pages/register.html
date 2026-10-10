@@ -14,30 +14,17 @@
 <body class="auth-page-wrapper">
   <a href="#register-form" class="skip-link">Skip to registration form</a>
 
-  <!-- Top Utility Bar (No Full Navbar) -->
-  <div class="auth-top-bar">
-    <a href="../index.html" class="auth-back-link">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-      <span>Back to Storefront</span>
-    </a>
-
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <button type="button" class="utility-btn theme-toggle-btn" aria-label="Toggle theme"><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
-      <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
-    </div>
-  </div>
-
   <!-- Centered Register Card -->
   <main class="auth-container">
-    <!-- Brand Logo on Top of Card -->
-    <div class="auth-brand-center">
-      <a href="../index.html" class="brand-link" aria-label="MODULIV Home">
-        <img src="../assets/brand/logo.svg" alt="MODULIV Logo" class="brand-logo logo-light" style="height: 42px;">
-        <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark" style="height: 42px;">
-      </a>
-    </div>
-
     <div class="auth-card">
+      <!-- Brand Logo on Top Inside Container -->
+      <div class="auth-card-logo" style="display: flex; justify-content: center; align-items: center; margin-bottom: 24px;">
+        <a href="../index.html" class="brand-link" aria-label="MODULIV Home">
+          <img src="../assets/brand/logo.svg" alt="MODULIV Logo" class="brand-logo logo-light" style="height: 42px;">
+          <img src="../assets/brand/logo-white.svg" alt="MODULIV Logo" class="brand-logo logo-dark" style="height: 42px;">
+        </a>
+      </div>
+
       <div class="auth-card-header">
         <h1 class="subsection-h3" style="margin-bottom: 6px;">Create your account</h1>
         <p class="body-sm">Join MODULIV for flexible student &amp; professional rentals.</p>

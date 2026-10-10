@@ -148,6 +148,30 @@ const base = process.env.BASE_URL || 'http://localhost:8085';
   });
   test('Filter pills have comfortable loosened padding', filterPillPad.l >= 16 && filterPillPad.t >= 6, JSON.stringify(filterPillPad));
 
+  // 7. Login Page: No navbar or top bar items, logo inside container on top, no demo alex/priya
+  await page.goto(`${base}/pages/login.html`);
+  const loginTopBar = await page.locator('.auth-top-bar').count();
+  const loginNav = await page.locator('.navbar, .header-nav, .nav-actions').count();
+  test('Login page has no navbar or top utility bar', loginTopBar === 0 && loginNav === 0);
+
+  const logoOutside = await page.locator('.auth-brand-center').count();
+  test('Login page has no logo outside container', logoOutside === 0);
+
+  const logoInside = await page.locator('.auth-card .auth-card-logo .brand-logo').count();
+  test('Login page has logo inside container on top', logoInside >= 1);
+
+  const demoAlex = await page.locator('#fill-alex').count();
+  const demoPriya = await page.locator('#fill-priya').count();
+  const quickFill = await page.locator('.auth-quick-fill').count();
+  test('Login page has no demo: alex, priya items', demoAlex === 0 && demoPriya === 0 && quickFill === 0);
+
+  // Register page checks
+  await page.goto(`${base}/pages/register.html`);
+  const regTopBar = await page.locator('.auth-top-bar').count();
+  test('Register page has no navbar or top bar', regTopBar === 0);
+  const regLogoInside = await page.locator('.auth-card .auth-card-logo .brand-logo').count();
+  test('Register page has logo inside container on top', regLogoInside >= 1);
+
   console.log('\n=========================================');
   console.log(`TOTAL PASSES: ${passes.length}`);
   console.log(`TOTAL FAILS:  ${fails.length}`);

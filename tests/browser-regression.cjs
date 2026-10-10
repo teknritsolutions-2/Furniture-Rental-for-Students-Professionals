@@ -104,7 +104,7 @@ fs.mkdirSync(output, { recursive: true });
   check('Demo reset restores seed', await page.evaluate(()=>{const s=NestloopData.getDemoState();return s.rentals.length===2&&s.requests.length===1&&s.billingHistory.length===3}));
   await goto('pages/login.html');await page.fill('#login-email','wrong@example.com');await page.fill('#login-password','incorrect');await page.locator('#login-form button[type=submit]').click();
   check('Login validation', await page.locator('#login-error-alert').isVisible());
-  await page.locator('#fill-priya').click();await page.locator('#login-form button[type=submit]').click();await page.waitForURL('**/dashboard.html');
+  await page.fill('#login-email','priya.sharma@nestloop.demo');await page.fill('#login-password','password123');await page.locator('#login-form button[type=submit]').click();await page.waitForURL('**/dashboard.html');
   check('Demo login works', (await page.locator('#dash-persona-label').textContent()).includes('Priya'));
   await goto('pages/register.html');await page.fill('#reg-name','Demo QA');await page.fill('#reg-email','qa@nestloop.demo');await page.fill('#reg-password','testing123');await page.locator('#register-form button[type=submit]').click();await page.waitForURL('**/dashboard.html');
   check('Demo registration works', (await page.locator('#dash-persona-label').textContent()).includes('Demo'));
