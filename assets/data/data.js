@@ -1,5 +1,5 @@
 /**
- * NESTLOOP — Centralized Demo Data Model
+ * MODULIV — Centralized Demo Data Model
  * Powers Public Packages, Details, Pricing, Coverage Checker,
  * and Customer Dashboard simulation state.
  */
@@ -64,7 +64,7 @@
       packageSpecs: {
         totalPieces: 5,
         finish: "Warm Scandinavian Oak & Matte Charcoal",
-        assemblyRequirement: "Included free by NESTLOOP technicians",
+        assemblyRequirement: "Included free by MODULIV technicians",
         maintenanceCover: "Full normal wear & tear protection"
       }
     },
@@ -622,7 +622,7 @@
         return parsed;
       }
     } catch (e) {
-      console.warn("Could not read localStorage for NESTLOOP demo:", e);
+      console.warn("Could not read localStorage for MODULIV demo:", e);
     }
     // Initialize fresh seed copy
     const initial = JSON.parse(JSON.stringify(SEED_CUSTOMER));
@@ -634,7 +634,7 @@
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch (e) {
-      console.warn("Could not save localStorage for NESTLOOP demo:", e);
+      console.warn("Could not save localStorage for MODULIV demo:", e);
     }
   }
 

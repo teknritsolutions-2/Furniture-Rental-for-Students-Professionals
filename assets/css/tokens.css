@@ -8,57 +8,57 @@
 
 :root {
   /* =============================================
-     APPROVED FOREST GREEN BRAND PALETTE
+     MODULIV BRAND PALETTE — Midnight Navy & Deep Slate System
      ============================================= */
-  --color-forest-dark:    #15372B;
-  --color-forest:         #234C3E;
-  --color-forest-medium:  #3B6C58;
-  --color-forest-light:   #DCE9E1;
-  --color-forest-pale:    #EEF4EF;
+  --color-navy-dark:      #102035; /* Deep Midnight Navy */
+  --color-navy:           #1D3557; /* Primary Brand Navy */
+  --color-navy-medium:    #2E5077; /* Medium Slate Blue */
+  --color-navy-light:     #DCE5EF; /* Soft Ice Blue */
+  --color-navy-pale:      #F0F4F8; /* Subtle Surface Tint */
+  --color-slate-accent:   #457B9D; /* Cerulean Glow Accent */
 
-  /* Palette Aliases */
-  --color-navy-dark:      var(--color-forest-dark);
-  --color-navy:           var(--color-forest);
-  --color-navy-medium:    var(--color-forest-medium);
-  --color-navy-light:     var(--color-forest-light);
-  --color-navy-pale:      var(--color-forest-pale);
-  --color-slate-accent:   var(--color-forest-medium);
+  /* Palette Aliases for full CSS backward compatibility */
+  --color-forest-dark:    var(--color-navy-dark);
+  --color-forest:         var(--color-navy);
+  --color-forest-medium:  var(--color-navy-medium);
+  --color-forest-light:   var(--color-navy-light);
+  --color-forest-pale:    var(--color-navy-pale);
 
-  /* Neutrals & Backgrounds */
-  --color-warm-chalk:     #F7F7F4;
+  /* Neutrals & Backgrounds — Crisp, Modern Light Mode */
+  --color-warm-chalk:     #F8FAFC; /* Slate-50: Crisp, clean, luminous light mode */
   --color-white:          #FFFFFF;
-  --color-off-white:      #F7F7F4;
-  --color-deep-ink:       #202622;
-  --color-charcoal:       #202622;
-  --color-secondary-grey: #6B746E;
-  --color-border:         #DCE1DC;
-  --color-neutral-grey:   #E8EBE8;
+  --color-off-white:      #F1F5F9; /* Slate-100 */
+  --color-deep-ink:       #0F172A; /* Slate-900: High-contrast ultra-sharp readability */
+  --color-charcoal:       #0F172A;
+  --color-secondary-grey: #64748B; /* Slate-500 */
+  --color-border:         #E2E8F0; /* Slate-200 */
+  --color-neutral-grey:   #F1F5F9;
 
   /* Semantic / Functional aliases */
-  --color-cobalt:         var(--color-forest);
-  --color-cobalt-hover:   var(--color-forest-dark);
-  --color-cobalt-light:   rgba(35, 76, 62, 0.10);
-  --color-cobalt-subtle:  rgba(35, 76, 62, 0.05);
-  --color-pale-mint:      var(--color-forest-pale);
-  --color-pale-mint-darker: var(--color-forest-light);
+  --color-cobalt:         var(--color-navy);
+  --color-cobalt-hover:   var(--color-navy-dark);
+  --color-cobalt-light:   rgba(29, 53, 87, 0.10);
+  --color-cobalt-subtle:  rgba(29, 53, 87, 0.05);
+  --color-pale-mint:      var(--color-navy-pale);
+  --color-pale-mint-darker: var(--color-navy-light);
 
   /* Surface & Card */
   --color-card-bg:        #FFFFFF;
-  --color-surface-tint:   #F2F4F2;
-  --color-badge-bg:       #E4EEE9;
-  --color-badge-text:     #1A4535;
+  --color-surface-tint:   #F1F5F9;
+  --color-badge-bg:       #E2EAF4;
+  --color-badge-text:     #102035;
 
   /* Muted / Ink */
-  --color-muted-text:     #6B746E;
-  --color-ink-surface:    #1A2421;
+  --color-muted-text:     #64748B;
+  --color-ink-surface:    #0B132B;
 
   /* Semantic Status Colors */
-  --color-success:        #1E7E4E;
-  --color-success-bg:     #E6F4EA;
-  --color-warning:        #B26A00;
-  --color-warning-bg:     #FEF7E0;
-  --color-danger:         #C62828;
-  --color-danger-bg:      #FFEBEE;
+  --color-success:        #16A34A;
+  --color-success-bg:     #F0FDF4;
+  --color-warning:        #D97706;
+  --color-warning-bg:     #FFFBEB;
+  --color-danger:         #DC2626;
+  --color-danger-bg:      #FEF2F2;
 
   /* Elevation / Shadows */
   --shadow-sm:   0 1px 2px rgba(32, 38, 34, 0.04);
@@ -159,37 +159,42 @@
    DARK THEME OVERRIDES
    ============================================= */
 [data-theme="dark"] {
-  --color-warm-chalk:   #0D1411;
-  --color-white:        #141D19;
-  --color-deep-ink:     #E8EBE8;
-  --color-forest:       #2E604E;
-  --color-forest-dark:  #15372B;
-  --color-forest-medium:#4E876E;
-  --color-forest-light: #1D2E26;
-  --color-forest-pale:  #101915;
+  --color-warm-chalk:   #0B132B;
+  --color-white:        #102035;
+  --color-forest:       #457B9D;
+  --color-forest-dark:  #0B132B;
+  --color-forest-medium:#2E5077;
+  --color-forest-light: #1A2E4B;
+  --color-forest-pale:  #0D1B2E;
 
-  --color-navy-dark:      var(--color-forest-dark);
-  --color-navy:           var(--color-forest);
-  --color-navy-medium:    var(--color-forest-medium);
-  --color-navy-light:     var(--color-forest-light);
-  --color-navy-pale:      var(--color-forest-pale);
-  --color-slate-accent:   var(--color-forest-medium);
+  --color-navy-dark:      #080E1A;
+  --color-navy:           #457B9D;
+  --color-navy-medium:    #2E5077;
+  --color-navy-light:     #1A2E4B;
+  --color-navy-pale:      #0D1B2E;
+  --color-slate-accent:   #A8DADC;
 
-  --color-cobalt:         #2E604E;
-  --color-cobalt-hover:   #387660;
-  --color-cobalt-light:   rgba(46, 96, 78, 0.20);
-  --color-cobalt-subtle:  rgba(46, 96, 78, 0.10);
-  --color-pale-mint:      #101915;
-  --color-pale-mint-darker: #1D2E26;
+  --color-warm-chalk:     #0B132B;
+  --color-off-white:      #0D1830;
+  --color-deep-ink:       #F8FAFC;
+  --color-charcoal:       #F8FAFC;
+  --color-secondary-grey: #94A3B8;
 
-  --color-neutral-grey:   #19241F;
-  --color-muted-text:     #909C94;
-  --color-border:         #24352D;
-  --color-card-bg:        #141D19;
-  --color-surface-tint:   #101714;
-  --color-badge-bg:       #1C2D25;
-  --color-badge-text:     #DCE9E1;
-  --color-ink-surface:    #090E0C;
+  --color-cobalt:         #457B9D;
+  --color-cobalt-hover:   #6497B1;
+  --color-cobalt-light:   rgba(69, 123, 157, 0.20);
+  --color-cobalt-subtle:  rgba(69, 123, 157, 0.10);
+  --color-pale-mint:      #0D1B2E;
+  --color-pale-mint-darker: #1A2E4B;
+
+  --color-neutral-grey:   #102035;
+  --color-muted-text:     #94A3B8;
+  --color-border:         #1E3250;
+  --color-card-bg:        #102035;
+  --color-surface-tint:   #0C182A;
+  --color-badge-bg:       #162C48;
+  --color-badge-text:     #DCE5EF;
+  --color-ink-surface:    #060B14;
 
   --color-success:    #22C55E;
   --color-success-bg: #052E16;

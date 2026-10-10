@@ -354,12 +354,54 @@ img {
   height: 18px;
 }
 
+/* Theme Toggle Icons (Moon for light, Sun for dark) */
+.theme-toggle-btn .theme-icon-moon {
+  display: block;
+}
+.theme-toggle-btn .theme-icon-sun {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle-btn .theme-icon-moon {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle-btn .theme-icon-sun {
+  display: block;
+  color: #FDB813;
+}
+
 .rtl-pill {
   width: auto;
   padding-inline: 9px;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
+}
+
+/* Zoom-in Micro-Interactions on Cards & Images */
+.package-card .package-card-img-wrap,
+.room-card,
+.story-card,
+.story-card-large,
+.card-img-wrap,
+.related-package {
+  overflow: hidden;
+}
+
+.package-card img,
+.room-card img,
+.story-card img,
+.story-card-large img,
+.related-package img {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  will-change: transform;
+}
+
+.package-card:hover img,
+.room-card:hover img,
+.story-card:hover img,
+.story-card-large:hover img,
+.related-package:hover img {
+  transform: scale(1.055);
 }
 
 /* ============================================================
@@ -898,18 +940,43 @@ button[disabled] {
   gap: 10px;
 }
 
-/* Site Footer */
+/* Site Footer — Midnight Navy Aura & Mesh Lighting Effect */
 .site-footer {
   margin-top: auto;
-  background-color: var(--color-forest-dark);
-  color: #DCE5EF;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 52px;
-  padding-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #091224 0%, #0F1C36 45%, #060B17 100%);
+  color: #E2E8F0;
+  border-top: 1px solid rgba(69, 123, 157, 0.25);
+  padding-top: 60px;
+  padding-bottom: 34px;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(69, 123, 157, 0.6), rgba(168, 218, 220, 0.8), rgba(69, 123, 157, 0.6), transparent);
+  pointer-events: none;
+}
+
+.site-footer::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 260px;
+  background: radial-gradient(ellipse at center, rgba(69, 123, 157, 0.18) 0%, rgba(29, 53, 87, 0.08) 50%, transparent 75%);
+  pointer-events: none;
 }
 
 [data-theme="dark"] .site-footer {
-  background-color: #09101A;
+  background: linear-gradient(180deg, #050912 0%, #0B1324 45%, #03060C 100%);
 }
 
 .footer-top {
@@ -917,6 +984,8 @@ button[disabled] {
   grid-template-columns: 1.6fr repeat(4, 1fr);
   gap: 28px;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-brand p {
@@ -935,6 +1004,19 @@ button[disabled] {
   letter-spacing: 0.08em;
   color: #FFFFFF;
   margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-col-title::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-slate-accent);
+  opacity: 0.8;
 }
 
 .footer-nav {
@@ -948,13 +1030,20 @@ button[disabled] {
   color: #94A3B8;
   font-size: var(--footer-link-size);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
   line-height: 1.6;
+  display: inline-block;
 }
 
 .footer-nav a:hover,
 .footer-nav a:focus-visible {
   color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .footer-nav a:hover,
+[dir="rtl"] .footer-nav a:focus-visible {
+  transform: translateX(-4px);
 }
 
 .footer-badges {
@@ -965,12 +1054,20 @@ button[disabled] {
 }
 
 .footer-badge-pill {
-  font-size: 0.7rem;
-  padding: 4px 8px;
-  background: rgba(220, 229, 239, 0.08);
-  border: 1px solid rgba(220, 229, 239, 0.16);
-  border-radius: var(--radius-sm);
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  background: rgba(69, 123, 157, 0.14);
+  border: 1px solid rgba(69, 123, 157, 0.3);
+  border-radius: var(--radius-full);
   color: #DCE5EF;
+  transition: all var(--transition-fast);
+}
+
+.footer-badge-pill:hover {
+  background: rgba(69, 123, 157, 0.25);
+  border-color: rgba(168, 218, 220, 0.5);
+  color: #FFFFFF;
 }
 
 .footer-bottom {

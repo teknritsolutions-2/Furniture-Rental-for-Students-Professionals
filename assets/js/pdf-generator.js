@@ -1,10 +1,10 @@
 /**
- * NESTLOOP — Client-Side Document PDF Generator
+ * MODULIV — Client-Side Document PDF Generator
  * Uses jsPDF to construct real, downloadable, vector-rendered PDF documents
  * for Rental Agreements and Payment Receipts with clear DEMO/SAMPLE watermarks.
  */
 
-window.NestloopPDF = (function () {
+window.ModulivPDF = (function () {
   function checkJsPDF() {
     if (typeof window.jspdf === 'undefined' || typeof window.jspdf.jsPDF === 'undefined') {
       console.warn("jsPDF is not loaded. Ensure assets/vendor/jspdf.umd.min.js is included.");
@@ -50,26 +50,26 @@ window.NestloopPDF = (function () {
     doc.restoreGraphicsState && doc.restoreGraphicsState();
 
     // Top Header Banner — Forest Green
-    doc.setFillColor(21, 55, 43); // Dark Forest #15372B
+    doc.setFillColor(16, 32, 53); // Midnight Navy #102035
     doc.rect(0, 0, pageWidth, 28, "F");
 
     doc.setTextColor(255, 255, 255);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(18);
-    doc.text("NESTLOOP", 18, 16);
+    doc.text("MODULIV", 18, 16);
 
-    doc.setTextColor(220, 233, 225); // Light Forest #DCE9E1
+    doc.setTextColor(220, 229, 239); // Ice Blue #DCE5EF
     doc.setFontSize(10);
     doc.text("FURNITURE THAT MOVES WITH YOU", 18, 22);
 
-    doc.setTextColor(238, 244, 239); // Pale Forest #EEF4EF
+    doc.setTextColor(240, 244, 248); // Pale Slate #F0F4F8
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8.5);
     doc.text("SAMPLE RENTAL AGREEMENT", pageWidth - 18, 14, { align: "right" });
     doc.text("DEMO SPECIMEN ONLY", pageWidth - 18, 20, { align: "right" });
 
     // Document Meta Strip
-    doc.setFillColor(238, 244, 239); // Pale Forest #EEF4EF
+    doc.setFillColor(240, 244, 248); // Pale Slate #F0F4F8
     doc.rect(14, 34, pageWidth - 28, 22, "F");
     doc.setDrawColor(226, 232, 240);
     doc.rect(14, 34, pageWidth - 28, 22, "S");
@@ -110,7 +110,7 @@ window.NestloopPDF = (function () {
     y += 5;
     doc.setFont("helvetica", "normal");
     doc.setTextColor(70, 75, 82);
-    doc.text("NESTLOOP Furnishing Solutions Pvt. Ltd. (Demo)", 18, y);
+    doc.text("MODULIV Furnishing Solutions Pvt. Ltd. (Demo)", 18, y);
     doc.text(customer.name || "Alex Chen", 110, y);
 
     y += 4.5;
@@ -138,7 +138,7 @@ window.NestloopPDF = (function () {
 
     // Table Header
     y += 7;
-    doc.setFillColor(238, 244, 239); // Pale Forest #EEF4EF
+    doc.setFillColor(240, 244, 248); // Pale Slate #F0F4F8
     doc.rect(18, y, pageWidth - 36, 8, "F");
     doc.setFontSize(8.5);
     doc.setFont("helvetica", "bold");
@@ -185,7 +185,7 @@ window.NestloopPDF = (function () {
       "B. MONTHLY DUE DATE: Rental payments fall due on the 15th calendar day of each ongoing billing month.",
       "C. DEPOSIT REFUND: The refundable security deposit is reconciled within 5 to 7 working days following end-of-tenure pickup and inspection.",
       "D. SWAP & EARLY RETURN: The lessee may initiate item swaps or early return requests via the customer portal. Final dispatch is subject to route verification.",
-      "E. CARE & NORMAL WEAR: Normal environmental wear is covered under the NESTLOOP care promise. Willful structural mutilation is assessable.",
+      "E. CARE & NORMAL WEAR: Normal environmental wear is covered under the MODULIV care promise. Willful structural mutilation is assessable.",
       "F. JURISDICTION: Governing dispute resolution is designated to the courts of the delivery metropolitan jurisdiction."
     ];
 
@@ -209,7 +209,7 @@ window.NestloopPDF = (function () {
     doc.setFontSize(8);
     doc.setFont("helvetica", "bold");
     doc.setTextColor(26, 32, 44);
-    doc.text("Authorized Signatory (NESTLOOP)", 18, y + 21);
+    doc.text("Authorized Signatory (MODULIV)", 18, y + 21);
     doc.text("Resident / Customer Signature", 125, y + 21);
 
     doc.setFont("helvetica", "normal");
@@ -223,10 +223,10 @@ window.NestloopPDF = (function () {
     doc.rect(0, pageHeight - 12, pageWidth, 12, "F");
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
-    doc.text("NESTLOOP Static Demonstration Platform — Not a legal solicitation. All currency amounts shown in INR.", pageWidth / 2, pageHeight - 5, { align: "center" });
+    doc.text("MODULIV Static Demonstration Platform — Not a legal solicitation. All currency amounts shown in INR.", pageWidth / 2, pageHeight - 5, { align: "center" });
 
     // Trigger download
-    const filename = `NESTLOOP-Agreement-${rental.rentalId || "SAMPLE"}.pdf`;
+    const filename = `MODULIV-Agreement-${rental.rentalId || "SAMPLE"}.pdf`;
     doc.save(filename);
   }
 
@@ -266,26 +266,26 @@ window.NestloopPDF = (function () {
     doc.restoreGraphicsState && doc.restoreGraphicsState();
 
     // Header Bar — Forest Green
-    doc.setFillColor(21, 55, 43); // Dark Forest #15372B
+    doc.setFillColor(16, 32, 53); // Midnight Navy #102035
     doc.rect(0, 0, pageWidth, 28, "F");
 
     doc.setTextColor(255, 255, 255);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(18);
-    doc.text("NESTLOOP", 18, 16);
+    doc.text("MODULIV", 18, 16);
 
-    doc.setTextColor(220, 233, 225); // Light Forest #DCE9E1
+    doc.setTextColor(220, 229, 239); // Ice Blue #DCE5EF
     doc.setFontSize(10);
     doc.text("FURNITURE THAT MOVES WITH YOU", 18, 22);
 
-    doc.setTextColor(238, 244, 239); // Pale Forest #EEF4EF
+    doc.setTextColor(240, 244, 248); // Pale Slate #F0F4F8
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8.5);
     doc.text("PAYMENT RECEIPT", pageWidth - 18, 14, { align: "right" });
     doc.text("STATUS: PAID (DEMO)", pageWidth - 18, 20, { align: "right" });
 
     // Meta Grid
-    doc.setFillColor(238, 244, 239); // Pale Forest #EEF4EF
+    doc.setFillColor(240, 244, 248); // Pale Slate #F0F4F8
     doc.rect(14, 34, pageWidth - 28, 24, "F");
     doc.setDrawColor(226, 232, 240);
     doc.rect(14, 34, pageWidth - 28, 24, "S");
@@ -398,9 +398,9 @@ window.NestloopPDF = (function () {
     doc.rect(0, pageHeight - 12, pageWidth, 12, "F");
     doc.setTextColor(100, 116, 139);
     doc.setFontSize(7.5);
-    doc.text("NESTLOOP — Sustainable Furniture Rental Platform — All currency amounts shown in INR.", pageWidth / 2, pageHeight - 5, { align: "center" });
+    doc.text("MODULIV — Sustainable Furniture Rental Platform — All currency amounts shown in INR.", pageWidth / 2, pageHeight - 5, { align: "center" });
 
-    const filename = `NESTLOOP-Receipt-${invoice.invoiceId || "SAMPLE"}.pdf`;
+    const filename = `MODULIV-Receipt-${invoice.invoiceId || "SAMPLE"}.pdf`;
     doc.save(filename);
   }
 
@@ -409,3 +409,5 @@ window.NestloopPDF = (function () {
     generateReceipt
   };
 })();
+
+window.NestloopPDF = window.ModulivPDF;

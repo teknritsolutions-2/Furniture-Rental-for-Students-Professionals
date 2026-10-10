@@ -1,5 +1,5 @@
 /**
- * NESTLOOP — Package Details Controller
+ * MODULIV — Package Details Controller
  * Renders package details dynamically based on ?id= query param,
  * provides thumbnail photo gallery switching, dynamic tenure cost recalculation,
  * and handles the interactive demo rental request workflow.
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const pkg = data.getPackageById(packageId);
 
   // Set document title
-  document.title = `${pkg.name} — Furniture Rental | NESTLOOP`;
+  document.title = `${pkg.name} — Furniture Rental | MODULIV`;
 
   // Gallery items (main package photo + authentic detail close-ups)
   const roomPhotos = {
