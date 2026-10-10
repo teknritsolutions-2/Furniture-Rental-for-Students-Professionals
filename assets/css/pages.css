@@ -452,23 +452,27 @@
 
 .split-editorial {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .split-editorial-side {
   display: flex;
   flex-direction: column;
   gap: 0;
+  height: 100%;
 }
 
 .split-side-img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
+  height: 280px;
   border-radius: var(--radius-md);
   object-fit: cover;
+  object-position: center;
   margin-bottom: 20px;
+  display: block;
 }
 
 .comparison-list {
@@ -493,7 +497,7 @@
 }
 
 .comp-icon-bad {
-  color: var(--color-danger);
+  color: var(--color-secondary-grey);
   flex-shrink: 0;
   margin-top: 3px;
   font-weight: 700;
@@ -504,6 +508,28 @@
   flex-shrink: 0;
   margin-top: 3px;
   font-weight: 700;
+}
+
+/* Home 2 & Estimator Dark Banner Button Overrides */
+.hero-home2 .btn-outline,
+.quick-estimator-box .btn-outline,
+.rent-estimator-card .btn-outline {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.40) !important;
+}
+
+.hero-home2 .btn-outline:hover,
+.hero-home2 .btn-outline:focus-visible,
+.quick-estimator-box .btn-outline:hover,
+.quick-estimator-box .btn-outline:focus-visible,
+.rent-estimator-card .btn-outline:hover,
+.rent-estimator-card .btn-outline:focus-visible {
+  background-color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  color: #102035 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -1789,13 +1815,15 @@
    ========================================================================== */
 
 .page-hero-banner {
-  background-color: var(--color-forest-pale);
+  background: linear-gradient(180deg, var(--color-surface-tint) 0%, var(--color-warm-chalk) 100%);
   border-bottom: 1px solid var(--color-border);
-  padding-block: clamp(40px, 6vw, 72px);
+  padding-block: clamp(48px, 6vw, 76px);
+  position: relative;
 }
 
 [data-theme="dark"] .page-hero-banner {
-  background-color: var(--color-warm-chalk);
+  background: linear-gradient(180deg, #131B2E 0%, #0D0F14 100%);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .journey-step {

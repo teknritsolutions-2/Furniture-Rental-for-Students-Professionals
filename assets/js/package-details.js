@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <div>
                 <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Delivery & Setup</div>
-                <div style="font-weight: 600; color: var(--color-success);">${pkg.packageSpecs.assemblyRequirement}</div>
+                <div style="font-weight: 600; color: var(--color-deep-ink);">${pkg.packageSpecs.assemblyRequirement}</div>
               </div>
               <div>
                 <div style="color: var(--color-muted-text); font-size: 0.75rem; text-transform: uppercase;">Sample care provision</div>
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="cost-row">
                 <span>Delivery & assembly (demo)</span>
-                <span style="color: var(--color-success); font-weight: 600;">₹${cost.delivery + cost.assembly}</span>
+                <span style="color: var(--color-deep-ink); font-weight: 600;">₹${cost.delivery + cost.assembly}</span>
               </div>
               <div class="cost-row total-first">
                 <span>Estimated Upfront Total</span>

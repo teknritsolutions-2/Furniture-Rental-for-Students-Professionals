@@ -69,11 +69,11 @@
           <div class="user-avatar user-avatar-text">AC</div>
           <div class="user-details-mini">
             <span class="user-name-mini user-name-text">Alex Chen</span>
-            <span class="user-role-mini user-role-text">Working Professional</span>
+            <span class="user-role-mini user-role-text">Customer</span>
           </div>
         </div>
         <button type="button" class="btn btn-outline btn-sm action-logout" style="width: 100%; margin-top: 6px;">
-          Sign Out (Demo)
+          Sign Out
         </button>
       </div>
     </aside>
@@ -85,10 +85,8 @@
         <h1 class="dash-topbar-title" id="dash-topbar-title">Account Overview</h1>
 
         <div class="dash-topbar-actions">
-          <span class="dash-demo-tag">Demo Mode</span>
-
-          <!-- Demo Persona Quick Switcher -->
-          <button type="button" class="btn btn-outline btn-sm" id="dash-switch-user-btn" title="Click to toggle between Alex Chen and Priya Sharma" style="padding: 4px 10px; border-color: var(--color-forest); color: var(--color-forest); gap: 6px;">
+          <!-- Persona Quick Switcher -->
+          <button type="button" class="btn btn-outline btn-sm" id="dash-switch-user-btn" title="Click to toggle customer account" style="padding: 4px 10px; border-color: var(--color-forest); color: var(--color-forest); gap: 6px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span id="dash-persona-label">Alex Chen</span> ⇄
           </button>
@@ -98,9 +96,6 @@
 
           <!-- RTL Toggle -->
           <button type="button" class="utility-btn dir-toggle-btn rtl-pill"><span class="dir-label-text">RTL</span></button>
-
-          <!-- Return to Public Storefront -->
-          <a href="../index.html" class="btn btn-outline btn-sm">Storefront</a>
         </div>
       </header>
 
@@ -120,7 +115,7 @@
             </div>
             <div class="banner-actions">
               <a href="#billing" class="btn btn-primary" onclick="window.location.hash='billing'">Manage Billing</a>
-              <button type="button" class="btn btn-outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);" onclick="window.location.hash='requests'">Request Item Swap</button>
+              <button type="button" class="btn btn-outline" onclick="window.location.hash='requests'">Request Item Swap</button>
             </div>
           </div>
 

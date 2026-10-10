@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderUserMini();
         renderAllViews();
         if (window.NestloopApp && window.NestloopApp.showToast) {
-          window.NestloopApp.showToast(`Active Profile: ${user.name} (${user.role})`);
+          window.NestloopApp.showToast(`Active Profile: ${user.name}`);
         }
       });
     }
@@ -129,12 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     avatarEls.forEach(el => el.textContent = user.avatar || "AC");
     nameEls.forEach(el => el.textContent = user.name || "Alex Chen");
-    roleEls.forEach(el => el.textContent = user.role || "Customer");
+    roleEls.forEach(el => el.textContent = "Customer");
 
     if (personaLabel && user && user.name) {
-      const firstName = user.name.split(' ')[0];
-      const shortRole = (user.role && user.role.toLowerCase().includes('student')) ? 'Student' : 'Pro';
-      personaLabel.textContent = `${firstName} (${shortRole})`;
+      personaLabel.textContent = user.name;
     }
   }
 
@@ -414,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         receiptsListEl.innerHTML = state.billingHistory.map(inv => `
           <div class="doc-card">
-            <div class="doc-icon-box" style="background-color: var(--color-pale-mint); color: var(--color-success);">
+            <div class="doc-icon-box" style="background-color: var(--color-badge-bg); color: var(--color-badge-text);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
             <div class="doc-info">

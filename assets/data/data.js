@@ -492,6 +492,21 @@
         { pin: "400069", area: "Andheri East", status: "Supported", note: "Standard 48-hr delivery" },
         { pin: "400053", area: "Andheri West", status: "Supported", note: "Standard delivery" }
       ]
+    },
+    {
+      id: "delhi-ncr",
+      name: "Delhi NCR",
+      state: "Delhi & Haryana",
+      status: "Active Delivery",
+      hubs: ["Gurugram Cyber City Depot", "Noida Sector 62 Hub", "South Delhi Logistics Center"],
+      avgDeliveryDays: "2 Business Days",
+      samplePins: [
+        { pin: "122002", area: "DLF Cyber City / Gurugram", status: "Supported", note: "Dedicated student & IT corridor fleet" },
+        { pin: "110016", area: "Hauz Khas / IIT Delhi", status: "Supported", note: "Standard 48-hr delivery & assembly" },
+        { pin: "201301", area: "Noida Sector 62", status: "Supported", note: "White-glove technician dispatch" },
+        { pin: "110020", area: "Okhla Phase 3 / South Delhi", status: "Supported", note: "Scheduled delivery route" },
+        { pin: "122018", area: "Sohna Road / South City", status: "Supported", note: "Standard 48-hr setup" }
+      ]
     }
   ];
 
